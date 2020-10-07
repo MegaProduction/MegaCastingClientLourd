@@ -53,15 +53,44 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Candidat.cs">
+      <DependentUpon>MegaCastingModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Contrat.cs">
+      <DependentUpon>MegaCastingModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Domaine.cs">
+      <DependentUpon>MegaCastingModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="MegaCastingModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>MegaCastingModel.Context.tt</DependentUpon>
     </Compile>
+    <Compile Include="MegaCastingModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MegaCastingModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="MegaCastingModel.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>MegaCastingModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Metier.cs">
+      <DependentUpon>MegaCastingModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Offre.cs">
+      <DependentUpon>MegaCastingModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OffrePartenaire.cs">
+      <DependentUpon>MegaCastingModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Partenaire.cs">
+      <DependentUpon>MegaCastingModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Postule.cs">
+      <DependentUpon>MegaCastingModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -80,6 +109,12 @@
     <Content Include="MegaCastingModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>MegaCastingModel.Context.cs</LastGenOutput>
+      <DependentUpon>MegaCastingModel.edmx</DependentUpon>
+    </Content>
+    <Content Include="MegaCastingModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>MegaCastingModel.edmx</DependentUpon>
+      <LastGenOutput>MegaCastingModel.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <ItemGroup>

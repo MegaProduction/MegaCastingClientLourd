@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MegaCasting.DBlib;
 
 namespace MegaCastingsV2.APV1
 {
@@ -19,6 +20,7 @@ namespace MegaCastingsV2.APV1
 
         static void Main(string[] args)
         {
+            #region Présentation LinQ
             #region datas generation
             #region Categories
             _Categories = new List<Category>();
@@ -56,13 +58,13 @@ namespace MegaCastingsV2.APV1
             #endregion
             #endregion
             #region Exemple de rêquete linQ
-            // Nombre de bière total
+            /*// Nombre de bière total
             Console.WriteLine("Nombre de bière total: " + _Beers.Count());
 
             // La somme des degrées des bières brunes
-            Console.WriteLine("Somme des degres des bieres brunes :"+_Beers
+            Console.WriteLine("Somme des degres des bieres brunes :" + _Beers
                 .Where(beer => beer.Category == bitterCategory)
-                .Sum(beer=> beer.Degrees)
+                .Sum(beer => beer.Degrees)
                 .ToString());
 
             // La liste des catégories en passant par les bières
@@ -85,10 +87,16 @@ namespace MegaCastingsV2.APV1
                 .ForEach(beer => Console.WriteLine(beer.Name));
 
             // La bière la plus fort
-            Console.WriteLine("La ou les bière(s) la ou les plus forte(s) ("+ _Beers.Max(beer => beer.Degrees) +"°)");
+            Console.WriteLine("La ou les bière(s) la ou les plus forte(s) (" + _Beers.Max(beer => beer.Degrees) + "°)");
             List<Beer> beers = _Beers.Where(beer => beer.Degrees >= _Beers
                                                         .Select(beertemp => beertemp.Degrees).Max()).ToList();
             beers.ForEach(beer => Console.WriteLine(beer.Name));
+            */
+            #endregion
+            #endregion
+            #region Presentation EF
+            MegaCastingEntities entities = new MegaCastingEntities();
+
             Console.ReadKey();
             #endregion
         }
