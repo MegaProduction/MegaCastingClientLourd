@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29609.76
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MegaCastingsV2.Console", "MegaCastingsV2.Console\MegaCastingsV2.Console.csproj", "{3F828296-B6F4-41BA-B11A-6B0A3005A55D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3F828296-B6F4-41BA-B11A-6B0A3005A55D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3F828296-B6F4-41BA-B11A-6B0A3005A55D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3F828296-B6F4-41BA-B11A-6B0A3005A55D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3F828296-B6F4-41BA-B11A-6B0A3005A55D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {92A8D471-A209-4D26-9772-F554E5E3F834}
+	EndGlobalSection
+EndGlobal
