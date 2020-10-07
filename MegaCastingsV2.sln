@@ -5,6 +5,10 @@ VisualStudioVersion = 16.0.29609.76
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MegaCastingsV2.APV1", "MegaCastingsV2.Console\MegaCastingsV2.APV1.csproj", "{3F828296-B6F4-41BA-B11A-6B0A3005A55D}"
 EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "MegaCasting.DB", "MegaCasting.DB\MegaCasting.DB.sqlproj", "{76E2BB38-ED76-43CC-AEA7-EA9D1E2E2E8A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MegaCasting.DBlib", "MegaCasting.DBlib\MegaCasting.DBlib.csproj", "{A57F93C2-A002-4643-B575-60271065AD95}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,16 @@ Global
 		{3F828296-B6F4-41BA-B11A-6B0A3005A55D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3F828296-B6F4-41BA-B11A-6B0A3005A55D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3F828296-B6F4-41BA-B11A-6B0A3005A55D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{76E2BB38-ED76-43CC-AEA7-EA9D1E2E2E8A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{76E2BB38-ED76-43CC-AEA7-EA9D1E2E2E8A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{76E2BB38-ED76-43CC-AEA7-EA9D1E2E2E8A}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{76E2BB38-ED76-43CC-AEA7-EA9D1E2E2E8A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{76E2BB38-ED76-43CC-AEA7-EA9D1E2E2E8A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{76E2BB38-ED76-43CC-AEA7-EA9D1E2E2E8A}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{A57F93C2-A002-4643-B575-60271065AD95}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A57F93C2-A002-4643-B575-60271065AD95}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A57F93C2-A002-4643-B575-60271065AD95}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A57F93C2-A002-4643-B575-60271065AD95}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

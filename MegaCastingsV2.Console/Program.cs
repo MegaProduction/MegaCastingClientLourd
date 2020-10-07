@@ -61,8 +61,9 @@ namespace MegaCastingsV2.APV1
 
             // La somme des degrées des bières brunes
             Console.WriteLine("Somme des degres des bieres brunes :"+_Beers
-                .Where(beers => beers.Category == bitterCategory)
-                .Sum(beers=> beers.Degrees));
+                .Where(beer => beer.Category == bitterCategory)
+                .Sum(beer=> beer.Degrees)
+                .ToString());
 
             // La liste des catégories en passant par les bières
             Console.WriteLine("La liste des catégories en passant par les bières");
@@ -73,13 +74,21 @@ namespace MegaCastingsV2.APV1
 
             // La liste des bières blondes
             Console.WriteLine("La liste des bières blondes");
-            _Beers.Where(beers => beers.Category == blondCategory).ToList().ForEach(beer => Console.WriteLine(beer.Name));
+            _Beers.Where(beer => beer.Category.Name == "Blonde")
+                .ToList()
+                .ForEach(beer => Console.WriteLine(beer.Name));
+
             // La liste des bières à 6 degrés
             Console.WriteLine("La liste des bières à 6 degrés");
-            _Beers.Where(beers => beers.Degrees == 6).ToList().ForEach(beer => Console.WriteLine(beer.Name));
+            _Beers.Where(beer => beer.Degrees == 6)
+                .ToList()
+                .ForEach(beer => Console.WriteLine(beer.Name));
+
             // La bière la plus fort
-            Console.WriteLine("La bière la plus fort");
-            _Beers.Max(beer => beer.Degrees).ToString();
+            Console.WriteLine("La ou les bière(s) la ou les plus forte(s) ("+ _Beers.Max(beer => beer.Degrees) +"°)");
+            List<Beer> beers = _Beers.Where(beer => beer.Degrees >= _Beers
+                                                        .Select(beertemp => beertemp.Degrees).Max()).ToList();
+            beers.ForEach(beer => Console.WriteLine(beer.Name));
             Console.ReadKey();
             #endregion
         }
