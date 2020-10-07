@@ -4,17 +4,28 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MegaCastingsV2.Console
+namespace MegaCastingsV2.APV1
 {
 	/// <summary>
 	/// Classe d'une bière a boire
 	/// </summary>
     class Beer
     {
+        #region Attribut
+        /// <summary>
+        /// Nom de la bière
+        /// </summary>
+        private string _Name;
+
 		/// <summary>
-		/// Nom de la bière
+		/// Titre de la bière
 		/// </summary>
-		private string _Name;
+		private double _Degrees;
+
+
+		private Category _Category;
+		#endregion
+		#region Proprieties
 		/// <summary>
 		/// Obtient ou défini le nom la bière
 		/// </summary>
@@ -23,27 +34,43 @@ namespace MegaCastingsV2.Console
 			get { return _Name; }
 			set { _Name = value; }
 		}
-		/// <summary>
-		/// Titre de la bière
-		/// </summary>
-		private decimal _Degrees;
+
 		/// <summary>
 		/// Obtient ou défini  le titre la bière
 		/// </summary>
-		public decimal Degrees
+		public double Degrees
 		{
 			get { return _Degrees; }
 			set { _Degrees = value; }
+		}
+
+
+		public Category Category
+		{
+			get { return _Category; }
+			set { _Category = value; }
+		}
+		#endregion
+		#region Construtor
+		/// <summary>
+		/// Construteur par défaut
+		/// </summary>
+		public Beer()
+		{
+
 		}
 		/// <summary>
 		/// Construteur de bière
 		/// </summary>
 		/// <param name="name">Nom de la bière</param>
 		/// <param name="degrees">Degré d'alcool</param>
-		public Beer(string name, decimal degrees)
+		/// <param name="category">Catégorie de la bière</param>
+		public Beer(string name, double degrees, Category category)
 		{
 			this.Degrees = degrees;
 			this.Name = name;
+			this.Category = category;
 		}
-	}
+        #endregion
+    }
 }
