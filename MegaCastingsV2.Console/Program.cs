@@ -96,7 +96,12 @@ namespace MegaCastingsV2.APV1
             #endregion
             #region Presentation EF
             MegaCastingEntities entities = new MegaCastingEntities();
-            entities.OffreClients.ToList().ForEach(offreClient => Console.WriteLine(offreClient.IdentifiantOffre));
+
+
+            Console.WriteLine(entities.OffreClients
+                                 .Where(offreClient => offreClient.IdentifiantPartenaire == 4)
+                                 .Count()
+                                 .ToString());
             Console.ReadKey();
             #endregion
         }
