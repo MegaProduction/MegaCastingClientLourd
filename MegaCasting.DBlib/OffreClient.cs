@@ -12,13 +12,13 @@ namespace MegaCasting.DBlib
     using System;
     using System.Collections.Generic;
     
-    public partial class OffrePartenaire
+    public partial class OffreClient
     {
         public int Identifiant { get; set; }
         public int IdentifiantOffre { get; set; }
         public int IdentifiantPartenaire { get; set; }
     
+        public virtual Client Client { get; set; }
         public virtual Offre Offre { get; set; }
-        public virtual Partenaire Partenaire { get; set; }
     }
 }

@@ -56,6 +56,9 @@
     <Compile Include="Candidat.cs">
       <DependentUpon>MegaCastingModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Client.cs">
+      <DependentUpon>MegaCastingModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Contrat.cs">
       <DependentUpon>MegaCastingModel.tt</DependentUpon>
     </Compile>
@@ -83,16 +86,19 @@
     <Compile Include="Offre.cs">
       <DependentUpon>MegaCastingModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="OffrePartenaire.cs">
+    <Compile Include="OffreClient.cs">
       <DependentUpon>MegaCastingModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Partenaire.cs">
+    <Compile Include="Pay.cs">
       <DependentUpon>MegaCastingModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Postule.cs">
       <DependentUpon>MegaCastingModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Ville.cs">
+      <DependentUpon>MegaCastingModel.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

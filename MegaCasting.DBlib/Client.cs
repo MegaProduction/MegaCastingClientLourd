@@ -12,20 +12,22 @@ namespace MegaCasting.DBlib
     using System;
     using System.Collections.Generic;
     
-    public partial class Partenaire
+    public partial class Client
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Partenaire()
+        public Client()
         {
-            this.OffrePartenaires = new HashSet<OffrePartenaire>();
+            this.OffreClients = new HashSet<OffreClient>();
         }
     
         public int Identifiant { get; set; }
         public string Login { get; set; }
         public string Password { get; set; }
         public string Libelle { get; set; }
+        public Nullable<int> VilleIdentifiant { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<OffrePartenaire> OffrePartenaires { get; set; }
+        public virtual ICollection<OffreClient> OffreClients { get; set; }
+        public virtual Ville Ville { get; set; }
     }
 }
