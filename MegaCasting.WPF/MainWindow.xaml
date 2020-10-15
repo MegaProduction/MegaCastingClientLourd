@@ -5,22 +5,89 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MegaCasting.WPF"
         mc:Ignorable="d"
-        Title="MegaCasting" Height="450" Width="800">
+        xmlns:view="clr-namespace:MegaCasting.WPF.View"
+        Title="MegaCasting" Height="450" Width="800"     
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}">
+
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="14 pt"/>
+            <ColumnDefinition Width="10"/>
+            <ColumnDefinition Width="150"/>
             <ColumnDefinition Width="1*"/>
-            <ColumnDefinition Width="30pt" />
-            <ColumnDefinition Width="2*"/>
-            <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="20 pt"/>
-            <RowDefinition Height="20 pt"/>
-            <RowDefinition Height="20 pt"/>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <TextBlock Grid.Row="2" Grid.Column="1" Text="Hello World !!! :]"></TextBlock>
-        
-        
+
+        <Grid Background="AliceBlue" Grid.Row="1" Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="40"/>
+            </Grid.RowDefinitions>
+
+            <Button 
+                Grid.Row="0" 
+                Background="Blue"
+                VerticalAlignment="Center"
+                HorizontalAlignment="Center"
+                Width="160"
+                Height="40"
+                Name="ButtonManageContractType"
+                Click="ButtonManageContractType_Click">
+                <StackPanel Orientation="Horizontal">
+                    <materialDesign:PackIcon Kind="Contract"/>
+                    <Label Foreground="White"
+                           Content="Type de contract"></Label>
+                </StackPanel>
+            </Button>
+            <Button 
+                Grid.Row="1" 
+                Background="Blue"
+                VerticalAlignment="Center"
+                HorizontalAlignment="Center"
+                Width="160"
+                Height="40"
+                Name="ButtonManageChoseType"
+                Click="ButtonManageChoseType_Click">
+                <StackPanel Orientation="Horizontal">
+                    <materialDesign:PackIcon Kind="Contract"/>
+                    <Label Foreground="White"
+                           Content="Type de Chose"></Label>
+                </StackPanel>
+            </Button>
+            <Button 
+                Grid.Row="2" 
+                Background="Blue"
+                VerticalAlignment="Center"
+                HorizontalAlignment="Center"
+                Width="160"
+                Height="40"
+                Name="ButtonManageTrucType"
+                Click="ButtonManageTrucType_Click">
+                <StackPanel Orientation="Horizontal">
+                    <materialDesign:PackIcon Kind="Contract"/>
+                    <Label Foreground="White"
+                           Content="Type de Truc"></Label>
+                </StackPanel>
+            </Button>
+
+        </Grid>
+        <DockPanel x:Name="DockPanelView" Grid.Column="2" Grid.RowSpan="2">
+            <view:ViewMain>
+                
+            </view:ViewMain>
+        </DockPanel>
     </Grid>
 </Window>
