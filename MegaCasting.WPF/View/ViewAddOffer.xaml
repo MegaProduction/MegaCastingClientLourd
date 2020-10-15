@@ -1,0 +1,66 @@
+﻿<UserControl x:Class="MegaCastingV2.WPF.View.ViewAddOffer"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:MegaCastingV2.WPF.View"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid Background="White">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1.5*"/>
+            <RowDefinition Height="1.2*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1.5*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+
+        <Label FontSize="20px" HorizontalAlignment="Center" Grid.Row="1">Ajouter une offre</Label>
+
+        <Label Grid.Row="3" HorizontalAlignment="Center" FontSize="15px">
+            <Underline>Offre</Underline></Label>
+        <Label Grid.Row="4" HorizontalAlignment="Center">Intitulé</Label><TextBox Grid.Row="4" Width="100px" HorizontalAlignment="Center"></TextBox>
+        <Label Grid.Row="5" HorizontalAlignment="Center">Date de début</Label>
+        <TextBox Grid.Row="5" Width="100px" HorizontalAlignment="Center"></TextBox>
+        <Label Grid.Row="6" HorizontalAlignment="Center">Nombre de postes</Label>
+        <TextBox Grid.Row="6" Width="100px" HorizontalAlignment="Center"></TextBox>
+
+        <Label Grid.Row="7" HorizontalAlignment="Center" FontSize="15px">
+            <Underline>Description</Underline>
+        </Label>
+        <Label Grid.Row="8" HorizontalAlignment="Center">Description du poste</Label>
+        <TextBox Grid.Row="8" Width="100px" HorizontalAlignment="Center"></TextBox>
+        <Label Grid.Row="9" HorizontalAlignment="Center">Description du profil</Label>
+        <TextBox Grid.Row="9" Width="100px" HorizontalAlignment="Center"></TextBox>
+        <Label Grid.Row="10" HorizontalAlignment="Center">Durée de diffusion</Label>
+        <TextBox Grid.Row="10" Width="100px" HorizontalAlignment="Center"></TextBox>
+
+        <Label Grid.Row="11" HorizontalAlignment="Center" FontSize="15px">
+            <Underline>Informations</Underline>
+        </Label>
+        <Label Grid.Row="12" HorizontalAlignment="Center">Nom</Label>
+        <TextBox Grid.Row="12" Width="100px" HorizontalAlignment="Center"></TextBox>
+        <Label Grid.Row="13" HorizontalAlignment="Center">Coordonnées</Label>
+        <TextBox Grid.Row="13" Width="100px" HorizontalAlignment="Center"></TextBox>
+        <Label Grid.Row="14" HorizontalAlignment="Center">Localisation</Label>
+        <TextBox Grid.Row="14" Width="100px" HorizontalAlignment="Center"></TextBox>
+
+
+        <Button Grid.Row="16" Width="100px" Background="LightGray" Content="Valider"/>
+
+    </Grid>
+</UserControl>

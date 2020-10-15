@@ -1,6 +1,6 @@
-﻿using MegaCasting.DBlib;
-using MegaCasting.WPF.View;
-using MegaCasting.WPF.ViewModel;
+﻿using MegaCastingV2.DBlib;
+using MegaCastingV2.WPF.View;
+using MegaCastingV2.WPF.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,76 +16,134 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace MegaCasting.WPF
+namespace MegaCastingV2.WPF
 {
     /// <summary>
     /// Logique d'interaction pour MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
     {
+
         #region Attributes
+
         /// <summary>
         /// Contexte de l'application
         /// </summary>
         private MegaCastingEntities _Entities;
+
+
         /// <summary>
-        /// Vue modèle de la fenêtre main
+        /// Vue modèle de la fenêtre principale
         /// </summary>
         private ViewModelMainWindow _ViewModel;
 
-        
 
         #endregion
+
+
         #region Properties
+
         /// <summary>
-        /// Obtient ou défini le contexte de l'application
+        /// Obtient ou définit le contexte de l'application
         /// </summary>
         public MegaCastingEntities Entities
         {
             get { return _Entities; }
             set { _Entities = value; }
         }
+
+
         /// <summary>
-        /// Obtient ou défini le vue modèle de la fenêtre main
+        /// Obtient ou définit la vue modèle de la fenêtre principale
         /// </summary>
         public ViewModelMainWindow ViewModel
         {
             get { return _ViewModel; }
             set { _ViewModel = value; }
         }
+
         #endregion
-        #region Constructor
+
+
+        #region Constructors
+
         /// <summary>
-        /// Construteur
+        /// Constructeurs
         /// </summary>
+
+
         public MainWindow()
         {
             InitializeComponent();
-            this.Entities = new MegaCastingEntities();
 
-           
+            this.Entities = new MegaCastingEntities();
         }
+
         #endregion
+
         /// <summary>
-        /// Défini le dockPanel comme affichant le type de contact
+        /// Définit le dockPanel comme affichant le type de contrat
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void ButtonManageContractType_Click(object sender, RoutedEventArgs e)
+        private void ButtonBack_Click(object sender, RoutedEventArgs e)
         {
             this.DockPanelView.Children.Clear();
-            this.DockPanelView.Children.Add(new ViewContratType());
+            this.DockPanelView.Children.Add(new ViewMain());
         }
 
-        private void ButtonManageChoseType_Click(object sender, RoutedEventArgs e)
+        private void AddOffer_Click(object sender, RoutedEventArgs e)
         {
             this.DockPanelView.Children.Clear();
-            this.DockPanelView.Children.Add(new ViewChose());
+            this.DockPanelView.Children.Add(new ViewAddOffer());
         }
 
-        private void ButtonManageTrucType_Click(object sender, RoutedEventArgs e)
+        private void EditOffer_Click(object sender, RoutedEventArgs e)
         {
+            this.DockPanelView.Children.Clear();
+            this.DockPanelView.Children.Add(new ViewEditOffer());
+        }
 
+        private void DelOffer_Click(object sender, RoutedEventArgs e)
+        {
+            this.DockPanelView.Children.Clear();
+            this.DockPanelView.Children.Add(new ViewDelOffer());
+        }
+
+        private void AddPartner_Click(object sender, RoutedEventArgs e)
+        {
+            this.DockPanelView.Children.Clear();
+            this.DockPanelView.Children.Add(new ViewAddPartner());
+        }
+
+        private void EditPartner_Click(object sender, RoutedEventArgs e)
+        {
+            this.DockPanelView.Children.Clear();
+            this.DockPanelView.Children.Add(new ViewEditPartner());
+        }
+
+        private void DelPartner_Click(object sender, RoutedEventArgs e)
+        {
+            this.DockPanelView.Children.Clear();
+            this.DockPanelView.Children.Add(new ViewDelPartner());
+        }
+
+        private void Settings_Click(object sender, RoutedEventArgs e)
+        {
+            this.DockPanelView.Children.Clear();
+            this.DockPanelView.Children.Add(new ViewSettings());
+        }
+
+        private void AccountCustomization_Click(object sender, RoutedEventArgs e)
+        {
+            this.DockPanelView.Children.Clear();
+            this.DockPanelView.Children.Add(new ViewAccountCustomization());
+        }
+
+        private void AccountManagement_Click(object sender, RoutedEventArgs e)
+        {
+            this.DockPanelView.Children.Clear();
+            this.DockPanelView.Children.Add(new ViewAccountManagement());
         }
     }
 }

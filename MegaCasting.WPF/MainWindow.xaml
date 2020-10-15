@@ -1,12 +1,12 @@
-﻿<Window x:Class="MegaCasting.WPF.MainWindow"
+﻿<Window x:Class="MegaCastingV2.WPF.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:MegaCasting.WPF"
+        xmlns:local="clr-namespace:MegaCastingV2.WPF"
         mc:Ignorable="d"
-        xmlns:view="clr-namespace:MegaCasting.WPF.View"
-        Title="MegaCasting" Height="450" Width="800"     
+        xmlns:view="clr-namespace:MegaCastingV2.WPF.View"
+        Title="MegaCastings" Height="450" Width="800"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         TextElement.FontWeight="Regular"
@@ -18,76 +18,60 @@
 
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="10"/>
-            <ColumnDefinition Width="150"/>
             <ColumnDefinition Width="1*"/>
         </Grid.ColumnDefinitions>
+
         <Grid.RowDefinitions>
-            <RowDefinition Height="10"/>
+            <RowDefinition Height="80"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <Grid Background="AliceBlue" Grid.Row="1" Grid.Column="1">
+        <Menu IsMainMenu="True" Background="Transparent" Grid.Row="0" Grid.ColumnSpan="1" HorizontalAlignment="Center" Panel.ZIndex="2000">
+
+            <MenuItem Header="_Gestion des offres">
+
+                <MenuItem Header="Ajouter une offre" Name="AddOffer" Click="AddOffer_Click"/>
+                <MenuItem Header="Editer une offre" Name="EditOffer" Click="EditOffer_Click"/>
+                <MenuItem Header="Supprimer une offre" Name="DelOffer" Click="DelOffer_Click"/>
+
+
+            </MenuItem>
+
+            <MenuItem Header="_Gestion des partenaires">
+
+                <MenuItem Header="Ajouter un partenaire" Name="AddPartner" Click="AddPartner_Click"/>
+                <MenuItem Header="Editer un partenaire" Name="EditPartner" Click="EditPartner_Click"/>
+                <MenuItem Header="Supprimer un partenaire" Name="DelPartner" Click="DelPartner_Click"/>
+
+
+            </MenuItem>
+
+            <MenuItem Header="_Paramètres">
+
+                <MenuItem Header="Paramètres généraux" Name="Settings" Click="Settings_Click"/>
+                <MenuItem Header="Personnalisation du compte" Name="AccountCustomization" Click="AccountCustomization_Click"/>
+                <MenuItem Header="Gestion du compte" Name="AccountManagement" Click="AccountManagement_Click"/>
+
+
+            </MenuItem>
+
+        </Menu>
+
+        <Button Background="LightGray" Foreground="Black" HorizontalAlignment="Right" VerticalAlignment="Bottom" Grid.Row="1" Content="Accueil" Name="ButtonBack" Click="ButtonBack_Click" Panel.ZIndex="1000"></Button>
+
+        <Grid Grid.Column="1" Grid.Row="0" Background="Transparent">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
-                <RowDefinition Height="40"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="40"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="40"/>
             </Grid.RowDefinitions>
 
-            <Button 
-                Grid.Row="0" 
-                Background="Blue"
-                VerticalAlignment="Center"
-                HorizontalAlignment="Center"
-                Width="160"
-                Height="40"
-                Name="ButtonManageContractType"
-                Click="ButtonManageContractType_Click">
-                <StackPanel Orientation="Horizontal">
-                    <materialDesign:PackIcon Kind="Contract"/>
-                    <Label Foreground="White"
-                           Content="Type de contract"></Label>
-                </StackPanel>
-            </Button>
-            <Button 
-                Grid.Row="1" 
-                Background="Blue"
-                VerticalAlignment="Center"
-                HorizontalAlignment="Center"
-                Width="160"
-                Height="40"
-                Name="ButtonManageChoseType"
-                Click="ButtonManageChoseType_Click">
-                <StackPanel Orientation="Horizontal">
-                    <materialDesign:PackIcon Kind="Contract"/>
-                    <Label Foreground="White"
-                           Content="Type de Chose"></Label>
-                </StackPanel>
-            </Button>
-            <Button 
-                Grid.Row="2" 
-                Background="Blue"
-                VerticalAlignment="Center"
-                HorizontalAlignment="Center"
-                Width="160"
-                Height="40"
-                Name="ButtonManageTrucType"
-                Click="ButtonManageTrucType_Click">
-                <StackPanel Orientation="Horizontal">
-                    <materialDesign:PackIcon Kind="Contract"/>
-                    <Label Foreground="White"
-                           Content="Type de Truc"></Label>
-                </StackPanel>
-            </Button>
-
         </Grid>
-        <DockPanel x:Name="DockPanelView" Grid.Column="2" Grid.RowSpan="2">
+
+        <DockPanel x:Name="DockPanelView" Grid.Column="2" Grid.RowSpan="2" Background="Transparent" Panel.ZIndex="10">
             <view:ViewMain>
-                
+
             </view:ViewMain>
         </DockPanel>
+
+
     </Grid>
 </Window>

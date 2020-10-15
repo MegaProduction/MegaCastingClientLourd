@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace MegaCasting.WPF.View
+namespace MegaCastingV2.WPF.View
 {
     /// <summary>
-    /// Logique d'interaction pour ViewChose.xaml
+    /// Logique d'interaction pour ViewAccountCustomization.xaml
     /// </summary>
-    public partial class ViewChose : UserControl
+    public partial class ViewAccountCustomization : UserControl
     {
-        public ViewChose()
+        public ViewAccountCustomization()
         {
             InitializeComponent();
         }

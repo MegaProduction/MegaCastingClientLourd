@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace MegaCastingV2.WPF.View
 {
     /// <summary>
-    /// Logique d'interaction pour ViewMain.xaml
+    /// Logique d'interaction pour ViewAccountManagement.xaml
     /// </summary>
-    public partial class ViewMain : UserControl
+    public partial class ViewAccountManagement : UserControl
     {
-        public ViewMain()
+        public ViewAccountManagement()
         {
             InitializeComponent();
         }

@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace MegaCasting.WPF.View
+namespace MegaCastingV2.WPF.View
 {
     /// <summary>
-    /// Logique d'interaction pour ViewContratType.xaml
+    /// Logique d'interaction pour ViewAddOffer.xaml
     /// </summary>
-    public partial class ViewContratType : UserControl
+    public partial class ViewAddOffer : UserControl
     {
-        public ViewContratType()
+        public ViewAddOffer()
         {
             InitializeComponent();
         }
