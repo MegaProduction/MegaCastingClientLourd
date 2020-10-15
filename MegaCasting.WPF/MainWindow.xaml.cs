@@ -1,6 +1,6 @@
-﻿using MegaCastingV2.DBlib;
-using MegaCastingV2.WPF.View;
-using MegaCastingV2.WPF.ViewModel;
+﻿using MegaCasting.DBlib;
+using MegaCasting.WPF.View;
+using MegaCasting.WPF.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,7 +16,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace MegaCastingV2.WPF
+namespace MegaCasting.WPF
 {
     /// <summary>
     /// Logique d'interaction pour MainWindow.xaml
@@ -82,7 +82,7 @@ namespace MegaCastingV2.WPF
         #endregion
 
         /// <summary>
-        /// Définit le dockPanel comme affichant le type de contrat
+        /// Définit le dockPanel comme affichant les différentes Views
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -145,5 +145,17 @@ namespace MegaCastingV2.WPF
             this.DockPanelView.Children.Clear();
             this.DockPanelView.Children.Add(new ViewAccountManagement());
         }
+
+        private void HistoriqueOffer_Click(object sender, RoutedEventArgs e)
+        {
+            this.DockPanelView.Children.Clear();
+            ViewModelHistoriqueOffer viewModelHistoriqueOffer = new ViewModelHistoriqueOffer(Entities);
+            ViewHistoriqueOffer viewHistoriqueOffer = new ViewHistoriqueOffer();
+
+            this.DataContext = viewModelHistoriqueOffer;
+ 
+            this.DockPanelView.Children.Add(viewHistoriqueOffer);
+        }
+
     }
 }

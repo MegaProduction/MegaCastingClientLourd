@@ -71,15 +71,41 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ViewModel\ViewModelHistoriqueOffer.cs" />
+    <Compile Include="ViewModel\ViewModelBase.cs" />
     <Compile Include="ViewModel\ViewModelMainWindow.cs" />
-    <Compile Include="View\ViewChose.xaml.cs">
-      <DependentUpon>ViewChose.xaml</DependentUpon>
+    <Compile Include="View\ViewAccountCustomization.xaml.cs">
+      <DependentUpon>ViewAccountCustomization.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\ViewContratType.xaml.cs">
-      <DependentUpon>ViewContratType.xaml</DependentUpon>
+    <Compile Include="View\ViewAccountManagement.xaml.cs">
+      <DependentUpon>ViewAccountManagement.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ViewAddOffer.xaml.cs">
+      <DependentUpon>ViewAddOffer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ViewAddPartner.xaml.cs">
+      <DependentUpon>ViewAddPartner.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ViewDelOffer.xaml.cs">
+      <DependentUpon>ViewDelOffer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ViewDelPartner.xaml.cs">
+      <DependentUpon>ViewDelPartner.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ViewEditOffer.xaml.cs">
+      <DependentUpon>ViewEditOffer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ViewEditPartner.xaml.cs">
+      <DependentUpon>ViewEditPartner.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ViewHistoriqueOffer.xaml.cs">
+      <DependentUpon>ViewHistoriqueOffer.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\ViewMain.xaml.cs">
       <DependentUpon>ViewMain.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ViewSettings.xaml.cs">
+      <DependentUpon>ViewSettings.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -93,17 +119,49 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="View\ViewChose.xaml">
-      <SubType>Designer</SubType>
+    <Page Include="View\ViewAccountCustomization.xaml">
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
-    <Page Include="View\ViewContratType.xaml">
+    <Page Include="View\ViewAccountManagement.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\ViewAddOffer.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\ViewAddPartner.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\ViewDelOffer.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\ViewDelPartner.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\ViewEditOffer.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\ViewEditPartner.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\ViewHistoriqueOffer.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\ViewMain.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ViewSettings.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
   <ItemGroup>

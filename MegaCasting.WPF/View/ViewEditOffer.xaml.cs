@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace MegaCastingV2.WPF.View
+namespace MegaCasting.WPF.View
 {
     /// <summary>
     /// Logique d'interaction pour ViewEditOffer.xaml

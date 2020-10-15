@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace MegaCasting.WPF.View
 {
     /// <summary>
-    /// Logique d'interaction pour ViewDelPartner.xaml
+    /// Logique d'interaction pour ViewHistoriqueOffer.xaml
     /// </summary>
-    public partial class ViewDelPartner : UserControl
+    public partial class ViewHistoriqueOffer : UserControl
     {
-        public ViewDelPartner()
+        public ViewHistoriqueOffer()
         {
             InitializeComponent();
         }
