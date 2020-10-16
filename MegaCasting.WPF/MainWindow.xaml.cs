@@ -157,5 +157,15 @@ namespace MegaCasting.WPF
             this.DockPanelView.Children.Add(viewHistoriqueOffer);
         }
 
+        private void ClientsList_Click(object sender, RoutedEventArgs e)
+        {
+            this.DockPanelView.Children.Clear();
+            ViewModelClientsList viewModelClientsList = new ViewModelClientsList(Entities);
+            ViewPartnersList viewPartnersList = new ViewPartnersList();
+
+            this.DataContext = viewModelClientsList;
+
+            this.DockPanelView.Children.Add(viewPartnersList);
+        }
     }
 }

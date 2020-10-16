@@ -16,18 +16,13 @@ using System.Windows.Shapes;
 namespace MegaCasting.WPF.View
 {
     /// <summary>
-    /// Logique d'interaction pour ViewSettings.xaml
+    /// Logique d'interaction pour ViewPartnersList.xaml
     /// </summary>
-    public partial class ViewSettings : UserControl
+    public partial class ViewPartnersList : UserControl
     {
-        public ViewSettings()
+        public ViewPartnersList()
         {
             InitializeComponent();
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-
         }
     }
 }

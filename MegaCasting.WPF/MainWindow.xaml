@@ -35,11 +35,11 @@
 
             </MenuItem>
 
-            <MenuItem Header="_Gestion des partenaires">
-
-                <MenuItem Header="Ajouter un partenaire" Name="AddPartner" Click="AddPartner_Click"/>
-                <MenuItem Header="Editer un partenaire" Name="EditPartner" Click="EditPartner_Click"/>
-                <MenuItem Header="Supprimer un partenaire" Name="DelPartner" Click="DelPartner_Click"/>
+            <MenuItem Header="_Gestion des clients">
+                <MenuItem Header="Liste des clients" Name="ClientsList" Click="ClientsList_Click"/>
+                <MenuItem Header="Ajouter un client" Name="AddPartner" Click="AddPartner_Click"/>
+                <MenuItem Header="Editer un client" Name="EditPartner" Click="EditPartner_Click"/>
+                <MenuItem Header="Supprimer un client" Name="DelPartner" Click="DelPartner_Click"/>
 
 
             </MenuItem>
