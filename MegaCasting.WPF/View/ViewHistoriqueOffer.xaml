@@ -32,6 +32,5 @@
         </ListBox>
         <TextBlock Grid.Row="3" Grid.Column="3" Visibility="{Binding SelectedOffre , Converter={StaticResource _SharedObjectToVisibilityConverter}}" Text="{Binding SelectedOffre.Intitule}" Background="Indigo"></TextBlock>
         
-        <Button Grid.Column="0" Grid.Row="3" Name="addOffre" Click="addOffre_Click" Content="Ajouter"></Button>
     </Grid>
 </UserControl>

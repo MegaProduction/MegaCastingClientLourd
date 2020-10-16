@@ -25,20 +25,20 @@ namespace MegaCasting.WPF.View
             InitializeComponent();
         }
 
-        private void TextBoxDatDeb_GotFocus(object sender, RoutedEventArgs e)
-        {
-            TextBoxDatDeb.Text = string.Empty;
-            TextBoxDatDeb.GotFocus -= TextBoxDatDeb_GotFocus;
-        }
+        //private void TextBoxDatDeb_GotFocus(object sender, RoutedEventArgs e)
+        //{
+        //    TextBoxDatDeb.Text = string.Empty;
+        //    TextBoxDatDeb.GotFocus -= TextBoxDatDeb_GotFocus;
+        //}
 
-        private void TextBoxDatDeb_LostFocus(object sender, RoutedEventArgs e)
-        {
-            if (TextBoxDatDeb.Text.Trim().Equals(string.Empty))
-            {
-                TextBoxDatDeb.Text = "Date de début";
-                TextBoxDatDeb.GotFocus += TextBoxDatDeb_GotFocus;
-            }
-        }
+        //private void TextBoxDatDeb_LostFocus(object sender, RoutedEventArgs e)
+        //{
+        //    if (TextBoxDatDeb.Text.Trim().Equals(string.Empty))
+        //    {
+        //        TextBoxDatDeb.Text = "Date de début";
+        //        TextBoxDatDeb.GotFocus += TextBoxDatDeb_GotFocus;
+        //    }
+        //}
 
         private void TextBoxIntitule_GotFocus(object sender, RoutedEventArgs e)
         {
@@ -158,6 +158,11 @@ namespace MegaCasting.WPF.View
                 TextBoxLoc.Text = "Localisation";
                 TextBoxLoc.GotFocus += TextBoxLoc_GotFocus;
             }
+        }
+
+        private void addOffre_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
