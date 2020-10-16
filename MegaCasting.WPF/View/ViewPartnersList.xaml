@@ -26,7 +26,7 @@
             ItemsSource ="{Binding Client}"
             DisplayMemberPath="Identifiant"
             SelectedItem="{Binding SelectedClient}"
-            Background="Purple">
+            Background="Gray">
         </ListBox>
     </Grid>
 </UserControl>
