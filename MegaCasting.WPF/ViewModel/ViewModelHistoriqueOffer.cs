@@ -10,7 +10,7 @@ namespace MegaCasting.WPF.ViewModel
 {
     class ViewModelHistoriqueOffer : ViewModelBase
     {
-		#region Attrributes
+		#region Attributes
 		/// <summary>
 		/// Collection d'offre
 		/// </summary>
@@ -41,14 +41,14 @@ namespace MegaCasting.WPF.ViewModel
 		#endregion
 
 		#region Construteur
-
-		#endregion
 		public ViewModelHistoriqueOffer(MegaCastingEntities entities)
-			:base(entities)
+			: base(entities)
 		{
 			this.Entities.Offres.ToList();
 			this.Offres = this.Entities.Offres.Local;
 		}
+		#endregion
+
 		#region Method
 		/// <summary>
 		/// Sauvegarde les modifications 

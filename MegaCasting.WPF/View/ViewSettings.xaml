@@ -7,14 +7,15 @@
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
+    <Grid Name="gridColor">
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <Label  HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30px">Paramètres</Label>
-        <materialDesign:ColorPicker Grid.Column="0" Name="colorPick" Color="AliceBlue" ColorChanged="ColorPicker_ColorChanged"></materialDesign:ColorPicker>
-        <TextBlock Grid.Column="1" Text="1" Background="AliceBlue" Name="textBlock"></TextBlock>
+        <materialDesign:ColorPicker Name="colorPicker" Grid.Column="0" MouseMove="colorPicker_MouseMove"></materialDesign:ColorPicker>
+        <TextBlock Grid.Column="1" Text="" Background="AliceBlue" Name="textBlock"></TextBlock>
+
     </Grid>
 </UserControl>

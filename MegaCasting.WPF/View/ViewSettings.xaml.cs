@@ -25,10 +25,10 @@ namespace MegaCasting.WPF.View
             InitializeComponent();
         }
 
-        private void ColorPicker_ColorChanged(object sender, RoutedPropertyChangedEventArgs<Color> e)
+        private void colorPicker_MouseMove(object sender, MouseEventArgs e)
         {
-            
+            string test = colorPicker.Color.ToString();
+            textBlock.Text = test;
         }
-
     }
 }
