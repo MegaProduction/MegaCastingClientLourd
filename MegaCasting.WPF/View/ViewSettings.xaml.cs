@@ -25,9 +25,10 @@ namespace MegaCasting.WPF.View
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void ColorPicker_ColorChanged(object sender, RoutedPropertyChangedEventArgs<Color> e)
         {
-
+            
         }
+
     }
 }

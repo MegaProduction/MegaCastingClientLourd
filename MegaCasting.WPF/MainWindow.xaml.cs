@@ -167,6 +167,5 @@ namespace MegaCasting.WPF
 
             this.DockPanelView.Children.Add(viewPartnersList);
         }
-
     }
 }
