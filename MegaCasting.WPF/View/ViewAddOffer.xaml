@@ -9,7 +9,17 @@
     <Grid>
 
         <Grid.RowDefinitions>
+            <RowDefinition Height="3*"/>
             <RowDefinition Height="1.5*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1.3*"/>
+            <RowDefinition Height="1.2*"/>
+            <RowDefinition Height="1.2*"/>
+            <RowDefinition Height="1.2*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1.3*"/>
+            <RowDefinition Height="1.2*"/>
+            <RowDefinition Height="2*"/>
             <RowDefinition Height="1.2*"/>
             <RowDefinition Height="1*"/>
             <RowDefinition Height="1*"/>
@@ -17,50 +27,49 @@
             <RowDefinition Height="1*"/>
             <RowDefinition Height="1*"/>
             <RowDefinition Height="1*"/>
-            <RowDefinition Height="1*"/>
-            <RowDefinition Height="1*"/>
-            <RowDefinition Height="1*"/>
-            <RowDefinition Height="1*"/>
-            <RowDefinition Height="1*"/>
-            <RowDefinition Height="1*"/>
-            <RowDefinition Height="1*"/>
-            <RowDefinition Height="1*"/>
-            <RowDefinition Height="1.5*"/>
-            <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
 
-        <Label FontSize="20px" HorizontalAlignment="Center" Grid.Row="1">Ajouter une offre</Label>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Label FontSize="20px" HorizontalAlignment="Center" Grid.Row="1" Grid.Column="1">Ajouter une offre</Label>
 
         <Label Grid.Row="3" HorizontalAlignment="Center" FontSize="15px">
-            <Underline>Offre</Underline></Label>
-        <Label Grid.Row="4" HorizontalAlignment="Center">Intitulé</Label><TextBox Grid.Row="4" Width="100px" HorizontalAlignment="Center"></TextBox>
-        <Label Grid.Row="5" HorizontalAlignment="Center">Date de début</Label>
-        <TextBox Grid.Row="5" Width="100px" HorizontalAlignment="Center"></TextBox>
+            <Underline>Offre</Underline>
+        </Label>
+        <Label Grid.Row="4" HorizontalAlignment="Center">Intitulé</Label>
+        <TextBox Grid.Row="4" Width="100px" HorizontalAlignment="Center" Name="TextBoxIntitule"></TextBox>
+        <!--<Label Grid.Row="5" HorizontalAlignment="Center">Date de début</Label>-->
+        <TextBox Grid.Row="5" Width="100px" HorizontalAlignment="Center" Text="Date de début" Name="TextBoxDatDeb" GotFocus="TextBoxDatDeb_GotFocus" LostFocus="TextBoxDatDeb_LostFocus"></TextBox>
         <Label Grid.Row="6" HorizontalAlignment="Center">Nombre de postes</Label>
         <TextBox Grid.Row="6" Width="100px" HorizontalAlignment="Center"></TextBox>
 
-        <Label Grid.Row="7" HorizontalAlignment="Center" FontSize="15px">
+        <Label Grid.Row="3" Grid.Column="2" HorizontalAlignment="Center" FontSize="15px">
             <Underline>Description</Underline>
         </Label>
-        <Label Grid.Row="8" HorizontalAlignment="Center">Description du poste</Label>
-        <TextBox Grid.Row="8" Width="100px" HorizontalAlignment="Center"></TextBox>
-        <Label Grid.Row="9" HorizontalAlignment="Center">Description du profil</Label>
-        <TextBox Grid.Row="9" Width="100px" HorizontalAlignment="Center"></TextBox>
-        <Label Grid.Row="10" HorizontalAlignment="Center">Durée de diffusion</Label>
-        <TextBox Grid.Row="10" Width="100px" HorizontalAlignment="Center"></TextBox>
+        <Label Grid.Row="4" Grid.Column="2" HorizontalAlignment="Center">Description du poste</Label>
+        <TextBox Grid.Row="4" Grid.Column="2" Width="100px" HorizontalAlignment="Center"></TextBox>
+        <Label Grid.Row="5" Grid.Column="2" HorizontalAlignment="Center">Description du profil</Label>
+        <TextBox Grid.Row="5" Grid.Column="2" Width="100px" HorizontalAlignment="Center"></TextBox>
+        <Label Grid.Row="6" Grid.Column="2" HorizontalAlignment="Center">Durée de diffusion</Label>
+        <TextBox Grid.Row="6" Grid.Column="2" Width="100px" HorizontalAlignment="Center"></TextBox>
 
-        <Label Grid.Row="11" HorizontalAlignment="Center" FontSize="15px">
+        <Label Grid.Row="3" Grid.Column="1" HorizontalAlignment="Center" FontSize="15px">
             <Underline>Informations</Underline>
         </Label>
-        <Label Grid.Row="12" HorizontalAlignment="Center">Nom</Label>
-        <TextBox Grid.Row="12" Width="100px" HorizontalAlignment="Center"></TextBox>
-        <Label Grid.Row="13" HorizontalAlignment="Center">Coordonnées</Label>
-        <TextBox Grid.Row="13" Width="100px" HorizontalAlignment="Center"></TextBox>
-        <Label Grid.Row="14" HorizontalAlignment="Center">Localisation</Label>
-        <TextBox Grid.Row="14" Width="100px" HorizontalAlignment="Center"></TextBox>
+        <Label Grid.Row="4" Grid.Column="1" HorizontalAlignment="Center">Nom</Label>
+        <TextBox Grid.Row="4" Grid.Column="1" Width="100px" HorizontalAlignment="Center"></TextBox>
+        <Label Grid.Row="5" Grid.Column="1" HorizontalAlignment="Center">Coordonnées</Label>
+        <TextBox Grid.Row="5" Grid.Column="1" Width="100px" HorizontalAlignment="Center"></TextBox>
+        <Label Grid.Row="6" Grid.Column="1" HorizontalAlignment="Center">Localisation</Label>
+        <TextBox Grid.Row="6" Grid.Column="1" Width="100px" HorizontalAlignment="Center"></TextBox>
 
 
-        <Button Grid.Row="16" Width="100px" Background="LightGray" Content="Valider"/>
+        <Button Grid.Row="10" Grid.Column="1" Width="100px" Foreground="Black" Background="LightGray" Content="Valider"/>
+
 
     </Grid>
 </UserControl>
