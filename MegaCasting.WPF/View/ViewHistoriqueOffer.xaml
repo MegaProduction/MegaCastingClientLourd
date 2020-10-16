@@ -8,20 +8,21 @@
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition/>
             <RowDefinition/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <Label HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="0" Grid.ColumnSpan="3">Historique des offres</Label>
+        <Label HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30px" Grid.Row="0" Grid.ColumnSpan="3">Historique des offres</Label>
         <ListBox
             Grid.Column="1"
             Grid.Row="1"
             Grid.RowSpan="2"
+            HorizontalAlignment="Center"
             x:Name="ListBoxHistoriqueOffer"
             ItemsSource ="{Binding Offres}"
             DisplayMemberPath="Intitule"

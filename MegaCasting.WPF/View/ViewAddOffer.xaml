@@ -10,21 +10,17 @@
 
         <Grid.RowDefinitions>
             <RowDefinition Height="3*"/>
-            <RowDefinition Height="1.5*"/>
+            <RowDefinition Height="2.5*"/>
             <RowDefinition Height="1*"/>
-            <RowDefinition Height="1.3*"/>
-            <RowDefinition Height="1.2*"/>
-            <RowDefinition Height="1.2*"/>
-            <RowDefinition Height="1.2*"/>
+            <RowDefinition Height="1.7*"/>
+            <RowDefinition Height="1.4*"/>
+            <RowDefinition Height="1.4*"/>
+            <RowDefinition Height="1.4*"/>
             <RowDefinition Height="1*"/>
-            <RowDefinition Height="1.3*"/>
-            <RowDefinition Height="1.2*"/>
+            <RowDefinition Height="1.4*"/>
+            <RowDefinition Height="1.4*"/>
             <RowDefinition Height="2*"/>
-            <RowDefinition Height="1.2*"/>
-            <RowDefinition Height="1*"/>
-            <RowDefinition Height="1*"/>
-            <RowDefinition Height="1*"/>
-            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1.4*"/>
             <RowDefinition Height="1*"/>
             <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
@@ -35,37 +31,28 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
-        <Label FontSize="20px" HorizontalAlignment="Center" Grid.Row="1" Grid.Column="1">Ajouter une offre</Label>
+        <Label FontSize="30px" HorizontalAlignment="Center" Grid.Row="1" Grid.Column="1">Ajouter une offre</Label>
 
-        <Label Grid.Row="3" HorizontalAlignment="Center" FontSize="15px">
+        <Label Grid.Row="3" HorizontalAlignment="Center" FontSize="20px">
             <Underline>Offre</Underline>
         </Label>
-        <Label Grid.Row="4" HorizontalAlignment="Center">Intitulé</Label>
-        <TextBox Grid.Row="4" Width="100px" HorizontalAlignment="Center" Name="TextBoxIntitule"></TextBox>
-        <!--<Label Grid.Row="5" HorizontalAlignment="Center">Date de début</Label>-->
-        <TextBox Grid.Row="5" Width="100px" HorizontalAlignment="Center" Text="Date de début" Name="TextBoxDatDeb" GotFocus="TextBoxDatDeb_GotFocus" LostFocus="TextBoxDatDeb_LostFocus"></TextBox>
-        <Label Grid.Row="6" HorizontalAlignment="Center">Nombre de postes</Label>
-        <TextBox Grid.Row="6" Width="100px" HorizontalAlignment="Center"></TextBox>
+        <TextBox FontSize="15px" Grid.Row="4" Width="150px" HorizontalAlignment="Center" VerticalAlignment="Bottom" Text="Intitulé" Name="TextBoxIntitule" GotFocus="TextBoxIntitule_GotFocus" LostFocus="TextBoxIntitule_LostFocus"></TextBox>
+        <TextBox FontSize="15px" Grid.Row="5" Width="150px" HorizontalAlignment="Center" VerticalAlignment="Bottom" Text="Date de début" Name="TextBoxDatDeb" GotFocus="TextBoxDatDeb_GotFocus" LostFocus="TextBoxDatDeb_LostFocus"></TextBox>
+        <TextBox FontSize="15px" Grid.Row="6" Width="150px" HorizontalAlignment="Center" VerticalAlignment="Bottom" Text="Nombre de postes" Name="TextBoxNbPostes" GotFocus="TextBoxNbPostes_GotFocus" LostFocus="TextBoxNbPostes_LostFocus"></TextBox>
 
-        <Label Grid.Row="3" Grid.Column="2" HorizontalAlignment="Center" FontSize="15px">
+        <Label Grid.Row="3" Grid.Column="2" HorizontalAlignment="Center" FontSize="20px">
             <Underline>Description</Underline>
         </Label>
-        <Label Grid.Row="4" Grid.Column="2" HorizontalAlignment="Center">Description du poste</Label>
-        <TextBox Grid.Row="4" Grid.Column="2" Width="100px" HorizontalAlignment="Center"></TextBox>
-        <Label Grid.Row="5" Grid.Column="2" HorizontalAlignment="Center">Description du profil</Label>
-        <TextBox Grid.Row="5" Grid.Column="2" Width="100px" HorizontalAlignment="Center"></TextBox>
-        <Label Grid.Row="6" Grid.Column="2" HorizontalAlignment="Center">Durée de diffusion</Label>
-        <TextBox Grid.Row="6" Grid.Column="2" Width="100px" HorizontalAlignment="Center"></TextBox>
+        <TextBox FontSize="15px" Grid.Row="4" Grid.Column="2" Width="150px" HorizontalAlignment="Center" VerticalAlignment="Bottom" Text="Description du poste" Name="TextBoxDescripPoste" GotFocus="TextBoxDescripPoste_GotFocus" LostFocus="TextBoxDescripPoste_LostFocus"></TextBox>
+        <TextBox FontSize="15px" Grid.Row="5" Grid.Column="2" Width="150px" HorizontalAlignment="Center" VerticalAlignment="Bottom" Text="Description du profil" Name="TextBoxDescripProfil" GotFocus="TextBoxDescripProfil_GotFocus" LostFocus="TextBoxDescripProfil_LostFocus"></TextBox>
+        <TextBox FontSize="15px" Grid.Row="6" Grid.Column="2" Width="150px" HorizontalAlignment="Center" VerticalAlignment="Bottom" Text="Durée de diffusion" Name="TextBoxDureeDiff" GotFocus="TextBoxDureeDiff_GotFocus" LostFocus="TextBoxDureeDiff_LostFocus"></TextBox>
 
-        <Label Grid.Row="3" Grid.Column="1" HorizontalAlignment="Center" FontSize="15px">
+        <Label Grid.Row="3" Grid.Column="1" HorizontalAlignment="Center" FontSize="20px">
             <Underline>Informations</Underline>
         </Label>
-        <Label Grid.Row="4" Grid.Column="1" HorizontalAlignment="Center">Nom</Label>
-        <TextBox Grid.Row="4" Grid.Column="1" Width="100px" HorizontalAlignment="Center"></TextBox>
-        <Label Grid.Row="5" Grid.Column="1" HorizontalAlignment="Center">Coordonnées</Label>
-        <TextBox Grid.Row="5" Grid.Column="1" Width="100px" HorizontalAlignment="Center"></TextBox>
-        <Label Grid.Row="6" Grid.Column="1" HorizontalAlignment="Center">Localisation</Label>
-        <TextBox Grid.Row="6" Grid.Column="1" Width="100px" HorizontalAlignment="Center"></TextBox>
+        <TextBox FontSize="15px" Grid.Row="4" Grid.Column="1" Width="150px" HorizontalAlignment="Center" VerticalAlignment="Bottom" Text="Nom" Name="TextBoxNom" GotFocus="TextBoxNom_GotFocus" LostFocus="TextBoxNom_LostFocus"></TextBox>
+        <TextBox FontSize="15px" Grid.Row="5" Grid.Column="1" Width="150px" HorizontalAlignment="Center" VerticalAlignment="Bottom" Text="Coordonnées" Name="TextBoxCoord" GotFocus="TextBoxCoord_GotFocus" LostFocus="TextBoxCoord_LostFocus"></TextBox>
+        <TextBox FontSize="15px" Grid.Row="6" Grid.Column="1" Width="150px" HorizontalAlignment="Center" VerticalAlignment="Bottom" Text="Localisation" Name="TextBoxLoc" GotFocus="TextBoxLoc_GotFocus" LostFocus="TextBoxLoc_LostFocus"></TextBox>
 
 
         <Button Grid.Row="10" Grid.Column="1" Width="100px" Foreground="Black" Background="LightGray" Content="Valider"/>
