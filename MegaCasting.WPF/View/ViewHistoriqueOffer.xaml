@@ -25,8 +25,7 @@
             x:Name="ListBoxHistoriqueOffer"
             ItemsSource ="{Binding Offres}"
             DisplayMemberPath="Intitule"
-            SelectedItem="{Binding SelectedOffre}"
-            Background="Beige">
+            SelectedItem="{Binding SelectedOffre}">
         </ListBox>
     </Grid>
 </UserControl>
