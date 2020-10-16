@@ -40,12 +40,6 @@
         <TextBox FontSize="15px" Grid.Row="5" Width="150px" HorizontalAlignment="Center" VerticalAlignment="Bottom" Text="Date de début" Name="TextBoxDatDeb" GotFocus="TextBoxDatDeb_GotFocus" LostFocus="TextBoxDatDeb_LostFocus"></TextBox>
         <TextBox FontSize="15px" Grid.Row="6" Width="150px" HorizontalAlignment="Center" VerticalAlignment="Bottom" Text="Nombre de postes" Name="TextBoxNbPostes" GotFocus="TextBoxNbPostes_GotFocus" LostFocus="TextBoxNbPostes_LostFocus"></TextBox>
 
-        <Label Grid.Row="3" Grid.Column="2" HorizontalAlignment="Center" FontSize="20px">
-            <Underline>Description</Underline>
-        </Label>
-        <TextBox FontSize="15px" Grid.Row="4" Grid.Column="2" Width="150px" HorizontalAlignment="Center" VerticalAlignment="Bottom" Text="Description du poste" Name="TextBoxDescripPoste" GotFocus="TextBoxDescripPoste_GotFocus" LostFocus="TextBoxDescripPoste_LostFocus"></TextBox>
-        <TextBox FontSize="15px" Grid.Row="5" Grid.Column="2" Width="150px" HorizontalAlignment="Center" VerticalAlignment="Bottom" Text="Description du profil" Name="TextBoxDescripProfil" GotFocus="TextBoxDescripProfil_GotFocus" LostFocus="TextBoxDescripProfil_LostFocus"></TextBox>
-        <TextBox FontSize="15px" Grid.Row="6" Grid.Column="2" Width="150px" HorizontalAlignment="Center" VerticalAlignment="Bottom" Text="Durée de diffusion" Name="TextBoxDureeDiff" GotFocus="TextBoxDureeDiff_GotFocus" LostFocus="TextBoxDureeDiff_LostFocus"></TextBox>
 
         <Label Grid.Row="3" Grid.Column="1" HorizontalAlignment="Center" FontSize="20px">
             <Underline>Informations</Underline>
@@ -53,6 +47,13 @@
         <TextBox FontSize="15px" Grid.Row="4" Grid.Column="1" Width="150px" HorizontalAlignment="Center" VerticalAlignment="Bottom" Text="Nom" Name="TextBoxNom" GotFocus="TextBoxNom_GotFocus" LostFocus="TextBoxNom_LostFocus"></TextBox>
         <TextBox FontSize="15px" Grid.Row="5" Grid.Column="1" Width="150px" HorizontalAlignment="Center" VerticalAlignment="Bottom" Text="Coordonnées" Name="TextBoxCoord" GotFocus="TextBoxCoord_GotFocus" LostFocus="TextBoxCoord_LostFocus"></TextBox>
         <TextBox FontSize="15px" Grid.Row="6" Grid.Column="1" Width="150px" HorizontalAlignment="Center" VerticalAlignment="Bottom" Text="Localisation" Name="TextBoxLoc" GotFocus="TextBoxLoc_GotFocus" LostFocus="TextBoxLoc_LostFocus"></TextBox>
+
+        <Label Grid.Row="3" Grid.Column="2" HorizontalAlignment="Center" FontSize="20px">
+            <Underline>Description</Underline>
+        </Label>
+        <TextBox FontSize="15px" Grid.Row="4" Grid.Column="2" Width="150px" HorizontalAlignment="Center" VerticalAlignment="Bottom" Text="Description du poste" Name="TextBoxDescripPoste" GotFocus="TextBoxDescripPoste_GotFocus" LostFocus="TextBoxDescripPoste_LostFocus"></TextBox>
+        <TextBox FontSize="15px" Grid.Row="5" Grid.Column="2" Width="150px" HorizontalAlignment="Center" VerticalAlignment="Bottom" Text="Description du profil" Name="TextBoxDescripProfil" GotFocus="TextBoxDescripProfil_GotFocus" LostFocus="TextBoxDescripProfil_LostFocus"></TextBox>
+        <TextBox FontSize="15px" Grid.Row="6" Grid.Column="2" Width="150px" HorizontalAlignment="Center" VerticalAlignment="Bottom" Text="Durée de diffusion" Name="TextBoxDureeDiff" GotFocus="TextBoxDureeDiff_GotFocus" LostFocus="TextBoxDureeDiff_LostFocus"></TextBox>
 
 
         <Button Grid.Row="10" Grid.Column="1" Width="100px" Foreground="Black" Background="LightGray" Content="Valider"/>
