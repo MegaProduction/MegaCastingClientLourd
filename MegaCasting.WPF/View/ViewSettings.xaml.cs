@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MaterialDesignColors.ColorManipulation;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -27,8 +28,10 @@ namespace MegaCasting.WPF.View
 
         private void colorPicker_MouseMove(object sender, MouseEventArgs e)
         {
-            string test = colorPicker.Color.ToString();
-            textBlock.Text = test;
+            Color color = colorPicker.Color;
+            textBlock.Background = new SolidColorBrush(color);
+            MainWindow mw = (MainWindow)Application.Current.MainWindow;
+            mw.Background = new SolidColorBrush(color);
         }
     }
 }
