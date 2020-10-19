@@ -17,7 +17,6 @@
         Name="mainWindow"
         Background="#AAAAAA"
         FontFamily="{DynamicResource MaterialDesignFont}">
-
     <Grid>
          <Grid.RowDefinitions>
             <RowDefinition Height="40"/>
@@ -31,14 +30,13 @@
                     <MenuItem Header="Editer une offre" Name="EditOffer" Click="EditOffer_Click"/>
                     <MenuItem Header="Supprimer une offre" Name="DelOffer" Click="DelOffer_Click"/>
                 </MenuItem>
-                <MenuItem Header="_Gestion des clients">
-                    <MenuItem Header="Liste des clients" Name="ClientsList" Click="ClientsList_Click"/>
-                    <MenuItem Header="Ajouter un client" Name="AddPartner" Click="AddPartner_Click"/>
-                    <MenuItem Header="Editer un client" Name="EditPartner" Click="EditPartner_Click"/>
-                    <MenuItem Header="Supprimer un client" Name="DelPartner" Click="DelPartner_Click"/>
-                </MenuItem>
-
-                <MenuItem Header="_Paramètres">
+            <MenuItem Header="_Gestion des clients">
+                <MenuItem Header="Liste des clients" Name="ClientsList" Click="ClientsList_Click"/>
+                <MenuItem Header="Ajouter un client" Name="AddPartner" Click="AddPartner_Click"/>
+                <MenuItem Header="Editer un client" Name="EditPartner" Click="EditPartner_Click"/>
+                <MenuItem Header="Supprimer un client" Name="DelPartner" Click="DelPartner_Click"/>
+            </MenuItem>
+            <MenuItem Header="_Paramètres">
                     <MenuItem Header="Paramètres généraux" Name="Settings" Click="Settings_Click"/>
                     <MenuItem Header="Personnalisation du compte" Name="AccountCustomization" Click="AccountCustomization_Click"/>
                     <MenuItem Header="Gestion du compte" Name="AccountManagement" Click="AccountManagement_Click"/>
@@ -50,6 +48,5 @@
 
             </view:ViewMain>
         </DockPanel>
-
     </Grid>
 </Window>

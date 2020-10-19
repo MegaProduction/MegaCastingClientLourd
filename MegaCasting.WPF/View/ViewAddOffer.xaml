@@ -7,7 +7,6 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-
         <Grid.RowDefinitions>
             <RowDefinition Height="1.5*"/>
             <RowDefinition Height="1.2*"/>
@@ -28,9 +27,7 @@
             <RowDefinition Height="1.5*"/>
             <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
-
         <Label FontSize="20px" HorizontalAlignment="Center" Grid.Row="1">Ajouter une offre</Label>
-
         <Label Grid.Row="3" HorizontalAlignment="Center" FontSize="15px">
             <Underline>Offre</Underline></Label>
         <Label Grid.Row="4" HorizontalAlignment="Center">Intitulé</Label><TextBox Grid.Row="4" Width="100px" HorizontalAlignment="Center"></TextBox>

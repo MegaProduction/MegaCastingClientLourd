@@ -1,4 +1,5 @@
 ﻿using MaterialDesignColors.ColorManipulation;
+using MegaCasting.WPF.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+
 
 namespace MegaCasting.WPF.View
 {
@@ -29,9 +31,15 @@ namespace MegaCasting.WPF.View
         private void colorPicker_MouseMove(object sender, MouseEventArgs e)
         {
             Color color = colorPicker.Color;
-            textBlock.Background = new SolidColorBrush(color);
+            Json json = new Json("Custom", color.ToString());
+            Json jsonDefault = new Json("Default", "AAAAAA");
             MainWindow mw = (MainWindow)Application.Current.MainWindow;
             mw.Background = new SolidColorBrush(color);
+            List<Json> jsons = new List<Json>();
+            jsons.Add(json);
+            jsons.Add(jsonDefault);
+            json.JsonFile(jsons);
+            textBlock.Text = json.OpenFile();
         }
     }
 }
