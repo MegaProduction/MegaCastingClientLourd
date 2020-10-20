@@ -16,9 +16,17 @@ namespace MegaCasting.WPF.ViewModel
 		/// </summary>
 		private ObservableCollection<Offre> _Offres;
 		/// <summary>
-		/// Offre sélectionné
+		/// Collection de ville
+		/// </summary>
+		private ObservableCollection<Ville> _Villes;
+		/// <summary>
+		/// Offre sélectionnée
 		/// </summary>
 		private Offre _SelectedOffre;
+		/// <summary>
+		/// Ville sélectionnée
+		/// </summary>
+		private Ville _SelectedVille;
 		#endregion
 		#region Properties
 		/// <summary>
@@ -30,12 +38,28 @@ namespace MegaCasting.WPF.ViewModel
 			set { _Offres = value; }
 		}
 		/// <summary>
-		/// Obtient ou défini l'offre sélectionné
+		/// Obtient ou défini l'offre sélectionnée
 		/// </summary>
 		public Offre SelectedOffre
 		{
 			get { return _SelectedOffre; }
 			set { _SelectedOffre = value; }
+		}
+		/// <summary>
+		/// Obtient ou défini la collection de ville
+		/// </summary>
+		public ObservableCollection<Ville> Villes
+		{
+			get { return _Villes; }
+			set { _Villes = value; }
+		}
+		/// <summary>
+		/// Obtient ou défini la ville sélectionnée
+		/// </summary>
+		public Ville SelectedVille
+		{
+			get { return _SelectedVille; }
+			set { _SelectedVille = value; }
 		}
 		#endregion
 		#region Construteur
@@ -44,6 +68,8 @@ namespace MegaCasting.WPF.ViewModel
 		{
 			this.Entities.Offres.ToList();
 			this.Offres = this.Entities.Offres.Local;
+			this.Entities.Villes.ToList();
+			this.Villes = this.Entities.Villes.Local;
 		}
 		#endregion
 		#region Method
@@ -57,14 +83,14 @@ namespace MegaCasting.WPF.ViewModel
 		/// <summary>
 		/// Ajoute une offre
 		/// </summary>
-		public void AddOffre(string intitule)
+		public void AddOffre(string intitule, int ville)
 		{
 			if (!this.Entities.Offres.Any(offres => offres.Intitule == intitule))
 			{
 				Offre offre = new Offre();
 				offre.Intitule = intitule;
 				offre.IdentifiantContrat = 1;
-				offre.Localisation = 57;
+				offre.Localisation = ville;
 				offre.NbPostes = 1;
 				offre.IdentifiantContrat = 2;
 				offre.DescriptionPoste = "iuydgfgn";
