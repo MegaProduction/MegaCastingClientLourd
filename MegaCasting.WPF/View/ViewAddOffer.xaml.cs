@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -164,5 +165,49 @@ namespace MegaCasting.WPF.View
         {
 
         }
+
+        private void TextBoxDatDeb_GotFocus(object sender, RoutedEventArgs e)
+        {
+            TextBoxDatDeb.Text = string.Empty;
+            TextBoxDatDeb.GotFocus -= TextBoxDatDeb_GotFocus;
+        }
+
+        private void TextBoxDatDeb_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (TextBoxDatDeb.Text.Trim().Equals(string.Empty))
+            {
+                TextBoxDatDeb.Text = "Date de début";
+                TextBoxDatDeb.GotFocus += TextBoxDatDeb_GotFocus;
+            }
+        }
+
+        //private void TextBoxDatDeb_GotFocus(object sender, RoutedEventArgs e)
+        //{
+        //    TextBoxDatDeb.Text = Calendar.DisplayDate.ToString();
+        //    TextBoxDatDeb.GotFocus -= TextBoxDatDeb_GotFocus;
+        //}
+
+        //private void TextBoxDatDeb_LostFocus(object sender, RoutedEventArgs e)
+        //{
+        //    if (TextBoxDatDeb.Text.Trim().Equals(string.Empty))
+        //    {
+        //        TextBoxDatDeb.Text = Calendar.DisplayDate.ToString();
+        //        TextBoxDatDeb.GotFocus += TextBoxDatDeb_GotFocus;
+        //    }
+        //}
+
+        //private void Calendar_SelectedDatesChanged(object sender, SelectionChangedEventArgs e)
+        //{
+        //    if (Calendar.SelectedDate.HasValue)
+        //    {
+        //        DateTime date = Calendar.SelectedDate.Value;
+        //        TextBoxDatDeb.Text = date.ToString();
+        //    }
+        //}
+
+        //private void Clock_SelectedTimeChanged(object sender, RoutedPropertyChangedEventArgs<DateTime?> e)
+        //{
+        //    Clock.Time = Calendar.SelectedDate.Value;
+        //}
     }
 }
