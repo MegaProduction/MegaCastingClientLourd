@@ -25,14 +25,5 @@ namespace MegaCasting.WPF.View
         {
             InitializeComponent();
         }
-        /// <summary>
-        /// Défini le comportement lors du clique sur le bouton d'ajout
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void addOffre_Click(object sender, RoutedEventArgs e)
-        {
-            ((ViewModelHistoriqueOffer)this.DataContext).AddOffre();
-        }
     }
 }

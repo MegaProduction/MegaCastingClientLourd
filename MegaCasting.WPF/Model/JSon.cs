@@ -37,8 +37,8 @@ namespace MegaCasting.WPF.Model
         /// <summary>
         /// Construteur Json pour enregistrer les données
         /// </summary>
-        /// <param name="name"></param>
-        /// <param name="color"></param>
+        /// <param name="name">Nom de la clé json</param>
+        /// <param name="color">code couleur enregistrée</param>
         public Json(string name, string color)
         {
             this.Name = name;
@@ -70,7 +70,7 @@ namespace MegaCasting.WPF.Model
         /// Ouvre le fichier indiqué et retour la valeur HEX custom
         /// </summary>
         /// <param name="fileName">Source du fichier</param>
-        /// <returns>Retourne un string</returns>
+        /// <returns>Retourne une string</returns>
         public string OpenFile(string fileName = "..\\..\\data\\config.json")
         {
             //String de retour content la valeur en hex du background color Custom
@@ -89,7 +89,6 @@ namespace MegaCasting.WPF.Model
             }
             return content;
         }
-
         #endregion
     }
 }

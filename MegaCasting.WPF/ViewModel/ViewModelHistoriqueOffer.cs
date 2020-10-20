@@ -48,55 +48,5 @@ namespace MegaCasting.WPF.ViewModel
 			this.Offres = this.Entities.Offres.Local;
 		}
 		#endregion
-
-		#region Method
-		/// <summary>
-		/// Sauvegarde les modifications 
-		/// </summary>
-		public void SaveChanges()
-		{
-			this.Entities.SaveChanges();
-		}
-		/// <summary>
-		/// Ajoute une offre
-		/// </summary>
-		public void AddOffre()
-		{
-			if (!this.Entities.Offres.Any(offres => offres.Intitule == "New Offre"))
-			{
-				Offre offre = new Offre();
-				offre.Intitule = "New Offre";
-				offre.IdentifiantContrat = 1;
-				offre.Localisation = 1;
-				offre.NbPostes = 1;
-				offre.IdentifiantContrat = 2;
-				offre.DescriptionPoste = "iuydgfgn";
-				offre.DescriptionProfil = "fdfdfdfd";
-				offre.DureeDiffusion = "15";
-				offre.EstValide = true;
-				offre.DateDebut = DateTime.Now;
-				offre.Reference = offre.Identifiant;
-				offre.Coordonnées = "ici";
-				this.Offres.Add(offre);
-				try
-				{
-					this.SaveChanges();
-				}
-				catch (System.Data.Entity.Validation.DbEntityValidationException ex)
-				{
-
-					throw ex;
-				}
-			}
-		}
-		public void DeleteOffre()
-		{
-			//Vérification si on a le droit de supprimer
-
-			//Suppression de l'élément
-			this.Offres.Remove(SelectedOffre);
-			this.SaveChanges();
-		} 
-		#endregion
 	}
 }

@@ -20,15 +20,13 @@
         </Grid.RowDefinitions>
         <Label HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="0" Grid.ColumnSpan="3" FontSize="30">Historique des offres</Label>
         <ListBox
-            Grid.Column="1"
-            Grid.Row="2"
-            Grid.RowSpan="2"
+            Grid.Column="0"
+            Grid.Row="1"
             x:Name="ListBoxHistoriqueOffer"
             ItemsSource ="{Binding Offres}"
             DisplayMemberPath="Intitule"
-            SelectedItem="{Binding SelectedOffre}"
-            Background="Beige">
+            SelectedItem="{Binding SelectedOffre}">
         </ListBox>
-        <TextBlock Grid.Row="3" Grid.Column="3" Visibility="{Binding SelectedOffre , Converter={StaticResource _SharedObjectToVisibilityConverter}}" Text="{Binding SelectedOffre.Intitule}" Background="Indigo"></TextBlock>
+        <TextBlock Grid.Row="1" Grid.Column="1" Visibility="{Binding SelectedOffre , Converter={StaticResource _SharedObjectToVisibilityConverter}}" Text="{Binding SelectedOffre.NbPostes, StringFormat=Nombre de place :{0} }"></TextBlock>
     </Grid>
 </UserControl>
