@@ -33,9 +33,9 @@ namespace MegaCasting.WPF.View
         private void AddOffre_Click(object sender, RoutedEventArgs e)
         {
             string intitule = textBoxIntitule.Text.ToString();
-            //Int32.TryParse(comboBoxLocalisation.FindName(comboBoxLocalisation.Text).ToString(), out int identifiantVille);
-            int identifiantVille = comboBoxLocalisation.SelectedIndex;
-            ((ViewModelAddOffer)this.DataContext).AddOffre(intitule, identifiantVille);
+            Int32.TryParse(comboBoxLocalisation.SelectedValue.ToString(), out int identifiantVille);
+            int identifiantClient = comboBoxClient.SelectedIndex;
+            ((ViewModelAddOffer)this.DataContext).AddOffre(intitule, identifiantVille, identifiantClient);
         }
     }
 }

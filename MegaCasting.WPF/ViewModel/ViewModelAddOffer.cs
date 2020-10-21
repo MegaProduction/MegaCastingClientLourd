@@ -27,6 +27,14 @@ namespace MegaCasting.WPF.ViewModel
 		/// Ville sélectionnée
 		/// </summary>
 		private Ville _SelectedVille;
+		/// <summary>
+		/// Collection de client
+		/// </summary>
+		private ObservableCollection<Client> _Clients;
+		/// <summary>
+		/// Client sélectionné
+		/// </summary>
+		private Client _SelectedClient;
 		#endregion
 		#region Properties
 		/// <summary>
@@ -61,6 +69,22 @@ namespace MegaCasting.WPF.ViewModel
 			get { return _SelectedVille; }
 			set { _SelectedVille = value; }
 		}
+		/// <summary>
+		/// Obtient ou défini la collection des clients
+		/// </summary>
+		public ObservableCollection<Client> Client
+		{
+			get { return _Clients; }
+			set { _Clients = value; }
+		}
+		/// <summary>
+		/// Obtient ou défini le client sélectionné
+		/// </summary>
+		public Client SelectedClient
+		{
+			get { return _SelectedClient; }
+			set { _SelectedClient = value; }
+		}
 		#endregion
 		#region Construteur
 		public ViewModelAddOffer(MegaCastingEntities entities) 
@@ -70,6 +94,8 @@ namespace MegaCasting.WPF.ViewModel
 			this.Offres = this.Entities.Offres.Local;
 			this.Entities.Villes.ToList();
 			this.Villes = this.Entities.Villes.Local;
+			this.Entities.Clients.ToList().Select(client => client.Identifiant);
+			this.Client = this.Entities.Clients.Local;
 		}
 		#endregion
 		#region Method
@@ -83,11 +109,12 @@ namespace MegaCasting.WPF.ViewModel
 		/// <summary>
 		/// Ajoute une offre
 		/// </summary>
-		public void AddOffre(string intitule, int ville)
+		public void AddOffre(string intitule, int ville, int identifiantClient)
 		{
 			if (!this.Entities.Offres.Any(offres => offres.Intitule == intitule))
 			{
 				Offre offre = new Offre();
+				OffreClient offreClient = new OffreClient();
 				offre.Intitule = intitule;
 				offre.IdentifiantContrat = 1;
 				offre.Localisation = ville;
@@ -100,6 +127,8 @@ namespace MegaCasting.WPF.ViewModel
 				offre.DateDebut = DateTime.Now;
 				offre.Reference = offre.Identifiant;
 				offre.Coordonnées = "ici";
+				offreClient.IdentifiantOffre = offre.Identifiant;
+				offreClient.IdentifiantPartenaire = identifiantClient;
 				this.Offres.Add(offre);
 				try
 				{
