@@ -16,7 +16,8 @@
         TextOptions.TextRenderingMode="Auto"
         Name="mainWindow"
         Background="#AAAAAA"
-        FontFamily="{DynamicResource MaterialDesignFont}">
+        FontFamily="{DynamicResource MaterialDesignFont}"
+        WindowState="Maximized">
     <Grid>
          <Grid.RowDefinitions>
             <RowDefinition Height="40"/>

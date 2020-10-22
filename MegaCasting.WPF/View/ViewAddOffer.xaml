@@ -54,7 +54,6 @@
             Width="100px"
             Name="comboBoxClient"
             ItemsSource="{Binding Client}"
-
             DisplayMemberPath="Libelle"
             Text="Nom"
             IsEditable="True"
@@ -65,12 +64,21 @@
             Width="100px"
             Name="comboBoxLocalisation"
             ItemsSource="{Binding Villes}"
-            
             DisplayMemberPath="Libelle"
             Text="Ville"
             IsEditable="True"
             IsReadOnly="False"
-            SelectedItem="{Binding SelectedVille}"/>
+            SelectedItem="{Binding SelectedVille.Identifiant}"/>
+        <ComboBox
+            Grid.Row="14"
+            Width="100px"
+            Name="comboBoxContrat"
+            ItemsSource="{Binding Contrat}"
+            DisplayMemberPath="Libelle"
+            Text="Type de contat"
+            IsEditable="True"
+            IsReadOnly="False"
+            SelectedItem="{Binding SelectedContrat.Identifiant}"/>
         <Button Grid.Row="16" Width="100px" Background="LightGray" Content="Valider" Click="AddOffre_Click"/>
 
     </Grid>

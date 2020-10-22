@@ -10,6 +10,9 @@ namespace MegaCasting.WPF.ViewModel
 {
     class ViewModelAddOffer : ViewModelBase
 	{
+		
+
+
 		#region Attributes
 		/// <summary>
 		/// Collection d'offre
@@ -35,6 +38,18 @@ namespace MegaCasting.WPF.ViewModel
 		/// Client sélectionné
 		/// </summary>
 		private Client _SelectedClient;
+		/// <summary>
+		/// Collection d'offre du client
+		/// </summary>
+		private ObservableCollection<OffreClient> _OffreClients;
+		/// <summary>
+		/// Collection des contrats
+		/// </summary>
+		private ObservableCollection<Contrat> _Contrats;
+		/// <summary>
+		/// Contrat sélectionné
+		/// </summary>
+		private Contrat _SelectedContrat;
 		#endregion
 		#region Properties
 		/// <summary>
@@ -85,6 +100,30 @@ namespace MegaCasting.WPF.ViewModel
 			get { return _SelectedClient; }
 			set { _SelectedClient = value; }
 		}
+		/// <summary>
+		/// Obtient ou défini la collection d'offreClient
+		/// </summary>
+		public ObservableCollection<OffreClient> OffreClients
+		{
+			get { return _OffreClients; }
+			set { _OffreClients = value; }
+		}
+		/// <summary>
+		/// Obtient ou définit la collection des contrats
+		/// </summary>
+		public ObservableCollection<Contrat> Contrat
+		{
+			get { return _Contrats; }
+			set { _Contrats = value; }
+		}
+		/// <summary>
+		/// Obtient ou définit le contrat sélectionné
+		/// </summary>
+		public Contrat MyProperty
+		{
+			get { return _SelectedContrat; }
+			set { _SelectedContrat = value; }
+		}
 		#endregion
 		#region Construteur
 		public ViewModelAddOffer(MegaCastingEntities entities) 
@@ -94,8 +133,10 @@ namespace MegaCasting.WPF.ViewModel
 			this.Offres = this.Entities.Offres.Local;
 			this.Entities.Villes.ToList();
 			this.Villes = this.Entities.Villes.Local;
-			this.Entities.Clients.ToList().Select(client => client.Identifiant);
+			this.Entities.Clients.ToList();
 			this.Client = this.Entities.Clients.Local;
+			this.Entities.Contrats.ToList();
+			this.Contrat = this.Entities.Contrats.Local;
 		}
 		#endregion
 		#region Method
@@ -109,17 +150,16 @@ namespace MegaCasting.WPF.ViewModel
 		/// <summary>
 		/// Ajoute une offre
 		/// </summary>
-		public void AddOffre(string intitule, int ville, int identifiantClient)
+		public void AddOffre(string intitule, int ville, int identifiantContrat)
 		{
 			if (!this.Entities.Offres.Any(offres => offres.Intitule == intitule))
 			{
 				Offre offre = new Offre();
-				OffreClient offreClient = new OffreClient();
 				offre.Intitule = intitule;
 				offre.IdentifiantContrat = 1;
 				offre.Localisation = ville;
 				offre.NbPostes = 1;
-				offre.IdentifiantContrat = 2;
+				offre.IdentifiantContrat = 1;
 				offre.DescriptionPoste = "iuydgfgn";
 				offre.DescriptionProfil = "fdfdfdfd";
 				offre.DureeDiffusion = "15";
@@ -127,19 +167,10 @@ namespace MegaCasting.WPF.ViewModel
 				offre.DateDebut = DateTime.Now;
 				offre.Reference = offre.Identifiant;
 				offre.Coordonnées = "ici";
-				offreClient.IdentifiantOffre = offre.Identifiant;
-				offreClient.IdentifiantPartenaire = identifiantClient;
 				this.Offres.Add(offre);
-				try
-				{
-					this.SaveChanges();
-				}
-				catch (System.Data.Entity.Validation.DbEntityValidationException ex)
-				{
-
-					throw ex;
-				}
+				this.SaveChanges();
 			}
+
 		}
 		public void DeleteOffre()
 		{
