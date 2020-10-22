@@ -23,8 +23,8 @@
             Grid.Row="1"
             Grid.RowSpan="2"
             x:Name="ListBoxListeClient"
-            ItemsSource ="{Binding Client}"
-            DisplayMemberPath="Identifiant"
+            ItemsSource ="{Binding Clients}"
+            DisplayMemberPath="Libelle"
             SelectedItem="{Binding SelectedClient}"
             Background="Gray">
         </ListBox>

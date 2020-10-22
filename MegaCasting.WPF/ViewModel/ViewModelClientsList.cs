@@ -20,6 +20,7 @@ namespace MegaCasting.WPF.ViewModel
 		/// </summary>
 		private Client _SelectedClient;
 		#endregion
+
 		#region Properties
 		/// <summary>
 		/// Obtient ou définit la collection des clients
@@ -38,15 +39,21 @@ namespace MegaCasting.WPF.ViewModel
 			get { return _SelectedClient; }
 			set { _SelectedClient = value; }
 		}
-		#endregion
-		public ViewModelClientsList(MegaCastingEntities entities)
+        #endregion 
+
+        #region Constructor
+		/// <summary>
+		/// Constructeur de base
+		/// </summary>
+		/// <param name="entities"></param>
+        public ViewModelClientsList(MegaCastingEntities entities)
 			: base(entities)
 		{
-			this.Clients = new ObservableCollection<Client>();
-			foreach (Client client in this.Entities.Clients)
-			{
-				this.Clients.Add(client);
-			}
+			//Chercher la liste des clients
+			this.Entities.Clients.ToList();
+			this.Clients = this.Entities.Clients.Local;
 		}
+		#endregion
+
 	}
 }
