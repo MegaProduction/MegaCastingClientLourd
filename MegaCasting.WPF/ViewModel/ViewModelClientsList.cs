@@ -16,7 +16,7 @@ namespace MegaCasting.WPF.ViewModel
 		/// </summary>
 		private ObservableCollection<Client> _Clients;
 		/// <summary>
-		/// 
+		/// Client sélectionné
 		/// </summary>
 		private Client _SelectedClient;
 		#endregion

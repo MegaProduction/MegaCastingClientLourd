@@ -16,7 +16,7 @@ namespace MegaCasting.WPF.ViewModel
 		/// </summary>
 		private ObservableCollection<Offre> _Offres;
 		/// <summary>
-		/// 
+		/// Offre sélectionnée
 		/// </summary>
 		private Offre _SelectedOffre;
 		#endregion
