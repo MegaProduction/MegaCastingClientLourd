@@ -25,8 +25,9 @@
             x:Name="ListBoxHistoriqueOffer"
             ItemsSource ="{Binding Offres}"
             DisplayMemberPath="Intitule"
-            SelectedItem="{Binding SelectedOffre}">
+            SelectedItem="{Binding SelectedOffre}"
+            IsSynchronizedWithCurrentItem="True">
         </ListBox>
-        <TextBlock Grid.Row="1" Grid.Column="1" Visibility="{Binding SelectedOffre , Converter={StaticResource _SharedObjectToVisibilityConverter}}" Text="{Binding SelectedOffre.NbPostes, StringFormat=Nombre de place :{0} }"></TextBlock>
+        <TextBlock Grid.Row="1" Grid.Column="1" Visibility="{Binding SelectedOffre , Converter={StaticResource _SharedObjectToVisibilityConverter}}" Text="{Binding SelectedOffre.Ville.Libelle, StringFormat=Ville : {0} }"></TextBlock>
     </Grid>
 </UserControl>

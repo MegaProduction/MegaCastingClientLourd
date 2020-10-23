@@ -34,12 +34,20 @@ namespace MegaCasting.WPF.View
         {
             //intitule de l'offre
             string intitule = textBoxIntitule.Text.ToString();
-            //Identifiant de la ville
-            int identifiantVille = comboBoxLocalisation.SelectedIndex;
+            Object value = comboBoxLocalisation.SelectedValue;
+            bool result = int.TryParse(value.ToString(), out int idVille);
+            
             //identifiant du type de contrat pour l'offre
-            int identifiantContat = comboBoxContrat.SelectedIndex;
+            if (result)
+            {
+                ((ViewModelAddOffer)this.DataContext).AddOffre(intitule, idVille, 1);
+            }
+            else
+            {
+                MessageBox.Show("Une errreur c\'est produite");
+            }
 
-            ((ViewModelAddOffer)this.DataContext).AddOffre(intitule, identifiantVille, identifiantContat);
+
         }
     }
 }
