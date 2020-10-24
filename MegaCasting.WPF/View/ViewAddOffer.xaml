@@ -8,72 +8,37 @@
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="1.5*"/>
-            <RowDefinition Height="1.2*"/>
+            <RowDefinition Height="3*"/>
+            <RowDefinition Height="2.5*"/>
             <RowDefinition Height="1*"/>
-            <RowDefinition Height="1*"/>
-            <RowDefinition Height="1*"/>
-            <RowDefinition Height="1*"/>
-            <RowDefinition Height="1*"/>
-            <RowDefinition Height="1*"/>
-            <RowDefinition Height="1*"/>
-            <RowDefinition Height="1*"/>
-            <RowDefinition Height="1*"/>
-            <RowDefinition Height="1*"/>
-            <RowDefinition Height="1*"/>
-            <RowDefinition Height="1*"/>
-            <RowDefinition Height="1*"/>
-            <RowDefinition Height="1*"/>
-            <RowDefinition Height="1.5*"/>
-            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1.7*"/>
+            <RowDefinition Height="1.4*"/>
+            <RowDefinition Height="1.4*"/>
+            <RowDefinition Height="1.4*"/>
+            <RowDefinition Height="1.4*"/>
+            <RowDefinition Height="350px"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="1.4*"/>
         </Grid.RowDefinitions>
-        <Label FontSize="20px" HorizontalAlignment="Center" Grid.Row="1">Ajouter une offre</Label>
-        <Label Grid.Row="3" HorizontalAlignment="Center" FontSize="15px">
-            <Underline>Offre</Underline></Label>
-        <Label Grid.Row="4" HorizontalAlignment="Center">Intitulé</Label><TextBox Grid.Row="4" Name="textBoxIntitule" Width="100px" HorizontalAlignment="Center"></TextBox>
-        <Label Grid.Row="5" HorizontalAlignment="Center">Date de début</Label>
-        <TextBox Grid.Row="5" Width="100px" HorizontalAlignment="Center"></TextBox>
-        <Label Grid.Row="6" HorizontalAlignment="Center">Nombre de postes</Label>
-        <TextBox Grid.Row="6" Width="100px" HorizontalAlignment="Center"></TextBox>
 
-        <Label Grid.Row="7" HorizontalAlignment="Center" FontSize="15px">
-            <Underline>Description</Underline>
-        </Label>
-        <Label Grid.Row="8" HorizontalAlignment="Center">Description du poste</Label>
-        <TextBox Grid.Row="8" Width="100px" HorizontalAlignment="Center"></TextBox>
-        <Label Grid.Row="9" HorizontalAlignment="Center">Description du profil</Label>
-        <TextBox Grid.Row="9" Width="100px" HorizontalAlignment="Center"></TextBox>
-        <Label Grid.Row="10" HorizontalAlignment="Center">Durée de diffusion</Label>
-        <TextBox Grid.Row="10" Width="100px" HorizontalAlignment="Center"></TextBox>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
 
-        <Label Grid.Row="11" HorizontalAlignment="Center" FontSize="15px">
-            <Underline>Informations</Underline>
+        <Label FontSize="30px" HorizontalAlignment="Center" Grid.Row="1" Grid.Column="1">Ajouter une offre</Label>
+
+        <Label Grid.Row="3" HorizontalAlignment="Center" FontSize="20px">
+            <Underline>Offre</Underline>
         </Label>
+        <TextBox FontSize="15px" Grid.Row="4" Width="150px" HorizontalAlignment="Center" VerticalAlignment="Bottom" Text="Intitulé" Name="TextBoxIntitule" GotFocus="TextBoxIntitule_GotFocus" LostFocus="TextBoxIntitule_LostFocus"></TextBox>
+        <!--<TextBox FontSize="15px" Grid.Row="5" Width="150px" HorizontalAlignment="Center" VerticalAlignment="Bottom" Text="Date de début" Name="TextBoxDatDeb" GotFocus="TextBoxDatDeb_GotFocus" LostFocus="TextBoxDatDeb_LostFocus"></TextBox>-->
+        <TextBox FontSize="15px" Grid.Row="5" Width="150px" HorizontalAlignment="Center" VerticalAlignment="Bottom" Text="Nombre de postes" Name="TextBoxNbPostes" GotFocus="TextBoxNbPostes_GotFocus" LostFocus="TextBoxNbPostes_LostFocus"></TextBox>
         <ComboBox
-            Grid.Row="12"
-            Width="100px"
-            Name="comboBoxClient"
-            ItemsSource="{Binding Client}"
-            DisplayMemberPath="Libelle"
-            Text="Nom"
-            IsEditable="True"
-            IsReadOnly="False"
-            SelectedValuePath="Identifiant"
-            SelectedValue="{Binding Path=Identifiant}"/>
-        <ComboBox
-            Grid.Row="13"
-            Width="100px"
-            Name="comboBoxLocalisation"
-            ItemsSource="{Binding Villes}"
-            DisplayMemberPath="Libelle"
-            Text="Ville"
-            IsEditable="True"
-            IsReadOnly="False"
-            SelectedValuePath="Identifiant"
-            SelectedValue="{Binding Path=Identifiant}"/>
-        <ComboBox
-            Grid.Row="14"
-            Width="100px"
+            FontSize="15px"
+            Grid.Row="6"
+            Width="150px"
             Name="comboBoxContrat"
             ItemsSource="{Binding Contrat}"
             DisplayMemberPath="Libelle"
@@ -82,7 +47,51 @@
             IsReadOnly="False"
             SelectedValuePath="Identifiant"
             SelectedValue="{Binding Path=Identifiant}"/>
-            <Button Grid.Row="16" Width="100px" Background="LightGray" Content="Valider" Click="AddOffre_Click"/>
 
+
+        <!--#region Information-->
+        <Label Grid.Row="3" Grid.Column="1" HorizontalAlignment="Center" FontSize="20px">
+            <Underline>Informations</Underline>
+        </Label>
+        <ComboBox
+            FontSize="15px"
+            Grid.Row="4"
+            Grid.Column="1"
+            Width="150px"
+            Name="comboBoxClient"
+            ItemsSource="{Binding Client}"
+            DisplayMemberPath="Libelle"
+            Text="Nom"
+            IsEditable="True"
+            IsReadOnly="False"
+            SelectedValuePath="Identifiant"
+            SelectedValue="{Binding Path=Identifiant}"/>
+        <TextBox FontSize="15px" Grid.Row="5" Grid.Column="1" Width="150px" HorizontalAlignment="Center" VerticalAlignment="Bottom" Text="Coordonnées" Name="TextBoxCoord" GotFocus="TextBoxCoord_GotFocus" LostFocus="TextBoxCoord_LostFocus"></TextBox>
+        <ComboBox
+            FontSize="15px"
+            Grid.Column="1"
+            Grid.Row="6"
+            Width="150px"
+            Name="comboBoxLocalisation"
+            ItemsSource="{Binding Villes}"
+            DisplayMemberPath="Libelle"
+            Text="Ville"
+            IsEditable="True"
+            IsReadOnly="False"
+            SelectedValuePath="Identifiant"
+            SelectedValue="{Binding Path=Identifiant}"/>
+        <!--#endregion-->
+        <!--#region Description-->
+            <Label Grid.Row="3" Grid.Column="2" HorizontalAlignment="Center" FontSize="20px">
+            <Underline>Description</Underline>
+        </Label>
+        <TextBox FontSize="15px" Grid.Row="4" Grid.Column="2" Width="150px" HorizontalAlignment="Center" VerticalAlignment="Bottom" Text="Description du poste" Name="TextBoxDescripPoste" GotFocus="TextBoxDescripPoste_GotFocus" LostFocus="TextBoxDescripPoste_LostFocus"></TextBox>
+        <TextBox FontSize="15px" Grid.Row="5" Grid.Column="2" Width="150px" HorizontalAlignment="Center" VerticalAlignment="Bottom" Text="Description du profil" Name="TextBoxDescripProfil" GotFocus="TextBoxDescripProfil_GotFocus" LostFocus="TextBoxDescripProfil_LostFocus"></TextBox>
+        <TextBox FontSize="15px" Grid.Row="6" Grid.Column="2" Width="150px" HorizontalAlignment="Center" VerticalAlignment="Bottom" Text="Durée de diffusion" Name="TextBoxDureeDiff" GotFocus="TextBoxDureeDiff_GotFocus" LostFocus="TextBoxDureeDiff_LostFocus"></TextBox>
+        <!--#endregion-->
+
+        
+        
+        <Button Grid.Column="1" Grid.Row="10" Background="LightGray" Foreground="Black" Name="addOffre" Click="AddOffre_Click" Content="Valider"></Button>
     </Grid>
 </UserControl>
