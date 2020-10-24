@@ -34,19 +34,25 @@ namespace MegaCasting.WPF.View
         {
             //intitule de l'offre
             string intitule = textBoxIntitule.Text.ToString();
-            //Permet de savoir le parse en int est réussit
-            bool result = Int32.TryParse(comboBoxLocalisation.SelectedValue.ToString(), out int idVille);
-            //Ajouts l'offre que result est vrai sinon envoit un message
-            if (result)
+            bool ville = false;
+            bool contrat = false;
+            bool client = false;
+            if (comboBoxLocalisation.SelectedIndex != -1 && comboBoxClient.SelectedIndex != -1 && comboBoxContrat.SelectedIndex != -1)
             {
-                ((ViewModelAddOffer)this.DataContext).AddOffre(intitule, idVille, 1);
+                //Permet de savoir le parse en int est réussit
+                ville = Int32.TryParse(comboBoxLocalisation.SelectedValue.ToString(), out int idVille);
+                contrat = Int32.TryParse(comboBoxLocalisation.SelectedValue.ToString(), out int idContrat);
+                client = Int32.TryParse(comboBoxLocalisation.SelectedValue.ToString(), out int idClient);
+            }
+            //Ajouts l'offre que result est vrai sinon envoit un message
+            if (((ViewModelAddOffer)this.DataContext).VerifOffre(intitule, ville, contrat, client))
+            {
+                MessageBox.Show("L'offre a été ajouté");
             }
             else
             {
-                MessageBox.Show("Une errreur c\'est produite");
+                MessageBox.Show("Impossible d'insérer l'offre des champs sont invalide");
             }
-
-
         }
     }
 }

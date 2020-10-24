@@ -49,7 +49,7 @@
         <Label Grid.Row="11" HorizontalAlignment="Center" FontSize="15px">
             <Underline>Informations</Underline>
         </Label>
-        <!--<ComboBox
+        <ComboBox
             Grid.Row="12"
             Width="100px"
             Name="comboBoxClient"
@@ -58,7 +58,8 @@
             Text="Nom"
             IsEditable="True"
             IsReadOnly="False"
-            SelectedIndex="{Binding SelectedClient.Identifiant}"/>-->
+            SelectedValuePath="Identifiant"
+            SelectedValue="{Binding Path=Identifiant}"/>
         <ComboBox
             Grid.Row="13"
             Width="100px"
@@ -70,7 +71,7 @@
             IsReadOnly="False"
             SelectedValuePath="Identifiant"
             SelectedValue="{Binding Path=Identifiant}"/>
-        <!--<ComboBox
+        <ComboBox
             Grid.Row="14"
             Width="100px"
             Name="comboBoxContrat"
@@ -79,8 +80,9 @@
             Text="Type de contat"
             IsEditable="True"
             IsReadOnly="False"
-            SelectedItem="{Binding SelectedContrat.Identifiant}"/>-->
-        <Button Grid.Row="16" Width="100px" Background="LightGray" Content="Valider" Click="AddOffre_Click"/>
+            SelectedValuePath="Identifiant"
+            SelectedValue="{Binding Path=Identifiant}"/>
+            <Button Grid.Row="16" Width="100px" Background="LightGray" Content="Valider" Click="AddOffre_Click"/>
 
     </Grid>
 </UserControl>

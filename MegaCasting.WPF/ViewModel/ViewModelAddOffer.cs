@@ -178,6 +178,23 @@ namespace MegaCasting.WPF.ViewModel
 			this.Offres.Remove(SelectedOffre);
 			this.SaveChanges();
 		}
+		/// <summary>
+		/// Permet de vérifier si l'offre est bien remplit
+		/// </summary>
+		/// <param name="intitule">Nom de l'offre</param>
+		/// <param name="ville">Identifiant de la ville valide ou non</param>
+		/// <param name="contrat">Identifiant du contrat valide ou non</param>
+		/// <param name="client">Identifiant du client valide ou non</param>
+		/// <returns>Retourne true si tout les champs sont vrai sinon retourne false</returns>
+		public bool VerifOffre(string intitule, bool ville, bool contrat, bool client)
+		{
+			bool returnValid = false;
+			if (string.IsNullOrWhiteSpace(intitule) != true && ville && client && contrat)
+			{
+				returnValid = true;
+			}
+			return returnValid;
+		}
 		#endregion
 	}
 }
