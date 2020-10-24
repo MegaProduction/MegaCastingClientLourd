@@ -14,12 +14,12 @@
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="60pt"/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Label HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="0" Grid.ColumnSpan="3" FontSize="30">Historique des offres</Label>
-        <ListBox
+        <!--<ListBox
             Grid.Column="0"
             Grid.Row="1"
             x:Name="ListBoxHistoriqueOffer"
@@ -28,6 +28,15 @@
             SelectedItem="{Binding SelectedOffre}"
             IsSynchronizedWithCurrentItem="True">
         </ListBox>
-        <TextBlock Grid.Row="1" Grid.Column="1" Visibility="{Binding SelectedOffre , Converter={StaticResource _SharedObjectToVisibilityConverter}}" Text="{Binding SelectedOffre.Ville.Libelle, StringFormat=Ville : {0} }"></TextBlock>
+        <TextBlock Grid.Row="1" Grid.Column="1" Visibility="{Binding SelectedOffre , Converter={StaticResource _SharedObjectToVisibilityConverter}}" Text="{Binding SelectedOffre.Ville.Libelle, StringFormat=Ville : {0} }"></TextBlock>-->
+        <ListView Name="listViewOffre" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" ItemsSource="{Binding Offres}">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Nom" Width="450" DisplayMemberBinding="{Binding Path=Intitule}"/>
+                    <GridViewColumn Header="Ville" Width="450" DisplayMemberBinding="{Binding Path=Ville.Libelle}"/>
+                    <GridViewColumn Header="Type du contrat" Width="450" DisplayMemberBinding="{Binding Path=Contrat.Libelle}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
     </Grid>
 </UserControl>

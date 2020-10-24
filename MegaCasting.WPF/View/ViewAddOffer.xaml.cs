@@ -34,10 +34,9 @@ namespace MegaCasting.WPF.View
         {
             //intitule de l'offre
             string intitule = textBoxIntitule.Text.ToString();
-            Object value = comboBoxLocalisation.SelectedValue;
-            bool result = int.TryParse(value.ToString(), out int idVille);
-            
-            //identifiant du type de contrat pour l'offre
+            //Permet de savoir le parse en int est réussit
+            bool result = Int32.TryParse(comboBoxLocalisation.SelectedValue.ToString(), out int idVille);
+            //Ajouts l'offre que result est vrai sinon envoit un message
             if (result)
             {
                 ((ViewModelAddOffer)this.DataContext).AddOffre(intitule, idVille, 1);

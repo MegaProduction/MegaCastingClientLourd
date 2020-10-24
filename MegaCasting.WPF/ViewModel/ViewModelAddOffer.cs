@@ -10,9 +10,7 @@ namespace MegaCasting.WPF.ViewModel
 {
     class ViewModelAddOffer : ViewModelBase
 	{
-		
-
-
+	
 		#region Attributes
 		/// <summary>
 		/// Collection d'offre
@@ -23,21 +21,9 @@ namespace MegaCasting.WPF.ViewModel
 		/// </summary>
 		private ObservableCollection<Ville> _Villes;
 		/// <summary>
-		/// Offre sélectionnée
-		/// </summary>
-		private Offre _SelectedOffre;
-		/// <summary>
-		/// Ville sélectionnée
-		/// </summary>
-		private Ville _SelectedVille;
-		/// <summary>
 		/// Collection de client
 		/// </summary>
 		private ObservableCollection<Client> _Clients;
-		/// <summary>
-		/// Client sélectionné
-		/// </summary>
-		private Client _SelectedClient;
 		/// <summary>
 		/// Collection d'offre du client
 		/// </summary>
@@ -46,6 +32,18 @@ namespace MegaCasting.WPF.ViewModel
 		/// Collection des contrats
 		/// </summary>
 		private ObservableCollection<Contrat> _Contrats;
+		/// <summary>
+		/// Offre sélectionnée
+		/// </summary>
+		private Offre _SelectedOffre;
+		/// <summary>
+		/// Ville sélectionnée
+		/// </summary>
+		private Ville _SelectedVille;
+		/// <summary>
+		/// Client sélectionné
+		/// </summary>
+		private Client _SelectedClient;
 		/// <summary>
 		/// Contrat sélectionné
 		/// </summary>

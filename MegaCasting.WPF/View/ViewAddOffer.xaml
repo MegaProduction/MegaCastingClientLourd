@@ -68,7 +68,8 @@
             Text="Ville"
             IsEditable="True"
             IsReadOnly="False"
-            SelectedValue="{Binding Villes.Identifiant}"/>
+            SelectedValuePath="Identifiant"
+            SelectedValue="{Binding Path=Identifiant}"/>
         <!--<ComboBox
             Grid.Row="14"
             Width="100px"
