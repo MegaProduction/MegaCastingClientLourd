@@ -135,6 +135,8 @@ namespace MegaCasting.WPF.ViewModel
 			this.Client = this.Entities.Clients.Local;
 			this.Entities.Contrats.ToList();
 			this.Contrat = this.Entities.Contrats.Local;
+			this.OffreClients = this.Entities.OffreClients.Local;
+
 		}
 		#endregion
 		#region Method
@@ -147,25 +149,37 @@ namespace MegaCasting.WPF.ViewModel
 		}
 		/// <summary>
 		/// Ajoute une offre
+		/// <param name="intitule">Nom de l'offre</param>
+		/// <param name="ville">Identifiant de la ville</param>
+		/// <param name="identifiantContrat">Identifiant du contrat</param>
+		/// <param name="client">Identifiant du client</param>
+		/// <param name="date">Date de début de l'offre</param>
+		/// <param name="desProfil">Description du profil pour le postulant</param>
+		/// <param name="desPoste">Description de l'offre</param>
+		/// <param name="desCoord">Coordonnée de l'offre</param>
+		/// <param name="duree">Durée de l'offre</param>
 		/// </summary>
-		public void AddOffre(string intitule, int ville, int identifiantContrat)
+		public void AddOffre(string intitule, int ville, int identifiantContrat, DateTime date, int client, string desProfil, string desPoste, string desCoord, string duree)
 		{
 			if (!this.Entities.Offres.Any(offres => offres.Intitule == intitule))
 			{
 				Offre offre = new Offre();
 				offre.Intitule = intitule;
-				offre.IdentifiantContrat = 1;
+				offre.IdentifiantContrat = identifiantContrat;
 				offre.Localisation = ville;
 				offre.NbPostes = 1;
-				offre.IdentifiantContrat = 1;
-				offre.DescriptionPoste = "iuydgfgn";
-				offre.DescriptionProfil = "fdfdfdfd";
-				offre.DureeDiffusion = "15";
+				offre.DescriptionPoste = desPoste;
+				offre.DescriptionProfil = desProfil;
+				offre.DureeDiffusion = duree;
 				offre.EstValide = true;
-				offre.DateDebut = DateTime.Now;
+				offre.DateDebut = date;
 				offre.Reference = offre.Identifiant;
-				offre.Coordonnées = "ici";
+				offre.Coordonnées = desCoord;
 				this.Offres.Add(offre);
+				OffreClient offreClient = new OffreClient();
+				offreClient.IdentifiantPartenaire = client;
+				offreClient.IdentifiantOffre = offre.Identifiant;
+				this.OffreClients.Add(offreClient);
 				this.SaveChanges();
 			}
 
@@ -179,17 +193,22 @@ namespace MegaCasting.WPF.ViewModel
 			this.SaveChanges();
 		}
 		/// <summary>
-		/// Permet de vérifier si l'offre est bien remplit
+		/// Vérifie si touts les champs sont bon sinon retourne faux si un des champs est faux
 		/// </summary>
 		/// <param name="intitule">Nom de l'offre</param>
-		/// <param name="ville">Identifiant de la ville valide ou non</param>
-		/// <param name="contrat">Identifiant du contrat valide ou non</param>
-		/// <param name="client">Identifiant du client valide ou non</param>
-		/// <returns>Retourne true si tout les champs sont vrai sinon retourne false</returns>
-		public bool VerifOffre(string intitule, bool ville, bool contrat, bool client)
+		/// <param name="ville">Identifiant de la ville</param>
+		/// <param name="contrat">Identifiant du contrat</param>
+		/// <param name="client">Identifiant du client</param>
+		/// <param name="date">Date de début de l'offre</param>
+		/// <param name="desProfil">Description du profil pour le postulant</param>
+		/// <param name="desPoste">Description de l'offre</param>
+		/// <param name="desCoord">Coordonnée de l'offre</param>
+		/// <param name="duree">Durée de l'offre</param>
+		/// <returns>Booléen</returns>
+		public bool VerifOffre(string intitule, bool ville, bool contrat, bool client, bool date, string desProfil, string desPoste, string desCoord, string duree)
 		{
 			bool returnValid = false;
-			if (string.IsNullOrWhiteSpace(intitule) != true && ville && client && contrat)
+			if (string.IsNullOrWhiteSpace(intitule) != true && string.IsNullOrWhiteSpace(desProfil) != true && string.IsNullOrWhiteSpace(desPoste) != true && string.IsNullOrWhiteSpace(desCoord) != true && string.IsNullOrWhiteSpace(duree) != true && ville && client && contrat && date)
 			{
 				returnValid = true;
 			}
