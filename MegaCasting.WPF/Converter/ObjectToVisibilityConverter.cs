@@ -14,7 +14,6 @@ namespace MegaCasting.WPF.Converter
         public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
         {
             Visibility result = Visibility.Collapsed;
-
             if (((value != null) && parameter is Type && ((Type)parameter).IsAssignableFrom(value.GetType())) || (value != null && parameter == null))
             {
                 if (!(value is string) || !string.IsNullOrWhiteSpace((string)value))
@@ -22,10 +21,8 @@ namespace MegaCasting.WPF.Converter
                     result = Visibility.Visible;
                 }
             }
-
             return result;
         }
-
         public object ConvertBack(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
         {
             throw new NotImplementedException();
