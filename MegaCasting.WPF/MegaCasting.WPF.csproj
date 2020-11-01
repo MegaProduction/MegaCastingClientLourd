@@ -94,6 +94,7 @@
     <Compile Include="Model\Json.cs" />
     <Compile Include="ViewModel\ViewModelAddOffer.cs" />
     <Compile Include="ViewModel\ViewModelClientsList.cs" />
+    <Compile Include="ViewModel\ViewModelDelOffre.cs" />
     <Compile Include="ViewModel\ViewModelHistoriqueOffer.cs" />
     <Compile Include="ViewModel\ViewModelBase.cs" />
     <Compile Include="ViewModel\ViewModelMainWindow.cs" />

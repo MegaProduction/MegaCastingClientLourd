@@ -19,16 +19,6 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Label HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="0" Grid.ColumnSpan="3" FontSize="30">Historique des offres</Label>
-        <!--<ListBox
-            Grid.Column="0"
-            Grid.Row="1"
-            x:Name="ListBoxHistoriqueOffer"
-            ItemsSource ="{Binding Offres}"
-            DisplayMemberPath="Intitule"
-            SelectedItem="{Binding SelectedOffre}"
-            IsSynchronizedWithCurrentItem="True">
-        </ListBox>
-        <TextBlock Grid.Row="1" Grid.Column="1" Visibility="{Binding SelectedOffre , Converter={StaticResource _SharedObjectToVisibilityConverter}}" Text="{Binding SelectedOffre.Ville.Libelle, StringFormat=Ville : {0} }"></TextBlock>-->
         <ListView Name="listViewOffre" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" ItemsSource="{Binding Offres}">
             <ListView.View>
                 <GridView>

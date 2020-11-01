@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MegaCasting.WPF.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,12 @@ namespace MegaCasting.WPF.View
         public ViewDelOffer()
         {
             InitializeComponent();
+        }
+
+        private void DeleteOffreButton_Click(object sender, RoutedEventArgs e)
+        {
+            ((ViewModelDelOffre)this.DataContext).DeleteOffre();
+            MessageBox.Show("Offre supprimer");
         }
     }
 }
