@@ -30,13 +30,40 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
-        <Label FontSize="30px" HorizontalAlignment="Center" Grid.Row="1" Grid.Column="1">Editer un client</Label>
 
-        <TextBox FontSize="15px" TextAlignment="Center" Grid.Column="1" Grid.Row="4" Width="150px" HorizontalAlignment="Center" VerticalAlignment="Bottom" Text="Nom" Name="TextBoxNom" GotFocus="TextBoxNom_GotFocus" LostFocus="TextBoxNom_LostFocus"></TextBox>
-        <TextBox FontSize="15px" TextAlignment="Center" Grid.Column="1" Grid.Row="5" Width="150px" HorizontalAlignment="Center" VerticalAlignment="Bottom" Text="Pays" Name="TextBoxPays" GotFocus="TextBoxPays_GotFocus" LostFocus="TextBoxPays_LostFocus"></TextBox>
-        <TextBox FontSize="15px" TextAlignment="Center" Grid.Column="1" Grid.Row="6" Width="150px" HorizontalAlignment="Center" VerticalAlignment="Bottom" Text="Ville" Name="TextBoxVille" GotFocus="TextBoxVille_GotFocus" LostFocus="TextBoxVille_LostFocus"></TextBox>
-        <TextBox FontSize="15px" TextAlignment="Center" Grid.Column="1" Grid.Row="7" Width="150px" HorizontalAlignment="Center" VerticalAlignment="Bottom" Text="Rue" Name="TextBoxRue" GotFocus="TextBoxRue_GotFocus" LostFocus="TextBoxRue_LostFocus"></TextBox>
+        <ListBox ItemsSource="{Binding Client}" Grid.Column="1" Grid.Row="2" Grid.RowSpan="4">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="7*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <TextBox Grid.Column="1" Grid.Row="1" Text="{Binding Libelle}"/>
+                        <ComboBox FontSize="15px" Grid.Column="4" Grid.Row="1" Width="150px" Name="comboBoxVille" ItemsSource="{Binding Villes}" DisplayMemberPath="Libelle" Text="{Binding Path=Ville.Libelle}" IsEditable="True" IsReadOnly="False" SelectedValuePath="Identifiant" SelectedValue="{Binding Path=Villes.Identifiant}"/>
+                    </Grid>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
 
+        <!--<ListBox FontSize="15px" Grid.Column="1" Grid.Row="2" Width="150px" Name="comboBoxPartenaires" ItemsSource="{Binding Client}" DisplayMemberPath="Libelle" SelectedValue="{Binding Path=Client.Identifiant}"/>
+
+
+        <TextBox FontSize="15px" TextAlignment="Center" Grid.Column="1" Grid.Row="4" Width="150px" HorizontalAlignment="Center" VerticalAlignment="Bottom" Text="{Binding SelectedClient.Login}" Name="TextBoxNom"></TextBox>
+
+        <TextBox Visibility="{Binding Path=Client.Libelle, Converter={StaticResource _SharedObjectToVisibilityConverter}}" FontSize="15px" TextAlignment="Center" Grid.Column="1" Grid.Row="5" Width="150px" HorizontalAlignment="Center" VerticalAlignment="Bottom" Text="{Binding Path=Client.Password, StringFormat=Password : {0}}" Name="TextBoxPas" GotFocus="TextBoxPas_GotFocus" LostFocus="TextBoxPas_LostFocus"></TextBox>
+
+        <TextBox Visibility="{Binding Path=Client.Libelle, Converter={StaticResource _SharedObjectToVisibilityConverter}}" FontSize="15px" TextAlignment="Center" Grid.Column="1" Grid.Row="6" Width="150px" HorizontalAlignment="Center" VerticalAlignment="Bottom" Text="{Binding Path=Client.Libelle, StringFormat=Libelle : {0}}" Name="TextBoxLibelle" GotFocus="TextBoxLibelle_GotFocus" LostFocus="TextBoxLibelle_LostFocus"></TextBox>
+
+        <ComboBox Visibility="{Binding Path=Client.Libelle, Converter={StaticResource _SharedObjectToVisibilityConverter}}" FontSize="15px" Grid.Column="1" Grid.Row="7" Width="150px" Name="comboBoxVille" ItemsSource="{Binding Villes}" DisplayMemberPath="Libelle" Text="{Binding Path=Ville.Libelle, StringFormat=Ville.Libelle : {0}}" IsEditable="True" IsReadOnly="False" SelectedValuePath="Identifiant" SelectedValue="{Binding Path=Villes.Identifiant}"/>-->
+        
         <Button Grid.Row="10" Grid.Column="1" Width="100px" Foreground="Black" Background="LightGray" Content="Confirmer"/>
+        
     </Grid>
 </UserControl>

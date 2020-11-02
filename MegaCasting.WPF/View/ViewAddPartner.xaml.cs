@@ -88,6 +88,13 @@ namespace MegaCasting.WPF.View
             {
                 ((ViewModelAddPartner)this.DataContext).AddPartner(login, password, libelle, villeid);
                 MessageBox.Show("Le client a été ajouté dans la base de données.");
+                TextBoxNom_GotFocus(sender, e);
+                TextBoxPas_GotFocus(sender, e);
+                TextBoxLibelle_GotFocus(sender, e);
+                TextBoxNom_LostFocus(sender, e);
+                TextBoxPas_LostFocus(sender, e);
+                TextBoxLibelle_LostFocus(sender, e);
+                comboBoxVille.Text = "Ville";
             }
             else
             {
