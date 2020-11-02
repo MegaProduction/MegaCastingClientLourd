@@ -128,7 +128,10 @@ namespace MegaCasting.WPF
         private void DelPartner_Click(object sender, RoutedEventArgs e)
         {
             this.DockPanelView.Children.Clear();
-            this.DockPanelView.Children.Add(new ViewDelPartner());
+            ViewModelDelPartner viewModelDelPartner = new ViewModelDelPartner(Entities);
+            ViewDelPartner viewDelPartner = new ViewDelPartner();
+            this.DataContext = viewModelDelPartner;
+            this.DockPanelView.Children.Add(viewDelPartner);
         }
 
         private void Settings_Click(object sender, RoutedEventArgs e)

@@ -102,6 +102,7 @@ namespace MegaCasting.WPF.ViewModel
 				clients.Password = password;
 				clients.Libelle = libelle;
 				clients.VilleIdentifiant = ville;
+				this.Client.Add(clients);
 				this.SaveChanges();
 			}
 		}
