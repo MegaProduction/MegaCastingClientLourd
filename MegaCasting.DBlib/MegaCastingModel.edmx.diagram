@@ -13,17 +13,17 @@
         <AssociationConnector Association="MegaCastingModel.FK_Postule_Candidat" ManuallyRouted="false" />
         <AssociationConnector Association="MegaCastingModel.FK_Metier_Domaine" ManuallyRouted="false" />
         <EntityTypeShape EntityType="MegaCastingModel.Client" Width="1.5" PointX="3" PointY="11.75" />
-        <EntityTypeShape EntityType="MegaCastingModel.OffreClient" Width="1.5" PointX="5.25" PointY="10.5" />
         <EntityTypeShape EntityType="MegaCastingModel.Pay" Width="1.5" PointX="0.75" PointY="7.125" />
-        <AssociationConnector Association="MegaCastingModel.FK_OffreClient_Client" />
         <EntityTypeShape EntityType="MegaCastingModel.Offre" Width="1.5" PointX="8.25" PointY="1.5" />
         <EntityTypeShape EntityType="MegaCastingModel.Ville" Width="1.5" PointX="3" PointY="4.75" />
         <AssociationConnector Association="MegaCastingModel.FK_Client_Ville" />
         <AssociationConnector Association="MegaCastingModel.FK_Offre_Contrat" />
         <AssociationConnector Association="MegaCastingModel.FK_Offre_Ville" />
-        <AssociationConnector Association="MegaCastingModel.FK_OffreClient_Offre" />
         <AssociationConnector Association="MegaCastingModel.FK_Postule_Offre" />
         <AssociationConnector Association="MegaCastingModel.FK_Pays_Pays" />
+        <EntityTypeShape EntityType="MegaCastingModel.OffreClient" Width="1.5" PointX="10.5" PointY="6.875" />
+        <AssociationConnector Association="MegaCastingModel.FK_OffreClient_Client" />
+        <AssociationConnector Association="MegaCastingModel.FK_OffreClient_Offre" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

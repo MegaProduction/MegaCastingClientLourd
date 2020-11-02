@@ -5,11 +5,30 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace MegaCasting.WPF.ViewModel
 {
     class ViewModelDelOffre : ViewModelBase
     {
+		private ObservableCollection<Postule> _ListPostules;
+		/// <summary>
+		/// Obtient ou définit postule
+		/// </summary>
+		public ObservableCollection<Postule> ListPostules
+		{
+			get { return _ListPostules; }
+			set { _ListPostules = value; }
+		}
+		private Postule _Postules;
+
+		public Postule Postules
+		{
+			get { return _Postules; }
+			set { _Postules = value; }
+		}
+
+
 		#region Attributs
 		/// <summary>
 		/// Collection des offres
@@ -19,6 +38,9 @@ namespace MegaCasting.WPF.ViewModel
 		/// Offre sélectionnée
 		/// </summary>
 		private Offre _SelectedOffres;
+		/// <summary>
+		/// Collection d'offre lié aux client
+		/// </summary>
 		#endregion
 		#region Properties
 		/// <summary>
@@ -29,7 +51,6 @@ namespace MegaCasting.WPF.ViewModel
 			get { return _Offres; }
 			set { _Offres = value; }
 		}
-
 		/// <summary>
 		/// Obtient ou définit l'offre sélectionnée
 		/// </summary>
@@ -45,7 +66,10 @@ namespace MegaCasting.WPF.ViewModel
 		{
 			this.Entities.Offres.ToList();
 			this.Offres = this.Entities.Offres.Local;
+			this.Entities.Postules.ToList();
+			this.ListPostules = this.Entities.Postules.Local;
 		}
+
 		#endregion
 		#region Method
 		/// <summary>
@@ -58,12 +82,18 @@ namespace MegaCasting.WPF.ViewModel
 		public void DeleteOffre()
 		{
 			//Vérification si on a le droit de supprimer
-
+			if (ListPostules.Any(postule => postule.IdentifiantOffre == SelectedOffre.Identifiant))
+			{
+				MessageBox.Show("Des candidats ont postulé à cette offre");
+			}
 			//Suppression de l'élément
-			this.Offres.Remove(SelectedOffre);
-			this.SaveChanges();
+			else
+			{
+				this.Offres.Remove(SelectedOffre);
+				this.SaveChanges();
+				MessageBox.Show("Offre supprimée");
+			}
 		}
 		#endregion
-
 	}
 }

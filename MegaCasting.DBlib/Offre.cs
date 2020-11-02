@@ -17,8 +17,8 @@ namespace MegaCasting.DBlib
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Offre()
         {
-            this.OffreClients = new HashSet<OffreClient>();
             this.Postules = new HashSet<Postule>();
+            this.OffreClients = new HashSet<OffreClient>();
         }
     
         public int Identifiant { get; set; }
@@ -37,8 +37,8 @@ namespace MegaCasting.DBlib
         public virtual Contrat Contrat { get; set; }
         public virtual Ville Ville { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<OffreClient> OffreClients { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Postule> Postules { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<OffreClient> OffreClients { get; set; }
     }
 }

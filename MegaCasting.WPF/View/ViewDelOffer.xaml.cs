@@ -29,7 +29,6 @@ namespace MegaCasting.WPF.View
         private void DeleteOffreButton_Click(object sender, RoutedEventArgs e)
         {
             ((ViewModelDelOffre)this.DataContext).DeleteOffre();
-            MessageBox.Show("Offre supprimer");
         }
     }
 }

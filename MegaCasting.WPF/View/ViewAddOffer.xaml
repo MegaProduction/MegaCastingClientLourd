@@ -39,7 +39,7 @@
             FontSize="15px" 
             Grid.Row="5" 
             Width="150px"
-            ToolTip="AAA-MM-JJ HH:mm:ss"
+            ToolTip="AAAA-MM-JJ HH:mm"
             HorizontalAlignment="Center" 
             VerticalAlignment="Bottom" 
             Text="Date de début" 

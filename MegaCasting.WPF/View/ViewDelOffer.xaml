@@ -19,15 +19,8 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Label HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="0" Grid.ColumnSpan="3" FontSize="30">Supprimer une offre</Label>
-        <ListView Name="listViewOffreDelete" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" ItemsSource="{Binding Offres}">
-            <ListView.View>
-                <GridView>
-                    <GridViewColumn Header="Nom" Width="450" DisplayMemberBinding="{Binding Path=Intitule}"/>
-                    <GridViewColumn Header="Ville" Width="450" DisplayMemberBinding="{Binding Path=Ville.Libelle}"/>
-                    <GridViewColumn Header="Type du contrat" Width="450" DisplayMemberBinding="{Binding Path=Contrat.Libelle}"/>
-                </GridView>
-            </ListView.View>
-        </ListView>
-        <Button Grid.Column="2" Grid.Row="2" Content="Supprimer" Name="DeleteOffreButton" Click="DeleteOffreButton_Click"></Button>
+        <ListBox Name="listBoxDelOffre" ItemsSource="{Binding Offres}" Grid.Column="1" Grid.Row="1" DisplayMemberPath="Intitule" SelectedItem="{Binding SelectedOffre}">
+        </ListBox>
+        <Button  Grid.Column="2" Grid.Row="2" Content="Supprimer" Name="DeleteOffreButton" Click="DeleteOffreButton_Click" Background="LightGray" Foreground="Black"></Button>
     </Grid>
 </UserControl>
