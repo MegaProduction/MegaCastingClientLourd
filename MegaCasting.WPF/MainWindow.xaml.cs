@@ -113,7 +113,10 @@ namespace MegaCasting.WPF
         private void AddPartner_Click(object sender, RoutedEventArgs e)
         {
             this.DockPanelView.Children.Clear();
-            this.DockPanelView.Children.Add(new ViewAddPartner());
+            ViewModelAddPartner viewModelAddPartner = new ViewModelAddPartner(Entities);
+            ViewAddPartner viewAddPartner = new ViewAddPartner();
+            this.DataContext = viewModelAddPartner;
+            this.DockPanelView.Children.Add(viewAddPartner);
         }
 
         private void EditPartner_Click(object sender, RoutedEventArgs e)
