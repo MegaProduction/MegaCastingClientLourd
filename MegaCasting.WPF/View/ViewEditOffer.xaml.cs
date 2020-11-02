@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MegaCasting.WPF.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,14 @@ namespace MegaCasting.WPF.View
         public ViewEditOffer()
         {
             InitializeComponent();
+        }
+
+        private void ButtonEditOffer_Click(object sender, RoutedEventArgs e)
+        {
+            int idVille = 0;
+            bool ville = Int32.TryParse(comboBoxVille.SelectedValue.ToString(), out idVille);
+            MessageBox.Show(ville.ToString()+idVille.ToString());
+            //((ViewModelEditOffer)this.DataContext).EditOffer();
         }
     }
 }

@@ -2,11 +2,17 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:local="clr-namespace:MegaCasting.WPF.Styles">
 
-    <Style x:Key="TextBlockStyle" TargetType="Button">
+    <Style x:Key="LabelStyle" TargetType="Label">
         <Style.Setters>
-            <Setter Property="BorderBrush" Value="Black"></Setter>
-        </Style.Setters> 
+            <Setter Property="FontSize" Value="30px"></Setter>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+        </Style.Setters>
     </Style>
-    
-    
+    <Style x:Key="ButtonStyle" TargetType="Button">
+        <Style.Setters>
+            <Setter Property="Background" Value="LightGray"/>
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="BorderBrush" Value="AliceBlue"/>
+        </Style.Setters>
+    </Style>
 </ResourceDictionary>
