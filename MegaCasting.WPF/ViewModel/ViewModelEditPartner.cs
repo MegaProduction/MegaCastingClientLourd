@@ -88,9 +88,19 @@ namespace MegaCasting.WPF.ViewModel
 
 		public void EditPartner()
 		{
-			
+			this.SaveChanges();
 		}
-        #endregion
 
-    }
+		public bool VerifPartner(string libelle, bool ville)
+		{
+			bool returnValid = false;
+			if (string.IsNullOrWhiteSpace(libelle) != true && ville)
+			{
+				returnValid = true;
+			}
+			return returnValid;
+		}
+		#endregion
+
+	}
 }
