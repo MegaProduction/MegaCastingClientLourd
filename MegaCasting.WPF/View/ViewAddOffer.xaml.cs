@@ -128,38 +128,17 @@ namespace MegaCasting.WPF.View
         /// <param name="e"></param>
         private void AddOffre_Click(object sender, RoutedEventArgs e)
         {
-            //intitule de l'offre
-            string intitule = TextBoxIntitule.Text.ToString();
-            bool ville = false;
-            bool contrat = false;
-            bool client = false;
-            int idVille=0;
-            int idContrat= 0;
-            int idClient= 0;
-            string stringDate = TextBoxDatDeb.Text.ToString();
-            string descriptionPoste = TextBoxDescripPoste.Text.ToString();
-            string descriptionProfil = TextBoxDescripProfil.Text.ToString();
-            string coodornnees = TextBoxCoord.Text.ToString();
-            string duree = TextBoxDureeDiff.Text.ToString();
-            bool date = DateTime.TryParse(stringDate, out DateTime dateOffre);
-            //Teste des combox si un élément est sélectionné
-            if (comboBoxLocalisation.SelectedIndex != -1 && comboBoxClient.SelectedIndex != -1 && comboBoxContrat.SelectedIndex != -1)
-            {
-                //Permet de savoir le parse en int est réussit
-                ville = Int32.TryParse(comboBoxLocalisation.SelectedValue.ToString(), out idVille);
-                contrat = Int32.TryParse(comboBoxContrat.SelectedValue.ToString(), out idContrat);
-                client = Int32.TryParse(comboBoxClient.SelectedValue.ToString(), out idClient);
-            }
-            //Ajouts l'offre que result est vrai sinon envoit un message
-            if (((ViewModelAddOffer)this.DataContext).VerifOffre(intitule, ville, contrat, client, date, descriptionPoste, descriptionProfil, coodornnees, duree))
-            {
-                ((ViewModelAddOffer)this.DataContext).AddOffre(intitule, idVille, idContrat, dateOffre, idClient, coodornnees, descriptionPoste, descriptionProfil, duree);
-                MessageBox.Show("L'offre a été ajouté");
-            }
-            else
-            {
-                MessageBox.Show("Impossible d'insérer l'offre des champs sont invalide");
-            }
+           ((ViewModelAddOffer)this.DataContext).AddOffre(
+               TextBoxIntitule.Text.ToString(),
+               comboBoxLocalisation.SelectedValue.ToString(),
+               comboBoxContrat.SelectedValue.ToString(),
+               TextBoxDatDeb.Text.ToString(),
+               comboBoxClient.SelectedValue.ToString(),
+               TextBoxNbPostes.Text.ToString(),
+               TextBoxDescripProfil.Text.ToString(),
+               TextBoxDescripPoste.Text.ToString(),
+               TextBoxCoord.Text.ToString(),
+               TextBoxDureeDiff.Text.ToString());
         }
 
 

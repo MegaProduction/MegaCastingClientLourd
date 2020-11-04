@@ -1,7 +1,6 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:local="clr-namespace:MegaCasting.WPF.Styles">
-
     <Style x:Key="LabelStyle" TargetType="Label">
         <Style.Setters>
             <Setter Property="FontSize" Value="30px"></Setter>
