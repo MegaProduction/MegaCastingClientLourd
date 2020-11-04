@@ -40,8 +40,21 @@
             DisplayMemberPath="Libelle"
             SelectedItem="{Binding SelectedClient}">
         </ListBox>
-        <ComboBox FontSize="15px" Grid.Column="1" Grid.Row="7" Width="150px" Name="ComboBoxVille" ItemsSource="{Binding Villes}" DisplayMemberPath="Libelle" Text="{Binding SelectedClient.Ville.Libelle}" IsReadOnly="False" SelectedValuePath="Identifiant" SelectedValue="{Binding Villes.Identifiant}"/>
-        <TextBox FontSize="15px" TextAlignment="Center" Grid.Column="1" Grid.Row="6" Width="150px" HorizontalAlignment="Center" VerticalAlignment="Bottom" Text="{Binding SelectedClient.Libelle}" Name="TextBoxLibelle"></TextBox>
+        
+        <ComboBox 
+            FontSize="15px" 
+            Grid.Column="1" 
+            Grid.Row="7" 
+            Width="150px" 
+            Name="ComboBoxVille" 
+            DisplayMemberPath="Libelle" 
+            IsReadOnly="False" 
+            ItemsSource="{Binding Villes}" 
+            SelectedItem="{Binding SelectedClient.Ville, UpdateSourceTrigger=PropertyChanged}" 
+            Visibility="{Binding SelectedClient, Converter={StaticResource _SharedObjectToVisibilityConverter}}"
+            />
+        
+        <TextBox FontSize="15px" TextAlignment="Center" Grid.Column="1" Grid.Row="6" Width="150px" HorizontalAlignment="Center" VerticalAlignment="Bottom" Text="{Binding SelectedClient.Libelle}" Name="TextBoxLibelle" Visibility="{Binding SelectedClient, Converter={StaticResource _SharedObjectToVisibilityConverter}}"></TextBox>
 
         <Button Grid.Row="10" Grid.Column="1" Width="100px" Foreground="Black" Background="LightGray" Content="Confirmer" Name="ButtonEditPartner" Click="ButtonEditPartner_Click"/>
     </Grid>
