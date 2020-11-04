@@ -5,7 +5,7 @@
     [DateDebut]          DATETIME      NOT NULL,
     [DureeDiffusion]     NVARCHAR (50) NULL,
     [NbPostes]           INT           NOT NULL,
-    [Localisation]       INT           NULL,
+    [Localisation]       INT           NOT NULL,
     [DescriptionPoste]   NVARCHAR (50) NOT NULL,
     [DescriptionProfil]  NVARCHAR (50) NOT NULL,
     [Coordonnées]        NVARCHAR (50) NOT NULL,
