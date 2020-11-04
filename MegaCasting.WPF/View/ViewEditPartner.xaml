@@ -30,6 +30,8 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
+        <Label Style="{StaticResource LabelStyle}" Grid.Row="0" Grid.Column="1">Editer un client</Label>
+
         <ListBox
             Grid.Column="1"
             Grid.Row="2"

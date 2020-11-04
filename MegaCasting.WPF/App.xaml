@@ -13,7 +13,7 @@
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Primary/MaterialDesignColor.DeepPurple.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Accent/MaterialDesignColor.Lime.xaml" />
                 <!--#endregion-->
-                <ResourceDictionary Source="Styles/Style.xaml"/>
+                <ResourceDictionary Source="Styles/style.xaml"/>
             </ResourceDictionary.MergedDictionaries>
             <!--#region Converters-->
             <converter:ObjectToVisibilityConverter x:Key="_SharedObjectToVisibilityConverter"/>
