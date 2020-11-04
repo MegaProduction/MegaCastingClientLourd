@@ -29,7 +29,6 @@ namespace MegaCasting.WPF.ViewModel
 			get { return _Offres; }
 			set { _Offres = value; }
 		}
-
 		/// <summary>
 		/// Obtient ou défini l'offre sélectionné
 		/// </summary>
@@ -39,6 +38,13 @@ namespace MegaCasting.WPF.ViewModel
 			set { _SelectedOffre = value; }
 		}
 		#endregion
+		private ObservableCollection<OffreClient> _OffresClients;
+
+		public ObservableCollection<OffreClient> OffreClients
+		{
+			get { return _OffresClients; }
+			set { _OffresClients = value; }
+		}
 
 		#region Construteur
 		public ViewModelHistoriqueOffer(MegaCastingEntities entities)
@@ -46,6 +52,8 @@ namespace MegaCasting.WPF.ViewModel
 		{
 			this.Entities.Offres.ToList();
 			this.Offres = this.Entities.Offres.Local;
+			this.Entities.OffreClients.ToList();
+			this.OffreClients = this.Entities.OffreClients.Local;
 		}
 		#endregion
 	}

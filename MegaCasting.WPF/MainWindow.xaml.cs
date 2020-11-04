@@ -104,13 +104,19 @@ namespace MegaCasting.WPF
         private void EditOffer_Click(object sender, RoutedEventArgs e)
         {
             this.DockPanelView.Children.Clear();
-            this.DockPanelView.Children.Add(new ViewEditOffer());
+            ViewModelEditOffer viewModelEditOffer = new ViewModelEditOffer(Entities);
+            ViewEditOffer viewEditOffer = new ViewEditOffer();
+            this.DataContext = viewModelEditOffer;
+            this.DockPanelView.Children.Add(viewEditOffer);
         }
 
         private void DelOffer_Click(object sender, RoutedEventArgs e)
         {
             this.DockPanelView.Children.Clear();
-            this.DockPanelView.Children.Add(new ViewDelOffer());
+            ViewModelDelOffre viewModelDelOffre = new ViewModelDelOffre(Entities);
+            ViewDelOffer viewDelOffer = new ViewDelOffer();
+            this.DataContext = viewModelDelOffre;
+            this.DockPanelView.Children.Add(viewDelOffer);
         }
 
         private void AddPartner_Click(object sender, RoutedEventArgs e)

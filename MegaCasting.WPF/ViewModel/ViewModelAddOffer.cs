@@ -184,14 +184,7 @@ namespace MegaCasting.WPF.ViewModel
 			}
 
 		}
-		public void DeleteOffre()
-		{
-			//Vérification si on a le droit de supprimer
-
-			//Suppression de l'élément
-			this.Offres.Remove(SelectedOffre);
-			this.SaveChanges();
-		}
+		
 		/// <summary>
 		/// Vérifie si touts les champs sont bon sinon retourne faux si un des champs est faux
 		/// </summary>
