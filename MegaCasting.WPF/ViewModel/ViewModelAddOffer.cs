@@ -10,7 +10,6 @@ namespace MegaCasting.WPF.ViewModel
 {
     class ViewModelAddOffer : ViewModelBase
 	{
-
 		#region Attributes
 		/// <summary>
 		/// Collection d'offre
@@ -49,6 +48,7 @@ namespace MegaCasting.WPF.ViewModel
 		/// </summary>
 		private Contrat _SelectedContrat;
 		#endregion
+
 		#region Properties
 		/// <summary>
 		/// Obtient ou défini la collection d'offre
@@ -123,6 +123,7 @@ namespace MegaCasting.WPF.ViewModel
 			set { _SelectedContrat = value; }
 		}
 		#endregion
+
 		#region Construteur
 		public ViewModelAddOffer(MegaCastingEntities entities)
 			: base(entities)
@@ -139,6 +140,7 @@ namespace MegaCasting.WPF.ViewModel
 
 		}
 		#endregion
+
 		#region Method
 		/// <summary>
 		/// Sauvegarde les modifications 
@@ -184,14 +186,7 @@ namespace MegaCasting.WPF.ViewModel
 			}
 
 		}
-		public void DeleteOffre()
-		{
-			//Vérification si on a le droit de supprimer
-
-			//Suppression de l'élément
-			this.Offres.Remove(SelectedOffre);
-			this.SaveChanges();
-		}
+		
 		/// <summary>
 		/// Vérifie si touts les champs sont bon sinon retourne faux si un des champs est faux
 		/// </summary>

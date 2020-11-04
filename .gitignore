@@ -360,7 +360,8 @@ MigrationBackup/
 ### VisualStudio ###
 
 # User-specific files
-
+MegaCasting.WPF/App.config
+MegaCasting.DBlib/App.config
 # User-specific files (MonoDevelop/Xamarin Studio)
 
 # Mono auto generated files

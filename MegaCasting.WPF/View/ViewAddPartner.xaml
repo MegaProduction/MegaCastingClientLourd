@@ -7,6 +7,35 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-        <Label FontSize="30px" HorizontalAlignment="Center" VerticalAlignment="Center">Ajouter un partenaire</Label>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="3*"/>
+            <RowDefinition Height="2.5*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1.7*"/>
+            <RowDefinition Height="1.4*"/>
+            <RowDefinition Height="1.4*"/>
+            <RowDefinition Height="1.4*"/>
+            <RowDefinition Height="1.4*"/>
+            <RowDefinition Height="1.4*"/>
+            <RowDefinition Height="1.4*"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="1.4*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Label FontSize="30px" HorizontalAlignment="Center" Grid.Row="1" Grid.Column="1">Ajouter un client</Label>
+
+        <TextBox FontSize="15px" TextAlignment="Center" Grid.Column="1" Grid.Row="4" Width="150px" HorizontalAlignment="Center" VerticalAlignment="Bottom" Text="Login" Name="TextBoxNom" GotFocus="TextBoxNom_GotFocus" LostFocus="TextBoxNom_LostFocus"></TextBox>
+        <TextBox FontSize="15px" TextAlignment="Center" Grid.Column="1" Grid.Row="5" Width="150px" HorizontalAlignment="Center" VerticalAlignment="Bottom" Text="Password" Name="TextBoxPas" GotFocus="TextBoxPas_GotFocus" LostFocus="TextBoxPas_LostFocus"></TextBox>
+        <TextBox FontSize="15px" TextAlignment="Center" Grid.Column="1" Grid.Row="6" Width="150px" HorizontalAlignment="Center" VerticalAlignment="Bottom" Text="Libellé" Name="TextBoxLibelle" GotFocus="TextBoxLibelle_GotFocus" LostFocus="TextBoxLibelle_LostFocus"></TextBox>
+        <ComboBox FontSize="15px" Grid.Column="1" Grid.Row="7" Width="150px" Name="comboBoxVille" ItemsSource="{Binding Villes}" DisplayMemberPath="Libelle" Text="Ville" IsEditable="True" IsReadOnly="False" SelectedValuePath="Identifiant" SelectedValue="{Binding Path=Villes.Identifiant}"/>
+        <Button Grid.Row="10" Grid.Column="1" Width="100px" Foreground="Black" Background="LightGray" Content="Valider" Name="ButtonAddPartner" Click="ButtonAddPartner_Click"/>
     </Grid>
 </UserControl>

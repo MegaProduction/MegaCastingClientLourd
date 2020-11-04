@@ -7,6 +7,20 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-        <Label FontSize="30px" HorizontalAlignment="Center" VerticalAlignment="Center">Supprimer une offre</Label>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60pt"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Label HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="0" Grid.ColumnSpan="3" FontSize="30">Supprimer une offre</Label>
+        <ListBox Name="listBoxDelOffre" ItemsSource="{Binding Offres}" Grid.Column="1" Grid.Row="1" DisplayMemberPath="Intitule" SelectedItem="{Binding SelectedOffre}">
+        </ListBox>
+        <Button  Grid.Column="2" Grid.Row="2" Content="Supprimer" Name="DeleteOffreButton" Click="DeleteOffreButton_Click" Background="LightGray" Foreground="Black"></Button>
     </Grid>
 </UserControl>
