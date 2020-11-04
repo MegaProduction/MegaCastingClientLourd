@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MegaCasting.WPF.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
@@ -26,27 +27,12 @@ namespace MegaCasting.WPF.View
             InitializeComponent();
         }
 
-        //private void TextBoxDatDeb_GotFocus(object sender, RoutedEventArgs e)
-        //{
-        //    TextBoxDatDeb.Text = string.Empty;
-        //    TextBoxDatDeb.GotFocus -= TextBoxDatDeb_GotFocus;
-        //}
-
-        //private void TextBoxDatDeb_LostFocus(object sender, RoutedEventArgs e)
-        //{
-        //    if (TextBoxDatDeb.Text.Trim().Equals(string.Empty))
-        //    {
-        //        TextBoxDatDeb.Text = "Date de début";
-        //        TextBoxDatDeb.GotFocus += TextBoxDatDeb_GotFocus;
-        //    }
-        //}
-
+        #region Texbox Affichage
         private void TextBoxIntitule_GotFocus(object sender, RoutedEventArgs e)
         {
             TextBoxIntitule.Text = string.Empty;
             TextBoxIntitule.GotFocus -= TextBoxIntitule_GotFocus;
         }
-
         private void TextBoxIntitule_LostFocus(object sender, RoutedEventArgs e)
         {
             if (TextBoxIntitule.Text.Trim().Equals(string.Empty))
@@ -55,13 +41,11 @@ namespace MegaCasting.WPF.View
                 TextBoxIntitule.GotFocus += TextBoxIntitule_GotFocus;
             }
         }
-
         private void TextBoxNbPostes_GotFocus(object sender, RoutedEventArgs e)
         {
             TextBoxNbPostes.Text = string.Empty;
             TextBoxNbPostes.GotFocus -= TextBoxNbPostes_GotFocus;
         }
-
         private void TextBoxNbPostes_LostFocus(object sender, RoutedEventArgs e)
         {
             if (TextBoxNbPostes.Text.Trim().Equals(string.Empty))
@@ -70,13 +54,11 @@ namespace MegaCasting.WPF.View
                 TextBoxNbPostes.GotFocus += TextBoxNbPostes_GotFocus;
             }
         }
-
         private void TextBoxDescripPoste_GotFocus(object sender, RoutedEventArgs e)
         {
             TextBoxDescripPoste.Text = string.Empty;
             TextBoxDescripPoste.GotFocus -= TextBoxDescripPoste_GotFocus;
         }
-
         private void TextBoxDescripPoste_LostFocus(object sender, RoutedEventArgs e)
         {
             if (TextBoxDescripPoste.Text.Trim().Equals(string.Empty))
@@ -85,13 +67,11 @@ namespace MegaCasting.WPF.View
                 TextBoxDescripPoste.GotFocus += TextBoxDescripPoste_GotFocus;
             }
         }
-
         private void TextBoxDescripProfil_GotFocus(object sender, RoutedEventArgs e)
         {
             TextBoxDescripProfil.Text = string.Empty;
             TextBoxDescripProfil.GotFocus -= TextBoxDescripProfil_GotFocus;
         }
-
         private void TextBoxDescripProfil_LostFocus(object sender, RoutedEventArgs e)
         {
             if (TextBoxDescripProfil.Text.Trim().Equals(string.Empty))
@@ -100,13 +80,11 @@ namespace MegaCasting.WPF.View
                 TextBoxDescripProfil.GotFocus += TextBoxDescripProfil_GotFocus;
             }
         }
-
         private void TextBoxDureeDiff_GotFocus(object sender, RoutedEventArgs e)
         {
             TextBoxDureeDiff.Text = string.Empty;
             TextBoxDureeDiff.GotFocus -= TextBoxDureeDiff_GotFocus;
         }
-
         private void TextBoxDureeDiff_LostFocus(object sender, RoutedEventArgs e)
         {
             if (TextBoxDureeDiff.Text.Trim().Equals(string.Empty))
@@ -115,22 +93,6 @@ namespace MegaCasting.WPF.View
                 TextBoxDureeDiff.GotFocus += TextBoxDureeDiff_GotFocus;
             }
         }
-
-        private void TextBoxNom_GotFocus(object sender, RoutedEventArgs e)
-        {
-            TextBoxNom.Text = string.Empty;
-            TextBoxNom.GotFocus -= TextBoxNom_GotFocus;
-        }
-
-        private void TextBoxNom_LostFocus(object sender, RoutedEventArgs e)
-        {
-            if (TextBoxNom.Text.Trim().Equals(string.Empty))
-            {
-                TextBoxNom.Text = "Nom";
-                TextBoxNom.GotFocus += TextBoxNom_GotFocus;
-            }
-        }
-
         private void TextBoxCoord_GotFocus(object sender, RoutedEventArgs e)
         {
             TextBoxCoord.Text = string.Empty;
@@ -145,69 +107,63 @@ namespace MegaCasting.WPF.View
                 TextBoxCoord.GotFocus += TextBoxCoord_GotFocus;
             }
         }
-
-        private void TextBoxLoc_GotFocus(object sender, RoutedEventArgs e)
-        {
-            TextBoxLoc.Text = string.Empty;
-            TextBoxLoc.GotFocus -= TextBoxLoc_GotFocus;
-        }
-
-        private void TextBoxLoc_LostFocus(object sender, RoutedEventArgs e)
-        {
-            if (TextBoxLoc.Text.Trim().Equals(string.Empty))
-            {
-                TextBoxLoc.Text = "Localisation";
-                TextBoxLoc.GotFocus += TextBoxLoc_GotFocus;
-            }
-        }
-
-        private void addOffre_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void TextBoxDatDeb_GotFocus(object sender, RoutedEventArgs e)
-        {
-            TextBoxDatDeb.Text = string.Empty;
-            TextBoxDatDeb.GotFocus -= TextBoxDatDeb_GotFocus;
-        }
-
         private void TextBoxDatDeb_LostFocus(object sender, RoutedEventArgs e)
         {
             if (TextBoxDatDeb.Text.Trim().Equals(string.Empty))
             {
                 TextBoxDatDeb.Text = "Date de début";
                 TextBoxDatDeb.GotFocus += TextBoxDatDeb_GotFocus;
+
+            }
+        }
+        private void TextBoxDatDeb_GotFocus(object sender, RoutedEventArgs e)
+        {
+            TextBoxDatDeb.Text = string.Empty;
+            TextBoxDatDeb.GotFocus -= TextBoxDatDeb_GotFocus;
+        }
+
+        #endregion
+
+        /// <summary>
+        /// Défini le comportement lors du clique sur le bouton d'ajout
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void AddOffre_Click(object sender, RoutedEventArgs e)
+        {
+            //intitule de l'offre
+            string intitule = TextBoxIntitule.Text.ToString();
+            bool ville = false;
+            bool contrat = false;
+            bool client = false;
+            int idVille=0;
+            int idContrat= 0;
+            int idClient= 0;
+            string stringDate = TextBoxDatDeb.Text.ToString();
+            string descriptionPoste = TextBoxDescripPoste.Text.ToString();
+            string descriptionProfil = TextBoxDescripProfil.Text.ToString();
+            string coodornnees = TextBoxCoord.Text.ToString();
+            string duree = TextBoxDureeDiff.Text.ToString();
+            bool date = DateTime.TryParse(stringDate, out DateTime dateOffre);
+            //Teste des combox si un élément est sélectionné
+            if (comboBoxLocalisation.SelectedIndex != -1 && comboBoxClient.SelectedIndex != -1 && comboBoxContrat.SelectedIndex != -1)
+            {
+                //Permet de savoir le parse en int est réussit
+                ville = Int32.TryParse(comboBoxLocalisation.SelectedValue.ToString(), out idVille);
+                contrat = Int32.TryParse(comboBoxContrat.SelectedValue.ToString(), out idContrat);
+                client = Int32.TryParse(comboBoxClient.SelectedValue.ToString(), out idClient);
+            }
+            //Ajouts l'offre que result est vrai sinon envoit un message
+            if (((ViewModelAddOffer)this.DataContext).VerifOffre(intitule, ville, contrat, client, date, descriptionPoste, descriptionProfil, coodornnees, duree))
+            {
+                ((ViewModelAddOffer)this.DataContext).AddOffre(intitule, idVille, idContrat, dateOffre, idClient, coodornnees, descriptionPoste, descriptionProfil, duree);
+                MessageBox.Show("L'offre a été ajouté");
+            }
+            else
+            {
+                MessageBox.Show("Impossible d'insérer l'offre des champs sont invalide");
             }
         }
 
-        //private void TextBoxDatDeb_GotFocus(object sender, RoutedEventArgs e)
-        //{
-        //    TextBoxDatDeb.Text = Calendar.DisplayDate.ToString();
-        //    TextBoxDatDeb.GotFocus -= TextBoxDatDeb_GotFocus;
-        //}
-
-        //private void TextBoxDatDeb_LostFocus(object sender, RoutedEventArgs e)
-        //{
-        //    if (TextBoxDatDeb.Text.Trim().Equals(string.Empty))
-        //    {
-        //        TextBoxDatDeb.Text = Calendar.DisplayDate.ToString();
-        //        TextBoxDatDeb.GotFocus += TextBoxDatDeb_GotFocus;
-        //    }
-        //}
-
-        //private void Calendar_SelectedDatesChanged(object sender, SelectionChangedEventArgs e)
-        //{
-        //    if (Calendar.SelectedDate.HasValue)
-        //    {
-        //        DateTime date = Calendar.SelectedDate.Value;
-        //        TextBoxDatDeb.Text = date.ToString();
-        //    }
-        //}
-
-        //private void Clock_SelectedTimeChanged(object sender, RoutedPropertyChangedEventArgs<DateTime?> e)
-        //{
-        //    Clock.Time = Calendar.SelectedDate.Value;
-        //}
     }
 }

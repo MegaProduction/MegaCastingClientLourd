@@ -13,7 +13,6 @@ namespace MegaCasting.WPF.Converter
         public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
         {
             Visibility result = Visibility.Collapsed;
-
             if (parameter is string && parameter.ToString() == "!" && value is bool && !((bool)value))
             {
                 result = Visibility.Visible;
@@ -22,27 +21,21 @@ namespace MegaCasting.WPF.Converter
             {
                 result = Visibility.Visible;
             }
-
             return result;
         }
-
         public object ConvertBack(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
         {
             throw new NotImplementedException();
         }
-
         public object Convert(object[] values, Type targetType, object parameter, System.Globalization.CultureInfo culture)
         {
             bool value = false;
-
             foreach (bool item in values.OfType<bool>())
             {
                 value = value && item;
             }
-
             return Convert(value, targetType, parameter, culture);
         }
-
         public object[] ConvertBack(object value, Type[] targetTypes, object parameter, System.Globalization.CultureInfo culture)
         {
             throw new NotImplementedException();

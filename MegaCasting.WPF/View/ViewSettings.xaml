@@ -14,7 +14,8 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <Label  HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30px">Paramètres</Label>
-        <materialDesign:ColorPicker Grid.Column="0" Name="colorPick" Color="AliceBlue" ColorChanged="ColorPicker_ColorChanged"></materialDesign:ColorPicker>
-        <TextBlock Grid.Column="1" Text="1" Background="AliceBlue" Name="textBlock"></TextBlock>
+        <materialDesign:ColorPicker x:Name="colorPicker" Grid.Column="0" MouseMove="colorPicker_MouseMove"></materialDesign:ColorPicker>
+        <TextBlock Grid.Column="1" Text="" Background="AliceBlue" Name="textBlock"></TextBlock>
+
     </Grid>
 </UserControl>

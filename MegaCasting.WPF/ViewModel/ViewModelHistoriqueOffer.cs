@@ -19,6 +19,10 @@ namespace MegaCasting.WPF.ViewModel
 		/// 
 		/// </summary>
 		private Offre _SelectedOffre;
+		/// <summary>
+		/// 
+		/// </summary>
+		private ObservableCollection<OffreClient> _OffresClients;
 		#endregion
 
 		#region Properties
@@ -30,7 +34,6 @@ namespace MegaCasting.WPF.ViewModel
 			get { return _Offres; }
 			set { _Offres = value; }
 		}
-
 		/// <summary>
 		/// Obtient ou défini l'offre sélectionné
 		/// </summary>
@@ -39,67 +42,24 @@ namespace MegaCasting.WPF.ViewModel
 			get { return _SelectedOffre; }
 			set { _SelectedOffre = value; }
 		}
+
+		public ObservableCollection<OffreClient> OffreClients
+		{
+			get { return _OffresClients; }
+			set { _OffresClients = value; }
+		}
 		#endregion
 
-		#region Construtors
-
-
+		#region Construteur
 		public ViewModelHistoriqueOffer(MegaCastingEntities entities)
-			:base(entities)
+			: base(entities)
 		{
 			this.Entities.Offres.ToList();
 			this.Offres = this.Entities.Offres.Local;
+			this.Entities.OffreClients.ToList();
+			this.OffreClients = this.Entities.OffreClients.Local;
 		}
 		#endregion
 
-		#region Method
-		/// <summary>
-		/// Sauvegarde les modifications 
-		/// </summary>
-		public void SaveChanges()
-		{
-			this.Entities.SaveChanges();
-		}
-		/// <summary>
-		/// Ajoute une offre
-		/// </summary>
-		public void AddOffre()
-		{
-			if (!this.Entities.Offres.Any(offres => offres.Intitule == "New Offre"))
-			{
-				Offre offre = new Offre();
-				offre.Intitule = "New Offre";
-				offre.IdentifiantContrat = 1;
-				offre.Localisation = 1;
-				offre.NbPostes = 1;
-				offre.IdentifiantContrat = 2;
-				offre.DescriptionPoste = "iuydgfgn";
-				offre.DescriptionProfil = "fdfdfdfd";
-				offre.DureeDiffusion = "15";
-				offre.EstValide = true;
-				offre.DateDebut = DateTime.Now;
-				offre.Reference = offre.Identifiant;
-				offre.Coordonnées = "ici";
-				this.Offres.Add(offre);
-				try
-				{
-					this.SaveChanges();
-				}
-				catch (System.Data.Entity.Validation.DbEntityValidationException ex)
-				{
-
-					throw ex;
-				}
-			}
-		}
-		public void DeleteOffre()
-		{
-			//Vérification si on a le droit de supprimer
-
-			//Suppression de l'élément
-			this.Offres.Remove(SelectedOffre);
-			this.SaveChanges();
-		} 
-		#endregion
 	}
 }

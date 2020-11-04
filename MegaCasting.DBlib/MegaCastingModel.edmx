@@ -159,7 +159,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_OffreClient_Offre">
-          <End Role="Offre" Type="Self.Offre" Multiplicity="1" />
+          <End Role="Offre" Type="Self.Offre" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="OffreClient" Type="Self.OffreClient" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Offre">
@@ -345,12 +347,7 @@
             <End Role="Metier" EntitySet="Metiers" />
           </AssociationSet>
           <EntitySet Name="Clients" EntityType="MegaCastingModel.Client" />
-          <EntitySet Name="OffreClients" EntityType="MegaCastingModel.OffreClient" />
           <EntitySet Name="Pays" EntityType="MegaCastingModel.Pay" />
-          <AssociationSet Name="FK_OffreClient_Client" Association="MegaCastingModel.FK_OffreClient_Client">
-            <End Role="Client" EntitySet="Clients" />
-            <End Role="OffreClient" EntitySet="OffreClients" />
-          </AssociationSet>
           <EntitySet Name="Offres" EntityType="MegaCastingModel.Offre" />
           <EntitySet Name="Villes" EntityType="MegaCastingModel.Ville" />
           <AssociationSet Name="FK_Client_Ville" Association="MegaCastingModel.FK_Client_Ville">
@@ -365,10 +362,6 @@
             <End Role="Ville" EntitySet="Villes" />
             <End Role="Offre" EntitySet="Offres" />
           </AssociationSet>
-          <AssociationSet Name="FK_OffreClient_Offre" Association="MegaCastingModel.FK_OffreClient_Offre">
-            <End Role="Offre" EntitySet="Offres" />
-            <End Role="OffreClient" EntitySet="OffreClients" />
-          </AssociationSet>
           <AssociationSet Name="FK_Postule_Offre" Association="MegaCastingModel.FK_Postule_Offre">
             <End Role="Offre" EntitySet="Offres" />
             <End Role="Postule" EntitySet="Postules" />
@@ -376,6 +369,15 @@
           <AssociationSet Name="FK_Pays_Pays" Association="MegaCastingModel.FK_Pays_Pays">
             <End Role="Pay" EntitySet="Pays" />
             <End Role="Ville" EntitySet="Villes" />
+          </AssociationSet>
+          <EntitySet Name="OffreClients" EntityType="MegaCastingModel.OffreClient" />
+          <AssociationSet Name="FK_OffreClient_Client" Association="MegaCastingModel.FK_OffreClient_Client">
+            <End Role="Client" EntitySet="Clients" />
+            <End Role="OffreClient" EntitySet="OffreClients" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OffreClient_Offre" Association="MegaCastingModel.FK_OffreClient_Offre">
+            <End Role="Offre" EntitySet="Offres" />
+            <End Role="OffreClient" EntitySet="OffreClients" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="Client">
@@ -387,18 +389,8 @@
           <Property Name="Password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Libelle" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="VilleIdentifiant" Type="Int32" />
-          <NavigationProperty Name="OffreClients" Relationship="MegaCastingModel.FK_OffreClient_Client" FromRole="Client" ToRole="OffreClient" />
           <NavigationProperty Name="Ville" Relationship="MegaCastingModel.FK_Client_Ville" FromRole="Client" ToRole="Ville" />
-        </EntityType>
-        <EntityType Name="OffreClient">
-          <Key>
-            <PropertyRef Name="Identifiant" />
-          </Key>
-          <Property Name="Identifiant" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="IdentifiantOffre" Type="Int32" Nullable="false" />
-          <Property Name="IdentifiantPartenaire" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Client" Relationship="MegaCastingModel.FK_OffreClient_Client" FromRole="OffreClient" ToRole="Client" />
-          <NavigationProperty Name="Offre" Relationship="MegaCastingModel.FK_OffreClient_Offre" FromRole="OffreClient" ToRole="Offre" />
+          <NavigationProperty Name="OffreClients" Relationship="MegaCastingModel.FK_OffreClient_Client" FromRole="Client" ToRole="OffreClient" />
         </EntityType>
         <EntityType Name="Pay">
           <Key>
@@ -408,18 +400,6 @@
           <Property Name="Libelle" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Villes" Relationship="MegaCastingModel.FK_Pays_Pays" FromRole="Pay" ToRole="Ville" />
         </EntityType>
-        <Association Name="FK_OffreClient_Client">
-          <End Type="MegaCastingModel.Client" Role="Client" Multiplicity="1" />
-          <End Type="MegaCastingModel.OffreClient" Role="OffreClient" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Client">
-              <PropertyRef Name="Identifiant" />
-            </Principal>
-            <Dependent Role="OffreClient">
-              <PropertyRef Name="IdentifiantPartenaire" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityType Name="Offre">
           <Key>
             <PropertyRef Name="Identifiant" />
@@ -438,8 +418,8 @@
           <Property Name="IdentifiantContrat" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Contrat" Relationship="MegaCastingModel.FK_Offre_Contrat" FromRole="Offre" ToRole="Contrat" />
           <NavigationProperty Name="Ville" Relationship="MegaCastingModel.FK_Offre_Ville" FromRole="Offre" ToRole="Ville" />
-          <NavigationProperty Name="OffreClients" Relationship="MegaCastingModel.FK_OffreClient_Offre" FromRole="Offre" ToRole="OffreClient" />
           <NavigationProperty Name="Postules" Relationship="MegaCastingModel.FK_Postule_Offre" FromRole="Offre" ToRole="Postule" />
+          <NavigationProperty Name="OffreClients" Relationship="MegaCastingModel.FK_OffreClient_Offre" FromRole="Offre" ToRole="OffreClient" />
         </EntityType>
         <EntityType Name="Ville">
           <Key>
@@ -489,18 +469,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_OffreClient_Offre">
-          <End Type="MegaCastingModel.Offre" Role="Offre" Multiplicity="1" />
-          <End Type="MegaCastingModel.OffreClient" Role="OffreClient" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Offre">
-              <PropertyRef Name="Identifiant" />
-            </Principal>
-            <Dependent Role="OffreClient">
-              <PropertyRef Name="IdentifiantOffre" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Postule_Offre">
           <End Type="MegaCastingModel.Offre" Role="Offre" Multiplicity="1" />
           <End Type="MegaCastingModel.Postule" Role="Postule" Multiplicity="*" />
@@ -522,6 +490,42 @@
             </Principal>
             <Dependent Role="Ville">
               <PropertyRef Name="IdentifiantPays" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="OffreClient">
+          <Key>
+            <PropertyRef Name="Identifiant" />
+          </Key>
+          <Property Name="Identifiant" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdentifiantOffre" Type="Int32" Nullable="false" />
+          <Property Name="IdentifiantPartenaire" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Client" Relationship="MegaCastingModel.FK_OffreClient_Client" FromRole="OffreClient" ToRole="Client" />
+          <NavigationProperty Name="Offre" Relationship="MegaCastingModel.FK_OffreClient_Offre" FromRole="OffreClient" ToRole="Offre" />
+        </EntityType>
+        <Association Name="FK_OffreClient_Client">
+          <End Type="MegaCastingModel.Client" Role="Client" Multiplicity="1" />
+          <End Type="MegaCastingModel.OffreClient" Role="OffreClient" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Client">
+              <PropertyRef Name="Identifiant" />
+            </Principal>
+            <Dependent Role="OffreClient">
+              <PropertyRef Name="IdentifiantPartenaire" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OffreClient_Offre">
+          <End Type="MegaCastingModel.Offre" Role="Offre" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="MegaCastingModel.OffreClient" Role="OffreClient" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Offre">
+              <PropertyRef Name="Identifiant" />
+            </Principal>
+            <Dependent Role="OffreClient">
+              <PropertyRef Name="IdentifiantOffre" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -589,15 +593,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="OffreClients">
-            <EntityTypeMapping TypeName="MegaCastingModel.OffreClient">
-              <MappingFragment StoreEntitySet="OffreClient">
-                <ScalarProperty Name="IdentifiantPartenaire" ColumnName="IdentifiantPartenaire" />
-                <ScalarProperty Name="IdentifiantOffre" ColumnName="IdentifiantOffre" />
-                <ScalarProperty Name="Identifiant" ColumnName="Identifiant" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Pays">
             <EntityTypeMapping TypeName="MegaCastingModel.Pay">
               <MappingFragment StoreEntitySet="Pays">
@@ -630,6 +625,15 @@
                 <ScalarProperty Name="IdentifiantPays" ColumnName="IdentifiantPays" />
                 <ScalarProperty Name="CodePostal" ColumnName="CodePostal" />
                 <ScalarProperty Name="Libelle" ColumnName="Libelle" />
+                <ScalarProperty Name="Identifiant" ColumnName="Identifiant" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OffreClients">
+            <EntityTypeMapping TypeName="MegaCastingModel.OffreClient">
+              <MappingFragment StoreEntitySet="OffreClient">
+                <ScalarProperty Name="IdentifiantPartenaire" ColumnName="IdentifiantPartenaire" />
+                <ScalarProperty Name="IdentifiantOffre" ColumnName="IdentifiantOffre" />
                 <ScalarProperty Name="Identifiant" ColumnName="Identifiant" />
               </MappingFragment>
             </EntityTypeMapping>
