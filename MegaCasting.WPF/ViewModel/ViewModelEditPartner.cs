@@ -5,6 +5,8 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
 
 namespace MegaCasting.WPF.ViewModel
 {
@@ -86,15 +88,23 @@ namespace MegaCasting.WPF.ViewModel
 			this.Entities.SaveChanges();
 		}
 
-		public void EditPartner()
+		public void EditPartner(string libelle)
 		{
-			this.SaveChanges();
+			if (VerifPartner(libelle))
+			{
+				this.SaveChanges();
+				MessageBox.Show("Youpi.");
+			}
+			else
+			{
+				MessageBox.Show("Erreur de saisie");
+			}
 		}
 
-		public bool VerifPartner(string libelle, bool ville)
+		public bool VerifPartner(string libelle)
 		{
 			bool returnValid = false;
-			if (string.IsNullOrWhiteSpace(libelle) != true && ville)
+			if (!string.IsNullOrWhiteSpace(libelle))
 			{
 				returnValid = true;
 			}

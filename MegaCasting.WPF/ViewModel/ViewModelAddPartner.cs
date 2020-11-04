@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using MegaCasting.DBlib;
 using System.Collections.ObjectModel;
+using System.Windows;
 
 namespace MegaCasting.WPF.ViewModel
 {
@@ -93,17 +94,30 @@ namespace MegaCasting.WPF.ViewModel
 		/// <param name="password"></param>
 		/// <param name="libelle"></param>
 		/// <param name="ville"></param>
-		public void AddPartner(string login, string password, string libelle, int ville)
+		public void AddPartner(string login, string password, string libelle, string identifiantVille)
 		{
+			bool ville = int.TryParse(identifiantVille, out int villeId);
 			if (!this.Entities.Clients.Any(partner => partner.Login == login))
 			{
-				Client clients = new Client();
-				clients.Login = login;
-				clients.Password = password;
-				clients.Libelle = libelle;
-				clients.VilleIdentifiant = ville;
-				this.Client.Add(clients);
-				this.SaveChanges();
+				if (VerifPartner(login, password, libelle, ville))
+				{
+					Client clients = new Client();
+					clients.Login = login;
+					clients.Password = password;
+					clients.Libelle = libelle;
+					clients.VilleIdentifiant = villeId;
+					this.Client.Add(clients);
+					this.SaveChanges();
+					MessageBox.Show("Client ajouté");
+				}
+				else
+				{
+					MessageBox.Show("Erreur lors de l'ajout");
+				}
+			}
+			else
+			{
+				MessageBox.Show("Le client existe déjà");
 			}
 		}
 

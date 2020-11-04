@@ -28,30 +28,7 @@ namespace MegaCasting.WPF.View
 
         private void ButtonEditPartner_Click(object sender, RoutedEventArgs e)
         {
-            /*
-            string libelle = TextBoxLibelle.Text.ToString();
-            bool ville = false;
-            int villeid = 0;
-            int idclient = 0;
-            bool client = Int32.TryParse(ListBoxEditPartner.SelectedItem.ToString(), out idclient);
-
-            if (ComboBoxVille.SelectedIndex != -1)
-            {
-                ville = Int32.TryParse(ComboBoxVille.SelectedItem.ToString(), out villeid);
-            }
-
-            if (((ViewModelEditPartner)this.DataContext).VerifPartner(libelle, ville))
-            {
-                ((ViewModelEditPartner)this.DataContext).EditPartner(libelle, villeid, idclient);
-                MessageBox.Show("La modification a été effectuée.");
-            }
-            else
-            {
-                MessageBox.Show("Erreur : saisie invalide.");
-            }*/
-
-            ((ViewModelEditPartner)this.DataContext).EditPartner();
+                ((ViewModelEditPartner)this.DataContext).EditPartner(TextBoxLibelle.Text);
         }
-
     }
 }
