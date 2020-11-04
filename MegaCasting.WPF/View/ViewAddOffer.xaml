@@ -45,7 +45,8 @@
             Text="Date de début" 
             Name="TextBoxDatDeb" 
             GotFocus="TextBoxDatDeb_GotFocus" 
-            LostFocus="TextBoxDatDeb_LostFocus"></TextBox>
+            LostFocus="TextBoxDatDeb_LostFocus"
+            />
         <TextBox FontSize="15px" Grid.Row="6" Width="150px" HorizontalAlignment="Center" VerticalAlignment="Bottom" Text="Nombre de postes" Name="TextBoxNbPostes" GotFocus="TextBoxNbPostes_GotFocus" LostFocus="TextBoxNbPostes_LostFocus"></TextBox>
         <ComboBox
             FontSize="15px"

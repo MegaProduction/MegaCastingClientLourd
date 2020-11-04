@@ -129,16 +129,16 @@ namespace MegaCasting.WPF.View
         private void AddOffre_Click(object sender, RoutedEventArgs e)
         {
            ((ViewModelAddOffer)this.DataContext).AddOffre(
-               TextBoxIntitule.Text.ToString(),
+               TextBoxIntitule.Text,
                comboBoxLocalisation.SelectedValue.ToString(),
                comboBoxContrat.SelectedValue.ToString(),
-               TextBoxDatDeb.Text.ToString(),
+               TextBoxDatDeb.Text,
                comboBoxClient.SelectedValue.ToString(),
-               TextBoxNbPostes.Text.ToString(),
-               TextBoxDescripProfil.Text.ToString(),
-               TextBoxDescripPoste.Text.ToString(),
-               TextBoxCoord.Text.ToString(),
-               TextBoxDureeDiff.Text.ToString());
+               TextBoxNbPostes.Text,
+               TextBoxDescripProfil.Text,
+               TextBoxDescripPoste.Text,
+               TextBoxCoord.Text,
+               TextBoxDureeDiff.Text);
         }
 
 
