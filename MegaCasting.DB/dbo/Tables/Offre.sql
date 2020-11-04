@@ -2,7 +2,7 @@
     [Identifiant]        INT           IDENTITY (1, 1) NOT NULL,
     [Intitule]           NVARCHAR (50) NOT NULL,
     [Reference]          INT           NOT NULL,
-    [DateDebut]          DATETIME      NOT NULL,
+    [DateDebut]          DATETIME2 (7) NOT NULL,
     [DureeDiffusion]     NVARCHAR (50) NULL,
     [NbPostes]           INT           NOT NULL,
     [Localisation]       INT           NOT NULL,
