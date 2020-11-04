@@ -55,7 +55,6 @@
             ItemsSource="{Binding Contrat}"
             DisplayMemberPath="Libelle"
             Text="Type de contat"
-            IsEditable="True"
             IsReadOnly="False"
             SelectedValuePath="Identifiant"
             SelectedValue="{Binding Path=Contrat.Identifiant}"/>
@@ -72,7 +71,6 @@
             ItemsSource="{Binding Client}"
             DisplayMemberPath="Libelle"
             Text="Nom"
-            IsEditable="True"
             IsReadOnly="False"
             SelectedValuePath="Identifiant"
             SelectedValue="{Binding Path=Client.Identifiant}"/>
@@ -95,7 +93,6 @@
             ItemsSource="{Binding Villes}"
             DisplayMemberPath="Libelle"
             Text="Ville"
-            IsEditable="True"
             IsReadOnly="False"
             SelectedValuePath="Identifiant"
             SelectedValue="{Binding Path=Villes.Identifiant}"/>
