@@ -7,11 +7,9 @@
             <Setter Property="HorizontalAlignment" Value="Center"/>
         </Style.Setters>
     </Style>
-    <Style x:Key="ButtonStyle" TargetType="Button">
+    <Style x:Key="TextBoxStyle" TargetType="TextBox">
         <Style.Setters>
-            <Setter Property="Background" Value="LightGray"/>
-            <Setter Property="Foreground" Value="Black"/>
-            <Setter Property="BorderBrush" Value="AliceBlue"/>
+            <Setter Property="Background" Value="Black"/>
         </Style.Setters>
     </Style>
 </ResourceDictionary>

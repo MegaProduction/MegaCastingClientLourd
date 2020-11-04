@@ -7,6 +7,57 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-        <Label FontSize="30px" HorizontalAlignment="Center" VerticalAlignment="Center">Editer un partenaire</Label>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="3*"/>
+            <RowDefinition Height="2.5*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1.7*"/>
+            <RowDefinition Height="1.4*"/>
+            <RowDefinition Height="1.4*"/>
+            <RowDefinition Height="1.4*"/>
+            <RowDefinition Height="1.4*"/>
+            <RowDefinition Height="1.4*"/>
+            <RowDefinition Height="1.4*"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="1.4*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="1.5*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Label Style="{StaticResource LabelStyle}" Grid.Row="0" Grid.Column="1">Editer un client</Label>
+
+        <ListBox
+            Grid.Column="1"
+            Grid.Row="2"
+            Grid.RowSpan="2"
+            HorizontalAlignment="Center"
+            x:Name="ListBoxEditPartner"
+            ItemsSource ="{Binding Client}"
+            DisplayMemberPath="Libelle"
+            SelectedItem="{Binding SelectedClient}">
+        </ListBox>
+        
+        <ComboBox 
+            FontSize="15px" 
+            Grid.Column="1" 
+            Grid.Row="7" 
+            Width="150px" 
+            Name="ComboBoxVille" 
+            DisplayMemberPath="Libelle" 
+            IsReadOnly="False" 
+            ItemsSource="{Binding Villes}" 
+            SelectedItem="{Binding SelectedClient.Ville, UpdateSourceTrigger=PropertyChanged}" 
+            Visibility="{Binding SelectedClient, Converter={StaticResource _SharedObjectToVisibilityConverter}}"
+            />
+        
+        <TextBox FontSize="15px" TextAlignment="Center" Grid.Column="1" Grid.Row="6" Width="150px" HorizontalAlignment="Center" VerticalAlignment="Bottom" Text="{Binding SelectedClient.Libelle}" Name="TextBoxLibelle" Visibility="{Binding SelectedClient, Converter={StaticResource _SharedObjectToVisibilityConverter}}"></TextBox>
+
+        <Button Grid.Row="10" Grid.Column="1" Width="100px" Foreground="Black" Background="LightGray" Content="Confirmer" Name="ButtonEditPartner" Click="ButtonEditPartner_Click"/>
     </Grid>
 </UserControl>

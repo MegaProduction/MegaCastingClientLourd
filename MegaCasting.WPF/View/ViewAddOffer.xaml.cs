@@ -1,6 +1,7 @@
 ﻿using MegaCasting.WPF.ViewModel;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -25,6 +26,7 @@ namespace MegaCasting.WPF.View
         {
             InitializeComponent();
         }
+
         #region Texbox Affichage
         private void TextBoxIntitule_GotFocus(object sender, RoutedEventArgs e)
         {
@@ -119,6 +121,7 @@ namespace MegaCasting.WPF.View
             TextBoxDatDeb.Text = string.Empty;
             TextBoxDatDeb.GotFocus -= TextBoxDatDeb_GotFocus;
         }
+
         #endregion
 
         /// <summary>
@@ -140,7 +143,6 @@ namespace MegaCasting.WPF.View
                TextBoxCoord.Text.ToString(),
                TextBoxDureeDiff.Text.ToString());
         }
-
 
     }
 }

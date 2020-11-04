@@ -7,7 +7,7 @@
         Icon="https://i.goopics.net/0Ja5w.png"
         mc:Ignorable="d"
         xmlns:view="clr-namespace:MegaCasting.WPF.View"
-        Title="MegaCastings" Height="450" Width="800" MinHeight="450" MinWidth="800"
+        Title="MegaCastings" Height="550" Width="900" MinHeight="550" MinWidth="900"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         TextElement.FontWeight="Regular"
@@ -26,11 +26,14 @@
         </Grid.RowDefinitions>
         <Menu IsMainMenu="True" Background="White" Grid.Row="0">
             <MenuItem Name="GesOffer" Header="_Gestion des offres">
+                <MenuItem.Icon>
+                    <Image Source="https://i.goopics.net/574db.png"/>
+                </MenuItem.Icon>
                 <MenuItem Header="Historique des offres" Name="HistoriqueOffer" Click="HistoriqueOffer_Click"/>
-                    <MenuItem Header="Ajouter une offre" Name="AddOffer" Click="AddOffer_Click"/>
-                    <MenuItem Header="Editer une offre" Name="EditOffer" Click="EditOffer_Click"/>
-                    <MenuItem Header="Supprimer une offre" Name="DelOffer" Click="DelOffer_Click"/>
-                </MenuItem>
+                <MenuItem Header="Ajouter une offre" Name="AddOffer" Click="AddOffer_Click"/>
+                <MenuItem Header="Editer une offre" Name="EditOffer" Click="EditOffer_Click"/>
+                <MenuItem Header="Supprimer une offre" Name="DelOffer" Click="DelOffer_Click"/>
+            </MenuItem>
             <MenuItem Header="_Gestion des clients">
                 <MenuItem Header="Liste des clients" Name="ClientsList" Click="ClientsList_Click"/>
                 <MenuItem Header="Ajouter un client" Name="AddPartner" Click="AddPartner_Click"/>
@@ -38,8 +41,8 @@
                 <MenuItem Header="Supprimer un client" Name="DelPartner" Click="DelPartner_Click"/>
             </MenuItem>
             <MenuItem Header="_Paramètres">
-                    <MenuItem Header="Paramètres généraux" Name="Settings" Click="Settings_Click"/>
-                    <MenuItem Header="Personnalisation du compte" Name="AccountCustomization" Click="AccountCustomization_Click"/>
+                <MenuItem Header="Paramètres généraux" Name="Settings" Click="Settings_Click"/>
+                <MenuItem Header="Personnalisation du compte" Name="AccountCustomization" Click="AccountCustomization_Click"/>
                     <MenuItem Header="Gestion du compte" Name="AccountManagement" Click="AccountManagement_Click"/>
                 </MenuItem>
             </Menu>

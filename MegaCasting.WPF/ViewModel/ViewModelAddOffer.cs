@@ -49,6 +49,7 @@ namespace MegaCasting.WPF.ViewModel
 		/// </summary>
 		private Contrat _SelectedContrat;
 		#endregion
+
 		#region Properties
 		/// <summary>
 		/// Obtient ou défini la collection d'offre
@@ -123,6 +124,7 @@ namespace MegaCasting.WPF.ViewModel
 			set { _SelectedContrat = value; }
 		}
 		#endregion
+
 		#region Construteur
 		public ViewModelAddOffer(MegaCastingEntities entities)
 			: base(entities)
@@ -139,6 +141,7 @@ namespace MegaCasting.WPF.ViewModel
 
 		}
 		#endregion
+
 		#region Method
 		/// <summary>
 		/// Sauvegarde les modifications 

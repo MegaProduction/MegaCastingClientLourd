@@ -25,7 +25,6 @@ namespace MegaCasting.WPF.View
         {
             InitializeComponent();
         }
-
         private void DeleteOffreButton_Click(object sender, RoutedEventArgs e)
         {
             ((ViewModelDelOffre)this.DataContext).DeleteOffre();

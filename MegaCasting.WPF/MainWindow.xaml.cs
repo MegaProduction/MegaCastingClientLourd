@@ -122,19 +122,28 @@ namespace MegaCasting.WPF
         private void AddPartner_Click(object sender, RoutedEventArgs e)
         {
             this.DockPanelView.Children.Clear();
-            this.DockPanelView.Children.Add(new ViewAddPartner());
+            ViewModelAddPartner viewModelAddPartner = new ViewModelAddPartner(Entities);
+            ViewAddPartner viewAddPartner = new ViewAddPartner();
+            this.DataContext = viewModelAddPartner;
+            this.DockPanelView.Children.Add(viewAddPartner);
         }
 
         private void EditPartner_Click(object sender, RoutedEventArgs e)
         {
             this.DockPanelView.Children.Clear();
-            this.DockPanelView.Children.Add(new ViewEditPartner());
+            ViewModelEditPartner viewModelEditPartner = new ViewModelEditPartner(Entities);
+            ViewEditPartner viewEditPartner = new ViewEditPartner();
+            this.DataContext = viewModelEditPartner;
+            this.DockPanelView.Children.Add(viewEditPartner);
         }
 
         private void DelPartner_Click(object sender, RoutedEventArgs e)
         {
             this.DockPanelView.Children.Clear();
-            this.DockPanelView.Children.Add(new ViewDelPartner());
+            ViewModelDelPartner viewModelDelPartner = new ViewModelDelPartner(Entities);
+            ViewDelPartner viewDelPartner = new ViewDelPartner();
+            this.DataContext = viewModelDelPartner;
+            this.DockPanelView.Children.Add(viewDelPartner);
         }
 
         private void Settings_Click(object sender, RoutedEventArgs e)
