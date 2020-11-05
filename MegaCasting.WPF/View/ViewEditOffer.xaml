@@ -7,6 +7,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
+        <!--#region Définition de la Grid principale-->
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
@@ -14,23 +15,111 @@
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="60pt"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="0.5*"/>
+            <RowDefinition Height="0.5*"/>
+            <RowDefinition Height="0.5*"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
+        <!--#endregion-->
         <Label Style="{StaticResource LabelStyle}" Grid.Row="0" Grid.Column="1">Editer une offre</Label>
         <ListBox ItemsSource="{Binding Offres}" Grid.Row="1" Grid.RowSpan="3" Grid.Column="0" DisplayMemberPath="Intitule" SelectedItem="{Binding SelectedOffre}">
         </ListBox>
-        <ComboBox 
-            Grid.Row="1" 
-            Grid.Column="1" 
-            Text="{Binding SelectedOffre.Ville.Libelle}" 
-            Visibility="{Binding SelectedOffre, Converter={StaticResource _SharedObjectToVisibilityConverter}}" 
-            ItemsSource="{Binding Villes}"
-            SelectedValuePath="Identifiant"
-            DisplayMemberPath="Libelle"
-            Name="comboBoxVille"
-            SelectedValue="{Binding Path=Villes.Identifiant}"/>
+        <!--#region Définition de la grid pour l'édition de l'offre-->
+        <Grid Grid.Column="1" Grid.Row="1" Grid.RowSpan="3" Background="Beige">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <!--#region Edition offre Ville, Intitule, Description du profil, Description du poste, Nombre de postes, Durée de diffusion, Date de début, Coordonnées, IdentifiantContrat, EstValide-->
+            <ComboBox 
+                Grid.Row="0" 
+                Text="{Binding SelectedOffre.Ville.Libelle}" 
+                Visibility="{Binding SelectedOffre, Converter={StaticResource _SharedObjectToVisibilityConverter}}" 
+                ItemsSource="{Binding Villes}"
+                SelectedItem="{Binding SelectedOffre.Ville}"
+                DisplayMemberPath="Libelle"
+                Name="comboBoxVille"/>
+            <TextBox
+                TextChanged="TexBoxEditIntitule_TextChanged"
+                Grid.Row="1"
+                Name="texBoxEditIntitule" 
+                Text="{Binding SelectedOffre.Intitule}" 
+                Visibility="{Binding SelectedOffre, Converter={StaticResource _SharedObjectToVisibilityConverter}}"
+                Height="25px"
+                ToolTip="Ce champs permet d'éditer l'intitulé de l'offre"
+                TextAlignment="Left"/>
+            <TextBox
+                Grid.Row="2"
+                Text="{Binding SelectedOffre.DescriptionProfil}"
+                Name="texBoxEditDescriptionProfil"
+                TextChanged="TexBoxEditDescriptionProfil_TextChanged"
+                Visibility="{Binding SelectedOffre, Converter={StaticResource _SharedObjectToVisibilityConverter}}"
+                Height="25px"
+                TextAlignment="Left"
+                ToolTip="Ce champs permet d'éditer la description du profil recherché pour l'offre"/>
+            <TextBox
+                Grid.Row="3"
+                Text="{Binding SelectedOffre.DescriptionPoste}"
+                Name="texBoxEditDescriptionPoste"
+                TextChanged="TexBoxEditDescriptionPoste_TextChanged"
+                Visibility="{Binding SelectedOffre, Converter={StaticResource _SharedObjectToVisibilityConverter}}"
+                Height="25px"
+                TextAlignment="Left"
+                ToolTip="Ce champs permet d'éditer la description du poste de l'offre"/>
+            <TextBox
+                Grid.Row="4"
+                Text="{Binding SelectedOffre.NbPostes}"
+                Name="texBoxEditNombrePostes"
+                TextChanged="TexBoxEditNombrePostes_TextChanged"
+                Visibility="{Binding SelectedOffre, Converter={StaticResource _SharedObjectToVisibilityConverter}}"
+                Height="25px"
+                TextAlignment="Left"
+                PreviewTextInput="TexBoxEditNombrePostes_PreviewTextInput"
+                ToolTip="Ce champs n'accepete que des nombres pour le nombre de poste"/>
+            <TextBox
+                Grid.Row="5"
+                Text="{Binding SelectedOffre.DureeDiffusion}"
+                Name="texBoxEditDureeDiffusion"
+                TextChanged="TexBoxEditDureeDiffusion_TextChanged"
+                Visibility="{Binding SelectedOffre, Converter={StaticResource _SharedObjectToVisibilityConverter}}"
+                Height="25px"
+                TextAlignment="Left"
+                PreviewTextInput="TexBoxEditDureeDiffusion_PreviewTextInput"
+                ToolTip="Ce champs n'accepete que des nombres pour la durée de diffusion"/>
+            <DatePicker
+                Grid.Row="6"
+                SelectedDate="{Binding SelectedOffre.DateDebut}"
+                Name="datePickerEditDateDebut"
+                Visibility="{Binding SelectedOffre, Converter={StaticResource _SharedObjectToVisibilityConverter}}"
+                Height="25px"
+                ToolTip="Ce champs n'accepete que des dates"
+                PreviewTextInput="DatePickerEditDateDebut_PreviewTextInput"/>
+            <TextBox
+                Grid.Row="7"
+                Name="texBoxEditCoordonnees"
+                Text="{Binding SelectedOffre.Coordonnées}"
+                Visibility="{Binding SelectedOffre, Converter={StaticResource _SharedObjectToVisibilityConverter}}"
+                Height="25px"
+                TextAlignment="Left"
+                PreviewTextInput="TexBoxEditCoordonnees_PreviewTextInput"
+                ToolTip="Ce champs n'accepete que les numéro de téléphone"/>
+            <ComboBox
+                Grid.Row="8"
+                Text="{Binding SelectedOffre.Contrat.Libelle}" 
+                Visibility="{Binding SelectedOffre, Converter={StaticResource _SharedObjectToVisibilityConverter}}" 
+                ItemsSource="{Binding Contrats}"
+                SelectedItem="{Binding SelectedOffre.Contrat}"
+                DisplayMemberPath="Libelle"
+                Name="comboBoxContrat"/>
+            <!--#endregion-->
+        </Grid>
         <Button Name="ButtonEditOffer" Content="Confirmer" Grid.Column="1" Grid.Row="4" Click="ButtonEditOffer_Click"></Button>
     </Grid>
 </UserControl>

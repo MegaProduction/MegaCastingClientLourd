@@ -5,6 +5,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace MegaCasting.WPF.ViewModel
 {
@@ -19,6 +20,10 @@ namespace MegaCasting.WPF.ViewModel
         /// Collection des villes
         /// </summary>
         private ObservableCollection<Ville> _Villes;
+        /// <summary>
+        /// Collection des contrats
+        /// </summary>
+        private ObservableCollection<Contrat> _Contrats;
         /// <summary>
         /// Offre sélectionnée
         /// </summary>
@@ -42,6 +47,14 @@ namespace MegaCasting.WPF.ViewModel
             set { _Villes = value; }
         }
         /// <summary>
+        /// Obtient ou définit la collection des contrats
+        /// </summary>
+        public ObservableCollection<Contrat> Contrats
+        {
+            get { return _Contrats; }
+            set { _Contrats = value; }
+        }
+        /// <summary>
         /// Obtient ou définit l'offre sélectionnée
         /// </summary>
         public Offre SelectedOffre
@@ -58,12 +71,38 @@ namespace MegaCasting.WPF.ViewModel
             this.Offres = this.Entities.Offres.Local;
             this.Entities.Villes.ToList();
             this.Villes = this.Entities.Villes.Local;
+            this.Entities.Contrats.ToList();
+            this.Contrats = this.Entities.Contrats.Local;
         }
         #endregion
-        #region MyRegion
+        #region Method
+        /// <summary>
+        /// Sauvegarde les modifications 
+        /// </summary>
+        public void SaveChanges()
+        {
+            this.Entities.SaveChanges();
+        }
+        /// <summary>
+        /// Edit l'offre sélectionné
+        /// </summary>
         public void EditOffer()
         {
-            Offre offre = new Offre();
+            this.SaveChanges();
+        }
+        /// <summary>
+        /// Vérifie si le champs est vide, null ou composé unique d'espace blanc
+        /// </summary>
+        /// <param name="input">champs a check si : vide, null ou se compose unique d'espace blanc</param>
+        /// <returns></returns>
+        public bool CheckName(string input)
+        {
+            bool result = false;
+            if (!string.IsNullOrWhiteSpace(input))
+            {
+                result = true;
+            }
+            return result;
         }
         #endregion
 
