@@ -88,19 +88,28 @@ namespace MegaCasting.WPF.ViewModel
 			this.Entities.SaveChanges();
 		}
 
+		/// <summary>
+		/// Édite un client
+		/// </summary>
+		/// <param name="libelle"></param>
 		public void EditPartner(string libelle)
 		{
 			if (VerifPartner(libelle))
 			{
 				this.SaveChanges();
-				MessageBox.Show("Youpi.");
+				MessageBox.Show("Client modifié.");
 			}
 			else
 			{
-				MessageBox.Show("Erreur de saisie");
+				MessageBox.Show("Erreur de saisie.");
 			}
 		}
 
+		/// <summary>
+		/// Vérifie si un champ est vide, contient un espace ou null.
+		/// </summary>
+		/// <param name="libelle"></param>
+		/// <returns></returns>
 		public bool VerifPartner(string libelle)
 		{
 			bool returnValid = false;

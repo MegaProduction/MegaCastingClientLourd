@@ -30,5 +30,10 @@ namespace MegaCasting.WPF.View
         {
                 ((ViewModelEditPartner)this.DataContext).EditPartner(TextBoxLibelle.Text);
         }
+
+        private void TextBoxLibelle_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            ButtonEditPartner.IsEnabled = ((ViewModelEditPartner)this.DataContext).VerifPartner(TextBoxLibelle.Text);
+        }
     }
 }
