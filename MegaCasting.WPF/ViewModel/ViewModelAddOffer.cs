@@ -150,9 +150,9 @@ namespace MegaCasting.WPF.ViewModel
 		/// <summary>
 		/// Ajoute une offre
 		/// <param name="intitule">Nom de l'offre</param>
-		/// <param name="ville">Identifiant de la ville</param>
+		/// <param name="identifiantVille">Identifiant de la ville</param>
 		/// <param name="identifiantContrat">Identifiant du contrat</param>
-		/// <param name="client">Identifiant du client</param>
+		/// <param name="identifiantClient">Identifiant du client</param>
 		/// <param name="date">Date de début de l'offre</param>
 		/// <param name="desProfil">Description du profil pour le postulant</param>
 		/// <param name="desPoste">Description de l'offre</param>
@@ -187,7 +187,7 @@ namespace MegaCasting.WPF.ViewModel
 					offre.Coordonnées = desCoord;
 					this.Offres.Add(offre);
 					OffreClient offreClient = new OffreClient();
-					offreClient.IdentifiantPartenaire = idClient;
+					offreClient.IdentifiantClient = idClient;
 					offreClient.IdentifiantOffre = offre.Identifiant;
 					this.OffreClients.Add(offreClient);
 					this.SaveChanges();

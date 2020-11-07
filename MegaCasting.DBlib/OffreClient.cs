@@ -16,7 +16,7 @@ namespace MegaCasting.DBlib
     {
         public int Identifiant { get; set; }
         public int IdentifiantOffre { get; set; }
-        public int IdentifiantPartenaire { get; set; }
+        public int IdentifiantClient { get; set; }
     
         public virtual Client Client { get; set; }
         public virtual Offre Offre { get; set; }

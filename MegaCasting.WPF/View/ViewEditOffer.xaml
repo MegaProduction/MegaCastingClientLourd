@@ -47,7 +47,6 @@
                 DisplayMemberPath="Libelle"
                 Name="comboBoxVille"/>
             <TextBox
-                TextChanged="TexBoxEditIntitule_TextChanged"
                 Grid.Row="1"
                 Name="texBoxEditIntitule" 
                 Text="{Binding SelectedOffre.Intitule}" 
@@ -59,7 +58,6 @@
                 Grid.Row="2"
                 Text="{Binding SelectedOffre.DescriptionProfil}"
                 Name="texBoxEditDescriptionProfil"
-                TextChanged="TexBoxEditDescriptionProfil_TextChanged"
                 Visibility="{Binding SelectedOffre, Converter={StaticResource _SharedObjectToVisibilityConverter}}"
                 Height="25px"
                 TextAlignment="Left"
@@ -68,7 +66,6 @@
                 Grid.Row="3"
                 Text="{Binding SelectedOffre.DescriptionPoste}"
                 Name="texBoxEditDescriptionPoste"
-                TextChanged="TexBoxEditDescriptionPoste_TextChanged"
                 Visibility="{Binding SelectedOffre, Converter={StaticResource _SharedObjectToVisibilityConverter}}"
                 Height="25px"
                 TextAlignment="Left"
@@ -77,7 +74,6 @@
                 Grid.Row="4"
                 Text="{Binding SelectedOffre.NbPostes}"
                 Name="texBoxEditNombrePostes"
-                TextChanged="TexBoxEditNombrePostes_TextChanged"
                 Visibility="{Binding SelectedOffre, Converter={StaticResource _SharedObjectToVisibilityConverter}}"
                 Height="25px"
                 TextAlignment="Left"
@@ -87,7 +83,6 @@
                 Grid.Row="5"
                 Text="{Binding SelectedOffre.DureeDiffusion}"
                 Name="texBoxEditDureeDiffusion"
-                TextChanged="TexBoxEditDureeDiffusion_TextChanged"
                 Visibility="{Binding SelectedOffre, Converter={StaticResource _SharedObjectToVisibilityConverter}}"
                 Height="25px"
                 TextAlignment="Left"
@@ -120,6 +115,17 @@
                 Name="comboBoxContrat"/>
             <!--#endregion-->
         </Grid>
-        <Button Name="ButtonEditOffer" Content="Confirmer" Grid.Column="1" Grid.Row="4" Click="ButtonEditOffer_Click"></Button>
+        <Button Visibility="{Binding SelectedOffre, Converter={StaticResource _SharedObjectToVisibilityConverter}}" Name="ButtonEditOffer" Content="Confirmer" Grid.Column="1" Grid.Row="4" Click="ButtonEditOffer_Click">
+            <Button.IsEnabled>
+                <MultiBinding Converter="{StaticResource _SharedBoolToEnable}">
+                    <Binding ElementName="texBoxEditCoordonnees" Path="Text"/>
+                    <Binding ElementName="texBoxEditDureeDiffusion" Path="Text"/>
+                    <Binding ElementName="texBoxEditNombrePostes" Path="Text"/>
+                    <Binding ElementName="texBoxEditIntitule" Path="Text"/>
+                    <Binding ElementName="texBoxEditDescriptionProfil" Path="Text"/>
+                    <Binding ElementName="texBoxEditDescriptionPoste" Path="Text"/>
+                </MultiBinding>
+            </Button.IsEnabled>
+        </Button>
     </Grid>
 </UserControl>

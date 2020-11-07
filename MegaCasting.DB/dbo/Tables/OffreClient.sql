@@ -4,6 +4,8 @@
     [IdentifiantClient] INT NOT NULL,
     CONSTRAINT [PK_OffreClient] PRIMARY KEY CLUSTERED ([Identifiant] ASC),
     CONSTRAINT [FK_OffreClient_Client] FOREIGN KEY ([IdentifiantClient]) REFERENCES [dbo].[Client] ([Identifiant]),
-    CONSTRAINT [FK_OffreClient_Offre] FOREIGN KEY ([IdentifiantOffre]) REFERENCES [dbo].[Offre] ([Identifiant])
+    CONSTRAINT [FK_OffreClient_Offre] FOREIGN KEY ([IdentifiantOffre]) REFERENCES [dbo].[Offre] ([Identifiant]) ON DELETE CASCADE ON UPDATE CASCADE
 );
+
+
 

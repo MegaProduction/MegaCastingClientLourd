@@ -1,4 +1,5 @@
 ﻿using MegaCasting.DBlib;
+using MegaCasting.WPF.Model;
 using MegaCasting.WPF.View;
 using MegaCasting.WPF.ViewModel;
 using System;
@@ -173,6 +174,30 @@ namespace MegaCasting.WPF
             this.DataContext = viewModelClientsList;
 
             this.DockPanelView.Children.Add(viewPartnersList);
+        }
+
+        private void LocalizationList_Click(object sender, RoutedEventArgs e)
+        {
+            this.DockPanelView.Children.Clear();
+            this.DockPanelView.Children.Add(new ViewAddLocalization());
+        }
+
+        private void LocalizationAdd_Click(object sender, RoutedEventArgs e)
+        {
+            this.DockPanelView.Children.Clear();
+            this.DockPanelView.Children.Add(new ViewAddLocalization());
+        }
+
+        private void LocalizationEdit_Click(object sender, RoutedEventArgs e)
+        {
+            this.DockPanelView.Children.Clear();
+            this.DockPanelView.Children.Add(new ViewAddLocalization());
+        }
+
+        private void LocalizationDelete_Click(object sender, RoutedEventArgs e)
+        {
+            this.DockPanelView.Children.Clear();
+            this.DockPanelView.Children.Add(new ViewAddLocalization());
         }
     }
 }

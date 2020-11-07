@@ -37,11 +37,17 @@
                 <MenuItem Header="Editer un client" Name="EditPartner" Click="EditPartner_Click"/>
                 <MenuItem Header="Supprimer un client" Name="DelPartner" Click="DelPartner_Click"/>
             </MenuItem>
+            <MenuItem Header="_Gestion localisation">
+                <MenuItem Header="Liste des localisations" Name="LocalizationList" Click="LocalizationList_Click"/>
+                <MenuItem Header="Ajouter une localisation" Name="LocalizationAdd" Click="LocalizationAdd_Click"/>
+                <MenuItem Header="Editer une localisation" Name="LocalizationEdit" Click="LocalizationEdit_Click"/>
+                <MenuItem Header="Supprimer une localisation" Name="LocalizationDelete" Click="LocalizationDelete_Click"/>
+            </MenuItem>
             <MenuItem Header="_Paramètres">
-                    <MenuItem Header="Paramètres généraux" Name="Settings" Click="Settings_Click"/>
-                    <MenuItem Header="Personnalisation du compte" Name="AccountCustomization" Click="AccountCustomization_Click"/>
-                    <MenuItem Header="Gestion du compte" Name="AccountManagement" Click="AccountManagement_Click"/>
-                </MenuItem>
+                <MenuItem Header="Paramètres généraux" Name="Settings" Click="Settings_Click"/>
+                <MenuItem Header="Personnalisation du compte" Name="AccountCustomization" Click="AccountCustomization_Click"/>
+                <MenuItem Header="Gestion du compte" Name="AccountManagement" Click="AccountManagement_Click"/>
+            </MenuItem>
             </Menu>
         <Button Background="LightGray" Foreground="Black" HorizontalAlignment="Right" VerticalAlignment="Bottom" Grid.Row="2" Content="Accueil" Name="ButtonBack" Click="ButtonBack_Click" ></Button>
         <DockPanel x:Name="DockPanelView" Grid.Row="1" Background="Transparent">

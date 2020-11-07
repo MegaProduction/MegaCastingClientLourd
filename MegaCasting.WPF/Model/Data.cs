@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace MegaCasting.WPF.Model
 {
-    class Json
+    class Data
     {
         #region Attributes
         private string _Name;
@@ -39,7 +39,7 @@ namespace MegaCasting.WPF.Model
         /// </summary>
         /// <param name="name">Nom de la clé json</param>
         /// <param name="color">code couleur enregistrée</param>
-        public Json(string name, string color)
+        public Data(string name, string color)
         {
             this.Name = name;
             this.Color = color;
@@ -71,8 +71,9 @@ namespace MegaCasting.WPF.Model
         /// </summary>
         /// <param name="fileName">Source du fichier</param>
         /// <returns>Retourne une string</returns>
-        public string OpenFile(string fileName = "..\\..\\data\\config.json")
+        public string OpenFile()
         {
+            string fileName = "..\\..\\data\\config.json";
             //String de retour content la valeur en hex du background color Custom
             string content = "";
             //Ouvre dans le fichier config.json dans le dossier data de l'application
@@ -81,7 +82,7 @@ namespace MegaCasting.WPF.Model
                 //Lit jusqu'à la fin du fichier
                 string json = streamReader.ReadToEnd();
                 //Création d'une liste d'objet Json pour deserializer son contenu serialize
-                List<Json> jsons = JsonConvert.DeserializeObject<List<Json>>(json);
+                List<Data> jsons = JsonConvert.DeserializeObject<List<Data>>(json);
                 //Convertir la liste d'objet Json en string en cherchant dans le fichier la ligne Custom pour récupérer le code couleur
                 string result = string.Join("\n", jsons.Where(j => j.Name == "Custom").Select(j => j.Color));
                 //Affectation de la string result à content

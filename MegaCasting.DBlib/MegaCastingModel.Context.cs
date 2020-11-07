@@ -26,14 +26,14 @@ namespace MegaCasting.DBlib
         }
     
         public virtual DbSet<Candidat> Candidats { get; set; }
+        public virtual DbSet<Client> Clients { get; set; }
         public virtual DbSet<Contrat> Contrats { get; set; }
         public virtual DbSet<Domaine> Domaines { get; set; }
         public virtual DbSet<Metier> Metiers { get; set; }
-        public virtual DbSet<Postule> Postules { get; set; }
-        public virtual DbSet<Client> Clients { get; set; }
-        public virtual DbSet<Pay> Pays { get; set; }
         public virtual DbSet<Offre> Offres { get; set; }
-        public virtual DbSet<Ville> Villes { get; set; }
         public virtual DbSet<OffreClient> OffreClients { get; set; }
+        public virtual DbSet<Pay> Pays { get; set; }
+        public virtual DbSet<Postule> Postules { get; set; }
+        public virtual DbSet<Ville> Villes { get; set; }
     }
 }

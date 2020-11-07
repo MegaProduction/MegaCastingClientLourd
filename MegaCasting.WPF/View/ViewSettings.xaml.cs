@@ -31,11 +31,11 @@ namespace MegaCasting.WPF.View
         private void colorPicker_MouseMove(object sender, MouseEventArgs e)
         {
             Color color = colorPicker.Color;
-            Json json = new Json("Custom", color.ToString());
-            Json jsonDefault = new Json("Default", "AAAAAA");
+            Data json = new Data("Custom", color.ToString());
+            Data jsonDefault = new Data("Default", "AAAAAA");
             MainWindow mw = (MainWindow)Application.Current.MainWindow;
             mw.Background = new SolidColorBrush(color);
-            List<Json> jsons = new List<Json>();
+            List<Data> jsons = new List<Data>();
             jsons.Add(json);
             jsons.Add(jsonDefault);
             json.JsonFile(jsons);

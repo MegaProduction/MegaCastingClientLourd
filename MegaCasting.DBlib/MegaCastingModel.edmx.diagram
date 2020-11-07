@@ -4,26 +4,26 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="1300f9824ca24f38a90163240a13e4d4" Name="Diagram1">
-        <EntityTypeShape EntityType="MegaCastingModel.Candidat" Width="1.5" PointX="3" PointY="7.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="MegaCastingModel.Contrat" Width="1.5" PointX="0.75" PointY="4" IsExpanded="true" />
-        <EntityTypeShape EntityType="MegaCastingModel.Domaine" Width="1.5" PointX="5.75" PointY="7.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="MegaCastingModel.Metier" Width="1.5" PointX="8" PointY="7.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="MegaCastingModel.Postule" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
-        <AssociationConnector Association="MegaCastingModel.FK_Postule_Candidat" ManuallyRouted="false" />
-        <AssociationConnector Association="MegaCastingModel.FK_Metier_Domaine" ManuallyRouted="false" />
-        <EntityTypeShape EntityType="MegaCastingModel.Client" Width="1.5" PointX="3" PointY="11.75" />
-        <EntityTypeShape EntityType="MegaCastingModel.Pay" Width="1.5" PointX="0.75" PointY="7.125" />
-        <EntityTypeShape EntityType="MegaCastingModel.Offre" Width="1.5" PointX="8.25" PointY="1.5" />
+      <Diagram DiagramId="1300f9824ca24f38a90163240a13e4d4" Name="Diagram1" ZoomLevel="88">
+        <EntityTypeShape EntityType="MegaCastingModel.Candidat" Width="1.5" PointX="5.25" PointY="0.75" />
+        <EntityTypeShape EntityType="MegaCastingModel.Client" Width="1.5" PointX="5.25" PointY="9.625" />
+        <EntityTypeShape EntityType="MegaCastingModel.Contrat" Width="1.5" PointX="3" PointY="2.125" />
+        <EntityTypeShape EntityType="MegaCastingModel.Domaine" Width="1.5" PointX="7.75" PointY="10.25" />
+        <EntityTypeShape EntityType="MegaCastingModel.Metier" Width="1.5" PointX="10" PointY="10.125" />
+        <EntityTypeShape EntityType="MegaCastingModel.Offre" Width="1.5" PointX="5.25" PointY="3.875" />
+        <EntityTypeShape EntityType="MegaCastingModel.OffreClient" Width="1.5" PointX="7.5" PointY="6.875" />
+        <EntityTypeShape EntityType="MegaCastingModel.Pay" Width="1.5" PointX="0.75" PointY="5.125" />
+        <EntityTypeShape EntityType="MegaCastingModel.Postule" Width="1.5" PointX="7.5" PointY="4" />
         <EntityTypeShape EntityType="MegaCastingModel.Ville" Width="1.5" PointX="3" PointY="4.75" />
+        <AssociationConnector Association="MegaCastingModel.FK_Postule_Candidat" />
         <AssociationConnector Association="MegaCastingModel.FK_Client_Ville" />
-        <AssociationConnector Association="MegaCastingModel.FK_Offre_Contrat" />
-        <AssociationConnector Association="MegaCastingModel.FK_Offre_Ville" />
-        <AssociationConnector Association="MegaCastingModel.FK_Postule_Offre" />
-        <AssociationConnector Association="MegaCastingModel.FK_Pays_Pays" />
-        <EntityTypeShape EntityType="MegaCastingModel.OffreClient" Width="1.5" PointX="10.5" PointY="6.875" />
         <AssociationConnector Association="MegaCastingModel.FK_OffreClient_Client" />
+        <AssociationConnector Association="MegaCastingModel.FK_Offre_Contrat" />
+        <AssociationConnector Association="MegaCastingModel.FK_Metier_Domaine" />
+        <AssociationConnector Association="MegaCastingModel.FK_Offre_Ville" />
         <AssociationConnector Association="MegaCastingModel.FK_OffreClient_Offre" />
+        <AssociationConnector Association="MegaCastingModel.FK_Postule_Offre" />
+        <AssociationConnector Association="MegaCastingModel.FK_Ville_Pays" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

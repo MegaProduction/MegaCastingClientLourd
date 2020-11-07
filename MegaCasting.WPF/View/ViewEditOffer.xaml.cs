@@ -32,25 +32,6 @@ namespace MegaCasting.WPF.View
             ((ViewModelEditOffer)this.DataContext).EditOffer();
         }
 
-        private void TexBoxEditIntitule_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            ButtonEditOffer.IsEnabled = ((ViewModelEditOffer)this.DataContext).CheckName(texBoxEditIntitule.Text);
-        }
-
-        private void TexBoxEditDescriptionProfil_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            ButtonEditOffer.IsEnabled = ((ViewModelEditOffer)this.DataContext).CheckName(texBoxEditDescriptionProfil.Text);
-        }
-        private void TexBoxEditDescriptionPoste_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            ButtonEditOffer.IsEnabled = ((ViewModelEditOffer)this.DataContext).CheckName(texBoxEditDescriptionPoste.Text);
-        }
-
-        private void TexBoxEditNombrePostes_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            ButtonEditOffer.IsEnabled = ((ViewModelEditOffer)this.DataContext).CheckName(texBoxEditNombrePostes.Text);
-        }
-
         private void TexBoxEditNombrePostes_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
             //Permet de définir le pattern autoriser dans la texBox ici des chiffres/nombres
