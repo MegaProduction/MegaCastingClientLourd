@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using MegaCasting.DBlib;
 using System.Collections.ObjectModel;
 using System.Windows;
+using System.Security.Policy;
+using System.Security.Cryptography;
 
 namespace MegaCasting.WPF.ViewModel
 {
@@ -87,6 +89,24 @@ namespace MegaCasting.WPF.ViewModel
 			this.Entities.SaveChanges();
 		}
 
+		static string ComputeMD5Hash(string rawData)
+		{
+			// Create a SHA256   
+			using (MD5 md5Hash = MD5.Create())
+			{
+				// ComputeHash - returns byte array  
+				byte[] bytes = md5Hash.ComputeHash(Encoding.UTF8.GetBytes(rawData));
+
+				// Convert byte array to a string   
+				StringBuilder builder = new StringBuilder();
+				for (int i = 0; i < bytes.Length; i++)
+				{
+					builder.Append(bytes[i].ToString("x2"));
+				}
+				return builder.ToString();
+			}
+		}
+
 		/// <summary>
 		/// Ajoute un partenaire (limité par le Covid)
 		/// </summary>
@@ -103,7 +123,9 @@ namespace MegaCasting.WPF.ViewModel
 				{
 					Client clients = new Client();
 					clients.Login = login;
-					clients.Password = password;
+					MD5 md5hash = MD5.Create();
+					string hashedpassword = ComputeMD5Hash(password);
+					clients.Password = hashedpassword;
 					clients.Libelle = libelle;
 					clients.VilleIdentifiant = villeId;
 					this.Client.Add(clients);

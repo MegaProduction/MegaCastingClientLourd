@@ -74,7 +74,6 @@ namespace MegaCasting.WPF.View
         private void ButtonAddPartner_Click(object sender, RoutedEventArgs e)
         {
                 ((ViewModelAddPartner)this.DataContext).AddPartner(TextBoxNom.Text, TextBoxPas.Text, TextBoxLibelle.Text, comboBoxVille.SelectedValue.ToString());
-                MessageBox.Show("Le client a été ajouté dans la base de données.");
                 TextBoxNom_GotFocus(sender, e);
                 TextBoxPas_GotFocus(sender, e);
                 TextBoxLibelle_GotFocus(sender, e);
