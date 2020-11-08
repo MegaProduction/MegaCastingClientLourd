@@ -17,6 +17,7 @@
             </ResourceDictionary.MergedDictionaries>
             <!--#region Converters-->
             <converter:ObjectToVisibilityConverter x:Key="_SharedObjectToVisibilityConverter"/>
+            <converter:BoolToEnabled x:Key="_SharedBoolToEnabled"/>
             <!--#endregion-->
         </ResourceDictionary>
     </Application.Resources>

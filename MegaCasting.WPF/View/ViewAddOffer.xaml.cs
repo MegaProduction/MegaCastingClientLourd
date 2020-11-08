@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -105,19 +106,16 @@ namespace MegaCasting.WPF.View
                 TextBoxCoord.GotFocus += TextBoxCoord_GotFocus;
             }
         }
-        private void TextBoxDatDeb_LostFocus(object sender, RoutedEventArgs e)
-        {
-            if (TextBoxDatDeb.Text.Trim().Equals(string.Empty))
-            {
-                TextBoxDatDeb.Text = "Date de début";
-                TextBoxDatDeb.GotFocus += TextBoxDatDeb_GotFocus;
 
-            }
-        }
-        private void TextBoxDatDeb_GotFocus(object sender, RoutedEventArgs e)
+        private void DatePickerDateDebut_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
-            TextBoxDatDeb.Text = string.Empty;
-            TextBoxDatDeb.GotFocus -= TextBoxDatDeb_GotFocus;
+            Regex regex = new Regex("[^0-9/]+");
+            e.Handled = regex.IsMatch(e.Text);
+        }
+        private void TextBoxCoord_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            Regex regex = new Regex("^(0|\\+33)[1-9]([-. ]?[0-9]{2}){4}$");
+            e.Handled = regex.IsMatch(e.Text);
         }
         #endregion
 
@@ -128,11 +126,12 @@ namespace MegaCasting.WPF.View
         /// <param name="e"></param>
         private void AddOffre_Click(object sender, RoutedEventArgs e)
         {
+            DateTime dateTime = DateTime.Now;
            ((ViewModelAddOffer)this.DataContext).AddOffre(
                TextBoxIntitule.Text,
                comboBoxLocalisation.SelectedValue.ToString(),
                comboBoxContrat.SelectedValue.ToString(),
-               TextBoxDatDeb.Text,
+               datePickerDateDebut.SelectedDate.ToString(),
                comboBoxClient.SelectedValue.ToString(),
                TextBoxNbPostes.Text,
                TextBoxDescripProfil.Text,
