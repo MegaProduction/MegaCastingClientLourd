@@ -33,6 +33,7 @@ namespace MegaCasting.DBlib
         public string Coordonnées { get; set; }
         public bool EstValide { get; set; }
         public int IdentifiantContrat { get; set; }
+        public Nullable<System.DateTime> DateAjout { get; set; }
     
         public virtual Contrat Contrat { get; set; }
         public virtual Ville Ville { get; set; }

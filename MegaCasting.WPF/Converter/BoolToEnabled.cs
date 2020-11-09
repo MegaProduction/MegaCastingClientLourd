@@ -15,7 +15,7 @@ namespace MegaCasting.WPF.Converter
             bool returnValid = true;
             foreach (object value in values)
             {
-                if ((value is bool) && (bool)value == false && string.IsNullOrWhiteSpace(value.ToString()))
+                if (string.IsNullOrWhiteSpace(value.ToString()))
                 {
                     returnValid = false;
                 }

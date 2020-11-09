@@ -44,18 +44,18 @@
             ToolTip="Ce champs n'accepete que des dates"
             PreviewTextInput="DatePickerDateDebut_PreviewTextInput"
             />
-        <TextBox FontSize="15px" Grid.Row="6" Width="150px" HorizontalAlignment="Center" VerticalAlignment="Bottom" Text="Nombre de postes" Name="TextBoxNbPostes" GotFocus="TextBoxNbPostes_GotFocus" LostFocus="TextBoxNbPostes_LostFocus"></TextBox>
+        <TextBox FontSize="15px" Grid.Row="6" Width="150px" HorizontalAlignment="Center" VerticalAlignment="Bottom" Text="Nombre de postes" Name="TextBoxNbPostes" GotFocus="TextBoxNbPostes_GotFocus" LostFocus="TextBoxNbPostes_LostFocus"
+                 PreviewTextInput="TextBoxNbPostes_PreviewTextInput"></TextBox>
         <ComboBox
             FontSize="15px"
             Grid.Row="7"
             Width="150px"
             Name="comboBoxContrat"
-            ItemsSource="{Binding Contrat}"
-            DisplayMemberPath="Libelle"
-            Text="Type de contat"
-            IsReadOnly="False"
-            SelectedValuePath="Identifiant"
-            SelectedValue="{Binding Path=Contrat.Identifiant}"/>
+            ItemsSource="{Binding Contrats}"
+            SelectedItem="{Binding SelectedContrat}"
+            SelectedValuePath="{Binding SelectedContrat.Identifiant}"
+            IsSynchronizedWithCurrentItem="True"
+            DisplayMemberPath="Libelle"/>
         <!--#region Information-->
         <Label Grid.Row="3" Grid.Column="1" HorizontalAlignment="Center" FontSize="20px">
             <Underline>Informations</Underline>
@@ -66,11 +66,11 @@
             Grid.Column="1"
             Width="150px"
             Name="comboBoxClient"
-            ItemsSource="{Binding Client}"
-            DisplayMemberPath="Libelle"
-            Text="Nom"
-            SelectedValuePath="Identifiant"
-            SelectedValue="{Binding Path=Client.Identifiant}"/>
+            ItemsSource="{Binding Clients}"
+            SelectedItem="{Binding SelectedClient}"
+            SelectedValuePath="{Binding SelectedClient.Identifiant}"
+            IsSynchronizedWithCurrentItem="True" 
+            DisplayMemberPath="Libelle"/>
         <TextBox 
             FontSize="15px" 
             Grid.Row="5" 
@@ -89,18 +89,18 @@
             Width="150px"
             Name="comboBoxLocalisation"
             ItemsSource="{Binding Villes}"
-            DisplayMemberPath="Libelle"
-            Text="Ville"
-            SelectedValuePath="Identifiant"
-            SelectedValue="{Binding Path=Villes.Identifiant}"/>
+            SelectedItem="{Binding SelectedVille}"
+            SelectedValuePath="{Binding SelectedVille.Identifiant}"
+            IsSynchronizedWithCurrentItem="True" 
+            DisplayMemberPath="Libelle"/>
         <!--#endregion-->
         <!--#region Description-->
-            <Label Grid.Row="3" Grid.Column="2" HorizontalAlignment="Center" FontSize="20px">
+        <Label Grid.Row="3" Grid.Column="2" HorizontalAlignment="Center" FontSize="20px">
             <Underline>Description</Underline>
         </Label>
-        <TextBox FontSize="15px" Grid.Row="4" Grid.Column="2" Width="150px" HorizontalAlignment="Center" VerticalAlignment="Bottom" Text="Description du poste" Name="TextBoxDescripPoste" GotFocus="TextBoxDescripPoste_GotFocus" LostFocus="TextBoxDescripPoste_LostFocus"></TextBox>
-        <TextBox FontSize="15px" Grid.Row="5" Grid.Column="2" Width="150px" HorizontalAlignment="Center" VerticalAlignment="Bottom" Text="Description du profil" Name="TextBoxDescripProfil" GotFocus="TextBoxDescripProfil_GotFocus" LostFocus="TextBoxDescripProfil_LostFocus"></TextBox>
-        <TextBox FontSize="15px" Grid.Row="6" Grid.Column="2" Width="150px" HorizontalAlignment="Center" VerticalAlignment="Bottom" Text="Durée de diffusion" Name="TextBoxDureeDiff" GotFocus="TextBoxDureeDiff_GotFocus" LostFocus="TextBoxDureeDiff_LostFocus"></TextBox>
+        <TextBox FontSize="15px" Grid.Row="4" Grid.Column="2" Width="150px" HorizontalAlignment="Center" VerticalAlignment="Bottom" Text="Description du poste" Name="TextBoxDescripPoste" GotFocus="TextBoxDescripPoste_GotFocus" LostFocus="TextBoxDescripPoste_LostFocus"/>
+        <TextBox FontSize="15px" Grid.Row="5" Grid.Column="2" Width="150px" HorizontalAlignment="Center" VerticalAlignment="Bottom" Text="Description du profil" Name="TextBoxDescripProfil" GotFocus="TextBoxDescripProfil_GotFocus" LostFocus="TextBoxDescripProfil_LostFocus"/>
+        <TextBox FontSize="15px" Grid.Row="6" Grid.Column="2" Width="150px" HorizontalAlignment="Center" VerticalAlignment="Bottom" Text="Durée de diffusion" Name="TextBoxDureeDiff" GotFocus="TextBoxDureeDiff_GotFocus" LostFocus="TextBoxDureeDiff_LostFocus" PreviewTextInput="TextBoxDureeDiff_PreviewTextInput"/>
         <!--#endregion-->
 
         

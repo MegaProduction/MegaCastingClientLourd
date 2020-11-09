@@ -65,6 +65,7 @@
           <Property Name="Coordonnées" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="EstValide" Type="bit" Nullable="false" />
           <Property Name="IdentifiantContrat" Type="int" Nullable="false" />
+          <Property Name="DateAjout" Type="datetime2" Precision="7" />
         </EntityType>
         <EntityType Name="OffreClient">
           <Key>
@@ -420,6 +421,7 @@
           <NavigationProperty Name="Ville" Relationship="MegaCastingModel.FK_Offre_Ville" FromRole="Offre" ToRole="Ville" />
           <NavigationProperty Name="Postules" Relationship="MegaCastingModel.FK_Postule_Offre" FromRole="Offre" ToRole="Postule" />
           <NavigationProperty Name="OffreClients" Relationship="MegaCastingModel.FK_OffreClient_Offre" FromRole="Offre" ToRole="OffreClient" />
+          <Property Name="DateAjout" Type="DateTime" Precision="7" />
         </EntityType>
         <EntityType Name="Ville">
           <Key>
@@ -604,6 +606,7 @@
           <EntitySetMapping Name="Offres">
             <EntityTypeMapping TypeName="MegaCastingModel.Offre">
               <MappingFragment StoreEntitySet="Offre">
+                <ScalarProperty Name="DateAjout" ColumnName="DateAjout" />
                 <ScalarProperty Name="IdentifiantContrat" ColumnName="IdentifiantContrat" />
                 <ScalarProperty Name="EstValide" ColumnName="EstValide" />
                 <ScalarProperty Name="Coordonnées" ColumnName="Coordonnées" />

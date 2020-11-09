@@ -26,7 +26,7 @@ namespace MegaCasting.WPF.View
         {
             InitializeComponent();
         }
-        #region Texbox Affichage
+        #region Affichage
         private void TextBoxIntitule_GotFocus(object sender, RoutedEventArgs e)
         {
             TextBoxIntitule.Text = string.Empty;
@@ -117,6 +117,16 @@ namespace MegaCasting.WPF.View
             Regex regex = new Regex("^(0|\\+33)[1-9]([-. ]?[0-9]{2}){4}$");
             e.Handled = regex.IsMatch(e.Text);
         }
+        private void TextBoxNbPostes_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            Regex regex = new Regex("[^0-9]+");
+            e.Handled = regex.IsMatch(e.Text);
+        }
+        private void TextBoxDureeDiff_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            Regex regex = new Regex("[^0-9]+");
+            e.Handled = regex.IsMatch(e.Text);
+        }
         #endregion
 
         /// <summary>
@@ -126,20 +136,17 @@ namespace MegaCasting.WPF.View
         /// <param name="e"></param>
         private void AddOffre_Click(object sender, RoutedEventArgs e)
         {
-            DateTime dateTime = DateTime.Now;
            ((ViewModelAddOffer)this.DataContext).AddOffre(
                TextBoxIntitule.Text,
-               comboBoxLocalisation.SelectedValue.ToString(),
-               comboBoxContrat.SelectedValue.ToString(),
-               datePickerDateDebut.SelectedDate.ToString(),
-               comboBoxClient.SelectedValue.ToString(),
+               comboBoxLocalisation.SelectedValuePath.ToString(),
+               comboBoxContrat.SelectedValuePath.ToString(),
+               datePickerDateDebut.Text,
+               comboBoxClient.SelectedValuePath.ToString(),
                TextBoxNbPostes.Text,
                TextBoxDescripProfil.Text,
                TextBoxDescripPoste.Text,
                TextBoxCoord.Text,
                TextBoxDureeDiff.Text);
         }
-
-
     }
 }

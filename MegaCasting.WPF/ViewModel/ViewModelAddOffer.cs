@@ -85,7 +85,7 @@ namespace MegaCasting.WPF.ViewModel
 		/// <summary>
 		/// Obtient ou défini la collection des clients
 		/// </summary>
-		public ObservableCollection<Client> Client
+		public ObservableCollection<Client> Clients
 		{
 			get { return _Clients; }
 			set { _Clients = value; }
@@ -109,7 +109,7 @@ namespace MegaCasting.WPF.ViewModel
 		/// <summary>
 		/// Obtient ou définit la collection des contrats
 		/// </summary>
-		public ObservableCollection<Contrat> Contrat
+		public ObservableCollection<Contrat> Contrats
 		{
 			get { return _Contrats; }
 			set { _Contrats = value; }
@@ -117,7 +117,7 @@ namespace MegaCasting.WPF.ViewModel
 		/// <summary>
 		/// Obtient ou définit le contrat sélectionné
 		/// </summary>
-		public Contrat MyProperty
+		public Contrat SelectedContrat
 		{
 			get { return _SelectedContrat; }
 			set { _SelectedContrat = value; }
@@ -132,11 +132,10 @@ namespace MegaCasting.WPF.ViewModel
 			this.Entities.Villes.ToList();
 			this.Villes = this.Entities.Villes.Local;
 			this.Entities.Clients.ToList();
-			this.Client = this.Entities.Clients.Local;
+			this.Clients = this.Entities.Clients.Local;
 			this.Entities.Contrats.ToList();
-			this.Contrat = this.Entities.Contrats.Local;
+			this.Contrats = this.Entities.Contrats.Local;
 			this.OffreClients = this.Entities.OffreClients.Local;
-
 		}
 		#endregion
 		#region Method
@@ -159,18 +158,17 @@ namespace MegaCasting.WPF.ViewModel
 		/// <param name="desCoord">Coordonnée de l'offre</param>
 		/// <param name="duree">Durée de l'offre</param>
 		/// <param name="nbPoste">Nombre de poste pour l'offre</param>
-
 		/// </summary>
 		public void AddOffre(string intitule, string identifiantVille, string identifiantContrat, string date, string identifiantClient, string nbPoste, string desProfil, string desPoste, string desCoord, string duree)
 		{
-			bool contrat = Int32.TryParse(identifiantContrat, out int idContrat);
-			bool ville = Int32.TryParse(identifiantVille, out int idVille);
-			bool client = Int32.TryParse(identifiantClient, out int idClient);
-			bool dateOffre = DateTime.TryParse(date, out DateTime dateTime);
-			bool nombrePoste = Int32.TryParse(nbPoste, out int nmbrePoste);
 			//Vérifier si l'offre existe pas
 			if (!this.Entities.Offres.Any(offres => offres.Intitule == intitule))
 			{
+				bool contrat = Int32.TryParse(identifiantContrat, out int idContrat);
+				bool ville = Int32.TryParse(identifiantVille, out int idVille);
+				bool client = Int32.TryParse(identifiantClient, out int idClient);
+				bool dateOffre = DateTime.TryParse(date, out DateTime dateTime);
+				bool nombrePoste = Int32.TryParse(nbPoste, out int nmbrePoste);
 				if (VerifOffre(intitule, ville, contrat, client, dateOffre, desPoste, desProfil, desCoord, duree, nombrePoste))
 				{
 					Offre offre = new Offre();
@@ -185,6 +183,7 @@ namespace MegaCasting.WPF.ViewModel
 					offre.DateDebut = dateTime;
 					offre.Reference = offre.Identifiant;
 					offre.Coordonnées = desCoord;
+					offre.DateAjout = DateTime.Now;
 					this.Offres.Add(offre);
 					OffreClient offreClient = new OffreClient();
 					offreClient.IdentifiantPartenaire = idClient;
@@ -205,7 +204,7 @@ namespace MegaCasting.WPF.ViewModel
 		}
 
 		/// <summary>
-		/// Vérifie si touts les champs sont bon sinon retourne faux si un des champs est faux
+		/// Vérifie si touts les champs sont non null, vide ou composé d'espace blanc sinon retourne faux si un des champs est faux
 		/// </summary>
 		/// <param name="intitule">Nom de l'offre</param>
 		/// <param name="ville">Identifiant de la ville</param>
