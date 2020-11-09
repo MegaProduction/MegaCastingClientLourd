@@ -50,5 +50,15 @@ namespace MegaCasting.WPF.View
             ((ViewModelContrat)this.DataContext).AddContrat(TextBoxNameContrat.Text);
             
         }
+
+        private void DeleteContrat_Click(object sender, RoutedEventArgs e)
+        {
+            ((ViewModelContrat)this.DataContext).DeleteContrat();
+        }
+
+        private void ButtonEditContrat_Click(object sender, RoutedEventArgs e)
+        {
+            ((ViewModelContrat)this.DataContext).UpdateContrat();
+        }
     }
 }

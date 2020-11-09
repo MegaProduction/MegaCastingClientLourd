@@ -11,11 +11,23 @@ namespace MegaCasting.WPF.ViewModel
 {
     class ViewModelContrat : ViewModelBase
     {
+        private ObservableCollection<Offre> _Offres;
+
+        public ObservableCollection<Offre> Offres
+        {
+            get { return _Offres; }
+            set { _Offres = value; }
+        }
+
         #region Attributes
         /// <summary>
         /// Collection de contrat
         /// </summary>
         private ObservableCollection<Contrat> _Contrat;
+        /// <summary>
+        /// COntrat Sélectionné
+        /// </summary>
+        private Contrat _SelectedContrat;
         #endregion
         #region Properties
         /// <summary>
@@ -26,12 +38,22 @@ namespace MegaCasting.WPF.ViewModel
             get { return _Contrat; }
             set { _Contrat = value; }
         }
+        /// <summary>
+        /// Obtient ou définit le contrat sélectionné
+        /// </summary>
+        public Contrat SelectedContrat
+        {
+            get { return _SelectedContrat; }
+            set { _SelectedContrat = value; }
+        }
         #endregion
         #region Construteur
         public ViewModelContrat(MegaCastingEntities entities) : base(entities)
         {
             this.Entities.Contrats.ToList();
             this.Contrats = this.Entities.Contrats.Local;
+            this.Entities.Offres.ToList();
+            this.Offres = this.Entities.Offres.Local;
         }
         #endregion
         #region Method
@@ -43,6 +65,17 @@ namespace MegaCasting.WPF.ViewModel
             this.Entities.SaveChanges();
         }
         /// <summary>
+        /// Permet de rollback 
+        /// </summary>
+        private void RollBack()
+        {
+            this.Entities.Database.BeginTransaction().Rollback();
+        }
+        private void Commit()
+        {
+            this.Entities.Database.BeginTransaction().Commit();
+        }
+        /// <summary>
         /// Ajoute un contrat
         /// </summary>
         /// <param name="name">Nom du contrat à ajouter</param>
@@ -50,17 +83,18 @@ namespace MegaCasting.WPF.ViewModel
         {
             if (!this.Entities.Contrats.Any(contrat => contrat.Libelle == name))
             {
-                if (VerifyContrat(name))
+                Contrat contrat = new Contrat();
+                contrat.Libelle = name;
+                try
                 {
-                    Contrat contrat = new Contrat();
-                    contrat.Libelle = name;
                     Contrats.Add(contrat);
                     this.SaveChanges();
                     MessageBox.Show("Contrat ajouté");
                 }
-                else
+                catch (System.Data.Entity.Infrastructure.DbUpdateException)
                 {
-                    MessageBox.Show("Une erreur est survenue lors de la saisie");
+                    Contrats.Remove(contrat);
+                    MessageBox.Show("Une erreur c\'est produite lors de la saisie");
                 }
             }
             else
@@ -68,14 +102,34 @@ namespace MegaCasting.WPF.ViewModel
                 MessageBox.Show("Ce contrat existe déjà");
             }
         }
-        public bool VerifyContrat(string name)
+        /// <summary>
+        /// Supprime le contrat sélectionné
+        /// </summary>
+        public void DeleteContrat()
         {
-            bool result = false;
-            if (string.IsNullOrWhiteSpace(name))
+            //Vérification si on a le droit de supprimer
+            if (!Offres.Any(offre => offre.IdentifiantContrat == SelectedContrat.Identifiant))
             {
-                result = true;
+                this.Contrats.Remove(SelectedContrat);
+                this.SaveChanges();
+                MessageBox.Show("Contrat supprimée");
             }
-            return result;
+            else
+            { 
+                MessageBox.Show("Ce contrat est utilisé dans une offre");
+            }       
+        }
+        public void UpdateContrat()
+        {
+            try
+            {
+                this.SaveChanges();
+                this.Commit();
+            }
+            catch (System.Data.Entity.Infrastructure.DbUpdateException)
+            {
+                this.RollBack();
+            }
         }
         #endregion
     }

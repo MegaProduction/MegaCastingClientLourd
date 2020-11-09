@@ -9,9 +9,14 @@
     <Grid>
         <!--#region Définition de la grille-->
         <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="60px"/>
             <ColumnDefinition/>
+            <ColumnDefinition Width="60px"/>
             <ColumnDefinition/>
+            <ColumnDefinition Width="60px"/>
             <ColumnDefinition/>
+            <ColumnDefinition Width="60px"/>
+
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition/>
@@ -20,9 +25,9 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
         <!--#endregion-->
-        <Label Style="{StaticResource LabelStyle}" Content="Gestion des contrats" Grid.Column="1" Grid.Row="0"/>
+        <Label Style="{StaticResource LabelStyle}" Content="Gestion des contrats" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="7"/>
         <!--#region Définition de la grille pour l'ajout-->
-        <Grid Grid.Column="0" Grid.Row="1" Grid.RowSpan="2">
+        <Grid Grid.Column="1" Grid.Row="1" Grid.RowSpan="2">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
@@ -50,26 +55,65 @@
             <!--#endregion-->
         </Grid>
         <!--#endregion-->
-        <!--#region Edition contrat-->
-        <!--#endregion-->
-        <!--#region Definition de la grille suppression contrat-->
-        <Grid Grid.Column="2" Grid.Row="1" Grid.RowSpan="2">
+        <!--#region Definition de la grille edition contrat-->
+        <Grid Grid.Row="1" Grid.Column="5" Grid.RowSpan="2">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition/>
                 <RowDefinition/>
+                <RowDefinition/>
             </Grid.RowDefinitions>
-        </Grid>
-        <!--#region Suppression contrat-->
-        <ListBox
-            Grid.Row="0"
+            <!--#region Edition contrat-->
+            <Label Style="{StaticResource LabelStyle}" Content="Edition du contrat" Grid.Row="0"/>
+            <TextBox
+                Grid.Row="1"
+                Name="TextBoxEditContrat"
+                Text="{Binding SelectedContrat.Libelle}"
+                VerticalAlignment="Bottom"
+                Visibility="{Binding SelectedContrat, Converter={StaticResource _SharedObjectToVisibilityConverter}}"/>
+            <Button
+                Grid.Column="1"
+                Grid.Row="3"
+                Name="ButtonEditContrat"
+                Content="Edition"
+                Visibility="{Binding SelectedContrat, Converter={StaticResource _SharedObjectToVisibilityConverter}}"
+                Click="ButtonEditContrat_Click"/>
+            <!--#endregion-->
+        </Grid> 
+        <!--#endregion-->
+        <!--#region Definition de la grille suppression contrat-->
+        <Grid Grid.Column="3" Grid.Row="1" Grid.RowSpan="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <!--#region Suppression contrat-->
+            <Label
+                Style="{StaticResource LabelStyle}"
+                Content="Supprimer un contrat" Grid.Row="0"/>
+            <ListBox
+            Grid.Row="1"
             Grid.Column="0"
             Name="ListBoxSuppressioncontrat"
-            ItemsSource="{Binding Contrat}"
+            ItemsSource="{Binding Contrats}"
+            SelectedItem="{Binding SelectedContrat}"
+            DisplayMemberPath="Libelle"/>
+            <Button
+            Grid.Column="0"
+            Grid.Row="3"
+            Grid.RowSpan="2"
+            Name="DeleteContrat"
+            Click="DeleteContrat_Click"
+            Content="Supprimer" 
             />
-        <!--#endregion-->
+            <!--#endregion-->
+        </Grid>
         <!--#endregion-->
     </Grid>
 </UserControl>

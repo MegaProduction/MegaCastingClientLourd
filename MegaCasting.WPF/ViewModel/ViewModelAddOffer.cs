@@ -186,7 +186,7 @@ namespace MegaCasting.WPF.ViewModel
 					offre.DateAjout = DateTime.Now;
 					this.Offres.Add(offre);
 					OffreClient offreClient = new OffreClient();
-					offreClient.IdentifiantPartenaire = idClient;
+					offreClient.IdentifiantClient = idClient;
 					offreClient.IdentifiantOffre = offre.Identifiant;
 					this.OffreClients.Add(offreClient);
 					this.SaveChanges();

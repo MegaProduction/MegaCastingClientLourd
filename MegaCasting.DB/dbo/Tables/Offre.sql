@@ -11,6 +11,7 @@
     [Coordonnées]        NVARCHAR (50) NOT NULL,
     [EstValide]          BIT           NOT NULL,
     [IdentifiantContrat] INT           NOT NULL,
+    [DateAjout] DATETIME2 NULL, 
     CONSTRAINT [PK_Offre] PRIMARY KEY CLUSTERED ([Identifiant] ASC),
     CONSTRAINT [FK_Offre_Contrat] FOREIGN KEY ([IdentifiantContrat]) REFERENCES [dbo].[Contrat] ([Identifiant]),
     CONSTRAINT [FK_Offre_Ville] FOREIGN KEY ([Localisation]) REFERENCES [dbo].[Ville] ([Identifiant])
