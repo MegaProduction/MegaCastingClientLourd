@@ -160,6 +160,21 @@ namespace MegaCasting.WPF.ViewModel
 			}
 			return returnValid;
 		}
+
+		/// <summary>
+		/// Vérifie si le champs est vide, null ou composé unique d'espace blanc
+		/// </summary>
+		/// <param name="input">champs a check si : vide, null ou se compose unique d'espace blanc</param>
+		/// <returns></returns>
+		public bool CheckName(string input)
+		{
+			bool result = false;
+			if (!string.IsNullOrWhiteSpace(input))
+			{
+				result = true;
+			}
+			return result;
+		}
 		#endregion
 
 	}
