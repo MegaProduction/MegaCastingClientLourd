@@ -78,6 +78,16 @@ namespace MegaCasting.WPF
             InitializeComponent();
 
             this.Entities = new MegaCastingEntities();
+
+            ////chargement plus rapide pour cet élément
+            //this.Entities.Villes.FirstOrDefault();
+
+#if DEBUG
+            this.Entities.Villes.FirstOrDefault();
+#endif
+#if RELEASE
+
+#endif
         }
 
         #endregion
@@ -200,7 +210,10 @@ namespace MegaCasting.WPF
         private void LocalizationDelete_Click(object sender, RoutedEventArgs e)
         {
             this.DockPanelView.Children.Clear();
-            this.DockPanelView.Children.Add(new ViewAddLocalization());
+            ViewModelDelLocalization viewModelDelLocalization = new ViewModelDelLocalization(Entities);
+            ViewDelLocalization viewDelLocalization = new ViewDelLocalization();
+            this.DataContext = viewModelDelLocalization;
+            this.DockPanelView.Children.Add(viewDelLocalization);
         }
     }
 }
