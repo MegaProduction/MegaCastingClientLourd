@@ -189,7 +189,10 @@ namespace MegaCasting.WPF
         private void LocalizationList_Click(object sender, RoutedEventArgs e)
         {
             this.DockPanelView.Children.Clear();
-            this.DockPanelView.Children.Add(new ViewAddLocalization());
+            ViewModelListLocalization viewModelListLocalization = new ViewModelListLocalization(Entities);
+            ViewListLocalization viewListLocalization = new ViewListLocalization();
+            this.DataContext = viewModelListLocalization;
+            this.DockPanelView.Children.Add(viewListLocalization);
         }
 
         private void LocalizationAdd_Click(object sender, RoutedEventArgs e)
