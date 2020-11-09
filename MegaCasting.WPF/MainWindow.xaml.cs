@@ -185,7 +185,10 @@ namespace MegaCasting.WPF
         private void LocalizationAdd_Click(object sender, RoutedEventArgs e)
         {
             this.DockPanelView.Children.Clear();
-            this.DockPanelView.Children.Add(new ViewAddLocalization());
+            ViewModelAddLocalization viewModelAddCountry = new ViewModelAddLocalization(Entities);
+            ViewAddLocalization viewAddLocalization = new ViewAddLocalization();
+            this.DataContext = viewModelAddCountry;
+            this.DockPanelView.Children.Add(viewAddLocalization);
         }
 
         private void LocalizationEdit_Click(object sender, RoutedEventArgs e)

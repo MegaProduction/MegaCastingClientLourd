@@ -94,6 +94,7 @@
     <Compile Include="Converter\ObjectToEnabledConverter.cs" />
     <Compile Include="Converter\ObjectToVisibilityConverter.cs" />
     <Compile Include="Model\Data.cs" />
+    <Compile Include="ViewModel\ViewModelAddLocalization.cs" />
     <Compile Include="ViewModel\ViewModelAddOffer.cs" />
     <Compile Include="ViewModel\ViewModelClientsList.cs" />
     <Compile Include="ViewModel\ViewModelDelOffre.cs" />
