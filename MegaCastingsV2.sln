@@ -11,30 +11,48 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MegaCasting.DBlib", "MegaCa
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MegaCasting.WPF", "MegaCasting.WPF\MegaCasting.WPF.csproj", "{3C277051-31B4-4A0C-9186-E8D103E5CC08}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MegaCasting.DBlib.Tests", "MegaCasting.DBlib.Tests\MegaCasting.DBlib.Tests.csproj", "{2A1815DE-5F08-42DD-BB3A-E9C80FF7FC25}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
+		DebugLocalhostIIA|Any CPU = DebugLocalhostIIA|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{3F828296-B6F4-41BA-B11A-6B0A3005A55D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{3F828296-B6F4-41BA-B11A-6B0A3005A55D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3F828296-B6F4-41BA-B11A-6B0A3005A55D}.DebugLocalhostIIA|Any CPU.ActiveCfg = DebugLocalhostIIA|Any CPU
+		{3F828296-B6F4-41BA-B11A-6B0A3005A55D}.DebugLocalhostIIA|Any CPU.Build.0 = DebugLocalhostIIA|Any CPU
 		{3F828296-B6F4-41BA-B11A-6B0A3005A55D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3F828296-B6F4-41BA-B11A-6B0A3005A55D}.Release|Any CPU.Build.0 = Release|Any CPU
 		{76E2BB38-ED76-43CC-AEA7-EA9D1E2E2E8A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{76E2BB38-ED76-43CC-AEA7-EA9D1E2E2E8A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{76E2BB38-ED76-43CC-AEA7-EA9D1E2E2E8A}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{76E2BB38-ED76-43CC-AEA7-EA9D1E2E2E8A}.DebugLocalhostIIA|Any CPU.ActiveCfg = DebugLocalhostIIA|Any CPU
+		{76E2BB38-ED76-43CC-AEA7-EA9D1E2E2E8A}.DebugLocalhostIIA|Any CPU.Build.0 = DebugLocalhostIIA|Any CPU
+		{76E2BB38-ED76-43CC-AEA7-EA9D1E2E2E8A}.DebugLocalhostIIA|Any CPU.Deploy.0 = DebugLocalhostIIA|Any CPU
 		{76E2BB38-ED76-43CC-AEA7-EA9D1E2E2E8A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{76E2BB38-ED76-43CC-AEA7-EA9D1E2E2E8A}.Release|Any CPU.Build.0 = Release|Any CPU
 		{76E2BB38-ED76-43CC-AEA7-EA9D1E2E2E8A}.Release|Any CPU.Deploy.0 = Release|Any CPU
 		{A57F93C2-A002-4643-B575-60271065AD95}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{A57F93C2-A002-4643-B575-60271065AD95}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A57F93C2-A002-4643-B575-60271065AD95}.DebugLocalhostIIA|Any CPU.ActiveCfg = DebugLocalhostIIA|Any CPU
+		{A57F93C2-A002-4643-B575-60271065AD95}.DebugLocalhostIIA|Any CPU.Build.0 = DebugLocalhostIIA|Any CPU
 		{A57F93C2-A002-4643-B575-60271065AD95}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A57F93C2-A002-4643-B575-60271065AD95}.Release|Any CPU.Build.0 = Release|Any CPU
 		{3C277051-31B4-4A0C-9186-E8D103E5CC08}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{3C277051-31B4-4A0C-9186-E8D103E5CC08}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3C277051-31B4-4A0C-9186-E8D103E5CC08}.DebugLocalhostIIA|Any CPU.ActiveCfg = DebugLocalhostIIA|Any CPU
+		{3C277051-31B4-4A0C-9186-E8D103E5CC08}.DebugLocalhostIIA|Any CPU.Build.0 = DebugLocalhostIIA|Any CPU
 		{3C277051-31B4-4A0C-9186-E8D103E5CC08}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3C277051-31B4-4A0C-9186-E8D103E5CC08}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2A1815DE-5F08-42DD-BB3A-E9C80FF7FC25}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2A1815DE-5F08-42DD-BB3A-E9C80FF7FC25}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2A1815DE-5F08-42DD-BB3A-E9C80FF7FC25}.DebugLocalhostIIA|Any CPU.ActiveCfg = Debug|Any CPU
+		{2A1815DE-5F08-42DD-BB3A-E9C80FF7FC25}.DebugLocalhostIIA|Any CPU.Build.0 = Debug|Any CPU
+		{2A1815DE-5F08-42DD-BB3A-E9C80FF7FC25}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2A1815DE-5F08-42DD-BB3A-E9C80FF7FC25}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

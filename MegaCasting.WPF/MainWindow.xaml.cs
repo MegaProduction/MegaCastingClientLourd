@@ -70,13 +70,12 @@ namespace MegaCasting.WPF
         /// <summary>
         /// Constructeurs
         /// </summary>
-
-
         public MainWindow()
         {
-            InitializeComponent();
-
+            InitializeComponent();          
             this.Entities = new MegaCastingEntities();
+            //Pour load plus rapidement
+            this.Entities.Contrats.FirstOrDefault();
         }
 
         #endregion
@@ -173,6 +172,21 @@ namespace MegaCasting.WPF
             this.DataContext = viewModelClientsList;
 
             this.DockPanelView.Children.Add(viewPartnersList);
+        }
+
+        private void ContratList_Click(object sender, RoutedEventArgs e)
+        {
+            this.DockPanelView.Children.Clear();
+            this.DockPanelView.Children.Add(new ViewAccountManagement());
+        }
+
+        private void Contrat_Click(object sender, RoutedEventArgs e)
+        {
+            this.DockPanelView.Children.Clear();
+            ViewModelContrat viewModelContrat = new ViewModelContrat(Entities);
+            ViewAddContrat viewAddContrat = new ViewAddContrat();
+            this.DataContext = viewModelContrat;
+            this.DockPanelView.Children.Add(viewAddContrat);
         }
     }
 }

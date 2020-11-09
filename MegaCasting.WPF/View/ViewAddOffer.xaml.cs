@@ -114,7 +114,7 @@ namespace MegaCasting.WPF.View
         }
         private void TextBoxCoord_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
-            Regex regex = new Regex("^(0|\\+33)[1-9]([-. ]?[0-9]{2}){4}$");
+            Regex regex = new Regex("(0|\\+33)[1-9]([-. ]?[0-9]{2}){4}$");
             e.Handled = regex.IsMatch(e.Text);
         }
         private void TextBoxNbPostes_PreviewTextInput(object sender, TextCompositionEventArgs e)

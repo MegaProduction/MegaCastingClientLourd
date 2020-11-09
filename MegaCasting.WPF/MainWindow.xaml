@@ -37,6 +37,10 @@
                 <MenuItem Header="Editer un client" Name="EditPartner" Click="EditPartner_Click"/>
                 <MenuItem Header="Supprimer un client" Name="DelPartner" Click="DelPartner_Click"/>
             </MenuItem>
+            <MenuItem Header="_Gestion des Contrat">
+                <MenuItem Header="Liste des clients" Name="ContratList" Click="ContratList_Click"/>
+                <MenuItem Header="Contrat" Name="Contrat" Click="Contrat_Click"/>
+            </MenuItem>
             <MenuItem Header="_Paramètres">
                     <MenuItem Header="Paramètres généraux" Name="Settings" Click="Settings_Click"/>
                     <MenuItem Header="Personnalisation du compte" Name="AccountCustomization" Click="AccountCustomization_Click"/>

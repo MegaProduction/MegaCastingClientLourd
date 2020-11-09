@@ -32,6 +32,7 @@
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
+    <AppConfig>App.$(Configuration).config</AppConfig>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -51,6 +52,17 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'DebugLocalhostIIA|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\DebugLocalhostIIA\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
@@ -93,6 +105,7 @@
     <Compile Include="Converter\BoolToVisibility.cs" />
     <Compile Include="Converter\ObjectToVisibilityConverter.cs" />
     <Compile Include="Model\Json.cs" />
+    <Compile Include="ViewModel\ViewModelContrat.cs" />
     <Compile Include="ViewModel\ViewModelAddOffer.cs" />
     <Compile Include="ViewModel\ViewModelClientsList.cs" />
     <Compile Include="ViewModel\ViewModelDelOffre.cs" />
@@ -106,6 +119,9 @@
     </Compile>
     <Compile Include="View\ViewAccountManagement.xaml.cs">
       <DependentUpon>ViewAccountManagement.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ViewContrat.xaml.cs">
+      <DependentUpon>ViewContrat.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\ViewAddOffer.xaml.cs">
       <DependentUpon>ViewAddOffer.xaml</DependentUpon>
@@ -160,6 +176,10 @@
     <Page Include="View\ViewAccountManagement.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\ViewContrat.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\ViewAddOffer.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -220,6 +240,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="App.Debug.config" />
+    <None Include="App.DebugLocalhostIIA.config" />
+    <None Include="App.Release.config" />
     <None Include="data\config.json" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

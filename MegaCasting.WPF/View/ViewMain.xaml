@@ -19,7 +19,12 @@
                 <TextBlock>MegaCastings</TextBlock>
             </StackPanel>
         </Label>
-        
+        <Canvas Grid.Column="1">
+            <Line X1="10" Y1="10" X2="10" Y2="10" Stroke="DodgerBlue"/>
+            <Line X1="20" Y1="10" X2="20" Y2="10" Stroke="DodgerBlue"/>
+            <Line X1="13" Y1="10" X2="30" Y2="10" Stroke="DodgerBlue"/>
+            <Line X1="40" Y1="10" X2="40" Y2="10" Stroke="DodgerBlue"/>
+        </Canvas>
     </Grid>
     
 </UserControl>
