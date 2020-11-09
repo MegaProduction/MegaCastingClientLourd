@@ -3,14 +3,18 @@
 Ce projet a pour but de gérer les activités de la société MegaProduction.
 
   - Gestion des offres
+    - Graphique du nombre d'offres en fonction du temps
   - Gestion des clients
+  - Gestion de la localisation
+  - Gestion des contrats
   - Personnalisable
 
-## En cours
+## Activité
 
- - https://github.com/MegaProduction/MegaCastingClientLourd/projects/1#card-48008116 (Édition d'une offre)
- - https://github.com/MegaProduction/MegaCastingClientLourd/projects/1#card-48008212 (Historique des offres)
- - https://github.com/MegaProduction/MegaCastingClientLourd/projects/1#card-48008198 (Liste des clients)
+ - https://github.com/MegaProduction/MegaCastingClientLourd/projects/1#column-11388598 (Bugs connus)
+ - https://github.com/MegaProduction/MegaCastingClientLourd/projects/1#column-11388599 (À faire)
+ - https://github.com/MegaProduction/MegaCastingClientLourd/projects/1#column-11388600 (En cours)
+ - https://github.com/MegaProduction/MegaCastingClientLourd/projects/1#column-11388602 (Fait)
 
 Licence
 ----
