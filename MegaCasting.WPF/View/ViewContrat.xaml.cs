@@ -58,6 +58,7 @@ namespace MegaCasting.WPF.View
 
         private void ButtonEditContrat_Click(object sender, RoutedEventArgs e)
         {
+            ListBoxSuppressioncontrat.Items.Refresh();
             ((ViewModelContrat)this.DataContext).UpdateContrat();
         }
     }

@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,13 +12,6 @@ namespace MegaCasting.WPF.ViewModel
 {
     class ViewModelContrat : ViewModelBase
     {
-        private ObservableCollection<Offre> _Offres;
-
-        public ObservableCollection<Offre> Offres
-        {
-            get { return _Offres; }
-            set { _Offres = value; }
-        }
 
         #region Attributes
         /// <summary>
@@ -28,6 +22,11 @@ namespace MegaCasting.WPF.ViewModel
         /// COntrat Sélectionné
         /// </summary>
         private Contrat _SelectedContrat;
+        /// <summary>
+        /// Collection d'offre
+        /// </summary>
+        private ObservableCollection<Offre> _Offres;
+
         #endregion
         #region Properties
         /// <summary>
@@ -46,6 +45,14 @@ namespace MegaCasting.WPF.ViewModel
             get { return _SelectedContrat; }
             set { _SelectedContrat = value; }
         }
+        /// <summary>
+        /// Obtient ou définit la collection d'offre
+        /// </summary>
+        public ObservableCollection<Offre> Offres
+        {
+            get { return _Offres; }
+            set { _Offres = value; }
+        }
         #endregion
         #region Construteur
         public ViewModelContrat(MegaCastingEntities entities) : base(entities)
@@ -63,17 +70,6 @@ namespace MegaCasting.WPF.ViewModel
         public void SaveChanges()
         {
             this.Entities.SaveChanges();
-        }
-        /// <summary>
-        /// Permet de rollback 
-        /// </summary>
-        private void RollBack()
-        {
-            this.Entities.Database.BeginTransaction().Rollback();
-        }
-        private void Commit()
-        {
-            this.Entities.Database.BeginTransaction().Commit();
         }
         /// <summary>
         /// Ajoute un contrat
@@ -124,11 +120,13 @@ namespace MegaCasting.WPF.ViewModel
             try
             {
                 this.SaveChanges();
-                this.Commit();
+                MessageBox.Show("Nom du contrat éditer");
             }
             catch (System.Data.Entity.Infrastructure.DbUpdateException)
             {
-                this.RollBack();
+                //Permet de reload la liste des contracts
+                Entities.ChangeTracker.Entries().Where(entry => entry.State == System.Data.Entity.EntityState.Modified).ToList().ForEach(e => e.Reload());
+                MessageBox.Show("Impossible d'éditer le nom du contrat sélectionné");
             }
         }
         #endregion
