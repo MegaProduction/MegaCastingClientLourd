@@ -64,6 +64,17 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'DebugOrdi|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\DebugOrdi\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
@@ -107,12 +118,15 @@
     <Compile Include="Converter\ObjectToVisibilityConverter.cs" />
     <Compile Include="ViewModel\ViewModelContrat.cs" />
     <Compile Include="Model\Json.cs" />
+    <Compile Include="ViewModel\ViewModelAddLocalization.cs" />
     <Compile Include="ViewModel\ViewModelAddOffer.cs" />
     <Compile Include="ViewModel\ViewModelClientsList.cs" />
+    <Compile Include="ViewModel\ViewModelDelLocalization.cs" />
     <Compile Include="ViewModel\ViewModelDelOffre.cs" />
     <Compile Include="ViewModel\ViewModelEditOffer.cs" />
     <Compile Include="ViewModel\ViewModelHistoriqueOffer.cs" />
     <Compile Include="ViewModel\ViewModelBase.cs" />
+    <Compile Include="ViewModel\ViewModelListLocalization.cs" />
     <Compile Include="ViewModel\ViewModelMainWindow.cs" />
     <Compile Include="ViewModel\ViewModelSettings.cs" />
     <Compile Include="View\ViewAccountCustomization.xaml.cs">
@@ -133,6 +147,9 @@
     <Compile Include="View\ViewAddPartner.xaml.cs">
       <DependentUpon>ViewAddPartner.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\ViewDelLocalization.xaml.cs">
+      <DependentUpon>ViewDelLocalization.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\ViewDelOffer.xaml.cs">
       <DependentUpon>ViewDelOffer.xaml</DependentUpon>
     </Compile>
@@ -147,6 +164,9 @@
     </Compile>
     <Compile Include="View\ViewHistoriqueOffer.xaml.cs">
       <DependentUpon>ViewHistoriqueOffer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ViewListLocalization.xaml.cs">
+      <DependentUpon>ViewListLocalization.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\ViewMain.xaml.cs">
       <DependentUpon>ViewMain.xaml</DependentUpon>
@@ -197,6 +217,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="View\ViewDelLocalization.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\ViewDelOffer.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -214,6 +238,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="View\ViewHistoriqueOffer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ViewListLocalization.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -250,6 +278,7 @@
     </EmbeddedResource>
     <None Include="App.Debug.config" />
     <None Include="App.DebugLocalhostIIA.config" />
+    <None Include="App.DebugOrdi.config" />
     <None Include="App.Release.config" />
     <None Include="data\config.json" />
     <None Include="packages.config" />

@@ -5,7 +5,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{2A1815DE-5F08-42DD-BB3A-E9C80FF7FC25}</ProjectGuid>
+    <ProjectGuid>{E2ABB39E-899B-4264-B993-9DE460721BEE}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>MegaCasting.DBLib.Tests</RootNamespace>
