@@ -7,10 +7,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 
+
 namespace MegaCasting.WPF.ViewModel
 {
     class ViewModelAddOffer : ViewModelBase
-	{
+    {
+
 		#region Attributes
 		/// <summary>
 		/// Collection d'offre
@@ -142,7 +144,7 @@ namespace MegaCasting.WPF.ViewModel
 		/// <summary>
 		/// Sauvegarde les modifications 
 		/// </summary>
-		public void SaveChanges()
+        public void SaveChanges()
 		{
 			this.Entities.SaveChanges();
 		}

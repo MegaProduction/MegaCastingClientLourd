@@ -5,6 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:local="clr-namespace:MegaCasting.WPF.View"
              xmlns:sys="clr-namespace:System;assembly=mscorlib"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
@@ -102,9 +103,6 @@
         <TextBox FontSize="15px" Grid.Row="5" Grid.Column="2" Width="150px" HorizontalAlignment="Center" VerticalAlignment="Bottom" Text="Description du profil" Name="TextBoxDescripProfil" GotFocus="TextBoxDescripProfil_GotFocus" LostFocus="TextBoxDescripProfil_LostFocus"/>
         <TextBox FontSize="15px" Grid.Row="6" Grid.Column="2" Width="150px" HorizontalAlignment="Center" VerticalAlignment="Bottom" Text="Durée de diffusion" Name="TextBoxDureeDiff" GotFocus="TextBoxDureeDiff_GotFocus" LostFocus="TextBoxDureeDiff_LostFocus" PreviewTextInput="TextBoxDureeDiff_PreviewTextInput"/>
         <!--#endregion-->
-
-        
-        
         <Button Grid.Column="1" Grid.Row="10" Background="LightGray" Foreground="Black" Name="addOffre" Click="AddOffre_Click" Content="Valider"></Button>
     </Grid>
 </UserControl>

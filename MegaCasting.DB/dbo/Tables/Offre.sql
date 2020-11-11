@@ -19,7 +19,6 @@
 
 
 
-
 GO
 CREATE   TRIGGER TR_OFFRE_VALID ON Offre
 AFTER INSERT, UPDATE
@@ -36,3 +35,4 @@ AS
 	BEGIN
 		UPDATE Offre SET Reference = Identifiant+IdentifiantContrat WHERE Offre.Reference = 0
 	END;
+

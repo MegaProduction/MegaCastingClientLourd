@@ -31,7 +31,6 @@ namespace MegaCasting.WPF.View
         {
             ((ViewModelEditOffer)this.DataContext).EditOffer();
         }
-
         private void TexBoxEditNombrePostes_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
             //Permet de définir le pattern autoriser dans la texBox ici des chiffres/nombres
@@ -54,7 +53,7 @@ namespace MegaCasting.WPF.View
 
         private void TexBoxEditCoordonnees_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
-             Regex regex = new Regex("(0|\\+33|06)[1-9][0-9]{8}");
+            Regex regex = new Regex("(0|\\+33|06)[1-9][0-9]{8}");
             e.Handled = regex.IsMatch(e.Text);
         }
     }

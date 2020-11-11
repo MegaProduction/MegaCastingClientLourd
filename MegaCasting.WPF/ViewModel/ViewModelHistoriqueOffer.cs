@@ -16,9 +16,13 @@ namespace MegaCasting.WPF.ViewModel
 		/// </summary>
 		private ObservableCollection<Offre> _Offres;
 		/// <summary>
-		/// 
+		/// Offre sélectionnée
 		/// </summary>
 		private Offre _SelectedOffre;
+		/// <summary>
+		/// Collection des offre des clients
+		/// </summary>
+		private ObservableCollection<OffreClient> _OffresClients;
 		#endregion
 		#region Properties
 		/// <summary>
@@ -37,15 +41,16 @@ namespace MegaCasting.WPF.ViewModel
 			get { return _SelectedOffre; }
 			set { _SelectedOffre = value; }
 		}
-		#endregion
-		private ObservableCollection<OffreClient> _OffresClients;
-
+		/// <summary>
+		/// Obtient ou définit la collection des offre des clients
+		/// </summary>
 		public ObservableCollection<OffreClient> OffreClients
 		{
 			get { return _OffresClients; }
 			set { _OffresClients = value; }
 		}
 
+		#endregion
 		#region Construteur
 		public ViewModelHistoriqueOffer(MegaCastingEntities entities)
 			: base(entities)

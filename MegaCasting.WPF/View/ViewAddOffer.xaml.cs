@@ -71,6 +71,7 @@ namespace MegaCasting.WPF.View
             TextBoxDescripProfil.Text = string.Empty;
             TextBoxDescripProfil.GotFocus -= TextBoxDescripProfil_GotFocus;
         }
+
         private void TextBoxDescripProfil_LostFocus(object sender, RoutedEventArgs e)
         {
             if (TextBoxDescripProfil.Text.Trim().Equals(string.Empty))
@@ -79,11 +80,13 @@ namespace MegaCasting.WPF.View
                 TextBoxDescripProfil.GotFocus += TextBoxDescripProfil_GotFocus;
             }
         }
+
         private void TextBoxDureeDiff_GotFocus(object sender, RoutedEventArgs e)
         {
             TextBoxDureeDiff.Text = string.Empty;
             TextBoxDureeDiff.GotFocus -= TextBoxDureeDiff_GotFocus;
         }
+
         private void TextBoxDureeDiff_LostFocus(object sender, RoutedEventArgs e)
         {
             if (TextBoxDureeDiff.Text.Trim().Equals(string.Empty))
@@ -136,17 +139,17 @@ namespace MegaCasting.WPF.View
         /// <param name="e"></param>
         private void AddOffre_Click(object sender, RoutedEventArgs e)
         {
-           ((ViewModelAddOffer)this.DataContext).AddOffre(
-               TextBoxIntitule.Text,
-               comboBoxLocalisation.SelectedValuePath.ToString(),
-               comboBoxContrat.SelectedValuePath.ToString(),
-               datePickerDateDebut.Text,
-               comboBoxClient.SelectedValuePath.ToString(),
-               TextBoxNbPostes.Text,
-               TextBoxDescripProfil.Text,
-               TextBoxDescripPoste.Text,
-               TextBoxCoord.Text,
-               TextBoxDureeDiff.Text);
+            ((ViewModelAddOffer)this.DataContext).AddOffre(
+                TextBoxIntitule.Text,
+                comboBoxLocalisation.SelectedValuePath.ToString(),
+                comboBoxContrat.SelectedValuePath.ToString(),
+                datePickerDateDebut.Text,
+                comboBoxClient.SelectedValuePath.ToString(),
+                TextBoxNbPostes.Text,
+                TextBoxDescripProfil.Text,
+                TextBoxDescripPoste.Text,
+                TextBoxCoord.Text,
+                TextBoxDureeDiff.Text);
         }
     }
 }

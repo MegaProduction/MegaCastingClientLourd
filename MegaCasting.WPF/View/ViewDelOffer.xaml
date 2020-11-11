@@ -22,5 +22,6 @@
         <ListBox Name="listBoxDelOffre" ItemsSource="{Binding Offres}" Grid.Column="1" Grid.Row="1" DisplayMemberPath="Intitule" SelectedItem="{Binding SelectedOffre}">
         </ListBox>
         <Button  Grid.Column="2" Grid.Row="2" Content="Supprimer" Name="DeleteOffreButton" Click="DeleteOffreButton_Click" Background="LightGray" Foreground="Black"></Button>
+        
     </Grid>
 </UserControl>

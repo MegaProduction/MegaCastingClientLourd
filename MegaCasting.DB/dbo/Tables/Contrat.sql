@@ -5,12 +5,6 @@
 );
 
 
-
-
-
-
-
-
 GO
 CREATE  TRIGGER [dbo].[TR_LIBELLE_CONTRAT] ON [dbo].[Contrat]
 AFTER INSERT, UPDATE
@@ -19,3 +13,4 @@ AS
 	BEGIN
 		ROLLBACK TRANSACTION
 	END;
+

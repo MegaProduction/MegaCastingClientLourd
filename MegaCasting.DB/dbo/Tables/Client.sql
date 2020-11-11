@@ -7,6 +7,3 @@
     CONSTRAINT [PK_Partenaire] PRIMARY KEY CLUSTERED ([Identifiant] ASC),
     CONSTRAINT [FK_Client_Ville] FOREIGN KEY ([VilleIdentifiant]) REFERENCES [dbo].[Ville] ([Identifiant])
 );
-
-
-
