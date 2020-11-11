@@ -11,8 +11,7 @@ using System.Windows;
 namespace MegaCasting.WPF.ViewModel
 {
     class ViewModelAddOffer : ViewModelBase
-    {
-
+	{
 		#region Attributes
 		/// <summary>
 		/// Collection d'offre
@@ -126,7 +125,7 @@ namespace MegaCasting.WPF.ViewModel
 		}
 		#endregion
 		#region Construteur
-		public ViewModelAddOffer(MegaCastingEntities entities) 
+		public ViewModelAddOffer(MegaCastingEntities entities)
 			: base(entities)
 		{
 			this.Entities.Offres.ToList();
@@ -144,16 +143,16 @@ namespace MegaCasting.WPF.ViewModel
 		/// <summary>
 		/// Sauvegarde les modifications 
 		/// </summary>
-        public void SaveChanges()
+		public void SaveChanges()
 		{
 			this.Entities.SaveChanges();
 		}
 		/// <summary>
 		/// Ajoute une offre
 		/// <param name="intitule">Nom de l'offre</param>
-		/// <param name="identifiantVille">Identifiant de la ville</param>
+		/// <param name="ville">Identifiant de la ville</param>
 		/// <param name="identifiantContrat">Identifiant du contrat</param>
-		/// <param name="identifiantClient">Identifiant du client</param>
+		/// <param name="client">Identifiant du client</param>
 		/// <param name="date">Date de début de l'offre</param>
 		/// <param name="desProfil">Description du profil pour le postulant</param>
 		/// <param name="desPoste">Description de l'offre</param>
@@ -194,13 +193,13 @@ namespace MegaCasting.WPF.ViewModel
 					this.SaveChanges();
 					MessageBox.Show("Offre ajoutée");
 				}
-					catch (System.Data.Entity.Infrastructure.DbUpdateException)
+				catch (System.Data.Entity.Infrastructure.DbUpdateException)
 				{
 					MessageBox.Show("Une erreur s'est produite lors de la saisie");
 					this.Offres.Remove(offre);
 					this.OffreClients.Remove(offreClient);
 				}
-			
+
 			}
 			else
 			{
@@ -208,5 +207,6 @@ namespace MegaCasting.WPF.ViewModel
 			}
 		}
 		#endregion
+
 	}
 }

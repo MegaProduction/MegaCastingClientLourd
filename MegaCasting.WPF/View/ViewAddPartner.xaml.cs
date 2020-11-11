@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MegaCasting.WPF.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -35,54 +36,52 @@ namespace MegaCasting.WPF.View
         {
             if (TextBoxNom.Text.Trim().Equals(string.Empty))
             {
-                TextBoxNom.Text = "Nom";
+                TextBoxNom.Text = "Login";
                 TextBoxNom.GotFocus += TextBoxNom_GotFocus;
             }
         }
 
-        private void TextBoxPays_GotFocus(object sender, RoutedEventArgs e)
+        private void TextBoxPas_GotFocus(object sender, RoutedEventArgs e)
         {
-            TextBoxPays.Text = string.Empty;
-            TextBoxPays.GotFocus -= TextBoxPays_GotFocus;
+            TextBoxPas.Text = string.Empty;
+            TextBoxPas.GotFocus -= TextBoxPas_GotFocus;
         }
 
-        private void TextBoxPays_LostFocus(object sender, RoutedEventArgs e)
+        private void TextBoxPas_LostFocus(object sender, RoutedEventArgs e)
         {
-            if (TextBoxPays.Text.Trim().Equals(string.Empty))
+            if (TextBoxPas.Text.Trim().Equals(string.Empty))
             {
-                TextBoxPays.Text = "Pays";
-                TextBoxPays.GotFocus += TextBoxPays_GotFocus;
+                TextBoxPas.Text = "Mot de passe";
+                TextBoxPas.GotFocus += TextBoxPas_GotFocus;
             }
         }
 
-        private void TextBoxVille_GotFocus(object sender, RoutedEventArgs e)
+        private void TextBoxLibelle_GotFocus(object sender, RoutedEventArgs e)
         {
-            TextBoxVille.Text = string.Empty;
-            TextBoxVille.GotFocus -= TextBoxVille_GotFocus;
+            TextBoxLibelle.Text = string.Empty;
+            TextBoxLibelle.GotFocus -= TextBoxLibelle_GotFocus;
         }
 
-        private void TextBoxVille_LostFocus(object sender, RoutedEventArgs e)
+        private void TextBoxLibelle_LostFocus(object sender, RoutedEventArgs e)
         {
-            if (TextBoxVille.Text.Trim().Equals(string.Empty))
+            if (TextBoxLibelle.Text.Trim().Equals(string.Empty))
             {
-                TextBoxVille.Text = "Ville";
-                TextBoxVille.GotFocus += TextBoxVille_GotFocus;
+                TextBoxLibelle.Text = "Libellé";
+                TextBoxLibelle.GotFocus += TextBoxLibelle_GotFocus;
             }
         }
 
-        private void TextBoxRue_GotFocus(object sender, RoutedEventArgs e)
+        private void ButtonAddPartner_Click(object sender, RoutedEventArgs e)
         {
-            TextBoxRue.Text = string.Empty;
-            TextBoxRue.GotFocus -= TextBoxRue_GotFocus;
-        }
+                ((ViewModelAddPartner)this.DataContext).AddPartner(TextBoxNom.Text, TextBoxPas.Text, TextBoxLibelle.Text, comboBoxVille.SelectedValue.ToString());
+                TextBoxNom_GotFocus(sender, e);
+                TextBoxPas_GotFocus(sender, e);
+                TextBoxLibelle_GotFocus(sender, e);
+                TextBoxNom_LostFocus(sender, e);
+                TextBoxPas_LostFocus(sender, e);
+                TextBoxLibelle_LostFocus(sender, e);
+                comboBoxVille.Text = "Ville";
 
-        private void TextBoxRue_LostFocus(object sender, RoutedEventArgs e)
-        {
-            if (TextBoxRue.Text.Trim().Equals(string.Empty))
-            {
-                TextBoxRue.Text = "Rue";
-                TextBoxRue.GotFocus += TextBoxRue_GotFocus;
-            }
         }
     }
 }

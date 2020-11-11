@@ -30,13 +30,45 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
-        <Label FontSize="30px" HorizontalAlignment="Center" Grid.Row="1" Grid.Column="1">Editer un client</Label>
+        <ListBox
+            Grid.Column="1"
+            Grid.Row="2"
+            Grid.RowSpan="2"
+            HorizontalAlignment="Center"
+            x:Name="ListBoxEditPartner"
+            ItemsSource ="{Binding Client}"
+            DisplayMemberPath="Libelle"
+            SelectedItem="{Binding SelectedClient}">
+        </ListBox>
+        
+        <ComboBox 
+            FontSize="15px" 
+            Grid.Column="1" 
+            Grid.Row="7" 
+            Width="150px" 
+            Name="ComboBoxVille" 
+            DisplayMemberPath="Libelle" 
+            IsReadOnly="False" 
+            ItemsSource="{Binding Villes}" 
+            SelectedItem="{Binding SelectedClient.Ville, UpdateSourceTrigger=PropertyChanged}" 
+            Visibility="{Binding SelectedClient, Converter={StaticResource _SharedObjectToVisibilityConverter}}"
+            />
 
-        <TextBox FontSize="15px" TextAlignment="Center" Grid.Column="1" Grid.Row="4" Width="150px" HorizontalAlignment="Center" VerticalAlignment="Bottom" Text="Nom" Name="TextBoxNom" GotFocus="TextBoxNom_GotFocus" LostFocus="TextBoxNom_LostFocus"></TextBox>
-        <TextBox FontSize="15px" TextAlignment="Center" Grid.Column="1" Grid.Row="5" Width="150px" HorizontalAlignment="Center" VerticalAlignment="Bottom" Text="Pays" Name="TextBoxPays" GotFocus="TextBoxPays_GotFocus" LostFocus="TextBoxPays_LostFocus"></TextBox>
-        <TextBox FontSize="15px" TextAlignment="Center" Grid.Column="1" Grid.Row="6" Width="150px" HorizontalAlignment="Center" VerticalAlignment="Bottom" Text="Ville" Name="TextBoxVille" GotFocus="TextBoxVille_GotFocus" LostFocus="TextBoxVille_LostFocus"></TextBox>
-        <TextBox FontSize="15px" TextAlignment="Center" Grid.Column="1" Grid.Row="7" Width="150px" HorizontalAlignment="Center" VerticalAlignment="Bottom" Text="Rue" Name="TextBoxRue" GotFocus="TextBoxRue_GotFocus" LostFocus="TextBoxRue_LostFocus"></TextBox>
+        <TextBox 
+            FontSize="15px" 
+            TextAlignment="Center" 
+            Grid.Column="1" 
+            Grid.Row="6" 
+            Width="150px" 
+            HorizontalAlignment="Center" 
+            VerticalAlignment="Bottom" 
+            Text="{Binding SelectedClient.Libelle}" 
+            x:Name="TextBoxLibelle" 
+            Visibility="{Binding SelectedClient, Converter={StaticResource _SharedObjectToVisibilityConverter}}"
+            TextChanged="TextBoxLibelle_TextChanged"
+            >
+        </TextBox>
 
-        <Button Grid.Row="10" Grid.Column="1" Width="100px" Foreground="Black" Background="LightGray" Content="Confirmer"/>
+        <Button Grid.Row="10" Grid.Column="1" Width="100px" Foreground="Black" Background="LightGray" Content="Confirmer" Name="ButtonEditPartner" Click="ButtonEditPartner_Click"/>
     </Grid>
 </UserControl>

@@ -13,20 +13,21 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition/>
+            <RowDefinition Height="0.5*"/>
             <RowDefinition/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <Label HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="0" Grid.ColumnSpan="3">Liste des Clients</Label>
-        <ListBox
-            Grid.Column="1"
-            Grid.Row="1"
-            Grid.RowSpan="2"
-            x:Name="ListBoxListeClient"
-            ItemsSource ="{Binding Client}"
-            DisplayMemberPath="Identifiant"
-            SelectedItem="{Binding SelectedClient}"
-            Background="Gray">
-        </ListBox>
+        <Label HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="25px" Grid.Row="0" Grid.ColumnSpan="3">Liste des Clients</Label>
+
+        <ListView ItemsSource="{Binding Clients}" Grid.Column="1" Grid.Row="1" Grid.RowSpan="2" Width="500px">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Libellé" Width="200px" DisplayMemberBinding="{Binding Path=Libelle}"></GridViewColumn>
+                    <GridViewColumn Header="Ville" DisplayMemberBinding="{Binding Path=Ville.Libelle}"></GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+
     </Grid>
 </UserControl>

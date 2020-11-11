@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MegaCasting.WPF.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -25,64 +26,14 @@ namespace MegaCasting.WPF.View
             InitializeComponent();
         }
 
-        private void TextBoxNom_GotFocus(object sender, RoutedEventArgs e)
+        private void ButtonEditPartner_Click(object sender, RoutedEventArgs e)
         {
-            TextBoxNom.Text = string.Empty;
-            TextBoxNom.GotFocus -= TextBoxNom_GotFocus;
+                ((ViewModelEditPartner)this.DataContext).EditPartner(TextBoxLibelle.Text);
         }
 
-        private void TextBoxNom_LostFocus(object sender, RoutedEventArgs e)
+        private void TextBoxLibelle_TextChanged(object sender, TextChangedEventArgs e)
         {
-            if (TextBoxNom.Text.Trim().Equals(string.Empty))
-            {
-                TextBoxNom.Text = "Nom";
-                TextBoxNom.GotFocus += TextBoxNom_GotFocus;
-            }
-        }
-
-        private void TextBoxPays_GotFocus(object sender, RoutedEventArgs e)
-        {
-            TextBoxPays.Text = string.Empty;
-            TextBoxPays.GotFocus -= TextBoxPays_GotFocus;
-        }
-
-        private void TextBoxPays_LostFocus(object sender, RoutedEventArgs e)
-        {
-            if (TextBoxPays.Text.Trim().Equals(string.Empty))
-            {
-                TextBoxPays.Text = "Pays";
-                TextBoxPays.GotFocus += TextBoxPays_GotFocus;
-            }
-        }
-
-        private void TextBoxVille_GotFocus(object sender, RoutedEventArgs e)
-        {
-            TextBoxVille.Text = string.Empty;
-            TextBoxVille.GotFocus -= TextBoxVille_GotFocus;
-        }
-
-        private void TextBoxVille_LostFocus(object sender, RoutedEventArgs e)
-        {
-            if (TextBoxVille.Text.Trim().Equals(string.Empty))
-            {
-                TextBoxVille.Text = "Ville";
-                TextBoxVille.GotFocus += TextBoxVille_GotFocus;
-            }
-        }
-
-        private void TextBoxRue_GotFocus(object sender, RoutedEventArgs e)
-        {
-            TextBoxRue.Text = string.Empty;
-            TextBoxRue.GotFocus -= TextBoxRue_GotFocus;
-        }
-
-        private void TextBoxRue_LostFocus(object sender, RoutedEventArgs e)
-        {
-            if (TextBoxRue.Text.Trim().Equals(string.Empty))
-            {
-                TextBoxRue.Text = "Rue";
-                TextBoxRue.GotFocus += TextBoxRue_GotFocus;
-            }
+            ButtonEditPartner.IsEnabled = ((ViewModelEditPartner)this.DataContext).VerifPartner(TextBoxLibelle.Text);
         }
     }
 }

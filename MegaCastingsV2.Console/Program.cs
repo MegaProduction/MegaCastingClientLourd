@@ -9,14 +9,14 @@ namespace MegaCastingsV2.APV1
 {
     class Program
     {
-        /// <summary>
-        /// Categorie
-        /// </summary>
-        private static List<Category> _Categories = null;
-        /// <summary>
-        /// Beer
-        /// </summary>
-        private static List<Beer> _Beers = null;
+        ///// <summary>
+        ///// Categorie
+        ///// </summary>
+        //private static List<Category> _Categories = null;
+        ///// <summary>
+        ///// Beer
+        ///// </summary>
+        //private static List<Beer> _Beers = null;
 
         static void Main(string[] args)
         {
@@ -97,22 +97,18 @@ namespace MegaCastingsV2.APV1
             //#region Presentation EF
             //MegaCastingEntities entities = new MegaCastingEntities();
 
-
-<<<<<<< HEAD
-            Console.WriteLine(entities.OffreClients
-                                 .Where(offreClient => offreClient.IdentifiantClient == 4)
-                                 .Count()
-                                 .ToString());
-            Console.ReadKey();
-            #endregion
-=======
+            //Console.WriteLine(entities.OffreClients
+            //                     .Where(offreClient => offreClient.IdentifiantClient == 4)
+            //                     .Count()
+            //                     .ToString());
+            //Console.ReadKey();
             //Console.WriteLine(entities.OffreClients
             //                     .Where(offreClient => offreClient.IdentifiantPartenaire == 4)
             //                     .Count()
             //                     .ToString());
             //Console.ReadKey();
             //#endregion
->>>>>>> localisation
+
         }
     }
 }

@@ -8,20 +8,12 @@
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="3*"/>
-            <RowDefinition Height="2.5*"/>
-            <RowDefinition Height="1*"/>
-            <RowDefinition Height="1.7*"/>
-            <RowDefinition Height="1.4*"/>
-            <RowDefinition Height="1.4*"/>
-            <RowDefinition Height="1.4*"/>
-            <RowDefinition Height="1*"/>
-            <RowDefinition Height="1.4*"/>
-            <RowDefinition Height="1.4*"/>
+            <RowDefinition Height="0.25*"/>
+            <RowDefinition Height="0.5*"/>
             <RowDefinition Height="2*"/>
-            <RowDefinition Height="1.4*"/>
-            <RowDefinition Height="1*"/>
-            <RowDefinition Height="1*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
         <Grid.ColumnDefinitions>
@@ -31,12 +23,18 @@
         </Grid.ColumnDefinitions>
 
         <Label FontSize="30px" HorizontalAlignment="Center" Grid.Row="1" Grid.Column="1">Supprimer un client</Label>
+        <ListBox
+            Grid.Column="1"
+            Grid.Row="2"
+            Grid.RowSpan="3"
+            x:Name="ListBoxDelClient"
+            ItemsSource ="{Binding Clients}"
+            DisplayMemberPath="Libelle"
+            SelectedItem="{Binding SelectedClient}">
+        </ListBox>
 
-        <TextBox FontSize="15px" Grid.Row="4" Grid.Column="1" Width="200px" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Bottom" Text="Nom" Name="TextBoxNomDel" GotFocus="TextBoxNomDel_GotFocus" LostFocus="TextBoxNomDel_LostFocus"></TextBox>
 
 
-
-
-        <Button Grid.Row="10" Grid.Column="1" Width="100px" Foreground="Black" Background="LightGray" Content="Confirmer"/>
+        <Button Grid.Row="5" Grid.Column="1" Width="100px" Foreground="Black" Background="LightGray" Content="Confirmer" Name="ButtonDelPartner" Click="ButtonDelPartner_Click"/>
     </Grid>
 </UserControl>

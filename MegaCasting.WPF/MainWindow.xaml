@@ -35,6 +35,9 @@
                 <MenuItem Header="Supprimer une offre" Name="DelOffer" Click="DelOffer_Click"/>
             </MenuItem>
             <MenuItem Header="_Gestion des clients">
+                <MenuItem.Icon>
+                    <Image Source="https://i.goopics.net/L709j.png"/>
+                </MenuItem.Icon>
                 <MenuItem Header="Liste des clients" Name="ClientsList" Click="ClientsList_Click"/>
                 <MenuItem Header="Ajouter un client" Name="AddPartner" Click="AddPartner_Click"/>
                 <MenuItem Header="Editer un client" Name="EditPartner" Click="EditPartner_Click"/>
@@ -56,7 +59,6 @@
                 <MenuItem Header="Gestion du compte" Name="AccountManagement" Click="AccountManagement_Click"/>
             </MenuItem>
         </Menu>
-
         <Button Background="LightGray" Foreground="Black" HorizontalAlignment="Right" VerticalAlignment="Bottom" Grid.Row="2" Content="Accueil" Name="ButtonBack" Click="ButtonBack_Click" ></Button>
         <DockPanel x:Name="DockPanelView" Grid.Row="1" Background="Transparent">
             <view:ViewMain>

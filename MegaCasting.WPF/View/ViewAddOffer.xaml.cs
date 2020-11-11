@@ -1,6 +1,7 @@
 ﻿using MegaCasting.WPF.ViewModel;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -71,7 +72,6 @@ namespace MegaCasting.WPF.View
             TextBoxDescripProfil.Text = string.Empty;
             TextBoxDescripProfil.GotFocus -= TextBoxDescripProfil_GotFocus;
         }
-
         private void TextBoxDescripProfil_LostFocus(object sender, RoutedEventArgs e)
         {
             if (TextBoxDescripProfil.Text.Trim().Equals(string.Empty))
@@ -80,13 +80,11 @@ namespace MegaCasting.WPF.View
                 TextBoxDescripProfil.GotFocus += TextBoxDescripProfil_GotFocus;
             }
         }
-
         private void TextBoxDureeDiff_GotFocus(object sender, RoutedEventArgs e)
         {
             TextBoxDureeDiff.Text = string.Empty;
             TextBoxDureeDiff.GotFocus -= TextBoxDureeDiff_GotFocus;
         }
-
         private void TextBoxDureeDiff_LostFocus(object sender, RoutedEventArgs e)
         {
             if (TextBoxDureeDiff.Text.Trim().Equals(string.Empty))

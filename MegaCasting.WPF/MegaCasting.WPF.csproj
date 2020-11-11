@@ -117,13 +117,16 @@
     <Compile Include="Converter\ObjectToEnabledConverter.cs" />
     <Compile Include="Converter\ObjectToVisibilityConverter.cs" />
     <Compile Include="ViewModel\ViewModelContrat.cs" />
-    <Compile Include="Model\Json.cs" />
     <Compile Include="ViewModel\ViewModelAddLocalization.cs" />
+    <Compile Include="Model\Json.cs" />
     <Compile Include="ViewModel\ViewModelAddOffer.cs" />
+    <Compile Include="ViewModel\ViewModelAddPartner.cs" />
     <Compile Include="ViewModel\ViewModelClientsList.cs" />
     <Compile Include="ViewModel\ViewModelDelLocalization.cs" />
     <Compile Include="ViewModel\ViewModelDelOffre.cs" />
+    <Compile Include="ViewModel\ViewModelDelPartner.cs" />
     <Compile Include="ViewModel\ViewModelEditOffer.cs" />
+    <Compile Include="ViewModel\ViewModelEditPartner.cs" />
     <Compile Include="ViewModel\ViewModelHistoriqueOffer.cs" />
     <Compile Include="ViewModel\ViewModelBase.cs" />
     <Compile Include="ViewModel\ViewModelListLocalization.cs" />
@@ -234,8 +237,8 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="View\ViewEditPartner.xaml">
-      <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\ViewHistoriqueOffer.xaml">
       <SubType>Designer</SubType>

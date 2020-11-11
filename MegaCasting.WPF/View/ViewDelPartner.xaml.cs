@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MegaCasting.WPF.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -25,18 +26,17 @@ namespace MegaCasting.WPF.View
             InitializeComponent();
         }
 
-        private void TextBoxNomDel_GotFocus(object sender, RoutedEventArgs e)
+        private void ButtonDelPartner_Click(object sender, RoutedEventArgs e)
         {
-            TextBoxNomDel.Text = string.Empty;
-            TextBoxNomDel.GotFocus -= TextBoxNomDel_GotFocus;
-        }
-
-        private void TextBoxNomDel_LostFocus(object sender, RoutedEventArgs e)
-        {
-            if (TextBoxNomDel.Text.Trim().Equals(string.Empty))
+            string login = ListBoxDelClient.ToString();
+            if (((ViewModelDelPartner)this.DataContext).VerifPartner(login))
             {
-                TextBoxNomDel.Text = "Nom";
-                TextBoxNomDel.GotFocus += TextBoxNomDel_GotFocus;
+                ((ViewModelDelPartner)this.DataContext).DelPartner();
+                MessageBox.Show("Client supprimé");
+            }
+            else
+            {
+                MessageBox.Show("Erreur : client non supprimé");
             }
         }
     }

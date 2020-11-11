@@ -26,7 +26,6 @@ namespace MegaCasting.WPF.View
         {
             InitializeComponent();
         }
-
         private void ButtonEditOffer_Click(object sender, RoutedEventArgs e)
         {
             ((ViewModelEditOffer)this.DataContext).EditOffer();
