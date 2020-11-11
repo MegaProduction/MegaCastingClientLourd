@@ -27,10 +27,10 @@
         <Menu IsMainMenu="True" Background="White" Grid.Row="0">
             <MenuItem Name="GesOffer" Header="_Gestion des offres">
                 <MenuItem Header="Historique des offres" Name="HistoriqueOffer" Click="HistoriqueOffer_Click"/>
-                    <MenuItem Header="Ajouter une offre" Name="AddOffer" Click="AddOffer_Click"/>
-                    <MenuItem Header="Editer une offre" Name="EditOffer" Click="EditOffer_Click"/>
-                    <MenuItem Header="Supprimer une offre" Name="DelOffer" Click="DelOffer_Click"/>
-                </MenuItem>
+                <MenuItem Header="Ajouter une offre" Name="AddOffer" Click="AddOffer_Click"/>
+                <MenuItem Header="Editer une offre" Name="EditOffer" Click="EditOffer_Click"/>
+                <MenuItem Header="Supprimer une offre" Name="DelOffer" Click="DelOffer_Click"/>
+             </MenuItem>
             <MenuItem Header="_Gestion des clients">
                 <MenuItem Header="Liste des clients" Name="ClientsList" Click="ClientsList_Click"/>
                 <MenuItem Header="Ajouter un client" Name="AddPartner" Click="AddPartner_Click"/>
@@ -38,15 +38,21 @@
                 <MenuItem Header="Supprimer un client" Name="DelPartner" Click="DelPartner_Click"/>
             </MenuItem>
             <MenuItem Header="_Gestion des Contrat">
-                <MenuItem Header="Liste des clients" Name="ContratList" Click="ContratList_Click"/>
+                <MenuItem Header="Liste des Contrat" Name="ContratList" Click="ContratList_Click"/>
                 <MenuItem Header="Contrat" Name="Contrat" Click="Contrat_Click"/>
             </MenuItem>
+            <MenuItem Header="_Gestion localisation">
+                <MenuItem Header="Liste des localisations" Name="LocalizationList" Click="LocalizationList_Click"/>
+                <MenuItem Header="Ajouter une localisation" Name="LocalizationAdd" Click="LocalizationAdd_Click"/>
+                <MenuItem Header="Editer une localisation" Name="LocalizationEdit" Click="LocalizationEdit_Click"/>
+                <MenuItem Header="Supprimer une localisation" Name="LocalizationDelete" Click="LocalizationDelete_Click"/>
+            </MenuItem>
             <MenuItem Header="_Paramètres">
-                    <MenuItem Header="Paramètres généraux" Name="Settings" Click="Settings_Click"/>
-                    <MenuItem Header="Personnalisation du compte" Name="AccountCustomization" Click="AccountCustomization_Click"/>
-                    <MenuItem Header="Gestion du compte" Name="AccountManagement" Click="AccountManagement_Click"/>
-                </MenuItem>
-            </Menu>
+                <MenuItem Header="Paramètres généraux" Name="Settings" Click="Settings_Click"/>
+                <MenuItem Header="Personnalisation du compte" Name="AccountCustomization" Click="AccountCustomization_Click"/>
+                <MenuItem Header="Gestion du compte" Name="AccountManagement" Click="AccountManagement_Click"/>
+            </MenuItem>
+        </Menu>
         <Button Background="LightGray" Foreground="Black" HorizontalAlignment="Right" VerticalAlignment="Bottom" Grid.Row="2" Content="Accueil" Name="ButtonBack" Click="ButtonBack_Click" ></Button>
         <DockPanel x:Name="DockPanelView" Grid.Row="1" Background="Transparent">
             <view:ViewMain>

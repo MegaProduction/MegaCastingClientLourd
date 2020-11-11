@@ -99,7 +99,7 @@ namespace MegaCastingsV2.APV1
 
 
             Console.WriteLine(entities.OffreClients
-                                 .Where(offreClient => offreClient.IdentifiantPartenaire == 4)
+                                 .Where(offreClient => offreClient.IdentifiantClient == 4)
                                  .Count()
                                  .ToString());
             Console.ReadKey();

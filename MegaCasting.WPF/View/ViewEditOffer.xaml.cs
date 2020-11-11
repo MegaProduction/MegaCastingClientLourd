@@ -31,6 +31,7 @@ namespace MegaCasting.WPF.View
         {
             ((ViewModelEditOffer)this.DataContext).EditOffer();
         }
+
         private void TexBoxEditNombrePostes_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
             //Permet de définir le pattern autoriser dans la texBox ici des chiffres/nombres

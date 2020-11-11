@@ -125,7 +125,7 @@
                     <Binding ElementName="texBoxEditDureeDiffusion" Path="Text"/>
                     <Binding ElementName="texBoxEditDureeDiffusion" Path="Text"/>
                     <Binding ElementName="texBoxEditCoordonnees" Path="Text"/>
-            </MultiBinding>
+                </MultiBinding>
             </Button.IsEnabled>
         </Button>
     </Grid>

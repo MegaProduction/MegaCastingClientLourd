@@ -81,6 +81,15 @@ namespace MegaCasting.WPF.ViewModel
         /// </summary>
         public void SaveChanges()
         {
+            //try
+            //{
+
+            //}
+            //catch (Exception)
+            //{
+
+            //    throw;
+            //}
             this.Entities.SaveChanges();
         }
         /// <summary>

@@ -1,7 +1,11 @@
 [
   {
     "Name": "Custom",
+<<<<<<< HEAD
     "Color": "#FF3D0F7B"
+=======
+    "Color": "#FF210606"
+>>>>>>> localisation
   },
   {
     "Name": "Default",
