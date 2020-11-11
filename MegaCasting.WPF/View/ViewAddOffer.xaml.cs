@@ -23,6 +23,9 @@ namespace MegaCasting.WPF.View
     /// </summary>
     public partial class ViewAddOffer : UserControl
     {
+        /// <summary>
+        /// Initialise la ViewAddOffer
+        /// </summary>
         public ViewAddOffer()
         {
             InitializeComponent();

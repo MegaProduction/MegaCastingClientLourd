@@ -21,6 +21,9 @@ namespace MegaCasting.WPF.View
     /// </summary>
     public partial class ViewEditPartner : UserControl
     {
+        /// <summary>
+        /// Initialise la ViewEditPartner
+        /// </summary>
         public ViewEditPartner()
         {
             InitializeComponent();

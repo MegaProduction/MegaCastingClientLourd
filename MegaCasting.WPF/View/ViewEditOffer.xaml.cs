@@ -22,6 +22,9 @@ namespace MegaCasting.WPF.View
     /// </summary>
     public partial class ViewEditOffer : UserControl
     {
+        /// <summary>
+        /// Initialise la ViewEditOffer
+        /// </summary>
         public ViewEditOffer()
         {
             InitializeComponent();

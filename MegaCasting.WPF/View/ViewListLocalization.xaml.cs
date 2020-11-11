@@ -20,6 +20,9 @@ namespace MegaCasting.WPF.View
     /// </summary>
     public partial class ViewListLocalization : UserControl
     {
+        /// <summary>
+        /// Initialise la viewListLocalization
+        /// </summary>
         public ViewListLocalization()
         {
             InitializeComponent();

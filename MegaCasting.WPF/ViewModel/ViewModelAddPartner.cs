@@ -113,7 +113,7 @@ namespace MegaCasting.WPF.ViewModel
 		/// <param name="login"></param>
 		/// <param name="password"></param>
 		/// <param name="libelle"></param>
-		/// <param name="ville"></param>
+		/// <param name="identifiantVille"></param>
 		public void AddPartner(string login, string password, string libelle, string identifiantVille)
 		{
 			bool ville = int.TryParse(identifiantVille, out int villeId);

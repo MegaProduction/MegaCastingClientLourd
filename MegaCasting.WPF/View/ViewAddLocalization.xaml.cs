@@ -21,6 +21,9 @@ namespace MegaCasting.WPF.View
     /// </summary>
     public partial class ViewAddLocalization : UserControl
     {
+        /// <summary>
+        /// Initialise la ViewAddLocalization
+        /// </summary>
         public ViewAddLocalization()
         {
             InitializeComponent();

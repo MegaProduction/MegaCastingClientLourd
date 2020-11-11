@@ -21,6 +21,9 @@ namespace MegaCasting.WPF.View
     /// </summary>
     public partial class ViewDelLocalization : UserControl
     {
+        /// <summary>
+        /// Initialise la ViewDelLocalisation
+        /// </summary>
         public ViewDelLocalization()
         {
             InitializeComponent();

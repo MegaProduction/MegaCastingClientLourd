@@ -69,7 +69,6 @@ namespace MegaCasting.WPF.Model
         /// <summary>
         /// Ouvre le fichier indiqué et retour la valeur HEX custom
         /// </summary>
-        /// <param name="fileName">Source du fichier</param>
         /// <returns>Retourne une string</returns>
         public string OpenFile()
         {

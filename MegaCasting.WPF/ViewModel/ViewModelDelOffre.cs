@@ -11,24 +11,6 @@ namespace MegaCasting.WPF.ViewModel
 {
     class ViewModelDelOffre : ViewModelBase
     {
-		private ObservableCollection<Postule> _ListPostules;
-		/// <summary>
-		/// Obtient ou définit postule
-		/// </summary>
-		public ObservableCollection<Postule> ListPostules
-		{
-			get { return _ListPostules; }
-			set { _ListPostules = value; }
-		}
-		private Postule _Postules;
-
-		public Postule Postules
-		{
-			get { return _Postules; }
-			set { _Postules = value; }
-		}
-
-
 		#region Attributs
 		/// <summary>
 		/// Collection des offres
@@ -39,8 +21,10 @@ namespace MegaCasting.WPF.ViewModel
 		/// </summary>
 		private Offre _SelectedOffres;
 		/// <summary>
-		/// Collection d'offre lié aux client
+		/// Collection d'offre lié aux candidiat
 		/// </summary>
+		private ObservableCollection<Postule> _ListPostules;
+
 		#endregion
 		#region Properties
 		/// <summary>
@@ -58,6 +42,14 @@ namespace MegaCasting.WPF.ViewModel
 		{
 			get { return _SelectedOffres; }
 			set { _SelectedOffres = value; }
+		}
+		/// <summary>
+		/// Obtient ou définit la collection de candidat qui ont postulé
+		/// </summary>
+		public ObservableCollection<Postule> ListPostules
+		{
+			get { return _ListPostules; }
+			set { _ListPostules = value; }
 		}
 		#endregion
 		#region Construteur

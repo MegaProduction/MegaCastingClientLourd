@@ -20,6 +20,9 @@ namespace MegaCasting.WPF.View
     /// </summary>
     public partial class ViewAccountManagement : UserControl
     {
+        /// <summary>
+        /// Initialise la ViewAccountManagement
+        /// </summary>
         public ViewAccountManagement()
         {
             InitializeComponent();

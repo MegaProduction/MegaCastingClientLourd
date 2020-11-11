@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace MegaCasting.WPF.ViewModel
 {
+    /// <summary>
+    /// Class ViewModel de la mainWindow pour le contexte de l'application
+    /// </summary>
     public class ViewModelMainWindow : ViewModelBase
     {
         #region Contructeur
