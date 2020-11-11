@@ -14,11 +14,9 @@
             <Setter Property="BorderBrush" Value="AliceBlue"/>
         </Style.Setters>
     </Style>
-
     <Style x:Key="TextBoxStyle" TargetType="TextBox">
         <Style.Setters>
             <Setter Property="Background" Value="Black"/>
         </Style.Setters>
     </Style>
-
 </ResourceDictionary>
