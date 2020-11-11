@@ -169,9 +169,10 @@ namespace MegaCasting.WPF.ViewModel
 				bool client = Int32.TryParse(identifiantClient, out int idClient);
 				bool dateOffre = DateTime.TryParse(date, out DateTime dateTime);
 				bool nombrePoste = Int32.TryParse(nbPoste, out int nmbrePoste);
-				if (VerifOffre(intitule, ville, contrat, client, dateOffre, desPoste, desProfil, desCoord, duree, nombrePoste))
+				Offre offre = new Offre();
+				OffreClient offreClient = new OffreClient();
+				try
 				{
-					Offre offre = new Offre();
 					offre.Intitule = intitule;
 					offre.IdentifiantContrat = idContrat;
 					offre.Localisation = idVille;
@@ -181,50 +182,28 @@ namespace MegaCasting.WPF.ViewModel
 					offre.DureeDiffusion = duree;
 					offre.EstValide = true;
 					offre.DateDebut = dateTime;
-					offre.Reference = offre.Identifiant;
 					offre.Coordonnées = desCoord;
 					offre.DateAjout = DateTime.Now;
+					offre.Reference = 0;
 					this.Offres.Add(offre);
-					OffreClient offreClient = new OffreClient();
 					offreClient.IdentifiantClient = idClient;
 					offreClient.IdentifiantOffre = offre.Identifiant;
 					this.OffreClients.Add(offreClient);
 					this.SaveChanges();
 					MessageBox.Show("Offre ajoutée");
 				}
-				else
+					catch (System.Data.Entity.Infrastructure.DbUpdateException)
 				{
 					MessageBox.Show("Une erreur s'est produite lors de la saisie");
+					this.Offres.Remove(offre);
+					this.OffreClients.Remove(offreClient);
 				}
+			
 			}
 			else
 			{
 				MessageBox.Show("Une offre porte déjà ce nom");
 			}
-		}
-
-		/// <summary>
-		/// Vérifie si touts les champs sont non null, vide ou composé d'espace blanc sinon retourne faux si un des champs est faux
-		/// </summary>
-		/// <param name="intitule">Nom de l'offre</param>
-		/// <param name="ville">Identifiant de la ville</param>
-		/// <param name="contrat">Identifiant du contrat</param>
-		/// <param name="client">Identifiant du client</param>
-		/// <param name="date">Date de début de l'offre</param>
-		/// <param name="desProfil">Description du profil pour le postulant</param>
-		/// <param name="desPoste">Description de l'offre</param>
-		/// <param name="desCoord">Coordonnée de l'offre</param>
-		/// <param name="duree">Durée de l'offre</param>
-		/// <param name="nombrePoste">Nombre de poste pour l'offre</param>
-		/// <returns>Booléen</returns>
-		public bool VerifOffre(string intitule, bool ville, bool contrat, bool client, bool date, string desProfil, string desPoste, string desCoord, string duree, bool nombrePoste)
-		{
-			bool returnValid = false;
-			if (string.IsNullOrWhiteSpace(intitule) != true && string.IsNullOrWhiteSpace(desProfil) != true && string.IsNullOrWhiteSpace(desPoste) != true && string.IsNullOrWhiteSpace(desCoord) != true && string.IsNullOrWhiteSpace(duree) != true && ville && client && contrat && date && nombrePoste)
-			{
-				returnValid = true;
-			}
-			return returnValid;
 		}
 		#endregion
 	}
