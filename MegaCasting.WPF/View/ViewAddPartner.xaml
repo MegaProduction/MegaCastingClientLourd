@@ -86,7 +86,7 @@
             IsEditable="True" 
             IsReadOnly="False" 
             SelectedValuePath="Identifiant" 
-            SelectedValue="{Binding Path=Villes.Identifiant}"/>
+            SelectedValue="{Binding Path=Villes}"/>
         <Button 
             Grid.Row="10" 
             Grid.Column="1" 
