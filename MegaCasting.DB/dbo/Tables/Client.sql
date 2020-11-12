@@ -10,3 +10,20 @@
 
 
 
+
+
+
+GO
+
+CREATE   TRIGGER Tr_TextBox ON Client
+AFTER INSERT, UPDATE
+AS
+	IF EXISTS(
+		SELECT *
+		FROM inserted
+		WHERE inserted.Libelle = ' ' OR inserted.Libelle = '' OR inserted.Login = '' OR inserted.Login = ' ' OR inserted.Password = '' OR inserted.Password = ' '
+		OR inserted.Libelle = 'Libellé'
+		)
+		BEGIN
+			ROLLBACK;
+		END;

@@ -7,3 +7,18 @@
     CONSTRAINT [FK_Ville_Pays] FOREIGN KEY ([IdentifiantPays]) REFERENCES [dbo].[Pays] ([Identifiant])
 );
 
+
+
+
+GO
+CREATE   TRIGGER Tr_Ville ON Ville
+AFTER INSERT, UPDATE
+AS
+	IF EXISTS(
+		SELECT *
+		FROM inserted
+		WHERE inserted.Libelle = '' OR inserted.Libelle = ' ' OR inserted.Libelle = 'Ville' OR inserted.CodePostal = '' OR inserted.CodePostal = ' '
+		)
+		BEGIN
+			ROLLBACK;
+		END;

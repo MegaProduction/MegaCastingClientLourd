@@ -207,7 +207,10 @@ namespace MegaCasting.WPF
         private void LocalizationEdit_Click(object sender, RoutedEventArgs e)
         {
             this.DockPanelView.Children.Clear();
-            this.DockPanelView.Children.Add(new ViewAddLocalization());
+            ViewModelEditLocalization viewModelEditCountry = new ViewModelEditLocalization(Entities);
+            ViewEditLocalization viewEditLocalization = new ViewEditLocalization();
+            this.DataContext = viewModelEditCountry;
+            this.DockPanelView.Children.Add(viewEditLocalization);
         }
 
         private void LocalizationDelete_Click(object sender, RoutedEventArgs e)
