@@ -44,6 +44,9 @@
                 <MenuItem Header="Supprimer une localisation" Name="LocalizationDelete" Click="LocalizationDelete_Click"/>
             </MenuItem>
             <MenuItem Header="_Paramètres">
+                <MenuItem.Icon>
+                    <Image Source="https://i.goopics.net/rNjWD.png"/>
+                </MenuItem.Icon>
                 <MenuItem Header="Paramètres généraux" Name="Settings" Click="Settings_Click"/>
                 <MenuItem Header="Personnalisation du compte" Name="AccountCustomization" Click="AccountCustomization_Click"/>
                 <MenuItem Header="Gestion du compte" Name="AccountManagement" Click="AccountManagement_Click"/>
