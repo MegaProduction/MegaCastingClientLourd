@@ -30,16 +30,5 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        <ListBox
-            Grid.Column="1"
-            Grid.Row="2"
-            Grid.RowSpan="2"
-            HorizontalAlignment="Center"
-            x:Name="ListBoxHistoriqueOffer"
-            ItemsSource ="{Binding Offres}"
-            DisplayMemberPath="Intitule"
-            SelectedItem="{Binding SelectedOffre}">
-        </ListBox>
-        <TextBlock Grid.Row="3" Grid.Column="3" Visibility="{Binding SelectedOffre , Converter={StaticResource _SharedObjectToVisibilityConverter}}" Text="{Binding SelectedOffre.Intitule}" Background="Indigo"></TextBlock>
     </Grid>
 </UserControl>

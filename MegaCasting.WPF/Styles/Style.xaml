@@ -2,22 +2,22 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:local="clr-namespace:MegaCasting.WPF.Styles">
 
-    <Style x:Key="TextBoxStyle" TargetType="TextBox">
-        <Style.Setters>
-            <Setter Property="Background" Value="Black"/>
-        </Style.Setters>
-    </Style>
     <Style x:Key="LabelStyle" TargetType="Label">
         <Style.Setters>
             <Setter Property="FontSize" Value="30px"></Setter>
             <Setter Property="HorizontalAlignment" Value="Center"/>
         </Style.Setters>
     </Style>
-    <Style x:Key="ButtonStyle" TargetType="Button">
+    <Style x:Key="overrideButton" TargetType="Button" BasedOn="{StaticResource MaterialDesignFlatDarkBgButton}">
         <Style.Setters>
             <Setter Property="Background" Value="LightGray"/>
-            <Setter Property="Foreground" Value="Black"/>
-            <Setter Property="BorderBrush" Value="AliceBlue"/>
+            <Setter Property="Foreground" Value="Black" />
+            <Setter Property="BorderBrush" Value="Black" />
+        </Style.Setters>
+    </Style>
+    <Style x:Key="comboBoxStyle" TargetType="ComboBox" BasedOn="{StaticResource MaterialDesignComboBox}">
+        <Style.Setters>
+            <Setter Property="SelectedIndex" Value="0" />
         </Style.Setters>
     </Style>
 </ResourceDictionary>

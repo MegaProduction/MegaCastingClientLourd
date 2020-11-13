@@ -116,7 +116,7 @@
                 Name="comboBoxContrat"/>
             <!--#endregion-->
         </Grid>
-        <Button Name="ButtonEditOffer" Content="Confirmer" Grid.Column="1" Grid.Row="4" Click="ButtonEditOffer_Click">
+        <Button Name="ButtonEditOffer" Content="Confirmer" Grid.Column="1" Grid.Row="4" Click="ButtonEditOffer_Click" Style="{StaticResource overrideButton}">
             <Button.IsEnabled>
                 <MultiBinding Converter="{StaticResource _SharedBoolToEnabled}">
                     <Binding ElementName="texBoxEditIntitule" Path="Text"/>

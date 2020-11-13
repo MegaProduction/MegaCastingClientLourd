@@ -214,9 +214,9 @@
             <summary>
             Ajoute une offre
             <param name="intitule">Nom de l'offre</param>
-            <param name="ville">Identifiant de la ville</param>
+            <param name="identifiantVille">Identifiant de la ville</param>
             <param name="identifiantContrat">Identifiant du contrat</param>
-            <param name="client">Identifiant du client</param>
+            <param name="identifiantClient">Identifiant du client</param>
             <param name="date">Date de début de l'offre</param>
             <param name="desProfil">Description du profil pour le postulant</param>
             <param name="desPoste">Description de l'offre</param>
@@ -280,7 +280,7 @@
             <param name="login"></param>
             <param name="password"></param>
             <param name="libelle"></param>
-            <param name="ville"></param>
+            <param name="identifiantVille"></param>
         </member>
         <member name="M:MegaCasting.WPF.ViewModel.ViewModelAddPartner.VerifPartner(System.String,System.String,System.String,System.Boolean)">
             <summary>
@@ -298,6 +298,11 @@
             </summary>
             <param name="input">champs a check si : vide, null ou se compose unique d'espace blanc</param>
             <returns></returns>
+        </member>
+        <member name="T:MegaCasting.WPF.ViewModel.ViewModelClientsList">
+            <summary>
+            Class ViewModelClientsList de la ViewClientsList pour la liste des clients
+            </summary>
         </member>
         <member name="F:MegaCasting.WPF.ViewModel.ViewModelClientsList._Clients">
             <summary>
@@ -321,9 +326,9 @@
         </member>
         <member name="M:MegaCasting.WPF.ViewModel.ViewModelClientsList.#ctor(MegaCasting.DBlib.MegaCastingEntities)">
             <summary>
-            Constructeur de base
+            Constructeur de liste des clients
             </summary>
-            <param name="entities"></param>
+            <param name="entities">Contexte de l'application</param>
         </member>
         <member name="F:MegaCasting.WPF.ViewModel.ViewModelDelLocalization._Villes">
             <summary>
@@ -380,11 +385,6 @@
             Supprime un pays
             </summary>
         </member>
-        <member name="P:MegaCasting.WPF.ViewModel.ViewModelDelOffre.ListPostules">
-            <summary>
-            Obtient ou définit postule
-            </summary>
-        </member>
         <member name="F:MegaCasting.WPF.ViewModel.ViewModelDelOffre._Offres">
             <summary>
             Collection des offres
@@ -395,6 +395,11 @@
             Offre sélectionnée
             </summary>
         </member>
+        <member name="F:MegaCasting.WPF.ViewModel.ViewModelDelOffre._ListPostules">
+            <summary>
+            Collection d'offre lié aux candidiat
+            </summary>
+        </member>
         <member name="P:MegaCasting.WPF.ViewModel.ViewModelDelOffre.Offres">
             <summary>
             Obtient ou définit la collection d'offre
@@ -403,6 +408,11 @@
         <member name="P:MegaCasting.WPF.ViewModel.ViewModelDelOffre.SelectedOffre">
             <summary>
             Obtient ou définit l'offre sélectionnée
+            </summary>
+        </member>
+        <member name="P:MegaCasting.WPF.ViewModel.ViewModelDelOffre.ListPostules">
+            <summary>
+            Obtient ou définit la collection de candidat qui ont postulé
             </summary>
         </member>
         <member name="M:MegaCasting.WPF.ViewModel.ViewModelDelOffre.SaveChanges">
@@ -576,6 +586,11 @@
             Obtient ou défini l'offre sélectionné
             </summary>
         </member>
+        <member name="T:MegaCasting.WPF.ViewModel.ViewModelBase">
+            <summary>
+            Class ViewModelBase viewModel de base pour le contexte de l'application
+            </summary>
+        </member>
         <member name="F:MegaCasting.WPF.ViewModel.ViewModelBase._Entities">
             <summary>
             Contexte de l'application
@@ -588,7 +603,7 @@
         </member>
         <member name="M:MegaCasting.WPF.ViewModel.ViewModelBase.#ctor(MegaCasting.DBlib.MegaCastingEntities)">
             <summary>
-            Constructeur du modèle-vue de la fenêtre main
+            Constructeur de base 
             </summary>
             <param name="entities">Contexte de l'application</param>
         </member>
@@ -610,6 +625,11 @@
         <member name="P:MegaCasting.WPF.ViewModel.ViewModelListLocalization.Pays">
             <summary>
             Obtient ou définit les pays
+            </summary>
+        </member>
+        <member name="T:MegaCasting.WPF.ViewModel.ViewModelMainWindow">
+            <summary>
+            Class ViewModel de la mainWindow pour le contexte de l'application
             </summary>
         </member>
         <member name="M:MegaCasting.WPF.ViewModel.ViewModelMainWindow.#ctor(MegaCasting.DBlib.MegaCastingEntities)">
@@ -653,7 +673,6 @@
             <summary>
             Ouvre le fichier indiqué et retour la valeur HEX custom
             </summary>
-            <param name="fileName">Source du fichier</param>
             <returns>Retourne une string</returns>
         </member>
         <member name="T:MegaCasting.WPF.View.ViewAccountCustomization">
@@ -662,6 +681,11 @@
             </summary>
             <summary>
             ViewAccountCustomization
+            </summary>
+        </member>
+        <member name="M:MegaCasting.WPF.View.ViewAccountCustomization.#ctor">
+            <summary>
+            Initialise la ViewAccountCustomization
             </summary>
         </member>
         <member name="M:MegaCasting.WPF.View.ViewAccountCustomization.InitializeComponent">
@@ -677,6 +701,11 @@
             ViewAccountManagement
             </summary>
         </member>
+        <member name="M:MegaCasting.WPF.View.ViewAccountManagement.#ctor">
+            <summary>
+            Initialise la ViewAccountManagement
+            </summary>
+        </member>
         <member name="M:MegaCasting.WPF.View.ViewAccountManagement.InitializeComponent">
             <summary>
             InitializeComponent
@@ -688,6 +717,11 @@
             </summary>
             <summary>
             ViewAddContrat
+            </summary>
+        </member>
+        <member name="M:MegaCasting.WPF.View.ViewAddContrat.#ctor">
+            <summary>
+            Initialise la ViewAddContrat
             </summary>
         </member>
         <member name="M:MegaCasting.WPF.View.ViewAddContrat.ButtonAddContrat_Click(System.Object,System.Windows.RoutedEventArgs)">
@@ -710,6 +744,11 @@
             ViewAddLocalization
             </summary>
         </member>
+        <member name="M:MegaCasting.WPF.View.ViewAddLocalization.#ctor">
+            <summary>
+            Initialise la ViewAddLocalization
+            </summary>
+        </member>
         <member name="M:MegaCasting.WPF.View.ViewAddLocalization.InitializeComponent">
             <summary>
             InitializeComponent
@@ -721,6 +760,11 @@
             </summary>
             <summary>
             ViewAddOffer
+            </summary>
+        </member>
+        <member name="M:MegaCasting.WPF.View.ViewAddOffer.#ctor">
+            <summary>
+            Initialise la ViewAddOffer
             </summary>
         </member>
         <member name="M:MegaCasting.WPF.View.ViewAddOffer.AddOffre_Click(System.Object,System.Windows.RoutedEventArgs)">
@@ -743,6 +787,11 @@
             ViewAddPartner
             </summary>
         </member>
+        <member name="M:MegaCasting.WPF.View.ViewAddPartner.#ctor">
+            <summary>
+            Initialise la viewAddPartner
+            </summary>
+        </member>
         <member name="M:MegaCasting.WPF.View.ViewAddPartner.InitializeComponent">
             <summary>
             InitializeComponent
@@ -754,6 +803,11 @@
             </summary>
             <summary>
             ViewDelLocalization
+            </summary>
+        </member>
+        <member name="M:MegaCasting.WPF.View.ViewDelLocalization.#ctor">
+            <summary>
+            Initialise la ViewDelLocalisation
             </summary>
         </member>
         <member name="M:MegaCasting.WPF.View.ViewDelLocalization.InitializeComponent">
@@ -769,6 +823,11 @@
             ViewDelOffer
             </summary>
         </member>
+        <member name="M:MegaCasting.WPF.View.ViewDelOffer.#ctor">
+            <summary>
+            Initialise la ViewDelOffer
+            </summary>
+        </member>
         <member name="M:MegaCasting.WPF.View.ViewDelOffer.InitializeComponent">
             <summary>
             InitializeComponent
@@ -780,6 +839,11 @@
             </summary>
             <summary>
             ViewDelPartner
+            </summary>
+        </member>
+        <member name="M:MegaCasting.WPF.View.ViewDelPartner.#ctor">
+            <summary>
+            Initialise la ViewDelPartner
             </summary>
         </member>
         <member name="M:MegaCasting.WPF.View.ViewDelPartner.InitializeComponent">
@@ -795,6 +859,11 @@
             ViewEditOffer
             </summary>
         </member>
+        <member name="M:MegaCasting.WPF.View.ViewEditOffer.#ctor">
+            <summary>
+            Initialise la ViewEditOffer
+            </summary>
+        </member>
         <member name="M:MegaCasting.WPF.View.ViewEditOffer.InitializeComponent">
             <summary>
             InitializeComponent
@@ -806,6 +875,11 @@
             </summary>
             <summary>
             ViewEditPartner
+            </summary>
+        </member>
+        <member name="M:MegaCasting.WPF.View.ViewEditPartner.#ctor">
+            <summary>
+            Initialise la ViewEditPartner
             </summary>
         </member>
         <member name="M:MegaCasting.WPF.View.ViewEditPartner.InitializeComponent">
@@ -821,6 +895,11 @@
             ViewHistoriqueOffer
             </summary>
         </member>
+        <member name="M:MegaCasting.WPF.View.ViewHistoriqueOffer.#ctor">
+            <summary>
+            Initialise la ViewHistoriqueOffer
+            </summary>
+        </member>
         <member name="M:MegaCasting.WPF.View.ViewHistoriqueOffer.InitializeComponent">
             <summary>
             InitializeComponent
@@ -832,6 +911,11 @@
             </summary>
             <summary>
             ViewListLocalization
+            </summary>
+        </member>
+        <member name="M:MegaCasting.WPF.View.ViewListLocalization.#ctor">
+            <summary>
+            Initialise la viewListLocalization
             </summary>
         </member>
         <member name="M:MegaCasting.WPF.View.ViewListLocalization.InitializeComponent">
@@ -847,6 +931,11 @@
             ViewMain
             </summary>
         </member>
+        <member name="M:MegaCasting.WPF.View.ViewMain.#ctor">
+            <summary>
+            Initialise la view d'acceuil de l'application
+            </summary>
+        </member>
         <member name="M:MegaCasting.WPF.View.ViewMain.InitializeComponent">
             <summary>
             InitializeComponent
@@ -860,6 +949,11 @@
             ViewPartnersList
             </summary>
         </member>
+        <member name="M:MegaCasting.WPF.View.ViewPartnersList.#ctor">
+            <summary>
+            Initialise la viewParternsList
+            </summary>
+        </member>
         <member name="M:MegaCasting.WPF.View.ViewPartnersList.InitializeComponent">
             <summary>
             InitializeComponent
@@ -871,6 +965,11 @@
             </summary>
             <summary>
             ViewSettings
+            </summary>
+        </member>
+        <member name="M:MegaCasting.WPF.View.ViewSettings.#ctor">
+            <summary>
+            Initialise la viewSettings
             </summary>
         </member>
         <member name="M:MegaCasting.WPF.View.ViewSettings.InitializeComponent">
