@@ -149,6 +149,7 @@
     <Compile Include="ViewModel\ViewModelEditPartner.cs" />
     <Compile Include="ViewModel\ViewModelHistoriqueOffer.cs" />
     <Compile Include="ViewModel\ViewModelBase.cs" />
+    <Compile Include="ViewModel\ViewModelListContrat.cs" />
     <Compile Include="ViewModel\ViewModelListLocalization.cs" />
     <Compile Include="ViewModel\ViewModelMainWindow.cs" />
     <Compile Include="ViewModel\ViewModelSettings.cs" />
@@ -187,6 +188,9 @@
     </Compile>
     <Compile Include="View\ViewHistoriqueOffer.xaml.cs">
       <DependentUpon>ViewHistoriqueOffer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ViewListContrat.xaml.cs">
+      <DependentUpon>ViewListContrat.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\ViewListLocalization.xaml.cs">
       <DependentUpon>ViewListLocalization.xaml</DependentUpon>
@@ -261,6 +265,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\ViewHistoriqueOffer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ViewListContrat.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

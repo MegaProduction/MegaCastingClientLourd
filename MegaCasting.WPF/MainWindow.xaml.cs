@@ -194,7 +194,10 @@ namespace MegaCasting.WPF
         private void ContratList_Click(object sender, RoutedEventArgs e)
         {
             this.DockPanelView.Children.Clear();
-            this.DockPanelView.Children.Add(new ViewAccountManagement());
+            ViewModelListContrat viewModelListContrat = new ViewModelListContrat(Entities);
+            ViewListContrat viewListContrat = new ViewListContrat();
+            this.DataContext = viewModelListContrat;
+            this.DockPanelView.Children.Add(viewListContrat);
         }
 
         private void Contrat_Click(object sender, RoutedEventArgs e)

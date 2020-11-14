@@ -10,14 +10,6 @@ namespace MegaCasting.WPF.ViewModel
 {
     class ViewModelHistoriqueOffer : ViewModelBase
     {
-		private OffreClient _SelectedOffreClient;
-
-		public OffreClient SelectedOffreClient
-		{
-			get { return _SelectedOffreClient; }
-			set { _SelectedOffreClient = value; }
-		}
-
 		#region Attributes
 		/// <summary>
 		/// Collection d'offre

@@ -287,11 +287,6 @@
             Class ViewModelClientsList de la ViewClientsList pour la liste des clients
             </summary>
         </member>
-        <member name="T:MegaCasting.WPF.ViewModel.ViewModelClientsList">
-            <summary>
-            Class ViewModelClientsList de la ViewClientsList pour la liste des clients
-            </summary>
-        </member>
         <member name="F:MegaCasting.WPF.ViewModel.ViewModelClientsList._Clients">
             <summary>
             Collection des clients
@@ -562,11 +557,6 @@
             Class ViewModelBase viewModel de base pour le contexte de l'application
             </summary>
         </member>
-        <member name="T:MegaCasting.WPF.ViewModel.ViewModelBase">
-            <summary>
-            Class ViewModelBase viewModel de base pour le contexte de l'application
-            </summary>
-        </member>
         <member name="F:MegaCasting.WPF.ViewModel.ViewModelBase._Entities">
             <summary>
             Contexte de l'application
@@ -582,6 +572,16 @@
             Constructeur de base 
             </summary>
             <param name="entities">Contexte de l'application</param>
+        </member>
+        <member name="F:MegaCasting.WPF.ViewModel.ViewModelListContrat._Contrat">
+            <summary>
+            Collection de contrat
+            </summary>
+        </member>
+        <member name="P:MegaCasting.WPF.ViewModel.ViewModelListContrat.Contrats">
+            <summary>
+            Obtient ou définit la collection de contrat
+            </summary>
         </member>
         <member name="F:MegaCasting.WPF.ViewModel.ViewModelListLocalization._Villes">
             <summary>
@@ -877,6 +877,24 @@
             </summary>
         </member>
         <member name="M:MegaCasting.WPF.View.ViewHistoriqueOffer.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:MegaCasting.WPF.View.ViewListContrat">
+            <summary>
+            Logique d'interaction pour ViewListContrat.xaml
+            </summary>
+            <summary>
+            ViewListContrat
+            </summary>
+        </member>
+        <member name="M:MegaCasting.WPF.View.ViewListContrat.#ctor">
+            <summary>
+            Initialise la ViewListContrat
+            </summary>
+        </member>
+        <member name="M:MegaCasting.WPF.View.ViewListContrat.InitializeComponent">
             <summary>
             InitializeComponent
             </summary>
