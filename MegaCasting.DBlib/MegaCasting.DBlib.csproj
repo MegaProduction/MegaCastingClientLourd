@@ -132,6 +132,7 @@
       <DependentUpon>MegaCastingModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Partial\Contrat.cs" />
+    <Compile Include="Partial\Offre.cs" />
     <Compile Include="Partial\Ville.cs" />
     <Compile Include="Pay.cs">
       <DependentUpon>MegaCastingModel.tt</DependentUpon>

@@ -571,19 +571,9 @@
             Collection d'offre
             </summary>
         </member>
-        <member name="F:MegaCasting.WPF.ViewModel.ViewModelHistoriqueOffer._SelectedOffre">
-            <summary>
-            
-            </summary>
-        </member>
         <member name="P:MegaCasting.WPF.ViewModel.ViewModelHistoriqueOffer.Offres">
             <summary>
             Obtient ou défini la collection d'offre
-            </summary>
-        </member>
-        <member name="P:MegaCasting.WPF.ViewModel.ViewModelHistoriqueOffer.SelectedOffre">
-            <summary>
-            Obtient ou défini l'offre sélectionné
             </summary>
         </member>
         <member name="T:MegaCasting.WPF.ViewModel.ViewModelBase">

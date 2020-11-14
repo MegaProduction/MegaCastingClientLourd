@@ -15,9 +15,4 @@
             <Setter Property="BorderBrush" Value="Black" />
         </Style.Setters>
     </Style>
-    <Style x:Key="comboBoxStyle" TargetType="ComboBox" BasedOn="{StaticResource MaterialDesignComboBox}">
-        <Style.Setters>
-            <Setter Property="SelectedIndex" Value="0" />
-        </Style.Setters>
-    </Style>
 </ResourceDictionary>

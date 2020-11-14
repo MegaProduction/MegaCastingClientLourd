@@ -32,7 +32,7 @@
         </Grid.ColumnDefinitions>
         <!--#endregion-->
 
-        <Label FontSize="30px" HorizontalAlignment="Center" Grid.Row="1" Grid.Column="1">Ajouter une offre</Label>
+        <Label Style="{StaticResource LabelStyle}" Grid.Row="1" Grid.Column="1">Ajouter une offre</Label>
         <Label Grid.Row="3" HorizontalAlignment="Center" FontSize="20px">
             <Underline>Offre</Underline>
         </Label>
@@ -49,6 +49,7 @@
         <TextBox FontSize="15px" Grid.Row="6" Width="150px" HorizontalAlignment="Center" VerticalAlignment="Bottom" Text="Nombre de postes" Name="TextBoxNbPostes" GotFocus="TextBoxNbPostes_GotFocus" LostFocus="TextBoxNbPostes_LostFocus"
                  PreviewTextInput="TextBoxNbPostes_PreviewTextInput"></TextBox>
         <ComboBox
+            Style="{StaticResource MaterialDesignComboBox}"
             FontSize="15px"
             Grid.Row="7"
             Width="150px"
@@ -104,9 +105,6 @@
         <TextBox FontSize="15px" Grid.Row="5" Grid.Column="2" Width="150px" HorizontalAlignment="Center" VerticalAlignment="Bottom" Text="Description du profil" Name="TextBoxDescripProfil" GotFocus="TextBoxDescripProfil_GotFocus" LostFocus="TextBoxDescripProfil_LostFocus"/>
         <TextBox FontSize="15px" Grid.Row="6" Grid.Column="2" Width="150px" HorizontalAlignment="Center" VerticalAlignment="Bottom" Text="Durée de diffusion" Name="TextBoxDureeDiff" GotFocus="TextBoxDureeDiff_GotFocus" LostFocus="TextBoxDureeDiff_LostFocus" PreviewTextInput="TextBoxDureeDiff_PreviewTextInput"/>
         <!--#endregion-->
-
-
-
-        <Button Grid.Column="1" Grid.Row="10" Background="LightGray" Foreground="Black" Name="addOffre" Click="AddOffre_Click" Content="Valider"></Button>
+        <Button Grid.Column="1" Grid.Row="10" Style="{StaticResource overrideButton}" Name="addOffre" Click="AddOffre_Click" Content="Valider"></Button>
     </Grid>
 </UserControl>
