@@ -17,8 +17,6 @@
     CONSTRAINT [FK_Offre_Ville] FOREIGN KEY ([Localisation]) REFERENCES [dbo].[Ville] ([Identifiant])
 );
 
-
-
 GO
 CREATE   TRIGGER TR_OFFRE_VALID ON Offre
 AFTER INSERT, UPDATE

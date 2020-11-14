@@ -8,8 +8,6 @@
     CONSTRAINT [FK_Client_Ville] FOREIGN KEY ([VilleIdentifiant]) REFERENCES [dbo].[Ville] ([Identifiant])
 );
 
-
-
 GO
 
 CREATE   TRIGGER Tr_TextBox ON Client
