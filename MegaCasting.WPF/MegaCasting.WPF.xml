@@ -431,6 +431,51 @@
             Sauvegarde les modifications 
             </summary>
         </member>
+        <member name="F:MegaCasting.WPF.ViewModel.ViewModelEditLocalization._Pays">
+            <summary>
+            Collection de pays
+            </summary>
+        </member>
+        <member name="F:MegaCasting.WPF.ViewModel.ViewModelEditLocalization._Villes">
+            <summary>
+            Collection de villes
+            </summary>
+        </member>
+        <member name="F:MegaCasting.WPF.ViewModel.ViewModelEditLocalization._SelectedPays">
+            <summary>
+            Pays sélectionné
+            </summary>
+        </member>
+        <member name="F:MegaCasting.WPF.ViewModel.ViewModelEditLocalization._SelectedVille">
+            <summary>
+            Ville sélectionnée
+            </summary>
+        </member>
+        <member name="P:MegaCasting.WPF.ViewModel.ViewModelEditLocalization.Pays">
+            <summary>
+            Obtient ou définit la collection de pays
+            </summary>
+        </member>
+        <member name="P:MegaCasting.WPF.ViewModel.ViewModelEditLocalization.Villes">
+            <summary>
+            Obtient ou définit la collection de villes
+            </summary>
+        </member>
+        <member name="P:MegaCasting.WPF.ViewModel.ViewModelEditLocalization.SelectedPays">
+            <summary>
+            Obtient ou définit le pays sélectionné
+            </summary>
+        </member>
+        <member name="P:MegaCasting.WPF.ViewModel.ViewModelEditLocalization.SelectedVille">
+            <summary>
+            Obtient ou définit la ville sélectionnée
+            </summary>
+        </member>
+        <member name="M:MegaCasting.WPF.ViewModel.ViewModelEditLocalization.SaveChanges">
+            <summary>
+            Sauvegarde les modifications 
+            </summary>
+        </member>
         <member name="F:MegaCasting.WPF.ViewModel.ViewModelEditOffer._Offres">
             <summary>
             Collection d'offre 
@@ -823,6 +868,33 @@
             </summary>
         </member>
         <member name="M:MegaCasting.WPF.View.ViewDelPartner.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:MegaCasting.WPF.View.ViewEditLocalization">
+            <summary>
+            Logique d'interaction pour ViewEditLocalization.xaml
+            </summary>
+            <summary>
+            ViewEditLocalization
+            </summary>
+        </member>
+        <member name="M:MegaCasting.WPF.View.ViewEditLocalization.ButtonEditCity_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Édition de la ville
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:MegaCasting.WPF.View.ViewEditLocalization.ButtonEditCountry_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Édition du pays
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:MegaCasting.WPF.View.ViewEditLocalization.InitializeComponent">
             <summary>
             InitializeComponent
             </summary>
