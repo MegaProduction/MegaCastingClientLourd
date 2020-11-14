@@ -6,4 +6,3 @@
     CONSTRAINT [FK_OffreClient_Client] FOREIGN KEY ([IdentifiantClient]) REFERENCES [dbo].[Client] ([Identifiant]),
     CONSTRAINT [FK_OffreClient_Offre] FOREIGN KEY ([IdentifiantOffre]) REFERENCES [dbo].[Offre] ([Identifiant])
 );
-

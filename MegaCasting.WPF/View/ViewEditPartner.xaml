@@ -55,8 +55,20 @@
             SelectedItem="{Binding SelectedClient.Ville, UpdateSourceTrigger=PropertyChanged}" 
             Visibility="{Binding SelectedClient, Converter={StaticResource _SharedObjectToVisibilityConverter}}"
             />
-        
-        <TextBox FontSize="15px" TextAlignment="Center" Grid.Column="1" Grid.Row="6" Width="150px" HorizontalAlignment="Center" VerticalAlignment="Bottom" Text="{Binding SelectedClient.Libelle}" Name="TextBoxLibelle" Visibility="{Binding SelectedClient, Converter={StaticResource _SharedObjectToVisibilityConverter}}"></TextBox>
+
+        <TextBox 
+            FontSize="15px" 
+            TextAlignment="Center" 
+            Grid.Column="1" 
+            Grid.Row="6" 
+            Width="150px" 
+            HorizontalAlignment="Center" 
+            VerticalAlignment="Bottom" 
+            Text="{Binding SelectedClient.Libelle}" 
+            x:Name="TextBoxLibelle" 
+            Visibility="{Binding SelectedClient, Converter={StaticResource _SharedObjectToVisibilityConverter}}"
+            >
+        </TextBox>
 
         <Button Grid.Row="10" Grid.Column="1" Width="100px" Foreground="Black" Background="LightGray" Content="Confirmer" Name="ButtonEditPartner" Click="ButtonEditPartner_Click"/>
     </Grid>

@@ -69,10 +69,10 @@ namespace MegaCasting.WPF.Model
         /// <summary>
         /// Ouvre le fichier indiqué et retour la valeur HEX custom
         /// </summary>
-        /// <param name="fileName">Source du fichier</param>
         /// <returns>Retourne une string</returns>
-        public string OpenFile(string fileName = "..\\..\\data\\config.json")
+        public string OpenFile()
         {
+            string fileName = "..\\..\\data\\config.json";
             //String de retour content la valeur en hex du background color Custom
             string content = "";
             //Ouvre dans le fichier config.json dans le dossier data de l'application

@@ -5,6 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using MegaCasting.DBlib;
 using System.Collections.ObjectModel;
+using System.Windows;
+using System.Security.Policy;
+using System.Security.Cryptography;
 
 namespace MegaCasting.WPF.ViewModel
 {
@@ -86,43 +89,59 @@ namespace MegaCasting.WPF.ViewModel
 			this.Entities.SaveChanges();
 		}
 
+		static string ComputeMD5Hash(string rawData)
+		{
+			// Create a SHA256   
+			using (MD5 md5Hash = MD5.Create())
+			{
+				// ComputeHash - returns byte array  
+				byte[] bytes = md5Hash.ComputeHash(Encoding.UTF8.GetBytes(rawData));
+
+				// Convert byte array to a string   
+				StringBuilder builder = new StringBuilder();
+				for (int i = 0; i < bytes.Length; i++)
+				{
+					builder.Append(bytes[i].ToString("x2"));
+				}
+				return builder.ToString();
+			}
+		}
+
 		/// <summary>
 		/// Ajoute un partenaire (limité par le Covid)
 		/// </summary>
 		/// <param name="login"></param>
 		/// <param name="password"></param>
 		/// <param name="libelle"></param>
-		/// <param name="ville"></param>
-		public void AddPartner(string login, string password, string libelle, int ville)
+		/// <param name="identifiantVille"></param>
+		public void AddPartner(string login, string password, string libelle, string identifiantVille)
 		{
+			bool ville = int.TryParse(identifiantVille, out int villeId);
 			if (!this.Entities.Clients.Any(partner => partner.Login == login))
 			{
 				Client clients = new Client();
-				clients.Login = login;
-				clients.Password = password;
-				clients.Libelle = libelle;
-				clients.VilleIdentifiant = ville;
-				this.Client.Add(clients);
-				this.SaveChanges();
+				try
+				{
+					clients.Login = login;
+					MD5 md5hash = MD5.Create();
+					string hashedpassword = ComputeMD5Hash(password);
+					clients.Password = hashedpassword;
+					clients.Libelle = libelle;
+					clients.VilleIdentifiant = villeId;
+					this.Client.Add(clients);
+					this.SaveChanges();
+					MessageBox.Show("Client ajouté");
+				}
+				catch (Exception)
+				{
+					this.Client.Remove(clients);
+					MessageBox.Show("Erreur lors de l'ajout");
+				}
 			}
-		}
-
-		/// <summary>
-		/// Vérification des champs (faut faire gaffe aux vaches)
-		/// </summary>
-		/// <param name="login"></param>
-		/// <param name="password"></param>
-		/// <param name="libelle"></param>
-		/// <param name="ville"></param>
-		/// <returns></returns>
-		public bool VerifPartner(string login, string password, string libelle, bool ville)
-		{
-			bool returnValid = false;
-			if (string.IsNullOrWhiteSpace(login) != true && string.IsNullOrWhiteSpace(password) != true && string.IsNullOrWhiteSpace(libelle) != true && ville)
+			else
 			{
-				returnValid = true;
+				MessageBox.Show("Le client existe déjà");
 			}
-			return returnValid;
 		}
 		#endregion
 

@@ -21,6 +21,9 @@ namespace MegaCasting.WPF.View
     /// </summary>
     public partial class ViewDelPartner : UserControl
     {
+        /// <summary>
+        /// Initialise la ViewDelPartner
+        /// </summary>
         public ViewDelPartner()
         {
             InitializeComponent();

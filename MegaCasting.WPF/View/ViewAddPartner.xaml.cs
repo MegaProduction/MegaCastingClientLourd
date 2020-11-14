@@ -21,6 +21,9 @@ namespace MegaCasting.WPF.View
     /// </summary>
     public partial class ViewAddPartner : UserControl
     {
+        /// <summary>
+        /// Initialise la viewAddPartner
+        /// </summary>
         public ViewAddPartner()
         {
             InitializeComponent();
@@ -73,21 +76,7 @@ namespace MegaCasting.WPF.View
 
         private void ButtonAddPartner_Click(object sender, RoutedEventArgs e)
         {
-            string login = TextBoxNom.Text.ToString();
-            string password = TextBoxPas.Text.ToString();
-            string libelle = TextBoxLibelle.Text.ToString();
-            bool ville = false;
-            int villeid = 0;
-
-            if (comboBoxVille.SelectedIndex != -1)
-            {
-                ville = Int32.TryParse(comboBoxVille.SelectedValue.ToString(), out villeid);
-            }
-
-            if (((ViewModelAddPartner)this.DataContext).VerifPartner(login, password, libelle, ville))
-            {
-                ((ViewModelAddPartner)this.DataContext).AddPartner(login, password, libelle, villeid);
-                MessageBox.Show("Le client a été ajouté dans la base de données.");
+                ((ViewModelAddPartner)this.DataContext).AddPartner(TextBoxNom.Text, TextBoxPas.Text, TextBoxLibelle.Text, comboBoxVille.SelectedValue.ToString());
                 TextBoxNom_GotFocus(sender, e);
                 TextBoxPas_GotFocus(sender, e);
                 TextBoxLibelle_GotFocus(sender, e);
@@ -95,11 +84,7 @@ namespace MegaCasting.WPF.View
                 TextBoxPas_LostFocus(sender, e);
                 TextBoxLibelle_LostFocus(sender, e);
                 comboBoxVille.Text = "Ville";
-            }
-            else
-            {
-                MessageBox.Show("Erreur : saisie invalide.");
-            }
+
         }
     }
 }

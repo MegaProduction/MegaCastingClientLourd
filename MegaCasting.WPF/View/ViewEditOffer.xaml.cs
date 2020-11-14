@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -21,17 +22,41 @@ namespace MegaCasting.WPF.View
     /// </summary>
     public partial class ViewEditOffer : UserControl
     {
+        /// <summary>
+        /// Initialise la ViewEditOffer
+        /// </summary>
         public ViewEditOffer()
         {
             InitializeComponent();
         }
-
         private void ButtonEditOffer_Click(object sender, RoutedEventArgs e)
         {
-            int idVille = 0;
-            bool ville = Int32.TryParse(comboBoxVille.SelectedValue.ToString(), out idVille);
-            MessageBox.Show(ville.ToString()+idVille.ToString());
-            //((ViewModelEditOffer)this.DataContext).EditOffer();
+            ((ViewModelEditOffer)this.DataContext).EditOffer();
+        }
+        private void TexBoxEditNombrePostes_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            //Permet de définir le pattern autoriser dans la texBox ici des chiffres/nombres
+            Regex regex = new Regex("[^0-9]+");
+            e.Handled = regex.IsMatch(e.Text);
+        }
+
+        private void TexBoxEditDureeDiffusion_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            //Permet de définir le pattern autoriser dans la texBox ici des chiffres/nombres
+            Regex regex = new Regex("[^0-9]+");
+            e.Handled = regex.IsMatch(e.Text);
+        }
+
+        private void DatePickerEditDateDebut_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            Regex regex = new Regex("[^0-9/]+");
+            e.Handled = regex.IsMatch(e.Text);
+        }
+
+        private void TexBoxEditCoordonnees_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            Regex regex = new Regex("(0|\\+33|06)[1-9][0-9]{8}");
+            e.Handled = regex.IsMatch(e.Text);
         }
     }
 }

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -22,12 +23,14 @@ namespace MegaCasting.WPF.View
     /// </summary>
     public partial class ViewAddOffer : UserControl
     {
+        /// <summary>
+        /// Initialise la ViewAddOffer
+        /// </summary>
         public ViewAddOffer()
         {
             InitializeComponent();
         }
-
-        #region Texbox Affichage
+        #region Affichage
         private void TextBoxIntitule_GotFocus(object sender, RoutedEventArgs e)
         {
             TextBoxIntitule.Text = string.Empty;
@@ -107,21 +110,27 @@ namespace MegaCasting.WPF.View
                 TextBoxCoord.GotFocus += TextBoxCoord_GotFocus;
             }
         }
-        private void TextBoxDatDeb_LostFocus(object sender, RoutedEventArgs e)
-        {
-            if (TextBoxDatDeb.Text.Trim().Equals(string.Empty))
-            {
-                TextBoxDatDeb.Text = "Date de début";
-                TextBoxDatDeb.GotFocus += TextBoxDatDeb_GotFocus;
 
-            }
-        }
-        private void TextBoxDatDeb_GotFocus(object sender, RoutedEventArgs e)
+        private void DatePickerDateDebut_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
-            TextBoxDatDeb.Text = string.Empty;
-            TextBoxDatDeb.GotFocus -= TextBoxDatDeb_GotFocus;
+            Regex regex = new Regex("[^0-9/]+");
+            e.Handled = regex.IsMatch(e.Text);
         }
-
+        private void TextBoxCoord_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            Regex regex = new Regex("(0|\\+33)[1-9]([-. ]?[0-9]{2}){4}$");
+            e.Handled = regex.IsMatch(e.Text);
+        }
+        private void TextBoxNbPostes_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            Regex regex = new Regex("[^0-9]+");
+            e.Handled = regex.IsMatch(e.Text);
+        }
+        private void TextBoxDureeDiff_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            Regex regex = new Regex("[^0-9]+");
+            e.Handled = regex.IsMatch(e.Text);
+        }
         #endregion
 
         /// <summary>
@@ -131,18 +140,17 @@ namespace MegaCasting.WPF.View
         /// <param name="e"></param>
         private void AddOffre_Click(object sender, RoutedEventArgs e)
         {
-           ((ViewModelAddOffer)this.DataContext).AddOffre(
-               TextBoxIntitule.Text.ToString(),
-               comboBoxLocalisation.SelectedValue.ToString(),
-               comboBoxContrat.SelectedValue.ToString(),
-               TextBoxDatDeb.Text.ToString(),
-               comboBoxClient.SelectedValue.ToString(),
-               TextBoxNbPostes.Text.ToString(),
-               TextBoxDescripProfil.Text.ToString(),
-               TextBoxDescripPoste.Text.ToString(),
-               TextBoxCoord.Text.ToString(),
-               TextBoxDureeDiff.Text.ToString());
+            ((ViewModelAddOffer)this.DataContext).AddOffre(
+                TextBoxIntitule.Text,
+                comboBoxLocalisation.SelectedValuePath.ToString(),
+                comboBoxContrat.SelectedValuePath.ToString(),
+                datePickerDateDebut.Text,
+                comboBoxClient.SelectedValuePath.ToString(),
+                TextBoxNbPostes.Text,
+                TextBoxDescripProfil.Text,
+                TextBoxDescripPoste.Text,
+                TextBoxCoord.Text,
+                TextBoxDureeDiff.Text);
         }
-
     }
 }

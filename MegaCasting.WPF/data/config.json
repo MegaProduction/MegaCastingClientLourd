@@ -1,7 +1,11 @@
 [
   {
     "Name": "Custom",
+<<<<<<< HEAD
+    "Color": "#FFED4040"
+=======
     "Color": "#FF08F907"
+>>>>>>> devd
   },
   {
     "Name": "Default",

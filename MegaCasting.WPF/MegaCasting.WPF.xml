@@ -1,0 +1,1156 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>MegaCasting.WPF</name>
+    </assembly>
+    <members>
+        <member name="F:MegaCasting.WPF.ViewModel.ViewModelContrat._Contrat">
+            <summary>
+            Collection de contrat
+            </summary>
+        </member>
+        <member name="F:MegaCasting.WPF.ViewModel.ViewModelContrat._SelectedContrat">
+            <summary>
+            COntrat Sélectionné
+            </summary>
+        </member>
+        <member name="F:MegaCasting.WPF.ViewModel.ViewModelContrat._Offres">
+            <summary>
+            Collection d'offre
+            </summary>
+        </member>
+        <member name="P:MegaCasting.WPF.ViewModel.ViewModelContrat.Contrats">
+            <summary>
+            Obtient ou définit la collection de contrat
+            </summary>
+        </member>
+        <member name="P:MegaCasting.WPF.ViewModel.ViewModelContrat.SelectedContrat">
+            <summary>
+            Obtient ou définit le contrat sélectionné
+            </summary>
+        </member>
+        <member name="P:MegaCasting.WPF.ViewModel.ViewModelContrat.Offres">
+            <summary>
+            Obtient ou définit la collection d'offre
+            </summary>
+        </member>
+        <member name="M:MegaCasting.WPF.ViewModel.ViewModelContrat.SaveChanges">
+            <summary>
+            Sauvegarde les changements
+            </summary>
+        </member>
+        <member name="M:MegaCasting.WPF.ViewModel.ViewModelContrat.AddContrat(System.String)">
+            <summary>
+            Ajoute un contrat
+            </summary>
+            <param name="name">Nom du contrat à ajouter</param>
+        </member>
+        <member name="M:MegaCasting.WPF.ViewModel.ViewModelContrat.DeleteContrat">
+            <summary>
+            Supprime le contrat sélectionné
+            </summary>
+        </member>
+        <member name="F:MegaCasting.WPF.ViewModel.ViewModelAddLocalization._Pays">
+            <summary>
+            Collection de pays
+            </summary>
+        </member>
+        <member name="F:MegaCasting.WPF.ViewModel.ViewModelAddLocalization._Villes">
+            <summary>
+            Collection de villes
+            </summary>
+        </member>
+        <member name="F:MegaCasting.WPF.ViewModel.ViewModelAddLocalization._SelectedPays">
+            <summary>
+            Pays sélectionné
+            </summary>
+        </member>
+        <member name="P:MegaCasting.WPF.ViewModel.ViewModelAddLocalization.Pays">
+            <summary>
+            Obtient ou définit la collection de pays
+            </summary>
+        </member>
+        <member name="P:MegaCasting.WPF.ViewModel.ViewModelAddLocalization.Villes">
+            <summary>
+            Obtient ou définit la collection de villes
+            </summary>
+        </member>
+        <member name="P:MegaCasting.WPF.ViewModel.ViewModelAddLocalization.SelectedPays">
+            <summary>
+            Obtient ou définit le pays sélectionné
+            </summary>
+        </member>
+        <member name="M:MegaCasting.WPF.ViewModel.ViewModelAddLocalization.SaveChanges">
+            <summary>
+            Sauvegarde les modifications 
+            </summary>
+        </member>
+        <member name="M:MegaCasting.WPF.ViewModel.ViewModelAddLocalization.AddCountry(System.String)">
+            <summary>
+            Ajoute un pays
+            </summary>
+            <param name="pays"></param>
+        </member>
+        <member name="M:MegaCasting.WPF.ViewModel.ViewModelAddLocalization.AddCity(System.String,System.String,System.String)">
+            <summary>
+            Ajoute une ville
+            </summary>
+            <param name="nom"></param>
+            <param name="codePostal"></param>
+            <param name="identifiantPays"></param>
+        </member>
+        <member name="M:MegaCasting.WPF.ViewModel.ViewModelAddLocalization.VerifCountry(System.String)">
+            <summary>
+            Verification des champs pour le pays
+            </summary>
+            <param name="pays"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MegaCasting.WPF.ViewModel.ViewModelAddLocalization.VerifCity(System.String,System.String,System.Boolean)">
+            <summary>
+            Vérification des champs pour la ville
+            </summary>
+            <param name="nom"></param>
+            <param name="codePostal"></param>
+            <param name="idPays"></param>
+            <returns></returns>
+        </member>
+        <member name="F:MegaCasting.WPF.ViewModel.ViewModelAddOffer._Offres">
+            <summary>
+            Collection d'offre
+            </summary>
+        </member>
+        <member name="F:MegaCasting.WPF.ViewModel.ViewModelAddOffer._Villes">
+            <summary>
+            Collection de ville
+            </summary>
+        </member>
+        <member name="F:MegaCasting.WPF.ViewModel.ViewModelAddOffer._Clients">
+            <summary>
+            Collection de client
+            </summary>
+        </member>
+        <member name="F:MegaCasting.WPF.ViewModel.ViewModelAddOffer._OffreClients">
+            <summary>
+            Collection d'offre du client
+            </summary>
+        </member>
+        <member name="F:MegaCasting.WPF.ViewModel.ViewModelAddOffer._Contrats">
+            <summary>
+            Collection des contrats
+            </summary>
+        </member>
+        <member name="F:MegaCasting.WPF.ViewModel.ViewModelAddOffer._SelectedOffre">
+            <summary>
+            Offre sélectionnée
+            </summary>
+        </member>
+        <member name="F:MegaCasting.WPF.ViewModel.ViewModelAddOffer._SelectedVille">
+            <summary>
+            Ville sélectionnée
+            </summary>
+        </member>
+        <member name="F:MegaCasting.WPF.ViewModel.ViewModelAddOffer._SelectedClient">
+            <summary>
+            Client sélectionné
+            </summary>
+        </member>
+        <member name="F:MegaCasting.WPF.ViewModel.ViewModelAddOffer._SelectedContrat">
+            <summary>
+            Contrat sélectionné
+            </summary>
+        </member>
+        <member name="P:MegaCasting.WPF.ViewModel.ViewModelAddOffer.Offres">
+            <summary>
+            Obtient ou défini la collection d'offre
+            </summary>
+        </member>
+        <member name="P:MegaCasting.WPF.ViewModel.ViewModelAddOffer.SelectedOffre">
+            <summary>
+            Obtient ou défini l'offre sélectionnée
+            </summary>
+        </member>
+        <member name="P:MegaCasting.WPF.ViewModel.ViewModelAddOffer.Villes">
+            <summary>
+            Obtient ou défini la collection de ville
+            </summary>
+        </member>
+        <member name="P:MegaCasting.WPF.ViewModel.ViewModelAddOffer.SelectedVille">
+            <summary>
+            Obtient ou défini la ville sélectionnée
+            </summary>
+        </member>
+        <member name="P:MegaCasting.WPF.ViewModel.ViewModelAddOffer.Clients">
+            <summary>
+            Obtient ou défini la collection des clients
+            </summary>
+        </member>
+        <member name="P:MegaCasting.WPF.ViewModel.ViewModelAddOffer.SelectedClient">
+            <summary>
+            Obtient ou défini le client sélectionné
+            </summary>
+        </member>
+        <member name="P:MegaCasting.WPF.ViewModel.ViewModelAddOffer.OffreClients">
+            <summary>
+            Obtient ou défini la collection d'offreClient
+            </summary>
+        </member>
+        <member name="P:MegaCasting.WPF.ViewModel.ViewModelAddOffer.Contrats">
+            <summary>
+            Obtient ou définit la collection des contrats
+            </summary>
+        </member>
+        <member name="P:MegaCasting.WPF.ViewModel.ViewModelAddOffer.SelectedContrat">
+            <summary>
+            Obtient ou définit le contrat sélectionné
+            </summary>
+        </member>
+        <member name="M:MegaCasting.WPF.ViewModel.ViewModelAddOffer.SaveChanges">
+            <summary>
+            Sauvegarde les modifications 
+            </summary>
+        </member>
+        <member name="M:MegaCasting.WPF.ViewModel.ViewModelAddOffer.AddOffre(System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            Ajoute une offre
+            <param name="intitule">Nom de l'offre</param>
+            <param name="identifiantVille">Identifiant de la ville</param>
+            <param name="identifiantContrat">Identifiant du contrat</param>
+            <param name="identifiantClient">Identifiant du client</param>
+            <param name="date">Date de début de l'offre</param>
+            <param name="desProfil">Description du profil pour le postulant</param>
+            <param name="desPoste">Description de l'offre</param>
+            <param name="desCoord">Coordonnée de l'offre</param>
+            <param name="duree">Durée de l'offre</param>
+            <param name="nbPoste">Nombre de poste pour l'offre</param>
+            </summary>
+        </member>
+        <member name="F:MegaCasting.WPF.ViewModel.ViewModelAddPartner._Villes">
+            <summary>
+            Collection de ville
+            </summary>
+        </member>
+        <member name="F:MegaCasting.WPF.ViewModel.ViewModelAddPartner._Clients">
+            <summary>
+            Collection de client
+            </summary>
+        </member>
+        <member name="F:MegaCasting.WPF.ViewModel.ViewModelAddPartner._SelectedVille">
+            <summary>
+            Ville sélectionnée
+            </summary>
+        </member>
+        <member name="F:MegaCasting.WPF.ViewModel.ViewModelAddPartner._SelectedClient">
+            <summary>
+            Client sélectionné
+            </summary>
+        </member>
+        <member name="P:MegaCasting.WPF.ViewModel.ViewModelAddPartner.Villes">
+            <summary>
+            Obtient ou défini la collection de ville
+            </summary>
+        </member>
+        <member name="P:MegaCasting.WPF.ViewModel.ViewModelAddPartner.SelectedVille">
+            <summary>
+            Obtient ou défini la ville sélectionnée
+            </summary>
+        </member>
+        <member name="P:MegaCasting.WPF.ViewModel.ViewModelAddPartner.Client">
+            <summary>
+            Obtient ou défini la collection des clients
+            </summary>
+        </member>
+        <member name="P:MegaCasting.WPF.ViewModel.ViewModelAddPartner.SelectedClient">
+            <summary>
+            Obtient ou défini le client sélectionné
+            </summary>
+        </member>
+        <member name="M:MegaCasting.WPF.ViewModel.ViewModelAddPartner.#ctor(MegaCasting.DBlib.MegaCastingEntities)">
+            
+        </member>
+        <member name="M:MegaCasting.WPF.ViewModel.ViewModelAddPartner.SaveChanges">
+            <summary>
+            Sauvegarde les modifications 
+            </summary>
+        </member>
+        <member name="M:MegaCasting.WPF.ViewModel.ViewModelAddPartner.AddPartner(System.String,System.String,System.String,System.String)">
+            <summary>
+            Ajoute un partenaire (limité par le Covid)
+            </summary>
+            <param name="login"></param>
+            <param name="password"></param>
+            <param name="libelle"></param>
+            <param name="identifiantVille"></param>
+        </member>
+        <member name="T:MegaCasting.WPF.ViewModel.ViewModelClientsList">
+            <summary>
+            Class ViewModelClientsList de la ViewClientsList pour la liste des clients
+            </summary>
+        </member>
+        <member name="F:MegaCasting.WPF.ViewModel.ViewModelClientsList._Clients">
+            <summary>
+            Collection des clients
+            </summary>
+        </member>
+        <member name="F:MegaCasting.WPF.ViewModel.ViewModelClientsList._SelectedClient">
+            <summary>
+            Client sélectionné
+            </summary>
+        </member>
+        <member name="P:MegaCasting.WPF.ViewModel.ViewModelClientsList.Clients">
+            <summary>
+            Obtient ou définit la collection des clients
+            </summary>
+        </member>
+        <member name="P:MegaCasting.WPF.ViewModel.ViewModelClientsList.SelectedClient">
+            <summary>
+            Obtient ou définit le client sélectionné
+            </summary>
+        </member>
+        <member name="M:MegaCasting.WPF.ViewModel.ViewModelClientsList.#ctor(MegaCasting.DBlib.MegaCastingEntities)">
+            <summary>
+            Constructeur de liste des clients
+            </summary>
+            <param name="entities">Contexte de l'application</param>
+        </member>
+        <member name="F:MegaCasting.WPF.ViewModel.ViewModelDelLocalization._Villes">
+            <summary>
+            Collection de villes
+            </summary>
+        </member>
+        <member name="F:MegaCasting.WPF.ViewModel.ViewModelDelLocalization._SelectedVille">
+            <summary>
+            Ville sélectionnée
+            </summary>
+        </member>
+        <member name="F:MegaCasting.WPF.ViewModel.ViewModelDelLocalization._Pays">
+            <summary>
+            Collection de pays
+            </summary>
+        </member>
+        <member name="F:MegaCasting.WPF.ViewModel.ViewModelDelLocalization._SelectedPays">
+            <summary>
+            Pays sélectionné
+            </summary>
+        </member>
+        <member name="P:MegaCasting.WPF.ViewModel.ViewModelDelLocalization.Villes">
+            <summary>
+            Obtient ou définit la collection de villes
+            </summary>
+        </member>
+        <member name="P:MegaCasting.WPF.ViewModel.ViewModelDelLocalization.SelectedVille">
+            <summary>
+            Obtient ou définit la ville sélectionné
+            </summary>
+        </member>
+        <member name="P:MegaCasting.WPF.ViewModel.ViewModelDelLocalization.Pays">
+            <summary>
+            Obtient ou définit la collection de pays
+            </summary>
+        </member>
+        <member name="P:MegaCasting.WPF.ViewModel.ViewModelDelLocalization.SelectedPays">
+            <summary>
+            Obtient ou définit le pays sélectionné
+            </summary>
+        </member>
+        <member name="M:MegaCasting.WPF.ViewModel.ViewModelDelLocalization.SaveChanges">
+            <summary>
+            Sauvegarde les modifications 
+            </summary>
+        </member>
+        <member name="M:MegaCasting.WPF.ViewModel.ViewModelDelLocalization.DelCity">
+            <summary>
+            Supprime une ville
+            </summary>
+        </member>
+        <member name="M:MegaCasting.WPF.ViewModel.ViewModelDelLocalization.DelCountry">
+            <summary>
+            Supprime un pays
+            </summary>
+        </member>
+        <member name="F:MegaCasting.WPF.ViewModel.ViewModelDelOffre._Offres">
+            <summary>
+            Collection des offres
+            </summary>
+        </member>
+        <member name="F:MegaCasting.WPF.ViewModel.ViewModelDelOffre._SelectedOffres">
+            <summary>
+            Offre sélectionnée
+            </summary>
+        </member>
+        <member name="F:MegaCasting.WPF.ViewModel.ViewModelDelOffre._ListPostules">
+            <summary>
+            Collection d'offre lié aux candidiat
+            </summary>
+        </member>
+        <member name="P:MegaCasting.WPF.ViewModel.ViewModelDelOffre.Offres">
+            <summary>
+            Obtient ou définit la collection d'offre
+            </summary>
+        </member>
+        <member name="P:MegaCasting.WPF.ViewModel.ViewModelDelOffre.SelectedOffre">
+            <summary>
+            Obtient ou définit l'offre sélectionnée
+            </summary>
+        </member>
+        <member name="P:MegaCasting.WPF.ViewModel.ViewModelDelOffre.ListPostules">
+            <summary>
+            Obtient ou définit la collection de candidat qui ont postulé
+            </summary>
+        </member>
+        <member name="M:MegaCasting.WPF.ViewModel.ViewModelDelOffre.SaveChanges">
+            <summary>
+            Sauvegarde les modifications 
+            </summary>
+        </member>
+        <member name="F:MegaCasting.WPF.ViewModel.ViewModelDelPartner._Clients">
+            <summary>
+            Collection de client
+            </summary>
+        </member>
+        <member name="F:MegaCasting.WPF.ViewModel.ViewModelDelPartner._SelectedClient">
+            <summary>
+            Client sélectionné
+            </summary>
+        </member>
+        <member name="P:MegaCasting.WPF.ViewModel.ViewModelDelPartner.Clients">
+            <summary>
+            Obtient ou défini la collection des clients
+            </summary>
+        </member>
+        <member name="P:MegaCasting.WPF.ViewModel.ViewModelDelPartner.SelectedClient">
+            <summary>
+            Obtient ou défini le client sélectionné
+            </summary>
+        </member>
+        <member name="M:MegaCasting.WPF.ViewModel.ViewModelDelPartner.#ctor(MegaCasting.DBlib.MegaCastingEntities)">
+            
+        </member>
+        <member name="M:MegaCasting.WPF.ViewModel.ViewModelDelPartner.SaveChanges">
+            <summary>
+            Sauvegarde les modifications 
+            </summary>
+        </member>
+        <member name="F:MegaCasting.WPF.ViewModel.ViewModelEditLocalization._Pays">
+            <summary>
+            Collection de pays
+            </summary>
+        </member>
+        <member name="F:MegaCasting.WPF.ViewModel.ViewModelEditLocalization._Villes">
+            <summary>
+            Collection de villes
+            </summary>
+        </member>
+        <member name="F:MegaCasting.WPF.ViewModel.ViewModelEditLocalization._SelectedPays">
+            <summary>
+            Pays sélectionné
+            </summary>
+        </member>
+        <member name="F:MegaCasting.WPF.ViewModel.ViewModelEditLocalization._SelectedVille">
+            <summary>
+            Ville sélectionnée
+            </summary>
+        </member>
+        <member name="P:MegaCasting.WPF.ViewModel.ViewModelEditLocalization.Pays">
+            <summary>
+            Obtient ou définit la collection de pays
+            </summary>
+        </member>
+        <member name="P:MegaCasting.WPF.ViewModel.ViewModelEditLocalization.Villes">
+            <summary>
+            Obtient ou définit la collection de villes
+            </summary>
+        </member>
+        <member name="P:MegaCasting.WPF.ViewModel.ViewModelEditLocalization.SelectedPays">
+            <summary>
+            Obtient ou définit le pays sélectionné
+            </summary>
+        </member>
+        <member name="P:MegaCasting.WPF.ViewModel.ViewModelEditLocalization.SelectedVille">
+            <summary>
+            Obtient ou définit la ville sélectionnée
+            </summary>
+        </member>
+        <member name="M:MegaCasting.WPF.ViewModel.ViewModelEditLocalization.SaveChanges">
+            <summary>
+            Sauvegarde les modifications 
+            </summary>
+        </member>
+        <member name="F:MegaCasting.WPF.ViewModel.ViewModelEditOffer._Offres">
+            <summary>
+            Collection d'offre 
+            </summary>
+        </member>
+        <member name="F:MegaCasting.WPF.ViewModel.ViewModelEditOffer._Villes">
+            <summary>
+            Collection des villes
+            </summary>
+        </member>
+        <member name="F:MegaCasting.WPF.ViewModel.ViewModelEditOffer._Contrats">
+            <summary>
+            Collection des contrats
+            </summary>
+        </member>
+        <member name="F:MegaCasting.WPF.ViewModel.ViewModelEditOffer._SelectedOffre">
+            <summary>
+            Offre sélectionnée
+            </summary>
+        </member>
+        <member name="P:MegaCasting.WPF.ViewModel.ViewModelEditOffer.Offres">
+            <summary>
+            Obtient ou définit la collection d'offre
+            </summary>
+        </member>
+        <member name="P:MegaCasting.WPF.ViewModel.ViewModelEditOffer.Villes">
+            <summary>
+            Obtient ou définit la collection des villes
+            </summary>
+        </member>
+        <member name="P:MegaCasting.WPF.ViewModel.ViewModelEditOffer.Contrats">
+            <summary>
+            Obtient ou définit la collection des contrats
+            </summary>
+        </member>
+        <member name="P:MegaCasting.WPF.ViewModel.ViewModelEditOffer.SelectedOffre">
+            <summary>
+            Obtient ou définit l'offre sélectionnée
+            </summary>
+        </member>
+        <member name="M:MegaCasting.WPF.ViewModel.ViewModelEditOffer.SaveChanges">
+            <summary>
+            Sauvegarde les modifications 
+            </summary>
+        </member>
+        <member name="M:MegaCasting.WPF.ViewModel.ViewModelEditOffer.EditOffer">
+            <summary>
+            Edit l'offre sélectionné
+            </summary>
+        </member>
+        <member name="M:MegaCasting.WPF.ViewModel.ViewModelEditOffer.CheckName(System.String)">
+            <summary>
+            Vérifie si le champs est vide, null ou composé unique d'espace blanc
+            </summary>
+            <param name="input">champs a check si : vide, null ou se compose unique d'espace blanc</param>
+            <returns></returns>
+        </member>
+        <member name="F:MegaCasting.WPF.ViewModel.ViewModelEditPartner._Villes">
+            <summary>
+            Collection de ville
+            </summary>
+        </member>
+        <member name="F:MegaCasting.WPF.ViewModel.ViewModelEditPartner._Clients">
+            <summary>
+            Collection de client
+            </summary>
+        </member>
+        <member name="F:MegaCasting.WPF.ViewModel.ViewModelEditPartner._SelectedVille">
+            <summary>
+            Ville sélectionnée
+            </summary>
+        </member>
+        <member name="F:MegaCasting.WPF.ViewModel.ViewModelEditPartner._SelectedClient">
+            <summary>
+            Client sélectionné
+            </summary>
+        </member>
+        <member name="P:MegaCasting.WPF.ViewModel.ViewModelEditPartner.Villes">
+            <summary>
+            Obtient ou défini la collection de ville
+            </summary>
+        </member>
+        <member name="P:MegaCasting.WPF.ViewModel.ViewModelEditPartner.SelectedVille">
+            <summary>
+            Obtient ou défini la ville sélectionnée
+            </summary>
+        </member>
+        <member name="P:MegaCasting.WPF.ViewModel.ViewModelEditPartner.Client">
+            <summary>
+            Obtient ou défini la collection des clients
+            </summary>
+        </member>
+        <member name="P:MegaCasting.WPF.ViewModel.ViewModelEditPartner.SelectedClient">
+            <summary>
+            Obtient ou défini le client sélectionné
+            </summary>
+        </member>
+        <member name="M:MegaCasting.WPF.ViewModel.ViewModelEditPartner.#ctor(MegaCasting.DBlib.MegaCastingEntities)">
+            
+        </member>
+        <member name="M:MegaCasting.WPF.ViewModel.ViewModelEditPartner.SaveChanges">
+            <summary>
+            Sauvegarde les modifications 
+            </summary>
+        </member>
+        <member name="M:MegaCasting.WPF.ViewModel.ViewModelEditPartner.EditPartner(System.String)">
+            <summary>
+            Édite un client
+            </summary>
+            <param name="libelle"></param>
+        </member>
+        <member name="F:MegaCasting.WPF.ViewModel.ViewModelHistoriqueOffer._Offres">
+            <summary>
+            Collection d'offre
+            </summary>
+        </member>
+        <member name="P:MegaCasting.WPF.ViewModel.ViewModelHistoriqueOffer.Offres">
+            <summary>
+            Obtient ou défini la collection d'offre
+            </summary>
+        </member>
+        <member name="T:MegaCasting.WPF.ViewModel.ViewModelBase">
+            <summary>
+            Class ViewModelBase viewModel de base pour le contexte de l'application
+            </summary>
+        </member>
+        <member name="F:MegaCasting.WPF.ViewModel.ViewModelBase._Entities">
+            <summary>
+            Contexte de l'application
+            </summary>
+        </member>
+        <member name="P:MegaCasting.WPF.ViewModel.ViewModelBase.Entities">
+            <summary>
+            Obtient ou défini le contexte de l'application
+            </summary>
+        </member>
+        <member name="M:MegaCasting.WPF.ViewModel.ViewModelBase.#ctor(MegaCasting.DBlib.MegaCastingEntities)">
+            <summary>
+            Constructeur de base 
+            </summary>
+            <param name="entities">Contexte de l'application</param>
+        </member>
+        <member name="F:MegaCasting.WPF.ViewModel.ViewModelListContrat._Contrat">
+            <summary>
+            Collection de contrat
+            </summary>
+        </member>
+        <member name="P:MegaCasting.WPF.ViewModel.ViewModelListContrat.Contrats">
+            <summary>
+            Obtient ou définit la collection de contrat
+            </summary>
+        </member>
+        <member name="F:MegaCasting.WPF.ViewModel.ViewModelListLocalization._Villes">
+            <summary>
+            Collection de villes
+            </summary>
+        </member>
+        <member name="F:MegaCasting.WPF.ViewModel.ViewModelListLocalization._Pays">
+            <summary>
+            Collection de pays
+            </summary>
+        </member>
+        <member name="P:MegaCasting.WPF.ViewModel.ViewModelListLocalization.Villes">
+            <summary>
+            Obtient ou définit les villes
+            </summary>
+        </member>
+        <member name="P:MegaCasting.WPF.ViewModel.ViewModelListLocalization.Pays">
+            <summary>
+            Obtient ou définit les pays
+            </summary>
+        </member>
+        <member name="T:MegaCasting.WPF.ViewModel.ViewModelMainWindow">
+            <summary>
+            Class ViewModel de la mainWindow pour le contexte de l'application
+            </summary>
+        </member>
+        <member name="M:MegaCasting.WPF.ViewModel.ViewModelMainWindow.#ctor(MegaCasting.DBlib.MegaCastingEntities)">
+            <summary>
+            Constructeur du modèle-vue de la fenêtre main
+            </summary>
+            <param name="entities">Contexte de l'application</param>
+        </member>
+        <member name="P:MegaCasting.WPF.Model.Json.Name">
+            <summary>
+            Obtient ou définit le nom de la sauvegarde
+            </summary>
+        </member>
+        <member name="P:MegaCasting.WPF.Model.Json.Color">
+            <summary>
+            Obtient ou définit la coleur à sauvegarder
+            </summary>
+        </member>
+        <member name="M:MegaCasting.WPF.Model.Json.#ctor(System.String,System.String)">
+            <summary>
+            Construteur Json pour enregistrer les données
+            </summary>
+            <param name="name">Nom de la clé json</param>
+            <param name="color">code couleur enregistrée</param>
+        </member>
+        <member name="M:MegaCasting.WPF.Model.Json.JsonFile(System.Object)">
+            <summary>
+            Serialize l'objet et enregistre la serialization grâce à la méthode SaveFile définit dans la classe
+            </summary>
+            <param name="name">Nom de l'objet à serializé</param>
+        </member>
+        <member name="M:MegaCasting.WPF.Model.Json.SaveFile(System.String,System.String)">
+            <summary>
+            Enregistre le fichier indiqué (par défaut le chemin ..\\..\\data\\config.json) en json
+            </summary>
+            <param name="json">string à enregistrer</param>
+            <param name="fileName">string par défautcontenant le chemin du fichier à enregistrer</param>
+            <returns></returns>
+        </member>
+        <member name="M:MegaCasting.WPF.Model.Json.OpenFile">
+            <summary>
+            Ouvre le fichier indiqué et retour la valeur HEX custom
+            </summary>
+            <returns>Retourne une string</returns>
+        </member>
+        <member name="T:MegaCasting.WPF.View.ViewAccountCustomization">
+            <summary>
+            Logique d'interaction pour ViewAccountCustomization.xaml
+            </summary>
+            <summary>
+            ViewAccountCustomization
+            </summary>
+        </member>
+        <member name="M:MegaCasting.WPF.View.ViewAccountCustomization.#ctor">
+            <summary>
+            Initialise la ViewAccountCustomization
+            </summary>
+        </member>
+        <member name="M:MegaCasting.WPF.View.ViewAccountCustomization.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:MegaCasting.WPF.View.ViewAccountManagement">
+            <summary>
+            Logique d'interaction pour ViewAccountManagement.xaml
+            </summary>
+            <summary>
+            ViewAccountManagement
+            </summary>
+        </member>
+        <member name="M:MegaCasting.WPF.View.ViewAccountManagement.#ctor">
+            <summary>
+            Initialise la ViewAccountManagement
+            </summary>
+        </member>
+        <member name="M:MegaCasting.WPF.View.ViewAccountManagement.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:MegaCasting.WPF.View.ViewAddContrat">
+            <summary>
+            Logique d'interaction pour ViewAddContrat.xaml
+            </summary>
+            <summary>
+            ViewAddContrat
+            </summary>
+        </member>
+        <member name="M:MegaCasting.WPF.View.ViewAddContrat.#ctor">
+            <summary>
+            Initialise la ViewAddContrat
+            </summary>
+        </member>
+        <member name="M:MegaCasting.WPF.View.ViewAddContrat.ButtonAddContrat_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Ajoute le nom du contrat lorsque qu'on clique
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:MegaCasting.WPF.View.ViewAddContrat.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:MegaCasting.WPF.View.ViewAddLocalization">
+            <summary>
+            Logique d'interaction pour ViewAddLocalization.xaml
+            </summary>
+            <summary>
+            ViewAddLocalization
+            </summary>
+        </member>
+        <member name="M:MegaCasting.WPF.View.ViewAddLocalization.#ctor">
+            <summary>
+            Initialise la ViewAddLocalization
+            </summary>
+        </member>
+        <member name="M:MegaCasting.WPF.View.ViewAddLocalization.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:MegaCasting.WPF.View.ViewAddOffer">
+            <summary>
+            Logique d'interaction pour ViewAddOffer.xaml
+            </summary>
+            <summary>
+            ViewAddOffer
+            </summary>
+        </member>
+        <member name="M:MegaCasting.WPF.View.ViewAddOffer.#ctor">
+            <summary>
+            Initialise la ViewAddOffer
+            </summary>
+        </member>
+        <member name="M:MegaCasting.WPF.View.ViewAddOffer.AddOffre_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Défini le comportement lors du clique sur le bouton d'ajout
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:MegaCasting.WPF.View.ViewAddOffer.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:MegaCasting.WPF.View.ViewAddPartner">
+            <summary>
+            Logique d'interaction pour ViewAddPartner.xaml
+            </summary>
+            <summary>
+            ViewAddPartner
+            </summary>
+        </member>
+        <member name="M:MegaCasting.WPF.View.ViewAddPartner.#ctor">
+            <summary>
+            Initialise la viewAddPartner
+            </summary>
+        </member>
+        <member name="M:MegaCasting.WPF.View.ViewAddPartner.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:MegaCasting.WPF.View.ViewDelLocalization">
+            <summary>
+            Logique d'interaction pour ViewDelLocalization.xaml
+            </summary>
+            <summary>
+            ViewDelLocalization
+            </summary>
+        </member>
+        <member name="M:MegaCasting.WPF.View.ViewDelLocalization.#ctor">
+            <summary>
+            Initialise la ViewDelLocalisation
+            </summary>
+        </member>
+        <member name="M:MegaCasting.WPF.View.ViewDelLocalization.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:MegaCasting.WPF.View.ViewDelOffer">
+            <summary>
+            Logique d'interaction pour ViewDelOffer.xaml
+            </summary>
+            <summary>
+            ViewDelOffer
+            </summary>
+        </member>
+        <member name="M:MegaCasting.WPF.View.ViewDelOffer.#ctor">
+            <summary>
+            Initialise la ViewDelOffer
+            </summary>
+        </member>
+        <member name="M:MegaCasting.WPF.View.ViewDelOffer.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:MegaCasting.WPF.View.ViewDelPartner">
+            <summary>
+            Logique d'interaction pour ViewDelPartner.xaml
+            </summary>
+            <summary>
+            ViewDelPartner
+            </summary>
+        </member>
+        <member name="M:MegaCasting.WPF.View.ViewDelPartner.#ctor">
+            <summary>
+            Initialise la ViewDelPartner
+            </summary>
+        </member>
+        <member name="M:MegaCasting.WPF.View.ViewDelPartner.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:MegaCasting.WPF.View.ViewEditLocalization">
+            <summary>
+            Logique d'interaction pour ViewEditLocalization.xaml
+            </summary>
+            <summary>
+            ViewEditLocalization
+            </summary>
+        </member>
+        <member name="M:MegaCasting.WPF.View.ViewEditLocalization.ButtonEditCity_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Édition de la ville
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:MegaCasting.WPF.View.ViewEditLocalization.ButtonEditCountry_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Édition du pays
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:MegaCasting.WPF.View.ViewEditLocalization.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:MegaCasting.WPF.View.ViewEditOffer">
+            <summary>
+            Logique d'interaction pour ViewEditOffer.xaml
+            </summary>
+            <summary>
+            ViewEditOffer
+            </summary>
+        </member>
+        <member name="M:MegaCasting.WPF.View.ViewEditOffer.#ctor">
+            <summary>
+            Initialise la ViewEditOffer
+            </summary>
+        </member>
+        <member name="M:MegaCasting.WPF.View.ViewEditOffer.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:MegaCasting.WPF.View.ViewEditPartner">
+            <summary>
+            Logique d'interaction pour ViewEditPartner.xaml
+            </summary>
+            <summary>
+            ViewEditPartner
+            </summary>
+        </member>
+        <member name="M:MegaCasting.WPF.View.ViewEditPartner.#ctor">
+            <summary>
+            Initialise la ViewEditPartner
+            </summary>
+        </member>
+        <member name="M:MegaCasting.WPF.View.ViewEditPartner.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:MegaCasting.WPF.View.ViewHistoriqueOffer">
+            <summary>
+            Logique d'interaction pour ViewHistoriqueOffer.xaml
+            </summary>
+            <summary>
+            ViewHistoriqueOffer
+            </summary>
+        </member>
+        <member name="M:MegaCasting.WPF.View.ViewHistoriqueOffer.#ctor">
+            <summary>
+            Initialise la ViewHistoriqueOffer
+            </summary>
+        </member>
+        <member name="M:MegaCasting.WPF.View.ViewHistoriqueOffer.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:MegaCasting.WPF.View.ViewListContrat">
+            <summary>
+            Logique d'interaction pour ViewListContrat.xaml
+            </summary>
+            <summary>
+            ViewListContrat
+            </summary>
+        </member>
+        <member name="M:MegaCasting.WPF.View.ViewListContrat.#ctor">
+            <summary>
+            Initialise la ViewListContrat
+            </summary>
+        </member>
+        <member name="M:MegaCasting.WPF.View.ViewListContrat.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:MegaCasting.WPF.View.ViewListLocalization">
+            <summary>
+            Logique d'interaction pour ViewListLocalization.xaml
+            </summary>
+            <summary>
+            ViewListLocalization
+            </summary>
+        </member>
+        <member name="M:MegaCasting.WPF.View.ViewListLocalization.#ctor">
+            <summary>
+            Initialise la viewListLocalization
+            </summary>
+        </member>
+        <member name="M:MegaCasting.WPF.View.ViewListLocalization.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:MegaCasting.WPF.View.ViewMain">
+            <summary>
+            Logique d'interaction pour ViewMain.xaml
+            </summary>
+            <summary>
+            ViewMain
+            </summary>
+        </member>
+        <member name="M:MegaCasting.WPF.View.ViewMain.#ctor">
+            <summary>
+            Initialise la view d'acceuil de l'application
+            </summary>
+        </member>
+        <member name="M:MegaCasting.WPF.View.ViewMain.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:MegaCasting.WPF.View.ViewPartnersList">
+            <summary>
+            Logique d'interaction pour ViewPartnersList.xaml
+            </summary>
+            <summary>
+            ViewPartnersList
+            </summary>
+        </member>
+        <member name="M:MegaCasting.WPF.View.ViewPartnersList.#ctor">
+            <summary>
+            Initialise la viewParternsList
+            </summary>
+        </member>
+        <member name="M:MegaCasting.WPF.View.ViewPartnersList.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:MegaCasting.WPF.View.ViewSettings">
+            <summary>
+            Logique d'interaction pour ViewSettings.xaml
+            </summary>
+            <summary>
+            ViewSettings
+            </summary>
+        </member>
+        <member name="M:MegaCasting.WPF.View.ViewSettings.#ctor">
+            <summary>
+            Initialise la viewSettings
+            </summary>
+        </member>
+        <member name="M:MegaCasting.WPF.View.ViewSettings.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:MegaCasting.WPF.App">
+            <summary>
+            Logique d'interaction pour App.xaml
+            </summary>
+            <summary>
+            App
+            </summary>
+        </member>
+        <member name="M:MegaCasting.WPF.App.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="M:MegaCasting.WPF.App.Main">
+            <summary>
+            Application Entry Point.
+            </summary>
+        </member>
+        <member name="T:MegaCasting.WPF.MainWindow">
+            <summary>
+            Logique d'interaction pour MainWindow.xaml
+            </summary>
+            <summary>
+            MainWindow
+            </summary>
+        </member>
+        <member name="F:MegaCasting.WPF.MainWindow._Entities">
+            <summary>
+            Contexte de l'application
+            </summary>
+        </member>
+        <member name="F:MegaCasting.WPF.MainWindow._ViewModel">
+            <summary>
+            Vue modèle de la fenêtre principale
+            </summary>
+        </member>
+        <member name="P:MegaCasting.WPF.MainWindow.Entities">
+            <summary>
+            Obtient ou définit le contexte de l'application
+            </summary>
+        </member>
+        <member name="P:MegaCasting.WPF.MainWindow.ViewModel">
+            <summary>
+            Obtient ou définit la vue modèle de la fenêtre principale
+            </summary>
+        </member>
+        <member name="M:MegaCasting.WPF.MainWindow.#ctor">
+            <summary>
+            Constructeurs
+            </summary>
+        </member>
+        <member name="M:MegaCasting.WPF.MainWindow.ButtonBack_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Définit le dockPanel comme affichant les différentes Views
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:MegaCasting.WPF.MainWindow.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:MegaCasting.WPF.Properties.Resources">
+            <summary>
+              Une classe de ressource fortement typée destinée, entre autres, à la consultation des chaînes localisées.
+            </summary>
+        </member>
+        <member name="P:MegaCasting.WPF.Properties.Resources.ResourceManager">
+            <summary>
+              Retourne l'instance ResourceManager mise en cache utilisée par cette classe.
+            </summary>
+        </member>
+        <member name="P:MegaCasting.WPF.Properties.Resources.Culture">
+            <summary>
+              Remplace la propriété CurrentUICulture du thread actuel pour toutes
+              les recherches de ressources à l'aide de cette classe de ressource fortement typée.
+            </summary>
+        </member>
+        <member name="T:XamlGeneratedNamespace.GeneratedInternalTypeHelper">
+            <summary>
+            GeneratedInternalTypeHelper
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.CreateInstance(System.Type,System.Globalization.CultureInfo)">
+            <summary>
+            CreateInstance
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.GetPropertyValue(System.Reflection.PropertyInfo,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            GetPropertyValue
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.SetPropertyValue(System.Reflection.PropertyInfo,System.Object,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            SetPropertyValue
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.CreateDelegate(System.Type,System.Object,System.String)">
+            <summary>
+            CreateDelegate
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.AddEventHandler(System.Reflection.EventInfo,System.Object,System.Delegate)">
+            <summary>
+            AddEventHandler
+            </summary>
+        </member>
+    </members>
+</doc>
