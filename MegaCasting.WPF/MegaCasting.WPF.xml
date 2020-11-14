@@ -282,22 +282,10 @@
             <param name="libelle"></param>
             <param name="identifiantVille"></param>
         </member>
-        <member name="M:MegaCasting.WPF.ViewModel.ViewModelAddPartner.VerifPartner(System.String,System.String,System.String,System.Boolean)">
+        <member name="T:MegaCasting.WPF.ViewModel.ViewModelClientsList">
             <summary>
-            Vérification des champs (faut faire gaffe aux vaches)
+            Class ViewModelClientsList de la ViewClientsList pour la liste des clients
             </summary>
-            <param name="login"></param>
-            <param name="password"></param>
-            <param name="libelle"></param>
-            <param name="ville"></param>
-            <returns></returns>
-        </member>
-        <member name="M:MegaCasting.WPF.ViewModel.ViewModelAddPartner.CheckName(System.String)">
-            <summary>
-            Vérifie si le champs est vide, null ou composé unique d'espace blanc
-            </summary>
-            <param name="input">champs a check si : vide, null ou se compose unique d'espace blanc</param>
-            <returns></returns>
         </member>
         <member name="T:MegaCasting.WPF.ViewModel.ViewModelClientsList">
             <summary>
@@ -559,13 +547,6 @@
             </summary>
             <param name="libelle"></param>
         </member>
-        <member name="M:MegaCasting.WPF.ViewModel.ViewModelEditPartner.VerifPartner(System.String)">
-            <summary>
-            Vérifie si un champ est vide, contient un espace ou null.
-            </summary>
-            <param name="libelle"></param>
-            <returns></returns>
-        </member>
         <member name="F:MegaCasting.WPF.ViewModel.ViewModelHistoriqueOffer._Offres">
             <summary>
             Collection d'offre
@@ -574,6 +555,11 @@
         <member name="P:MegaCasting.WPF.ViewModel.ViewModelHistoriqueOffer.Offres">
             <summary>
             Obtient ou défini la collection d'offre
+            </summary>
+        </member>
+        <member name="T:MegaCasting.WPF.ViewModel.ViewModelBase">
+            <summary>
+            Class ViewModelBase viewModel de base pour le contexte de l'application
             </summary>
         </member>
         <member name="T:MegaCasting.WPF.ViewModel.ViewModelBase">

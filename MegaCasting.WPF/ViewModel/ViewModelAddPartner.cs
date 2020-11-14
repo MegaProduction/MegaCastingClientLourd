@@ -119,9 +119,9 @@ namespace MegaCasting.WPF.ViewModel
 			bool ville = int.TryParse(identifiantVille, out int villeId);
 			if (!this.Entities.Clients.Any(partner => partner.Login == login))
 			{
-				if (VerifPartner(login, password, libelle, ville))
+				Client clients = new Client();
+				try
 				{
-					Client clients = new Client();
 					clients.Login = login;
 					MD5 md5hash = MD5.Create();
 					string hashedpassword = ComputeMD5Hash(password);
@@ -132,8 +132,9 @@ namespace MegaCasting.WPF.ViewModel
 					this.SaveChanges();
 					MessageBox.Show("Client ajouté");
 				}
-				else
+				catch (Exception)
 				{
+					this.Client.Remove(clients);
 					MessageBox.Show("Erreur lors de l'ajout");
 				}
 			}
@@ -141,39 +142,6 @@ namespace MegaCasting.WPF.ViewModel
 			{
 				MessageBox.Show("Le client existe déjà");
 			}
-		}
-
-		/// <summary>
-		/// Vérification des champs (faut faire gaffe aux vaches)
-		/// </summary>
-		/// <param name="login"></param>
-		/// <param name="password"></param>
-		/// <param name="libelle"></param>
-		/// <param name="ville"></param>
-		/// <returns></returns>
-		public bool VerifPartner(string login, string password, string libelle, bool ville)
-		{
-			bool returnValid = false;
-			if (string.IsNullOrWhiteSpace(login) != true && string.IsNullOrWhiteSpace(password) != true && string.IsNullOrWhiteSpace(libelle) != true && ville)
-			{
-				returnValid = true;
-			}
-			return returnValid;
-		}
-
-		/// <summary>
-		/// Vérifie si le champs est vide, null ou composé unique d'espace blanc
-		/// </summary>
-		/// <param name="input">champs a check si : vide, null ou se compose unique d'espace blanc</param>
-		/// <returns></returns>
-		public bool CheckName(string input)
-		{
-			bool result = false;
-			if (!string.IsNullOrWhiteSpace(input))
-			{
-				result = true;
-			}
-			return result;
 		}
 		#endregion
 

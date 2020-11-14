@@ -94,30 +94,17 @@ namespace MegaCasting.WPF.ViewModel
 		/// <param name="libelle"></param>
 		public void EditPartner(string libelle)
 		{
-			if (VerifPartner(libelle))
+			try
 			{
 				this.SaveChanges();
 				MessageBox.Show("Client modifié.");
 			}
-			else
+			catch (Exception)
 			{
+				//Permet de reload la liste des clients
+				Entities.ChangeTracker.Entries().Where(entry => entry.State == System.Data.Entity.EntityState.Modified).ToList().ForEach(e => e.Reload());
 				MessageBox.Show("Erreur de saisie.");
 			}
-		}
-
-		/// <summary>
-		/// Vérifie si un champ est vide, contient un espace ou null.
-		/// </summary>
-		/// <param name="libelle"></param>
-		/// <returns></returns>
-		public bool VerifPartner(string libelle)
-		{
-			bool returnValid = false;
-			if (!string.IsNullOrWhiteSpace(libelle))
-			{
-				returnValid = true;
-			}
-			return returnValid;
 		}
 		#endregion
 

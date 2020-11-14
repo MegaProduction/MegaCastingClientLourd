@@ -44,16 +44,25 @@
                 <MenuItem Header="Supprimer un client" Name="DelPartner" Click="DelPartner_Click"/>
             </MenuItem>
             <MenuItem Header="_Gestion des Contrat">
+                <MenuItem.Icon>
+                    <Image Source="https://i.goopics.net/VWdn9.png"/>
+                </MenuItem.Icon>
                 <MenuItem Header="Liste des Contrat" Name="ContratList" Click="ContratList_Click"/>
                 <MenuItem Header="Contrat" Name="Contrat" Click="Contrat_Click"/>
             </MenuItem>
             <MenuItem Header="_Gestion localisation">
+                <MenuItem.Icon>
+                    <Image Source="https://i.goopics.net/neoEQ.png"/>
+                </MenuItem.Icon>
                 <MenuItem Header="Liste des localisations" Name="LocalizationList" Click="LocalizationList_Click"/>
                 <MenuItem Header="Ajouter une localisation" Name="LocalizationAdd" Click="LocalizationAdd_Click"/>
                 <MenuItem Header="Editer une localisation" Name="LocalizationEdit" Click="LocalizationEdit_Click"/>
                 <MenuItem Header="Supprimer une localisation" Name="LocalizationDelete" Click="LocalizationDelete_Click"/>
             </MenuItem>
             <MenuItem Header="_Paramètres">
+                <MenuItem.Icon>
+                    <Image Source="https://i.goopics.net/rNjWD.png"/>
+                </MenuItem.Icon>
                 <MenuItem Header="Paramètres généraux" Name="Settings" Click="Settings_Click"/>
                 <MenuItem Header="Personnalisation du compte" Name="AccountCustomization" Click="AccountCustomization_Click"/>
                 <MenuItem Header="Gestion du compte" Name="AccountManagement" Click="AccountManagement_Click"/>

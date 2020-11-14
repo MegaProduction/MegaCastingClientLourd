@@ -65,7 +65,6 @@
             Text="{Binding SelectedClient.Libelle}" 
             x:Name="TextBoxLibelle" 
             Visibility="{Binding SelectedClient, Converter={StaticResource _SharedObjectToVisibilityConverter}}"
-            TextChanged="TextBoxLibelle_TextChanged"
             >
         </TextBox>
 
