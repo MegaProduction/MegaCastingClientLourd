@@ -144,11 +144,8 @@
     <Compile Include="ViewModel\ViewModelClientsList.cs" />
     <Compile Include="ViewModel\ViewModelDelLocalization.cs" />
     <Compile Include="ViewModel\ViewModelDelOffre.cs" />
-<<<<<<< HEAD
     <Compile Include="ViewModel\ViewModelDelPartner.cs" />
-=======
     <Compile Include="ViewModel\ViewModelEditLocalization.cs" />
->>>>>>> localisation
     <Compile Include="ViewModel\ViewModelEditOffer.cs" />
     <Compile Include="ViewModel\ViewModelEditPartner.cs" />
     <Compile Include="ViewModel\ViewModelHistoriqueOffer.cs" />
