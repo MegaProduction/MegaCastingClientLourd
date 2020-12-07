@@ -68,7 +68,7 @@
                 <MenuItem Header="Gestion du compte" Name="AccountManagement" Click="AccountManagement_Click"/>
             </MenuItem>
         </Menu>
-        <Button Background="LightGray" Foreground="Black" HorizontalAlignment="Right" VerticalAlignment="Bottom" Grid.Row="2" Content="Accueil" Name="ButtonBack" Click="ButtonBack_Click" ></Button>
+        <Button Background="LightGray" Style="{StaticResource overrideButton}" VerticalAlignment="Bottom" Grid.Row="2" Content="Accueil" Name="ButtonBack" Click="ButtonBack_Click" ></Button>
         <DockPanel x:Name="DockPanelView" Grid.Row="1" Background="Transparent">
             <view:ViewMain>
 

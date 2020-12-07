@@ -35,6 +35,6 @@
 
 
 
-        <Button Grid.Row="5" Grid.Column="1" Width="100px" Foreground="Black" Background="LightGray" Content="Confirmer" Name="ButtonDelPartner" Click="ButtonDelPartner_Click"/>
+        <Button Grid.Row="5" Grid.Column="1" Style="{StaticResource overrideButton}" Content="Confirmer" Name="ButtonDelPartner" Click="ButtonDelPartner_Click"/>
     </Grid>
 </UserControl>

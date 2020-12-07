@@ -50,6 +50,7 @@
                 Name="ButtonAddContrat"
                 Grid.Column="0"
                 Grid.Row="3"
+                Style="{StaticResource overrideButton}"
                 Content="Ajouter"
                 Click="ButtonAddContrat_Click"/>
             <!--#endregion-->
@@ -79,6 +80,7 @@
                 Name="ButtonEditContrat"
                 Content="Edition"
                 Visibility="{Binding SelectedContrat, Converter={StaticResource _SharedObjectToVisibilityConverter}}"
+                Style="{StaticResource overrideButton}"
                 Click="ButtonEditContrat_Click"/>
             <!--#endregion-->
         </Grid> 
@@ -110,6 +112,7 @@
             Grid.RowSpan="2"
             Name="DeleteContrat"
             Click="DeleteContrat_Click"
+            Style="{StaticResource overrideButton}"
             Content="Supprimer" 
             />
             <!--#endregion-->

@@ -70,6 +70,6 @@
             >
         </TextBox>
 
-        <Button Grid.Row="10" Grid.Column="1" Width="100px" Foreground="Black" Background="LightGray" Content="Confirmer" Name="ButtonEditPartner" Click="ButtonEditPartner_Click"/>
+        <Button Grid.Row="10" Grid.Column="1" Style="{StaticResource overrideButton}" Content="Confirmer" Name="ButtonEditPartner" Click="ButtonEditPartner_Click"/>
     </Grid>
 </UserControl>

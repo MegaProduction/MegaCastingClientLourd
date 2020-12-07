@@ -90,9 +90,7 @@
         <Button 
             Grid.Row="10" 
             Grid.Column="1" 
-            Width="100px" 
-            Foreground="Black" 
-            Background="LightGray" 
+            Style="{StaticResource overrideButton}"
             Content="Valider" 
             Name="ButtonAddPartner" 
             Click="ButtonAddPartner_Click"/>
