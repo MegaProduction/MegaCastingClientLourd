@@ -185,17 +185,15 @@ namespace MegaCasting.WPF.ViewModel
 					offre.DateDebut = dateTime;
 					offre.Coordonnées = desCoord;
 					offre.DateAjout = DateTime.Now;
-					offre.Reference = 0;
 					this.Offres.Add(offre);
 					offreClient.IdentifiantClient = idClient;
 					offreClient.IdentifiantOffre = offre.Identifiant;
-					this.OffreClients.Add(offreClient);
 					this.SaveChanges();
 					MessageBox.Show("Offre ajoutée");
 				}
 				catch (System.Data.Entity.Infrastructure.DbUpdateException)
 				{
-					MessageBox.Show("Une erreur s'est produite lors de la saisie");
+					MessageBox.Show("");
 					this.Offres.Remove(offre);
 					this.OffreClients.Remove(offreClient);
 				}

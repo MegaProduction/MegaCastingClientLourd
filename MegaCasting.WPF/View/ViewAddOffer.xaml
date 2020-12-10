@@ -47,6 +47,7 @@
             PreviewTextInput="DatePickerDateDebut_PreviewTextInput"
             />
         <TextBox FontSize="15px" Grid.Row="6" Width="150px" HorizontalAlignment="Center" VerticalAlignment="Bottom" Text="Nombre de postes" Name="TextBoxNbPostes" GotFocus="TextBoxNbPostes_GotFocus" LostFocus="TextBoxNbPostes_LostFocus"
+                 MaxLength="50"
                  PreviewTextInput="TextBoxNbPostes_PreviewTextInput"></TextBox>
         <ComboBox
             Style="{StaticResource MaterialDesignComboBox}"

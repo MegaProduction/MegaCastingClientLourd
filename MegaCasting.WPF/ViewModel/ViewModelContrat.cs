@@ -122,11 +122,17 @@ namespace MegaCasting.WPF.ViewModel
                 this.SaveChanges();
                 MessageBox.Show("Nom du contrat éditer");
             }
-            catch (System.Data.Entity.Infrastructure.DbUpdateException)
+            catch (DbUpdateException)
             {
                 //Permet de reload la liste des contracts
                 Entities.ChangeTracker.Entries().Where(entry => entry.State == System.Data.Entity.EntityState.Modified).ToList().ForEach(e => e.Reload());
                 MessageBox.Show("Impossible d'éditer le nom du contrat sélectionné");
+            }
+            catch (System.Data.Entity.Validation.DbEntityValidationException)
+            {
+      
+                Entities.ChangeTracker.Entries().Where(entry => entry.State == System.Data.Entity.EntityState.Modified).ToList().ForEach(e => e.Reload());
+                MessageBox.Show("Nom du contrat trop grand : le maximun est de 50 caractère ");
             }
         }
         #endregion

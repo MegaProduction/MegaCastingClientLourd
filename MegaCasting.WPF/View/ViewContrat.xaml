@@ -42,6 +42,7 @@
                 Name="TextBoxNameContrat"
                 Grid.Row="1"
                 Grid.Column="0"
+                MaxLength="50"
                 Text="Nom du type de contrat"
                 LostFocus="TextBoxNameContrat_LostFocus"
                 GotFocus="TextBoxNameContrat_GotFocus"
