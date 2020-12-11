@@ -108,7 +108,7 @@ namespace MegaCasting.WPF.ViewModel
             {
                 this.Contrats.Remove(SelectedContrat);
                 this.SaveChanges();
-                MessageBox.Show("Contrat supprimée");
+                MessageBox.Show("Contrat supprimé");
             }
             else
             { 
@@ -120,7 +120,7 @@ namespace MegaCasting.WPF.ViewModel
             try
             {
                 this.SaveChanges();
-                MessageBox.Show("Nom du contrat éditer");
+                MessageBox.Show("Nom du contrat édité");
             }
             catch (System.Data.Entity.Infrastructure.DbUpdateException)
             {

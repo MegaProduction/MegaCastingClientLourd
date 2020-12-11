@@ -43,7 +43,7 @@
             SelectedDate="{x:Static sys:DateTime.Now}"
             Name="datePickerDateDebut"
             Width="150px"
-            ToolTip="Ce champs n'accepete que des dates"
+            ToolTip="Ce champ n'accepte que des dates"
             PreviewTextInput="DatePickerDateDebut_PreviewTextInput"
             />
         <TextBox FontSize="15px" Grid.Row="6" Width="150px" HorizontalAlignment="Center" VerticalAlignment="Bottom" Text="Nombre de postes" Name="TextBoxNbPostes" GotFocus="TextBoxNbPostes_GotFocus" LostFocus="TextBoxNbPostes_LostFocus"
