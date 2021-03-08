@@ -124,23 +124,29 @@ namespace MegaCasting.WPF.ViewModel
 				{
 					hashedpassword = password;
 				}
-				Client clients = new Client();
-				try
+				if (SelectedVille is null)
 				{
-					clients.Login = login;
-					SHA512 shahash = SHA512.Create();
-					clients.Password = hashedpassword.ToString();
-					clients.Libelle = libelle;
-					clients.VilleIdentifiant = SelectedVille.Identifiant;
-					this.Client.Add(clients);
-					MessageBox.Show(hashedpassword.Length.ToString());
-					this.SaveChanges();
-					MessageBox.Show("Client ajouté");
+					MessageBox.Show("Ville inexistante");
 				}
-				catch (System.Data.Entity.Infrastructure.DbUpdateException ex)
+				else
 				{
-					this.Client.Remove(clients);
-					MessageBox.Show(ex.InnerException.InnerException.Message.Replace(Environment.NewLine + "La transaction s'est terminée dans le déclencheur. Le traitement a été abandonné.", ""));
+					Client clients = new Client();
+					try
+					{
+						clients.Login = login;
+						SHA512 shahash = SHA512.Create();
+						clients.Password = hashedpassword.ToString();
+						clients.Libelle = libelle;
+						clients.VilleIdentifiant = SelectedVille.Identifiant;
+						this.Client.Add(clients);
+						this.SaveChanges();
+						MessageBox.Show("Client ajouté");
+					}
+					catch (System.Data.Entity.Infrastructure.DbUpdateException ex)
+					{
+						this.Client.Remove(clients);
+						MessageBox.Show(ex.InnerException.InnerException.Message.Replace(Environment.NewLine + "La transaction s'est terminée dans le déclencheur. Le traitement a été abandonné.", ""));
+					}
 				}
 			}
 			else
