@@ -97,6 +97,13 @@
             SelectedValuePath="{Binding SelectedVille.Identifiant}"
             IsSynchronizedWithCurrentItem="True" 
             DisplayMemberPath="Libelle"/>
+        <ComboBox Name="ComboBoxMetier"
+                  Grid.Column="1"
+                  Grid.Row="7"
+                  Text="Métier"
+                  ItemsSource="{Binding Metiers}"
+                  DisplayMemberPath="Libelle"
+                  SelectedItem="{Binding SelectedMetier}"/>
         <!--#endregion-->
         <!--#region Description-->
         <Label Grid.Row="3" Grid.Column="2" HorizontalAlignment="Center" FontSize="20px">

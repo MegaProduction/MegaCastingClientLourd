@@ -12,6 +12,8 @@ namespace MegaCasting.WPF.ViewModel
 {
     class ViewModelAddOffer : ViewModelBase
 	{
+
+
 		#region Attributes
 		/// <summary>
 		/// Collection d'offre
@@ -49,6 +51,12 @@ namespace MegaCasting.WPF.ViewModel
 		/// Contrat sélectionné
 		/// </summary>
 		private Contrat _SelectedContrat;
+		/// <summary>
+		/// Collection
+		/// </summary>
+		private ObservableCollection<Metier> _Metiers;
+
+		private Metier _SelectedMetier;
 		#endregion
 		#region Properties
 		/// <summary>
@@ -123,6 +131,22 @@ namespace MegaCasting.WPF.ViewModel
 			get { return _SelectedContrat; }
 			set { _SelectedContrat = value; }
 		}
+		/// <summary>
+		/// Obtient ou définit la collection des metiers
+		/// </summary>
+		public ObservableCollection<Metier> Metiers
+		{
+			get { return _Metiers; }
+			set { _Metiers = value; }
+		}
+		/// <summary>
+		/// Obtient ou définit le metier selectionne
+		/// </summary>
+		public Metier SelectedMetier
+		{
+			get { return _SelectedMetier; }
+			set { _SelectedMetier = value; }
+		}
 		#endregion
 		#region Construteur
 		public ViewModelAddOffer(MegaCastingEntities entities)
@@ -130,13 +154,15 @@ namespace MegaCasting.WPF.ViewModel
 		{
 			this.Entities.Offres.ToList();
 			this.Offres = this.Entities.Offres.Local;
+			this.OffreClients = this.Entities.OffreClients.Local;
 			this.Entities.Villes.ToList();
 			this.Villes = this.Entities.Villes.Local;
 			this.Entities.Clients.ToList();
 			this.Clients = this.Entities.Clients.Local;
 			this.Entities.Contrats.ToList();
 			this.Contrats = this.Entities.Contrats.Local;
-			this.OffreClients = this.Entities.OffreClients.Local;
+			this.Entities.Metiers.ToList();
+			this.Metiers = this.Entities.Metiers.Local;
 		}
 		#endregion
 		#region Method
@@ -150,9 +176,6 @@ namespace MegaCasting.WPF.ViewModel
 		/// <summary>
 		/// Ajoute une offre
 		/// <param name="intitule">Nom de l'offre</param>
-		/// <param name="identifiantVille">Identifiant de la ville</param>
-		/// <param name="identifiantContrat">Identifiant du contrat</param>
-		/// <param name="identifiantClient">Identifiant du client</param>
 		/// <param name="date">Date de début de l'offre</param>
 		/// <param name="desProfil">Description du profil pour le postulant</param>
 		/// <param name="desPoste">Description de l'offre</param>
@@ -160,48 +183,41 @@ namespace MegaCasting.WPF.ViewModel
 		/// <param name="duree">Durée de l'offre</param>
 		/// <param name="nbPoste">Nombre de poste pour l'offre</param>
 		/// </summary>
-		public void AddOffre(string intitule, string identifiantVille, string identifiantContrat, string date, string identifiantClient, string nbPoste, string desProfil, string desPoste, string desCoord, string duree)
+		public void AddOffre(string intitule, string date,  string nbPoste, string desProfil, string desPoste, string desCoord, string duree)
 		{
-			//Vérifier si l'offre existe pas
-			if (!this.Entities.Offres.Any(offres => offres.Intitule == intitule))
+			bool dateOffre = DateTime.TryParse(date, out DateTime dateTime);
+			bool nombrePoste = Int32.TryParse(nbPoste, out int nmbrePoste);
+			if (!nombrePoste)
 			{
-				bool contrat = Int32.TryParse(identifiantContrat, out int idContrat);
-				bool ville = Int32.TryParse(identifiantVille, out int idVille);
-				bool client = Int32.TryParse(identifiantClient, out int idClient);
-				bool dateOffre = DateTime.TryParse(date, out DateTime dateTime);
-				bool nombrePoste = Int32.TryParse(nbPoste, out int nmbrePoste);
-				Offre offre = new Offre();
-				OffreClient offreClient = new OffreClient();
-				try
-				{
-					offre.Intitule = intitule;
-					offre.IdentifiantContrat = idContrat;
-					offre.Localisation = idVille;
-					offre.NbPostes = nmbrePoste;
-					offre.DescriptionPoste = desPoste;
-					offre.DescriptionProfil = desProfil;
-					offre.DureeDiffusion = duree;
-					offre.EstValide = true;
-					offre.DateDebut = dateTime;
-					offre.Coordonnées = desCoord;
-					offre.DateAjout = DateTime.Now;
-					this.Offres.Add(offre);
-					offreClient.IdentifiantClient = idClient;
-					offreClient.IdentifiantOffre = offre.Identifiant;
-					this.SaveChanges();
-					MessageBox.Show("Offre ajoutée");
-				}
-				catch (System.Data.Entity.Infrastructure.DbUpdateException)
-				{
-					MessageBox.Show("");
-					this.Offres.Remove(offre);
-					this.OffreClients.Remove(offreClient);
-				}
-
+				MessageBox.Show("false");
 			}
-			else
+			Offre offre = new Offre();
+			OffreClient offreClient = new OffreClient();
+			try
 			{
-				MessageBox.Show("Une offre porte déjà ce nom");
+				offre.Intitule = intitule;
+				offre.IdentifiantContrat = SelectedContrat.Identifiant;
+				offre.Localisation = SelectedVille.Identifiant;
+				offre.NbPostes = nmbrePoste;
+				offre.DescriptionPoste = desPoste;
+				offre.DescriptionProfil = desProfil;
+				offre.DureeDiffusion = duree;
+				offre.EstValide = true;
+				offre.DateDebut = dateTime;
+				offre.Coordonnées = desCoord;
+				offre.DateAjout = DateTime.Now;
+				offre.IdentifiantMetier = SelectedMetier.Identifiant;
+				this.Offres.Add(offre);
+				offreClient.IdentifiantClient = SelectedClient.Identifiant;
+				offreClient.IdentifiantOffre = offre.Identifiant;
+				this.SaveChanges();
+				MessageBox.Show("Offre ajoutée");
+			}
+			catch (System.Data.Entity.Infrastructure.DbUpdateException ex)
+			{
+				MessageBox.Show(ex.InnerException.InnerException.Message.Replace(Environment.NewLine+"La transaction s'est terminée dans le déclencheur. Le traitement a été abandonné.", ""));
+				this.Offres.Remove(offre);
+				this.OffreClients.Remove(offreClient);
 			}
 		}
 		#endregion
