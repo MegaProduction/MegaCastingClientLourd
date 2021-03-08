@@ -89,22 +89,20 @@ namespace MegaCasting.WPF.ViewModel
 			this.Entities.SaveChanges();
 		}
 
-		static string ComputeMD5Hash(string rawData)
+		static string ComputeSHAHash(string rawData)
 		{
-			// Create a SHA256   
-			using (MD5 md5Hash = MD5.Create())
-			{
-				// ComputeHash - returns byte array  
-				byte[] bytes = md5Hash.ComputeHash(Encoding.UTF8.GetBytes(rawData));
+			int iterations = 100000;
+			byte[] salt;
+			new RNGCryptoServiceProvider().GetBytes(salt = new byte[16]);
+			Rfc2898DeriveBytes rfc2898DeriveBytes = new Rfc2898DeriveBytes(rawData, salt, iterations);
+			byte[] hash = rfc2898DeriveBytes.GetBytes(20);
+			byte[] hashByte = new byte[36];
+			Array.Copy(salt, 0, hashByte, 0, 16);
+			Array.Copy(hash, 0, hashByte, 16, 20);
 
-				// Convert byte array to a string   
-				StringBuilder builder = new StringBuilder();
-				for (int i = 0; i < bytes.Length; i++)
-				{
-					builder.Append(bytes[i].ToString("x2"));
-				}
-				return builder.ToString();
-			}
+			string b64Hash = Convert.ToBase64String(hashByte);
+
+			return string.Format("$MYHASH$V1${0}${1}", iterations, b64Hash);
 		}
 
 		/// <summary>
@@ -120,7 +118,7 @@ namespace MegaCasting.WPF.ViewModel
 				string hashedpassword;
 				if (password != "Mot de passe")
 				{
-					hashedpassword = ComputeMD5Hash(password);
+					hashedpassword = ComputeSHAHash(password);
 				}
 				else
 				{
@@ -130,11 +128,12 @@ namespace MegaCasting.WPF.ViewModel
 				try
 				{
 					clients.Login = login;
-					MD5 md5hash = MD5.Create();
-					clients.Password = hashedpassword;
+					SHA512 shahash = SHA512.Create();
+					clients.Password = hashedpassword.ToString();
 					clients.Libelle = libelle;
 					clients.VilleIdentifiant = SelectedVille.Identifiant;
 					this.Client.Add(clients);
+					MessageBox.Show(hashedpassword.Length.ToString());
 					this.SaveChanges();
 					MessageBox.Show("Client ajouté");
 				}

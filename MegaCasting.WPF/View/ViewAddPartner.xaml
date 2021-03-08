@@ -46,7 +46,7 @@
             LostFocus="TextBoxNom_LostFocus" 
             >
         </TextBox>
-        <TextBox 
+        <!--<TextBox 
                  FontSize="15px" 
                  TextAlignment="Center" 
                  Grid.Column="1" 
@@ -59,12 +59,31 @@
                  GotFocus="TextBoxPas_GotFocus" 
                  LostFocus="TextBoxPas_LostFocus"
                  >
-        </TextBox>
+        </TextBox>-->
+        <PasswordBox 
+            Name="PasswordBox" 
+            Grid.Row="5" 
+            Grid.Column="1" 
+            Width="150px" 
+            HorizontalAlignment="Center" 
+            VerticalAlignment="Bottom" >
+        </PasswordBox>
+        
+        <PasswordBox 
+            Name="PasswordBoxVerify" 
+            Grid.Row="6" 
+            Grid.Column="1" 
+            Width="150px" 
+            HorizontalAlignment="Center" 
+            VerticalAlignment="Bottom" 
+            PasswordChanged="PasswordBoxVerify_PasswordChanged">
+        </PasswordBox>
+        
         <TextBox 
             FontSize="15px" 
             TextAlignment="Center" 
             Grid.Column="1" 
-            Grid.Row="6" 
+            Grid.Row="7" 
             Width="150px" 
             HorizontalAlignment="Center" 
             VerticalAlignment="Bottom" 
@@ -77,7 +96,7 @@
         <ComboBox 
             FontSize="15px" 
             Grid.Column="1" 
-            Grid.Row="7" 
+            Grid.Row="8" 
             Width="150px" 
             Name="comboBoxVille" 
             ItemsSource="{Binding Villes}" 
@@ -85,8 +104,7 @@
             Text="Ville" 
             IsEditable="True" 
             IsReadOnly="False" 
-            SelectedValuePath="Identifiant" 
-            SelectedValue="{Binding Path=Villes}"/>
+            SelectedItem="{Binding SelectedVille}"/>
         <Button 
             Grid.Row="10" 
             Grid.Column="1" 

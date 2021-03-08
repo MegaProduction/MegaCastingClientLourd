@@ -24,6 +24,7 @@
         <AssociationConnector Association="MegaCastingModel.FK_OffreClient_Offre" />
         <AssociationConnector Association="MegaCastingModel.FK_Postule_Offre" />
         <AssociationConnector Association="MegaCastingModel.FK_Ville_Pays" />
+        <AssociationConnector Association="MegaCastingModel.FK_Offre_Metier" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

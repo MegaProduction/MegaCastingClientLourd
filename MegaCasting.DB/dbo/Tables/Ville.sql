@@ -10,15 +10,27 @@
 
 
 
+
+
 GO
-CREATE   TRIGGER Tr_Ville ON Ville
+CREATE   TRIGGER [dbo].[Tr_Ville] ON [dbo].[Ville]
 AFTER INSERT, UPDATE
 AS
 	IF EXISTS(
 		SELECT *
 		FROM inserted
-		WHERE inserted.Libelle = '' OR inserted.Libelle = ' ' OR inserted.Libelle = 'Ville' OR inserted.CodePostal = '' OR inserted.CodePostal = ' '
+		WHERE inserted.Libelle = '' OR inserted.Libelle = ' ' OR inserted.Libelle = 'Ville'
 		)
 		BEGIN
 			ROLLBACK;
+			RAISERROR('Champ Libellé incorrect', 16, 1);
+		END;
+	IF EXISTS(
+		SELECT *
+		FROM inserted
+		WHERE inserted.CodePostal = '' OR inserted.CodePostal = ' ' OR inserted.CodePostal = 'Code postal'
+		)
+		BEGIN
+			ROLLBACK;
+			RAISERROR('Champ Code postal incorrect', 16, 1);
 		END;

@@ -34,6 +34,7 @@ namespace MegaCasting.DBlib
         public bool EstValide { get; set; }
         public int IdentifiantContrat { get; set; }
         public Nullable<System.DateTime> DateAjout { get; set; }
+        public int IdentifiantMetier { get; set; }
     
         public virtual Contrat Contrat { get; set; }
         public virtual Ville Ville { get; set; }
@@ -41,5 +42,6 @@ namespace MegaCasting.DBlib
         public virtual ICollection<OffreClient> OffreClients { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Postule> Postules { get; set; }
+        public virtual Metier Metier { get; set; }
     }
 }
