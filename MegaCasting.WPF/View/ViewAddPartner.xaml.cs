@@ -76,7 +76,7 @@ namespace MegaCasting.WPF.View
 
         private void ButtonAddPartner_Click(object sender, RoutedEventArgs e)
         {
-                ((ViewModelAddPartner)this.DataContext).AddPartner(TextBoxNom.Text, TextBoxPas.Text, TextBoxLibelle.Text, comboBoxVille.SelectedValue.ToString());
+                ((ViewModelAddPartner)this.DataContext).AddPartner(TextBoxNom.Text, TextBoxPas.Text, TextBoxLibelle.Text);
                 TextBoxNom_GotFocus(sender, e);
                 TextBoxPas_GotFocus(sender, e);
                 TextBoxLibelle_GotFocus(sender, e);

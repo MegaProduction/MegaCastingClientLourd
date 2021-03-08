@@ -113,29 +113,35 @@ namespace MegaCasting.WPF.ViewModel
 		/// <param name="login"></param>
 		/// <param name="password"></param>
 		/// <param name="libelle"></param>
-		/// <param name="identifiantVille"></param>
-		public void AddPartner(string login, string password, string libelle, string identifiantVille)
+		public void AddPartner(string login, string password, string libelle)
 		{
-			bool ville = int.TryParse(identifiantVille, out int villeId);
 			if (!this.Entities.Clients.Any(partner => partner.Login == login))
 			{
+				string hashedpassword;
+				if (password != "Mot de passe")
+				{
+					hashedpassword = ComputeMD5Hash(password);
+				}
+				else
+				{
+					hashedpassword = password;
+				}
 				Client clients = new Client();
 				try
 				{
 					clients.Login = login;
 					MD5 md5hash = MD5.Create();
-					string hashedpassword = ComputeMD5Hash(password);
 					clients.Password = hashedpassword;
 					clients.Libelle = libelle;
-					clients.VilleIdentifiant = villeId;
+					clients.VilleIdentifiant = SelectedVille.Identifiant;
 					this.Client.Add(clients);
 					this.SaveChanges();
 					MessageBox.Show("Client ajouté");
 				}
-				catch (Exception)
+				catch (System.Data.Entity.Infrastructure.DbUpdateException ex)
 				{
 					this.Client.Remove(clients);
-					MessageBox.Show("Erreur lors de l'ajout");
+					MessageBox.Show(ex.InnerException.InnerException.Message.Replace(Environment.NewLine + "La transaction s'est terminée dans le déclencheur. Le traitement a été abandonné.", ""));
 				}
 			}
 			else
