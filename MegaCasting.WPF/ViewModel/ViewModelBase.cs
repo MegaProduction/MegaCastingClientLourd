@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace MegaCasting.WPF.ViewModel
 {
+    /// <summary>
+    /// Class ViewModelBase viewModel de base pour le contexte de l'application
+    /// </summary>
     public class ViewModelBase
     {
         #region Attributes
@@ -31,7 +34,7 @@ namespace MegaCasting.WPF.ViewModel
 
         #region Contructeur
         /// <summary>
-        /// Constructeur du modèle-vue de la fenêtre main
+        /// Constructeur de base 
         /// </summary>
         /// <param name="entities">Contexte de l'application</param>
         public ViewModelBase(MegaCastingEntities entities)

@@ -8,7 +8,10 @@ using System.Threading.Tasks;
 
 namespace MegaCasting.WPF.ViewModel
 {
-    public class ViewModelClientsList : ViewModelBase
+	/// <summary>
+	/// Class ViewModelClientsList de la ViewClientsList pour la liste des clients
+	/// </summary>
+	public class ViewModelClientsList : ViewModelBase
     {
 		#region Attrributes
 		/// <summary>
@@ -43,9 +46,9 @@ namespace MegaCasting.WPF.ViewModel
 
         #region Constructor
 		/// <summary>
-		/// Constructeur de base
+		/// Constructeur de liste des clients
 		/// </summary>
-		/// <param name="entities"></param>
+		/// <param name="entities">Contexte de l'application</param>
         public ViewModelClientsList(MegaCastingEntities entities)
 			: base(entities)
 		{

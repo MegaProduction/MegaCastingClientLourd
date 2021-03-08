@@ -23,6 +23,9 @@ namespace MegaCasting.WPF.View
     /// </summary>
     public partial class ViewSettings : UserControl
     {
+        /// <summary>
+        /// Initialise la viewSettings
+        /// </summary>
         public ViewSettings()
         {
             InitializeComponent();

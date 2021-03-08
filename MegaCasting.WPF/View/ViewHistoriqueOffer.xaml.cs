@@ -21,6 +21,9 @@ namespace MegaCasting.WPF.View
     /// </summary>
     public partial class ViewHistoriqueOffer : UserControl
     {
+        /// <summary>
+        /// Initialise la ViewHistoriqueOffer
+        /// </summary>
         public ViewHistoriqueOffer()
         {
             InitializeComponent();

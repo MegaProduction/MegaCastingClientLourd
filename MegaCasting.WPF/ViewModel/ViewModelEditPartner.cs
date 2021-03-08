@@ -5,6 +5,8 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
 
 namespace MegaCasting.WPF.ViewModel
 {
@@ -86,19 +88,23 @@ namespace MegaCasting.WPF.ViewModel
 			this.Entities.SaveChanges();
 		}
 
-		public void EditPartner()
+		/// <summary>
+		/// Édite un client
+		/// </summary>
+		/// <param name="libelle"></param>
+		public void EditPartner(string libelle)
 		{
-			this.SaveChanges();
-		}
-
-		public bool VerifPartner(string libelle, bool ville)
-		{
-			bool returnValid = false;
-			if (string.IsNullOrWhiteSpace(libelle) != true && ville)
+			try
 			{
-				returnValid = true;
+				this.SaveChanges();
+				MessageBox.Show("Client modifié.");
 			}
-			return returnValid;
+			catch (Exception)
+			{
+				//Permet de reload la liste des clients
+				Entities.ChangeTracker.Entries().Where(entry => entry.State == System.Data.Entity.EntityState.Modified).ToList().ForEach(e => e.Reload());
+				MessageBox.Show("Erreur de saisie.");
+			}
 		}
 		#endregion
 

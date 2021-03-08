@@ -20,13 +20,16 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <Label HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="0" Grid.ColumnSpan="3" FontSize="30">Historique des offres</Label>
-        <ListView Name="listViewOffre" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" ItemsSource="{Binding Offres}">
+        <Label Grid.Row="0" Grid.ColumnSpan="5" Style="{StaticResource LabelStyle}" >Historique des offres</Label>
+        <ListView Name="listViewOffre" Grid.Row="1" Grid.RowSpan="4" Grid.Column="0" Grid.ColumnSpan="5" ItemsSource="{Binding Offres}">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="Nom" Width="450" DisplayMemberBinding="{Binding Path=Intitule}"/>
-                    <GridViewColumn Header="Ville" Width="450" DisplayMemberBinding="{Binding Path=Ville.Libelle}"/>
-                    <GridViewColumn Header="Type du contrat" Width="450" DisplayMemberBinding="{Binding Path=Contrat.Libelle}"/>
+                    <GridViewColumn Width="auto" Header="Nom" DisplayMemberBinding="{Binding Path=Intitule}"/>
+                    <GridViewColumn Width="auto" Header="Ville" DisplayMemberBinding="{Binding Path=Ville.Libelle}"/>
+                    <GridViewColumn Width="auto" Header="Type du contrat" DisplayMemberBinding="{Binding Path=Contrat.Libelle}"/>
+                    <GridViewColumn Width="auto" Header="Référence" DisplayMemberBinding="{Binding Reference}"/>
+                    <GridViewColumn Width="auto" Header="Nom du client" DisplayMemberBinding="{Binding NameClient}"/>
+                    <GridViewColumn Width="auto" Header="Nombre de candidat" DisplayMemberBinding="{Binding NumberCandidat}"/>
                 </GridView>
             </ListView.View>
         </ListView>

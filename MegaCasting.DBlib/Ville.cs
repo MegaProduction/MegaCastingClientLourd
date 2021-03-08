@@ -24,7 +24,7 @@ namespace MegaCasting.DBlib
         public int Identifiant { get; set; }
         public string Libelle { get; set; }
         public string CodePostal { get; set; }
-        public Nullable<int> IdentifiantPays { get; set; }
+        public int IdentifiantPays { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Client> Clients { get; set; }

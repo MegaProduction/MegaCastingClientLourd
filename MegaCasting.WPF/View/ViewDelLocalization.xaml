@@ -1,0 +1,93 @@
+﻿<UserControl x:Class="MegaCasting.WPF.View.ViewDelLocalization"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:MegaCasting.WPF.View"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <!--#region Définition de la grille-->
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.255*"/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="0.25*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="0.25*"/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition Height="0.5*"/>
+        </Grid.RowDefinitions>
+        <!--#endregion-->
+        <!--#region Titre-->
+        <Label 
+            Grid.Column="1" 
+            Grid.Row="0" 
+            Grid.ColumnSpan="2"
+            Style="{StaticResource LabelStyle}">
+            Supprimer une localisation
+        </Label>
+        <!--#endregion-->
+        <!--#region Ville-->
+        <Label 
+            Style="{StaticResource LabelStyle}"
+            Grid.Column="1" 
+            Grid.Row="1" 
+            VerticalAlignment="Top">
+            Supprimer une ville
+        </Label>
+        <ListBox
+            FontSize="15px" 
+            Grid.Column="1"
+            Grid.Row="2"
+            Grid.RowSpan="3"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            Name="ListBoxVille"
+            ItemsSource="{Binding Villes}"
+            DisplayMemberPath="Adresse"
+            SelectedItem="{Binding SelectedVille}"/>
+        <Button
+            Grid.Column="1"
+            Grid.Row="4"
+            HorizontalAlignment="Center"
+            Foreground="Black"
+            Background="LightGray"
+            Content="Supprimer"
+            Name="ButtonDelCity"
+            Click="ButtonDelCity_Click"/>
+        <!--#endregion-->
+        <!--#region Pays-->
+        <Label 
+            Style="{StaticResource LabelStyle}"
+            Grid.Column="2" 
+            Grid.Row="1" 
+            VerticalAlignment="Top">
+            Supprimer un pays
+        </Label>
+        <ListBox
+            FontSize="15px" 
+            Grid.Column="2"
+            Grid.Row="2"
+            Grid.RowSpan="3"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            Name="ListBoxPays"
+            ItemsSource="{Binding Pays}"
+            DisplayMemberPath="Libelle"
+            SelectedItem="{Binding SelectedPays}"/>
+        <Button
+            Grid.Column="2"
+            Grid.Row="4"
+            HorizontalAlignment="Center"
+            Foreground="Black"
+            Background="LightGray"
+            Content="Supprimer"
+            Name="ButtonDelCountry"
+            Click="ButtonDelCountry_Click"/>
+        <!--#endregion-->
+    </Grid>
+</UserControl>

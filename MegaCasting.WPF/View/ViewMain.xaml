@@ -10,14 +10,16 @@
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
-        <Label HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30px" Grid.Column="1">
+        <Label HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30px" Grid.Column="0">
             <StackPanel>
                 <Image Source="https://i.goopics.net/0Ja5w.png" Width="60px" />
                 <TextBlock>MegaCastings</TextBlock>
             </StackPanel>
         </Label>
+        
     </Grid>
     
 </UserControl>

@@ -1,4 +1,5 @@
 ﻿using MegaCasting.DBlib;
+using MegaCasting.WPF.Model;
 using MegaCasting.WPF.View;
 using MegaCasting.WPF.ViewModel;
 using System;
@@ -70,13 +71,19 @@ namespace MegaCasting.WPF
         /// <summary>
         /// Constructeurs
         /// </summary>
-
-
         public MainWindow()
         {
-            InitializeComponent();
-
+            InitializeComponent();          
             this.Entities = new MegaCastingEntities();
+            //chargement plus rapide pour cet élément
+            //this.Entities.Villes.FirstOrDefault();
+
+#if DEBUG
+            this.Entities.Villes.FirstOrDefault();
+#endif
+#if RELEASE
+
+#endif
         }
 
         #endregion
@@ -182,6 +189,59 @@ namespace MegaCasting.WPF
             this.DataContext = viewModelClientsList;
 
             this.DockPanelView.Children.Add(viewPartnersList);
+        }
+
+        private void ContratList_Click(object sender, RoutedEventArgs e)
+        {
+            this.DockPanelView.Children.Clear();
+            ViewModelListContrat viewModelListContrat = new ViewModelListContrat(Entities);
+            ViewListContrat viewListContrat = new ViewListContrat();
+            this.DataContext = viewModelListContrat;
+            this.DockPanelView.Children.Add(viewListContrat);
+        }
+
+        private void Contrat_Click(object sender, RoutedEventArgs e)
+        {
+            this.DockPanelView.Children.Clear();
+            ViewModelContrat viewModelContrat = new ViewModelContrat(Entities);
+            ViewAddContrat viewAddContrat = new ViewAddContrat();
+            this.DataContext = viewModelContrat;
+            this.DockPanelView.Children.Add(viewAddContrat);
+        }
+        private void LocalizationList_Click(object sender, RoutedEventArgs e)
+        {
+            this.DockPanelView.Children.Clear();
+            ViewModelListLocalization viewModelListLocalization = new ViewModelListLocalization(Entities);
+            ViewListLocalization viewListLocalization = new ViewListLocalization();
+            this.DataContext = viewModelListLocalization;
+            this.DockPanelView.Children.Add(viewListLocalization);
+        }
+
+        private void LocalizationAdd_Click(object sender, RoutedEventArgs e)
+        {
+            this.DockPanelView.Children.Clear();
+            ViewModelAddLocalization viewModelAddCountry = new ViewModelAddLocalization(Entities);
+            ViewAddLocalization viewAddLocalization = new ViewAddLocalization();
+            this.DataContext = viewModelAddCountry;
+            this.DockPanelView.Children.Add(viewAddLocalization);
+        }
+
+        private void LocalizationEdit_Click(object sender, RoutedEventArgs e)
+        {
+            this.DockPanelView.Children.Clear();
+            ViewModelEditLocalization viewModelEditCountry = new ViewModelEditLocalization(Entities);
+            ViewEditLocalization viewEditLocalization = new ViewEditLocalization();
+            this.DataContext = viewModelEditCountry;
+            this.DockPanelView.Children.Add(viewEditLocalization);
+        }
+
+        private void LocalizationDelete_Click(object sender, RoutedEventArgs e)
+        {
+            this.DockPanelView.Children.Clear();
+            ViewModelDelLocalization viewModelDelLocalization = new ViewModelDelLocalization(Entities);
+            ViewDelLocalization viewDelLocalization = new ViewDelLocalization();
+            this.DataContext = viewModelDelLocalization;
+            this.DockPanelView.Children.Add(viewDelLocalization);
         }
     }
 }

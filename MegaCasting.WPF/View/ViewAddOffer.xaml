@@ -2,8 +2,9 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:MegaCasting.WPF.View" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:MegaCasting.WPF.View"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:system="clr-namespace:System;assembly=mscorlib"
              mc:Ignorable="d" 
@@ -31,35 +32,33 @@
         </Grid.ColumnDefinitions>
         <!--#endregion-->
 
-        <Label FontSize="30px" HorizontalAlignment="Center" Grid.Row="1" Grid.Column="1">Ajouter une offre</Label>
+        <Label Style="{StaticResource LabelStyle}" Grid.Row="1" Grid.Column="1">Ajouter une offre</Label>
         <Label Grid.Row="3" HorizontalAlignment="Center" FontSize="20px">
             <Underline>Offre</Underline>
         </Label>
-        
+
         <TextBox FontSize="15px" Grid.Row="4" Width="150px" HorizontalAlignment="Center" VerticalAlignment="Bottom" Text="Intitulé" Name="TextBoxIntitule" GotFocus="TextBoxIntitule_GotFocus" LostFocus="TextBoxIntitule_LostFocus"></TextBox>
-        <TextBox 
-            FontSize="15px" 
-            Grid.Row="5" 
+        <DatePicker
+            Grid.Row="5"
+            SelectedDate="{x:Static sys:DateTime.Now}"
+            Name="datePickerDateDebut"
             Width="150px"
-            ToolTip="AAAA-MM-JJ HH:mm"
-            HorizontalAlignment="Center" 
-            VerticalAlignment="Bottom" 
-            Text="Date de début" 
-            Name="TextBoxDatDeb" 
-            GotFocus="TextBoxDatDeb_GotFocus" 
-            LostFocus="TextBoxDatDeb_LostFocus"></TextBox>
-        <TextBox FontSize="15px" Grid.Row="6" Width="150px" HorizontalAlignment="Center" VerticalAlignment="Bottom" Text="Nombre de postes" Name="TextBoxNbPostes" GotFocus="TextBoxNbPostes_GotFocus" LostFocus="TextBoxNbPostes_LostFocus"></TextBox>
+            ToolTip="Ce champ n'accepte que des dates"
+            PreviewTextInput="DatePickerDateDebut_PreviewTextInput"
+            />
+        <TextBox FontSize="15px" Grid.Row="6" Width="150px" HorizontalAlignment="Center" VerticalAlignment="Bottom" Text="Nombre de postes" Name="TextBoxNbPostes" GotFocus="TextBoxNbPostes_GotFocus" LostFocus="TextBoxNbPostes_LostFocus"
+                 PreviewTextInput="TextBoxNbPostes_PreviewTextInput"></TextBox>
         <ComboBox
+            Style="{StaticResource MaterialDesignComboBox}"
             FontSize="15px"
             Grid.Row="7"
             Width="150px"
             Name="comboBoxContrat"
-            ItemsSource="{Binding Contrat}"
-            DisplayMemberPath="Libelle"
-            Text="Type de contat"
-            IsReadOnly="False"
-            SelectedValuePath="Identifiant"
-            SelectedValue="{Binding Path=Contrat.Identifiant}"/>
+            ItemsSource="{Binding Contrats}"
+            SelectedItem="{Binding SelectedContrat}"
+            SelectedValuePath="{Binding SelectedContrat.Identifiant}"
+            IsSynchronizedWithCurrentItem="True"
+            DisplayMemberPath="Libelle"/>
         <!--#region Information-->
         <Label Grid.Row="3" Grid.Column="1" HorizontalAlignment="Center" FontSize="20px">
             <Underline>Informations</Underline>
@@ -70,12 +69,11 @@
             Grid.Column="1"
             Width="150px"
             Name="comboBoxClient"
-            ItemsSource="{Binding Client}"
-            DisplayMemberPath="Libelle"
-            Text="Nom"
-            IsReadOnly="False"
-            SelectedValuePath="Identifiant"
-            SelectedValue="{Binding Path=Client.Identifiant}"/>
+            ItemsSource="{Binding Clients}"
+            SelectedItem="{Binding SelectedClient}"
+            SelectedValuePath="{Binding SelectedClient.Identifiant}"
+            IsSynchronizedWithCurrentItem="True" 
+            DisplayMemberPath="Libelle"/>
         <TextBox 
             FontSize="15px" 
             Grid.Row="5" 
@@ -85,7 +83,8 @@
             VerticalAlignment="Bottom" 
             Text="Coordonnées" 
             Name="TextBoxCoord"
-            GotFocus="TextBoxCoord_GotFocus" LostFocus="TextBoxCoord_LostFocus"></TextBox>
+            PreviewTextInput="TextBoxCoord_PreviewTextInput"
+            GotFocus="TextBoxCoord_GotFocus" LostFocus="TextBoxCoord_LostFocus"/>
         <ComboBox
             FontSize="15px"
             Grid.Column="1"
@@ -93,20 +92,19 @@
             Width="150px"
             Name="comboBoxLocalisation"
             ItemsSource="{Binding Villes}"
-            DisplayMemberPath="Libelle"
-            Text="Ville"
-            IsReadOnly="False"
-            SelectedValuePath="Identifiant"
-            SelectedValue="{Binding Path=Villes.Identifiant}"/>
+            SelectedItem="{Binding SelectedVille}"
+            SelectedValuePath="{Binding SelectedVille.Identifiant}"
+            IsSynchronizedWithCurrentItem="True" 
+            DisplayMemberPath="Libelle"/>
         <!--#endregion-->
         <!--#region Description-->
-            <Label Grid.Row="3" Grid.Column="2" HorizontalAlignment="Center" FontSize="20px">
+        <Label Grid.Row="3" Grid.Column="2" HorizontalAlignment="Center" FontSize="20px">
             <Underline>Description</Underline>
         </Label>
-        <TextBox FontSize="15px" Grid.Row="4" Grid.Column="2" Width="150px" HorizontalAlignment="Center" VerticalAlignment="Bottom" Text="Description du poste" Name="TextBoxDescripPoste" GotFocus="TextBoxDescripPoste_GotFocus" LostFocus="TextBoxDescripPoste_LostFocus"></TextBox>
-        <TextBox FontSize="15px" Grid.Row="5" Grid.Column="2" Width="150px" HorizontalAlignment="Center" VerticalAlignment="Bottom" Text="Description du profil" Name="TextBoxDescripProfil" GotFocus="TextBoxDescripProfil_GotFocus" LostFocus="TextBoxDescripProfil_LostFocus"></TextBox>
-        <TextBox FontSize="15px" Grid.Row="6" Grid.Column="2" Width="150px" HorizontalAlignment="Center" VerticalAlignment="Bottom" Text="Durée de diffusion" Name="TextBoxDureeDiff" GotFocus="TextBoxDureeDiff_GotFocus" LostFocus="TextBoxDureeDiff_LostFocus"></TextBox>
+        <TextBox FontSize="15px" Grid.Row="4" Grid.Column="2" Width="150px" HorizontalAlignment="Center" VerticalAlignment="Bottom" Text="Description du poste" Name="TextBoxDescripPoste" GotFocus="TextBoxDescripPoste_GotFocus" LostFocus="TextBoxDescripPoste_LostFocus"/>
+        <TextBox FontSize="15px" Grid.Row="5" Grid.Column="2" Width="150px" HorizontalAlignment="Center" VerticalAlignment="Bottom" Text="Description du profil" Name="TextBoxDescripProfil" GotFocus="TextBoxDescripProfil_GotFocus" LostFocus="TextBoxDescripProfil_LostFocus"/>
+        <TextBox FontSize="15px" Grid.Row="6" Grid.Column="2" Width="150px" HorizontalAlignment="Center" VerticalAlignment="Bottom" Text="Durée de diffusion" Name="TextBoxDureeDiff" GotFocus="TextBoxDureeDiff_GotFocus" LostFocus="TextBoxDureeDiff_LostFocus" PreviewTextInput="TextBoxDureeDiff_PreviewTextInput"/>
         <!--#endregion-->
-        <Button Grid.Column="1" Grid.Row="10" Background="LightGray" Foreground="Black" Name="addOffre" Click="AddOffre_Click" Content="Valider"></Button>
+        <Button Grid.Column="1" Grid.Row="10" Style="{StaticResource overrideButton}" Name="addOffre" Click="AddOffre_Click" Content="Valider"></Button>
     </Grid>
 </UserControl>

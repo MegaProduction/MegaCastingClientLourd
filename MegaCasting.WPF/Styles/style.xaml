@@ -1,15 +1,17 @@
-﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+﻿ <ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:local="clr-namespace:MegaCasting.WPF.Styles">
-    <Style x:Key="LabelStyle" TargetType="Label">
+     <Style x:Key="LabelStyle" TargetType="Label">
         <Style.Setters>
             <Setter Property="FontSize" Value="30px"></Setter>
             <Setter Property="HorizontalAlignment" Value="Center"/>
         </Style.Setters>
-    </Style>
-    <Style x:Key="TextBoxStyle" TargetType="TextBox">
+     </Style>
+     <Style x:Key="overrideButton" TargetType="Button" BasedOn="{StaticResource MaterialDesignFlatDarkBgButton}">
         <Style.Setters>
-            <Setter Property="Background" Value="Black"/>
+            <Setter Property="Background" Value="LightGray"/>
+            <Setter Property="Foreground" Value="Black" />
+            <Setter Property="BorderBrush" Value="Black" />
         </Style.Setters>
-    </Style>
+     </Style>
 </ResourceDictionary>

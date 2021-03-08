@@ -5,6 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using MegaCasting.DBlib;
 using System.Collections.ObjectModel;
+using System.Windows;
+using System.Security.Policy;
+using System.Security.Cryptography;
 
 namespace MegaCasting.WPF.ViewModel
 {
@@ -86,43 +89,73 @@ namespace MegaCasting.WPF.ViewModel
 			this.Entities.SaveChanges();
 		}
 
+		static string ComputeMD5Hash(string rawData)
+		{
+			// Create a SHA256   
+			using (MD5 md5Hash = MD5.Create())
+			{
+				// ComputeHash - returns byte array  
+				byte[] bytes = md5Hash.ComputeHash(Encoding.UTF8.GetBytes(rawData));
+
+				// Convert byte array to a string   
+				StringBuilder builder = new StringBuilder();
+				for (int i = 0; i < bytes.Length; i++)
+				{
+					builder.Append(bytes[i].ToString("x2"));
+				}
+				return builder.ToString();
+			}
+		}
+
 		/// <summary>
 		/// Ajoute un partenaire (limité par le Covid)
 		/// </summary>
 		/// <param name="login"></param>
 		/// <param name="password"></param>
 		/// <param name="libelle"></param>
-		/// <param name="ville"></param>
-		public void AddPartner(string login, string password, string libelle, int ville)
+		/// <param name="identifiantVille"></param>
+		public void AddPartner(string login, string password, string libelle)
 		{
-			if (!this.Entities.Clients.Any(partner => partner.Login == login))
+			if (SelectedVille is null)
 			{
-				Client clients = new Client();
-				clients.Login = login;
-				clients.Password = password;
-				clients.Libelle = libelle;
-				clients.VilleIdentifiant = ville;
-				this.Client.Add(clients);
-				this.SaveChanges();
+				MessageBox.Show("Ville non sélectionnée", "Erreur", MessageBoxButton.OK, MessageBoxImage.Error);
 			}
-		}
-
-		/// <summary>
-		/// Vérification des champs (faut faire gaffe aux vaches)
-		/// </summary>
-		/// <param name="login"></param>
-		/// <param name="password"></param>
-		/// <param name="libelle"></param>
-		/// <param name="ville"></param>
-		/// <returns></returns>
-		public bool VerifPartner(string login, string password, string libelle, bool ville)
-		{
-			bool returnValid = false;
-			if (string.IsNullOrWhiteSpace(login) != true && string.IsNullOrWhiteSpace(password) != true && string.IsNullOrWhiteSpace(libelle) != true && ville)
+			else
 			{
-				returnValid = true;
+				if (!this.Entities.Clients.Any(partner => partner.Login == login))
+				{
+					string hashedpassword;
+					if (password != "Mot de passe")
+					{
+						hashedpassword = ComputeMD5Hash(password);
+					}
+					else
+					{
+						hashedpassword = password;
+					}
+					Client clients = new Client();
+					try
+					{
+						clients.Login = login;
+						MD5 md5hash = MD5.Create();
+						clients.Password = hashedpassword;
+						clients.Libelle = libelle;
+						clients.VilleIdentifiant = SelectedVille.Identifiant;
+						this.Client.Add(clients);
+						this.SaveChanges();
+						MessageBox.Show("Client ajouté");
+					}
+					catch (System.Data.Entity.Infrastructure.DbUpdateException ex)
+					{
+						this.Client.Remove(clients);
+						MessageBox.Show(ex.InnerException.InnerException.Message.Replace(Environment.NewLine + "La transaction s'est terminée dans le déclencheur. Le traitement a été abandonné.", ""));
+					}
+				}
+				else
+				{
+					MessageBox.Show("Le client existe déjà");
+				}
 			}
-			return returnValid;
 		}
 		#endregion
 

@@ -1,7 +1,11 @@
 [
   {
     "Name": "Custom",
+<<<<<<< HEAD
     "Color": "#FF9CCF79"
+=======
+    "Color": "#FF87ED87"
+>>>>>>> 25c16760dc3f5a642cecd88957604ba6196f5303
   },
   {
     "Name": "Default",

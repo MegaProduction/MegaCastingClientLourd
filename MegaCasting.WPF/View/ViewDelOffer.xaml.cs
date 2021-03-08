@@ -21,6 +21,9 @@ namespace MegaCasting.WPF.View
     /// </summary>
     public partial class ViewDelOffer : UserControl
     {
+        /// <summary>
+        /// Initialise la ViewDelOffer
+        /// </summary>
         public ViewDelOffer()
         {
             InitializeComponent();
