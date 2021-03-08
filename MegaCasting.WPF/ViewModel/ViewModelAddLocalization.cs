@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -77,7 +78,7 @@ namespace MegaCasting.WPF.ViewModel
         {
             if (!this.Entities.Pays.Any(country => country.Libelle == pays))
             {
-                if (VerifCountry(pays))
+                try
                 {
                     Pay pay = new Pay();
                     pay.Libelle = pays;
@@ -85,10 +86,11 @@ namespace MegaCasting.WPF.ViewModel
                     this.SaveChanges();
                     MessageBox.Show("Pays ajouté");
                 }
-                else
+                catch(DbUpdateException due)
                 {
-                    MessageBox.Show("Erreur de saisie");
+                    MessageBox.Show(due.InnerException.InnerException.Message.Replace(Environment.NewLine + "La transaction s'est terminée dans le déclencheur. Le traitement a été abandonné.", ""));
                 }
+
             }
             else
             {
@@ -101,60 +103,29 @@ namespace MegaCasting.WPF.ViewModel
         /// <param name="nom"></param>
         /// <param name="codePostal"></param>
         /// <param name="identifiantPays"></param>
-        public void AddCity(string nom, string codePostal, string identifiantPays)
+        public void AddCity(string nom, string codePostal)
         {
             if (!this.Entities.Villes.Any(ville => ville.CodePostal == codePostal))
             {
-            bool idPays = int.TryParse(identifiantPays, out int paysId);
-                if (VerifCity(nom, codePostal, idPays))
-                {
+                try
+                { 
                     Ville ville = new Ville();
                     ville.Libelle = nom;
                     ville.CodePostal = codePostal.ToUpper();
-                    ville.IdentifiantPays = paysId;
+                    ville.IdentifiantPays = SelectedPays.Identifiant;
                     this.Villes.Add(ville);
                     this.SaveChanges();
                     MessageBox.Show("Ville ajoutée");
                 }
-                else
+                catch (DbUpdateException due)
                 {
-                    MessageBox.Show("Erreur de saisie");
+                    MessageBox.Show(due.InnerException.InnerException.Message.Replace(Environment.NewLine + "La transaction s'est terminée dans le déclencheur. Le traitement a été abandonné.", ""));
                 }
             }
             else
             {
                 MessageBox.Show("Ville déjà présente dans la base de données");
             }
-        }
-        /// <summary>
-        /// Verification des champs pour le pays
-        /// </summary>
-        /// <param name="pays"></param>
-        /// <returns></returns>
-        public bool VerifCountry(string pays)
-        {
-            bool returnValid = false;
-            if (string.IsNullOrWhiteSpace(pays) != true && pays != "Pays")
-            {
-                returnValid = true;
-            }
-            return returnValid;
-        }
-        /// <summary>
-        /// Vérification des champs pour la ville
-        /// </summary>
-        /// <param name="nom"></param>
-        /// <param name="codePostal"></param>
-        /// <param name="idPays"></param>
-        /// <returns></returns>
-        public bool VerifCity(string nom, string codePostal, bool idPays)
-        {
-            bool returnValid = false;
-            if (string.IsNullOrWhiteSpace(nom) != true && string.IsNullOrWhiteSpace(codePostal) != true && idPays)
-            {
-                returnValid = true;
-            }
-            return returnValid;
         }
         #endregion
     }

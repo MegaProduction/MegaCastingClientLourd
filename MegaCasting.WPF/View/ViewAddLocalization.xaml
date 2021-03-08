@@ -97,7 +97,6 @@
             Name="comboBoxPaysVille"
             DisplayMemberPath="Libelle"
             ItemsSource="{Binding Pays}"
-            SelectedValuePath="{Binding SelectedPays.Identifiant}"
             SelectedItem="{Binding SelectedPays}"
             IsSynchronizedWithCurrentItem="True"
             Width="150px"/>

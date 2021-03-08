@@ -81,7 +81,7 @@ namespace MegaCasting.WPF.View
 
         private void ButtonAddCity_Click(object sender, RoutedEventArgs e)
         {
-            ((ViewModelAddLocalization)this.DataContext).AddCity(TextBoxVille.Text, TextBoxCodePostal.Text, comboBoxPaysVille.SelectedValuePath.ToString());
+            ((ViewModelAddLocalization)this.DataContext).AddCity(TextBoxVille.Text, TextBoxCodePostal.Text);
         }
     }
 }
