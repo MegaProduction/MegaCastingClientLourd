@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Data.Entity.Infrastructure;
+using System.Data.Entity.Validation;
 using System.Linq;
 using System.Runtime.Remoting.Contexts;
 using System.Text;
@@ -79,9 +80,9 @@ namespace MegaCasting.WPF.ViewModel
         {
             if (!this.Entities.Pays.Any(country => country.Libelle == pays))
             {
+                Pay pay = new Pay();
                 try
                 {
-                    Pay pay = new Pay();
                     pay.Libelle = pays;
                     this.Pays.Add(pay);
                     this.SaveChanges();
@@ -90,6 +91,17 @@ namespace MegaCasting.WPF.ViewModel
                 catch(DbUpdateException due)
                 {
                     MessageBox.Show(due.InnerException.InnerException.Message.Replace(Environment.NewLine + "La transaction s'est terminée dans le déclencheur. Le traitement a été abandonné.", ""));
+                }
+                catch(System.Data.Entity.Validation.DbEntityValidationException deve)
+                {
+                    foreach (DbEntityValidationResult error in deve.EntityValidationErrors)
+                    {
+                        foreach (DbValidationError item in error.ValidationErrors)
+                        {
+                            MessageBox.Show(item.PropertyName + " : "+ item.ErrorMessage);
+                        }
+                    }
+                    Entities.Pays.Remove(pay);
                 }
 
             }

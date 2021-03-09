@@ -135,6 +135,7 @@
     </ApplicationDefinition>
     <Compile Include="Converter\BoolToEnabled.cs" />
     <Compile Include="Converter\BoolToVisibility.cs" />
+    <Compile Include="Converter\IsEmptyConverter.cs" />
     <Compile Include="Converter\ObjectToEnabledConverter.cs" />
     <Compile Include="Converter\ObjectToVisibilityConverter.cs" />
     <Compile Include="ViewModel\ViewModelContrat.cs" />

@@ -66,8 +66,33 @@
             Grid.Column="1" 
             Width="150px" 
             HorizontalAlignment="Center" 
-            VerticalAlignment="Bottom" >
+            VerticalAlignment="Bottom"
+            GotFocus="PasswordBox_GotFocus"
+            LostFocus="PasswordBox_LostFocus"
+            FocusManager.IsFocusScope="True"
+            Panel.ZIndex="2">
         </PasswordBox>
+        <TextBox
+            FocusManager.IsFocusScope="False"
+            Grid.Row="5" 
+            Grid.Column="1" 
+            Width="150px" 
+            HorizontalAlignment="Center" 
+            VerticalAlignment="Bottom"
+            Text="Mot de passe">
+            <TextBox.Style>
+                <Style TargetType="TextBox" BasedOn="{StaticResource MaterialDesignTextBoxBase}">
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding Path=Password, Mode=OneWay, Converter={StaticResource _SharedIsEmptyConverter}}" Value="False">
+                            <Setter Property="Foreground" Value="Transparent"/>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding Path=Password, Mode=OneWay, Converter={StaticResource _SharedIsEmptyConverter}}" Value="True">
+                            <Setter Property="Foreground" Value="Black"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </TextBox.Style>
+        </TextBox>
         
         <PasswordBox 
             Name="PasswordBoxVerify" 

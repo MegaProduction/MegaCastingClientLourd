@@ -19,4 +19,14 @@
             <Setter Property="BorderBrush" Value="Red"/>
         </Style.Setters>
     </Style>
+    <Style x:Key="NomPasswordBox" TargetType="TextBox">
+        <Style.Triggers>
+            <DataTrigger Binding="{Binding Path=Password, Mode=OneWay, Converter={StaticResource _SharedIsEmptyConverter}}" Value="False">
+                <Setter Property="Foreground" Value="Transparent"/>
+            </DataTrigger>
+            <DataTrigger Binding="{Binding Path=Password, Mode=OneWay, Converter={StaticResource _SharedIsEmptyConverter}}" Value="True">
+                <Setter Property="Foreground" Value="Black"/>
+            </DataTrigger>
+        </Style.Triggers>
+    </Style>
 </ResourceDictionary>

@@ -8,6 +8,7 @@ using System.Collections.ObjectModel;
 using System.Windows;
 using System.Security.Policy;
 using System.Security.Cryptography;
+using System.Data.Entity.Validation;
 
 namespace MegaCasting.WPF.ViewModel
 {
@@ -111,8 +112,9 @@ namespace MegaCasting.WPF.ViewModel
 		/// <param name="login"></param>
 		/// <param name="password"></param>
 		/// <param name="libelle"></param>
-		public void AddPartner(string login, string password, string libelle)
+		public bool AddPartner(string login, string password, string libelle)
 		{
+			bool boolPartner = false;
 			if (!this.Entities.Clients.Any(partner => partner.Login == login))
 			{
 				string hashedpassword;
@@ -141,11 +143,24 @@ namespace MegaCasting.WPF.ViewModel
 						this.Client.Add(clients);
 						this.SaveChanges();
 						MessageBox.Show("Client ajouté");
+						boolPartner = true;
 					}
 					catch (System.Data.Entity.Infrastructure.DbUpdateException ex)
 					{
 						this.Client.Remove(clients);
 						MessageBox.Show(ex.InnerException.InnerException.Message.Replace(Environment.NewLine + "La transaction s'est terminée dans le déclencheur. Le traitement a été abandonné.", ""));
+					}
+					catch (System.Data.Entity.Validation.DbEntityValidationException ex)
+					{
+						Entities.ChangeTracker.Entries().Where(entry => entry.State == System.Data.Entity.EntityState.Modified).ToList().ForEach(e => e.Reload());
+						foreach (DbEntityValidationResult error in ex.EntityValidationErrors)
+						{
+							foreach (DbValidationError item in error.ValidationErrors)
+							{
+								MessageBox.Show(item.PropertyName + " : " + item.ErrorMessage);
+							}
+						}
+						this.Client.Remove(clients);
 					}
 				}
 			}
@@ -153,6 +168,7 @@ namespace MegaCasting.WPF.ViewModel
 			{
 				MessageBox.Show("Le client existe déjà");
 			}
+			return boolPartner;
 		}
 		#endregion
 

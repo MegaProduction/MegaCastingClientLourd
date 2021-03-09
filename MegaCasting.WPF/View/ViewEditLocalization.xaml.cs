@@ -32,7 +32,9 @@ namespace MegaCasting.WPF.View
         /// <param name="e"></param>
         private void ButtonEditCity_Click(object sender, RoutedEventArgs e)
         {
+            ListBoxVille.Items.Refresh();
             ((ViewModelEditLocalization)this.DataContext).EditCity();
+            ListBoxVille.UnselectAll();
         }
         /// <summary>
         /// Édition du pays
@@ -41,7 +43,9 @@ namespace MegaCasting.WPF.View
         /// <param name="e"></param>
         private void ButtonEditCountry_Click(object sender, RoutedEventArgs e)
         {
+            ListBoxPays.Items.Refresh();
             ((ViewModelEditLocalization)this.DataContext).EditCountry();
+            ListBoxPays.UnselectAll();
         }
     }
 }

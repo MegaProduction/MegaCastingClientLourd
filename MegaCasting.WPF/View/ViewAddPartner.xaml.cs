@@ -44,21 +44,6 @@ namespace MegaCasting.WPF.View
             }
         }
 
-        //private void TextBoxPas_GotFocus(object sender, RoutedEventArgs e)
-        //{
-        //    PasswordBox.Password = string.Empty;
-        //    PasswordBox.GotFocus -= TextBoxPas_GotFocus;
-        //}
-
-        //private void TextBoxPas_LostFocus(object sender, RoutedEventArgs e)
-        //{
-        //    if (PasswordBox.Password.Trim().Equals(string.Empty))
-        //    {
-        //        PasswordBox.Password = "Mot de passe";
-        //        PasswordBox.GotFocus += TextBoxPas_GotFocus;
-        //    }
-        //}
-
         private void PasswordBoxVerify_PasswordChanged(object sender, RoutedEventArgs e)
         {
             if (PasswordBox.Password != PasswordBoxVerify.Password)
@@ -86,16 +71,34 @@ namespace MegaCasting.WPF.View
             }
         }
 
+
+        private void PasswordBox_GotFocus(object sender, RoutedEventArgs e)
+        {
+            PasswordBox.Password = string.Empty;
+            PasswordBox.GotFocus -= PasswordBox_GotFocus;
+        }
+
+        private void PasswordBox_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (PasswordBox.Password.Trim().Equals(string.Empty))
+            {
+                PasswordBox.Password = "Mot de passe";
+                PasswordBox.GotFocus += PasswordBox_GotFocus;
+            }
+        }
         private void ButtonAddPartner_Click(object sender, RoutedEventArgs e)
         {
-                ((ViewModelAddPartner)this.DataContext).AddPartner(TextBoxNom.Text, /*TextBoxPas.Text*/PasswordBox.Password, TextBoxLibelle.Text);
+            if (((ViewModelAddPartner)this.DataContext).AddPartner(TextBoxNom.Text, /*TextBoxPas.Text*/PasswordBox.Password, TextBoxLibelle.Text))
+            {
                 TextBoxNom_GotFocus(sender, e);
-                //TextBoxPas_GotFocus(sender, e);
                 TextBoxLibelle_GotFocus(sender, e);
                 TextBoxNom_LostFocus(sender, e);
-                //TextBoxPas_LostFocus(sender, e);
                 TextBoxLibelle_LostFocus(sender, e);
+                PasswordBox_GotFocus(sender, e);
+                PasswordBox_LostFocus(sender, e);
                 comboBoxVille.Text = "Ville";
+                PasswordBoxVerify.Clear();
+            }
 
         }
     }

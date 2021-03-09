@@ -21,6 +21,7 @@
             <converter:ObjectToEnabledConverter x:Key="_SharedObjectToEnabledConverter"/>
             <converter:BoolToVisibility x:Key="_SharedBoolToVisibility"/>
             <converter:BoolToEnabled x:Key="_SharedBoolToEnable"/>
+            <converter:IsEmptyConverter x:Key="_SharedIsEmptyConverter"/>
             <!--#endregion-->
         </ResourceDictionary>
     </Application.Resources>
