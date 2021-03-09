@@ -97,7 +97,7 @@
           </Key>
           <Property Name="Identifiant" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Libelle" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="CodePostal" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="CodePostal" Type="nvarchar" MaxLength="15" />
           <Property Name="IdentifiantPays" Type="int" Nullable="false" />
         </EntityType>
         <Association Name="FK_Client_Ville">
@@ -421,7 +421,7 @@
           </Key>
           <Property Name="Identifiant" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Libelle" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="CodePostal" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="CodePostal" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
           <Property Name="IdentifiantPays" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Clients" Relationship="MegaCastingModel.FK_Client_Ville" FromRole="Ville" ToRole="Client" />
           <NavigationProperty Name="Offres" Relationship="MegaCastingModel.FK_Offre_Ville" FromRole="Ville" ToRole="Offre" />

@@ -96,5 +96,6 @@
     <Build Include="dbo\Tables\Candidat.sql" />
     <Build Include="Security\DoctrineUser.sql" />
     <Build Include="Security\RoleMemberships.sql" />
+    <Build Include="Security\DoctrineUser.sql" />
   </ItemGroup>
 </Project>

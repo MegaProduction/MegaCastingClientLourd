@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Data.Entity.Infrastructure;
 using System.Linq;
+using System.Runtime.Remoting.Contexts;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -107,9 +108,9 @@ namespace MegaCasting.WPF.ViewModel
         {
             if (!this.Entities.Villes.Any(ville => ville.CodePostal == codePostal))
             {
+                Ville ville = new Ville();
                 try
                 { 
-                    Ville ville = new Ville();
                     ville.Libelle = nom;
                     ville.CodePostal = codePostal.ToUpper();
                     ville.IdentifiantPays = SelectedPays.Identifiant;
@@ -120,6 +121,11 @@ namespace MegaCasting.WPF.ViewModel
                 catch (DbUpdateException due)
                 {
                     MessageBox.Show(due.InnerException.InnerException.Message.Replace(Environment.NewLine + "La transaction s'est terminée dans le déclencheur. Le traitement a été abandonné.", ""));
+                    Entities.Villes.Remove(ville);
+                }
+                catch(Exception ex)
+                {
+                    MessageBox.Show(ex.Message + Environment.NewLine + ex.Data + Environment.NewLine + ex.Source + Environment.NewLine + ex.StackTrace);
                 }
             }
             else
