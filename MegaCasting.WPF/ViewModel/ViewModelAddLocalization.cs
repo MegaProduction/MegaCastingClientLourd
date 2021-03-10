@@ -14,6 +14,14 @@ namespace MegaCasting.WPF.ViewModel
 {
     class ViewModelAddLocalization : ViewModelBase
     {
+        private ObservableCollection<Erreur> _Erreur;
+
+        public ObservableCollection<Erreur> Erreur
+        {
+            get { return _Erreur; }
+            set { _Erreur = value; }
+        }
+
         #region Attributes
         /// <summary>
         /// Collection de pays
@@ -62,6 +70,8 @@ namespace MegaCasting.WPF.ViewModel
             this.Pays = this.Entities.Pays.Local;
             this.Entities.Villes.ToList();
             this.Villes = this.Entities.Villes.Local;
+            this.Entities.Erreurs.ToList();
+            this.Erreur = this.Entities.Erreurs.Local;
         }
         #endregion
         #region Methods
@@ -81,12 +91,13 @@ namespace MegaCasting.WPF.ViewModel
             if (!this.Entities.Pays.Any(country => country.Libelle == pays))
             {
                 Pay pay = new Pay();
+                Erreur erreur = Erreur.Where(error => error.MessageFR.Contains("Pays ajouté")).First();
                 try
                 {
                     pay.Libelle = pays;
                     this.Pays.Add(pay);
                     this.SaveChanges();
-                    MessageBox.Show("Pays ajouté");
+                    Affichebox(erreur.MessageFR, erreur.CodeErreur, MessageBoxButton.OK, MessageBoxImage.Information);
                 }
                 catch(DbUpdateException due)
                 {

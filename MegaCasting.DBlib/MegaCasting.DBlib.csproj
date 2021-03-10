@@ -107,6 +107,9 @@
     <Compile Include="Domaine.cs">
       <DependentUpon>MegaCastingModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Erreur.cs">
+      <DependentUpon>MegaCastingModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="MegaCastingModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

@@ -97,5 +97,6 @@
     <Build Include="Security\DoctrineUser.sql" />
     <Build Include="Security\RoleMemberships.sql" />
     <Build Include="Security\DoctrineUser.sql" />
+    <Build Include="dbo\Tables\Erreur.sql" />
   </ItemGroup>
 </Project>
