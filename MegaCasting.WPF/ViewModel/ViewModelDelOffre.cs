@@ -81,9 +81,16 @@ namespace MegaCasting.WPF.ViewModel
 			//Suppression de l'élément
 			else
 			{
-				this.Offres.Remove(SelectedOffre);
-				this.SaveChanges();
-				MessageBox.Show("Offre supprimée");
+				if (SelectedOffre != null)
+				{
+					this.Offres.Remove(SelectedOffre);
+					this.SaveChanges();
+					MessageBox.Show("Offre supprimée");
+				}
+				else
+				{
+					MessageBox.Show("Offre non sélectionnée");
+				}
 			}
 		}
 		#endregion

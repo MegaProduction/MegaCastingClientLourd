@@ -88,7 +88,7 @@ namespace MegaCasting.WPF.View
         }
         private void ButtonAddPartner_Click(object sender, RoutedEventArgs e)
         {
-            if (((ViewModelAddPartner)this.DataContext).AddPartner(TextBoxNom.Text, /*TextBoxPas.Text*/PasswordBox.Password, TextBoxLibelle.Text))
+            if (((ViewModelAddPartner)this.DataContext).AddPartner(TextBoxNom.Text, PasswordBox.Password, TextBoxLibelle.Text))
             {
                 TextBoxNom_GotFocus(sender, e);
                 TextBoxLibelle_GotFocus(sender, e);

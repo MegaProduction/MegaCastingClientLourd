@@ -31,7 +31,9 @@ namespace MegaCasting.WPF.View
 
         private void ButtonEditPartner_Click(object sender, RoutedEventArgs e)
         {
-                ((ViewModelEditPartner)this.DataContext).EditPartner(TextBoxLibelle.Text);
+            ((ViewModelEditPartner)this.DataContext).EditPartner(TextBoxLibelle.Text);
+            ListBoxEditPartner.Items.Refresh();
+            ListBoxEditPartner.UnselectAll();
         }
     }
 }

@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Data.Entity.Validation;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -230,6 +231,18 @@ namespace MegaCasting.WPF.ViewModel
 				catch (System.Data.Entity.Infrastructure.DbUpdateException ex)
 				{
 					MessageBox.Show(ex.InnerException.InnerException.Message.Replace(Environment.NewLine+"La transaction s'est terminée dans le déclencheur. Le traitement a été abandonné.", ""));
+					this.Offres.Remove(offre);
+					this.OffreClients.Remove(offreClient);
+				}
+				catch (System.Data.Entity.Validation.DbEntityValidationException deve)
+				{
+					foreach (DbEntityValidationResult error in deve.EntityValidationErrors)
+					{
+						foreach (DbValidationError item in error.ValidationErrors)
+						{
+							MessageBox.Show(item.PropertyName + " : " + item.ErrorMessage);
+						}
+					}
 					this.Offres.Remove(offre);
 					this.OffreClients.Remove(offreClient);
 				}

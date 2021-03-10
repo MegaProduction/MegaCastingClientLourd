@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Data.Entity.Infrastructure;
+using System.Data.Entity.Validation;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -87,10 +88,10 @@ namespace MegaCasting.WPF.ViewModel
                     this.SaveChanges();
                     MessageBox.Show("Contrat ajouté");
                 }
-                catch (System.Data.Entity.Infrastructure.DbUpdateException)
+                catch (DbUpdateException)
                 {
                     Contrats.Remove(contrat);
-                    MessageBox.Show("Une erreur c\'est produite lors de la saisie");
+                    MessageBox.Show("Une erreur s\'est produite lors de la saisie");
                 }
             }
             else
@@ -103,24 +104,48 @@ namespace MegaCasting.WPF.ViewModel
         /// </summary>
         public void DeleteContrat()
         {
-            //Vérification si on a le droit de supprimer
-            if (!Offres.Any(offre => offre.IdentifiantContrat == SelectedContrat.Identifiant))
+            if (SelectedContrat != null)
             {
-                this.Contrats.Remove(SelectedContrat);
-                this.SaveChanges();
-                MessageBox.Show("Contrat supprimée");
+            try
+            {
+                //Vérification si on a le droit de supprimer
+                if (!Offres.Any(offre => offre.IdentifiantContrat == SelectedContrat.Identifiant))
+                {
+                    this.Contrats.Remove(SelectedContrat);
+                    this.SaveChanges();
+                    MessageBox.Show("Contrat supprimé");
+                }
+                else
+                { 
+                    MessageBox.Show("Ce contrat est utilisé dans une offre");
+                }       
+            }
+            catch (DbUpdateException due)
+            {
+                MessageBox.Show(due.InnerException.InnerException.Message.Replace(Environment.NewLine + "La transaction s'est terminée dans le déclencheur. Le traitement a été abandonné.", ""));
+            }
+            catch (DbEntityValidationException deve)
+            {
+                foreach (DbEntityValidationResult error in deve.EntityValidationErrors)
+                {
+                    foreach (DbValidationError item in error.ValidationErrors)
+                    {
+                        MessageBox.Show(item.PropertyName + " : " + item.ErrorMessage);
+                    }
+                }
+            }
             }
             else
-            { 
-                MessageBox.Show("Ce contrat est utilisé dans une offre");
-            }       
+            {
+                MessageBox.Show("Aucun contrat sélectionné");
+            }
         }
         public void UpdateContrat()
         {
             try
             {
                 this.SaveChanges();
-                MessageBox.Show("Nom du contrat éditer");
+                MessageBox.Show("Nom du contrat édité");
             }
             catch (DbUpdateException)
             {
@@ -128,11 +153,16 @@ namespace MegaCasting.WPF.ViewModel
                 Entities.ChangeTracker.Entries().Where(entry => entry.State == System.Data.Entity.EntityState.Modified).ToList().ForEach(e => e.Reload());
                 MessageBox.Show("Impossible d'éditer le nom du contrat sélectionné");
             }
-            catch (System.Data.Entity.Validation.DbEntityValidationException)
+            catch (DbEntityValidationException deve)
             {
-      
                 Entities.ChangeTracker.Entries().Where(entry => entry.State == System.Data.Entity.EntityState.Modified).ToList().ForEach(e => e.Reload());
-                MessageBox.Show("Nom du contrat trop grand : le maximun est de 50 caractère ");
+                foreach (DbEntityValidationResult error in deve.EntityValidationErrors)
+                {
+                    foreach (DbValidationError item in error.ValidationErrors)
+                    {
+                        MessageBox.Show(item.PropertyName + " : " + item.ErrorMessage);
+                    }
+                }
             }
         }
         #endregion
