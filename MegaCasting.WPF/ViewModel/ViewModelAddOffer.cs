@@ -187,37 +187,52 @@ namespace MegaCasting.WPF.ViewModel
 		{
 			bool dateOffre = DateTime.TryParse(date, out DateTime dateTime);
 			bool nombrePoste = Int32.TryParse(nbPoste, out int nmbrePoste);
-			if (!nombrePoste)
+			if (SelectedClient is null)
 			{
-				MessageBox.Show("false");
+				MessageBox.Show("Aucun client selectionné");
 			}
-			Offre offre = new Offre();
-			OffreClient offreClient = new OffreClient();
-			try
+			else if (SelectedContrat is null)
 			{
-				offre.Intitule = intitule;
-				offre.IdentifiantContrat = SelectedContrat.Identifiant;
-				offre.Localisation = SelectedVille.Identifiant;
-				offre.NbPostes = nmbrePoste;
-				offre.DescriptionPoste = desPoste;
-				offre.DescriptionProfil = desProfil;
-				offre.DureeDiffusion = duree;
-				offre.EstValide = true;
-				offre.DateDebut = dateTime;
-				offre.Coordonnées = desCoord;
-				offre.DateAjout = DateTime.Now;
-				offre.IdentifiantMetier = SelectedMetier.Identifiant;
-				this.Offres.Add(offre);
-				offreClient.IdentifiantClient = SelectedClient.Identifiant;
-				offreClient.IdentifiantOffre = offre.Identifiant;
-				this.SaveChanges();
-				MessageBox.Show("Offre ajoutée");
+				MessageBox.Show("Aucun contrat selectionné");
 			}
-			catch (System.Data.Entity.Infrastructure.DbUpdateException ex)
+			else if (SelectedVille is null)
 			{
-				MessageBox.Show(ex.InnerException.InnerException.Message.Replace(Environment.NewLine+"La transaction s'est terminée dans le déclencheur. Le traitement a été abandonné.", ""));
-				this.Offres.Remove(offre);
-				this.OffreClients.Remove(offreClient);
+				MessageBox.Show("Aucun Ville selectionné");
+			}
+			else if (SelectedMetier is null)
+			{
+				MessageBox.Show("Aucun Métier selectionné");
+			}
+			else
+			{
+				Offre offre = new Offre();
+				OffreClient offreClient = new OffreClient();
+				try
+				{
+					offre.Intitule = intitule;
+					offre.IdentifiantContrat = SelectedContrat.Identifiant;
+					offre.Localisation = SelectedVille.Identifiant;
+					offre.NbPostes = nmbrePoste;
+					offre.DescriptionPoste = desPoste;
+					offre.DescriptionProfil = desProfil;
+					offre.DureeDiffusion = duree;
+					offre.EstValide = true;
+					offre.DateDebut = dateTime;
+					offre.Coordonnées = desCoord;
+					offre.DateAjout = DateTime.Now;
+					offre.IdentifiantMetier = SelectedMetier.Identifiant;
+					this.Offres.Add(offre);
+					offreClient.IdentifiantClient = SelectedClient.Identifiant;
+					offreClient.IdentifiantOffre = offre.Identifiant;
+					this.SaveChanges();
+					MessageBox.Show("Offre ajoutée");
+				}
+				catch (System.Data.Entity.Infrastructure.DbUpdateException ex)
+				{
+					MessageBox.Show(ex.InnerException.InnerException.Message.Replace(Environment.NewLine+"La transaction s'est terminée dans le déclencheur. Le traitement a été abandonné.", ""));
+					this.Offres.Remove(offre);
+					this.OffreClients.Remove(offreClient);
+				}
 			}
 		}
 		#endregion
