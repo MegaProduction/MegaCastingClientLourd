@@ -25,6 +25,7 @@
         <AssociationConnector Association="MegaCastingModel.FK_Postule_Offre" />
         <AssociationConnector Association="MegaCastingModel.FK_Ville_Pays" />
         <AssociationConnector Association="MegaCastingModel.FK_Offre_Metier" />
+        <EntityTypeShape EntityType="MegaCastingModel.Erreur" Width="1.5" PointX="0.75" PointY="7.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

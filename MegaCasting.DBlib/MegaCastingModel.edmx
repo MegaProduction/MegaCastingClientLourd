@@ -40,6 +40,15 @@
           <Property Name="Identifiant" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Libelle" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
+        <EntityType Name="Erreur">
+          <Key>
+            <PropertyRef Name="Identifiant" />
+          </Key>
+          <Property Name="Identifiant" Type="int" Nullable="false" />
+          <Property Name="CodeErreur" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="MessageFR" Type="nvarchar(max)" />
+          <Property Name="MessageEN" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
         <EntityType Name="Metier">
           <Key>
             <PropertyRef Name="Identifiant" />
@@ -213,6 +222,7 @@
           <EntitySet Name="Client" EntityType="Self.Client" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Contrat" EntityType="Self.Contrat" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Domaine" EntityType="Self.Domaine" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Erreur" EntityType="Self.Erreur" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Metier" EntityType="Self.Metier" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Offre" EntityType="Self.Offre" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="OffreClient" EntityType="Self.OffreClient" Schema="dbo" store:Type="Tables" />
@@ -311,6 +321,7 @@
             <End Role="Metier" EntitySet="Metiers" />
             <End Role="Offre" EntitySet="Offres" />
           </AssociationSet>
+          <EntitySet Name="Erreurs" EntityType="MegaCastingModel.Erreur" />
         </EntityContainer>
         <EntityType Name="Candidat">
           <Key>
@@ -549,6 +560,15 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="Erreur">
+          <Key>
+            <PropertyRef Name="Identifiant" />
+          </Key>
+          <Property Name="Identifiant" Type="Int32" Nullable="false" />
+          <Property Name="CodeErreur" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="MessageFR" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="MessageEN" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -656,6 +676,16 @@
                 <ScalarProperty Name="IdentifiantPays" ColumnName="IdentifiantPays" />
                 <ScalarProperty Name="CodePostal" ColumnName="CodePostal" />
                 <ScalarProperty Name="Libelle" ColumnName="Libelle" />
+                <ScalarProperty Name="Identifiant" ColumnName="Identifiant" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Erreurs">
+            <EntityTypeMapping TypeName="MegaCastingModel.Erreur">
+              <MappingFragment StoreEntitySet="Erreur">
+                <ScalarProperty Name="MessageEN" ColumnName="MessageEN" />
+                <ScalarProperty Name="MessageFR" ColumnName="MessageFR" />
+                <ScalarProperty Name="CodeErreur" ColumnName="CodeErreur" />
                 <ScalarProperty Name="Identifiant" ColumnName="Identifiant" />
               </MappingFragment>
             </EntityTypeMapping>
