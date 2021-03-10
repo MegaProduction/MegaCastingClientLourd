@@ -13,15 +13,7 @@ using System.Windows;
 namespace MegaCasting.WPF.ViewModel
 {
     class ViewModelAddLocalization : ViewModelBase
-    {
-        private ObservableCollection<Erreur> _Erreur;
-
-        public ObservableCollection<Erreur> Erreur
-        {
-            get { return _Erreur; }
-            set { _Erreur = value; }
-        }
-
+    {     
         #region Attributes
         /// <summary>
         /// Collection de pays
@@ -35,6 +27,10 @@ namespace MegaCasting.WPF.ViewModel
         /// Pays sélectionné
         /// </summary>
         private Pay _SelectedPays;
+        /// <summary>
+        /// Collection d'erreur
+        /// </summary>
+        private ObservableCollection<Erreur> _Erreur;
         #endregion
         #region Properties
         /// <summary>
@@ -60,6 +56,14 @@ namespace MegaCasting.WPF.ViewModel
         {
             get { return _SelectedPays; }
             set { _SelectedPays = value; }
+        }
+        /// <summary>
+        /// Obtient ou definit la collection d'erreur
+        /// </summary>
+        public ObservableCollection<Erreur> Erreur
+        {
+            get { return _Erreur; }
+            set { _Erreur = value; }
         }
         #endregion
         #region Constructor
@@ -91,25 +95,25 @@ namespace MegaCasting.WPF.ViewModel
             if (!this.Entities.Pays.Any(country => country.Libelle == pays))
             {
                 Pay pay = new Pay();
-                Erreur erreur = Erreur.Where(error => error.MessageFR.Contains("Pays ajouté")).First();
+                Erreur erreur = Erreur.Where(error => error.CodeErreur == "CO20000001").First();
                 try
                 {
                     pay.Libelle = pays;
                     this.Pays.Add(pay);
                     this.SaveChanges();
-                    Affichebox(erreur.MessageFR, erreur.CodeErreur, MessageBoxButton.OK, MessageBoxImage.Information);
+                    Affichebox(erreur.MessageFR);
                 }
                 catch(DbUpdateException due)
                 {
                     MessageBox.Show(due.InnerException.InnerException.Message.Replace(Environment.NewLine + "La transaction s'est terminée dans le déclencheur. Le traitement a été abandonné.", ""));
                 }
-                catch(System.Data.Entity.Validation.DbEntityValidationException deve)
+                catch(DbEntityValidationException deve)
                 {
                     foreach (DbEntityValidationResult error in deve.EntityValidationErrors)
                     {
                         foreach (DbValidationError item in error.ValidationErrors)
                         {
-                            MessageBox.Show(item.PropertyName + " : "+ item.ErrorMessage);
+                            Affichebox(item.PropertyName + " : " + item.ErrorMessage);
                         }
                     }
                     Entities.Pays.Remove(pay);
@@ -118,7 +122,8 @@ namespace MegaCasting.WPF.ViewModel
             }
             else
             {
-                MessageBox.Show("Pays déjà présent dans la base de données");
+                Erreur erreur = Erreur.Where(error => error.CodeErreur == "CO20000002").First();
+                Affichebox(erreur.MessageFR, erreur.CodeErreur, MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
         /// <summary>
@@ -131,6 +136,7 @@ namespace MegaCasting.WPF.ViewModel
         {
             if (!this.Entities.Villes.Any(ville => ville.CodePostal == codePostal))
             {
+                Erreur erreur = Erreur.Where(error => error.CodeErreur == "CI00000001").First();
                 Ville ville = new Ville();
                 try
                 { 
@@ -139,7 +145,7 @@ namespace MegaCasting.WPF.ViewModel
                     ville.IdentifiantPays = SelectedPays.Identifiant;
                     this.Villes.Add(ville);
                     this.SaveChanges();
-                    MessageBox.Show("Ville ajoutée");
+                    Affichebox(erreur.MessageFR, erreur.CodeErreur, MessageBoxButton.OK, MessageBoxImage.Error);
                 }
                 catch (DbUpdateException due)
                 {
@@ -153,7 +159,8 @@ namespace MegaCasting.WPF.ViewModel
             }
             else
             {
-                MessageBox.Show("Ville déjà présente dans la base de données");
+                Erreur erreur = Erreur.Where(error => error.CodeErreur == "CI00000001").First();
+                Affichebox(erreur.MessageFR, erreur.CodeErreur, MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
         #endregion

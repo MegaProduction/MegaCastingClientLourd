@@ -13,6 +13,13 @@ namespace MegaCasting.WPF.ViewModel
 {
     class ViewModelContrat : ViewModelBase
     {
+        private ObservableCollection<Erreur> _Erreurs;
+
+        public ObservableCollection<Erreur> Erreurs
+        {
+            get { return _Erreurs; }
+            set { _Erreurs = value; }
+        }
 
         #region Attributes
         /// <summary>
@@ -86,7 +93,7 @@ namespace MegaCasting.WPF.ViewModel
                 {
                     Contrats.Add(contrat);
                     this.SaveChanges();
-                    MessageBox.Show("Contrat ajouté");
+                   
                 }
                 catch (DbUpdateException)
                 {
