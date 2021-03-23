@@ -101,6 +101,9 @@
     <Compile Include="Client.cs">
       <DependentUpon>MegaCastingModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Contact.cs">
+      <DependentUpon>MegaCastingModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Contrat.cs">
       <DependentUpon>MegaCastingModel.tt</DependentUpon>
     </Compile>
@@ -134,6 +137,7 @@
     <Compile Include="OffreClient.cs">
       <DependentUpon>MegaCastingModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Partial\Contact.cs" />
     <Compile Include="Partial\Contrat.cs" />
     <Compile Include="Partial\Offre.cs" />
     <Compile Include="Partial\Ville.cs" />

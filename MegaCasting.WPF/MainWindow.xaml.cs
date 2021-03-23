@@ -243,5 +243,14 @@ namespace MegaCasting.WPF
             this.DataContext = viewModelDelLocalization;
             this.DockPanelView.Children.Add(viewDelLocalization);
         }
+
+        private void ContactList_Click(object sender, RoutedEventArgs e)
+        {
+            this.DockPanelView.Children.Clear();
+            ViewModelListContact viewModelListContact = new ViewModelListContact(Entities);
+            ViewListContact viewListContact = new ViewListContact();
+            this.DataContext = viewModelListContact;
+            this.DockPanelView.Children.Add(viewListContact);
+        }
     }
 }

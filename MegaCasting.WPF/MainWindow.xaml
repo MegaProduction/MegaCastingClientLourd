@@ -59,6 +59,11 @@
                 <MenuItem Header="Editer une localisation" Name="LocalizationEdit" Click="LocalizationEdit_Click"/>
                 <MenuItem Header="Supprimer une localisation" Name="LocalizationDelete" Click="LocalizationDelete_Click"/>
             </MenuItem>
+            <MenuItem Header="Liste des contacts" Name="ContactList" Click="ContactList_Click">
+                <MenuItem.Icon>
+                    <Image Source="https://i.goopics.net/3Z8OQ.png"/>
+                </MenuItem.Icon>
+            </MenuItem>
             <MenuItem Header="_Paramètres">
                 <MenuItem.Icon>
                     <Image Source="https://i.goopics.net/rNjWD.png"/>

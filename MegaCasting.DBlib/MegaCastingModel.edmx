@@ -26,6 +26,18 @@
           <Property Name="Libelle" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="VilleIdentifiant" Type="int" Nullable="false" />
         </EntityType>
+        <EntityType Name="Contact">
+          <Key>
+            <PropertyRef Name="Identifiant" />
+          </Key>
+          <Property Name="Identifiant" Type="int" Nullable="false" />
+          <Property Name="Prenom" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Nom" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Mail" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Adresse" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Objet" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Message" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
         <EntityType Name="Contrat">
           <Key>
             <PropertyRef Name="Identifiant" />
@@ -220,6 +232,7 @@
         <EntityContainer Name="MegaCastingModelStoreContainer">
           <EntitySet Name="Candidat" EntityType="Self.Candidat" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Client" EntityType="Self.Client" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Contact" EntityType="Self.Contact" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Contrat" EntityType="Self.Contrat" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Domaine" EntityType="Self.Domaine" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Erreur" EntityType="Self.Erreur" Schema="dbo" store:Type="Tables" />
@@ -322,6 +335,7 @@
             <End Role="Offre" EntitySet="Offres" />
           </AssociationSet>
           <EntitySet Name="Erreurs" EntityType="MegaCastingModel.Erreur" />
+          <EntitySet Name="Contacts" EntityType="MegaCastingModel.Contact" />
         </EntityContainer>
         <EntityType Name="Candidat">
           <Key>
@@ -569,6 +583,18 @@
           <Property Name="MessageFR" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="MessageEN" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
+        <EntityType Name="Contact">
+          <Key>
+            <PropertyRef Name="Identifiant" />
+          </Key>
+          <Property Name="Identifiant" Type="Int32" Nullable="false" />
+          <Property Name="Prenom" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Nom" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Mail" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Adresse" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Objet" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Message" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -686,6 +712,19 @@
                 <ScalarProperty Name="MessageEN" ColumnName="MessageEN" />
                 <ScalarProperty Name="MessageFR" ColumnName="MessageFR" />
                 <ScalarProperty Name="CodeErreur" ColumnName="CodeErreur" />
+                <ScalarProperty Name="Identifiant" ColumnName="Identifiant" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Contacts">
+            <EntityTypeMapping TypeName="MegaCastingModel.Contact">
+              <MappingFragment StoreEntitySet="Contact">
+                <ScalarProperty Name="Message" ColumnName="Message" />
+                <ScalarProperty Name="Objet" ColumnName="Objet" />
+                <ScalarProperty Name="Adresse" ColumnName="Adresse" />
+                <ScalarProperty Name="Mail" ColumnName="Mail" />
+                <ScalarProperty Name="Nom" ColumnName="Nom" />
+                <ScalarProperty Name="Prenom" ColumnName="Prenom" />
                 <ScalarProperty Name="Identifiant" ColumnName="Identifiant" />
               </MappingFragment>
             </EntityTypeMapping>

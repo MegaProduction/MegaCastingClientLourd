@@ -1,0 +1,89 @@
+﻿<UserControl x:Class="MegaCasting.WPF.View.ViewListContact"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:MegaCasting.WPF.View"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Label Content="Liste des contacts" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="6" HorizontalAlignment="Center" Style="{StaticResource LabelStyle}"/>
+        <ListBox
+            FontSize="15px" 
+            Grid.Column="0"
+            Grid.Row="3"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            Name="ListBoxContact"
+            ItemsSource="{Binding Contacts}"
+            DisplayMemberPath="FullName"
+            SelectedItem="{Binding SelectedContact}"
+        />
+        <TextBlock Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Bottom" Text="E-Mail"/>
+        <TextBlock Grid.Row="2" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Bottom" Text="Adresse"/>
+        <TextBlock Grid.Row="2" Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Bottom" Text="Objet"/>
+        <TextBlock Grid.Row="2" Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Bottom" Text="Message"/>
+        <TextBlock
+            Grid.Row="3"
+            Grid.Column="1"
+            Visibility="{Binding SelectedContact, Converter={StaticResource _SharedObjectToVisibilityConverter}}"
+            Text="{Binding SelectedContact.Mail}"
+            VerticalAlignment="Center"
+            HorizontalAlignment="Center"
+            Name="TextBlockContactMail"
+            Width="auto"
+            TextWrapping="Wrap"
+        />
+        <TextBlock
+            Grid.Row="3"
+            Grid.Column="2"
+            Visibility="{Binding SelectedContact, Converter={StaticResource _SharedObjectToVisibilityConverter}}"
+            Text="{Binding SelectedContact.Adresse}"
+            VerticalAlignment="Center"
+            HorizontalAlignment="Center"
+            Name="TextBlockContactAdresse"
+            Width="auto"
+            TextWrapping="Wrap"
+        />
+        <TextBlock
+            Grid.Row="3"
+            Grid.Column="3"
+            Visibility="{Binding SelectedContact, Converter={StaticResource _SharedObjectToVisibilityConverter}}"
+            Text="{Binding SelectedContact.Objet}"
+            VerticalAlignment="Center"
+            HorizontalAlignment="Center"
+            Name="TextBlockContactObjet"
+            Width="auto"
+            TextWrapping="Wrap"
+        />
+        <TextBlock
+            Grid.Row="3"
+            Grid.Column="4"
+            Visibility="{Binding SelectedContact, Converter={StaticResource _SharedObjectToVisibilityConverter}}"
+            Text="{Binding SelectedContact.Message}"
+            VerticalAlignment="Center"
+            HorizontalAlignment="Center"
+            Name="TextBlockContactMessage"
+            Width="auto"
+            TextWrapping="Wrap"
+        />
+    </Grid>
+</UserControl>
