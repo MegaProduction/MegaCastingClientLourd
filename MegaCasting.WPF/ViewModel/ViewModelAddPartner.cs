@@ -12,8 +12,8 @@ using System.Data.Entity.Validation;
 
 namespace MegaCasting.WPF.ViewModel
 {
-    class ViewModelAddPartner : ViewModelBase
-    {
+	class ViewModelAddPartner : ViewModelBase
+	{
 
 		#region Attributes
 		/// <summary>
@@ -32,6 +32,10 @@ namespace MegaCasting.WPF.ViewModel
 		/// Client sélectionné
 		/// </summary>
 		private Client _SelectedClient;
+		/// <summary>
+		/// Erreur
+		/// </summary>
+		private ObservableCollection<Erreur> _Erreur;
 		#endregion
 
 		#region Properties
@@ -67,17 +71,26 @@ namespace MegaCasting.WPF.ViewModel
 			get { return _SelectedClient; }
 			set { _SelectedClient = value; }
 		}
-		///
+		/// <summary>
+		/// Obtient ou définit les erreurs
+		/// </summary>
+		public ObservableCollection<Erreur> Erreur
+		{
+			get { return _Erreur; }
+			set { _Erreur = value; }
+		}
 		#endregion
 
 		#region Contructors
 		public ViewModelAddPartner(MegaCastingEntities entities)
-			:base(entities)
+			: base(entities)
 		{
 			this.Entities.Villes.ToList();
 			this.Villes = this.Entities.Villes.Local;
 			this.Entities.Clients.ToList();
 			this.Client = this.Entities.Clients.Local;
+			this.Entities.Erreurs.ToList();
+			this.Erreur = this.Entities.Erreurs.Local;
 		}
 		#endregion
 
@@ -128,7 +141,8 @@ namespace MegaCasting.WPF.ViewModel
 				}
 				if (SelectedVille is null)
 				{
-					MessageBox.Show("Ville inexistante");
+					Erreur erreur = Erreur.Where(error => error.CodeErreur == "CI00000003").First();
+					Affichebox(erreur.MessageFR, erreur.CodeErreur, MessageBoxButton.OK, MessageBoxImage.Error);
 				}
 				else
 				{
@@ -157,7 +171,7 @@ namespace MegaCasting.WPF.ViewModel
 						{
 							foreach (DbValidationError item in error.ValidationErrors)
 							{
-								MessageBox.Show(item.PropertyName + " : " + item.ErrorMessage);
+								Affichebox(item.PropertyName + " : " + item.ErrorMessage);
 							}
 						}
 						this.Client.Remove(clients);
@@ -166,7 +180,8 @@ namespace MegaCasting.WPF.ViewModel
 			}
 			else
 			{
-				MessageBox.Show("Le client existe déjà");
+				Erreur erreur = Erreur.Where(error => error.CodeErreur == "CLI0000002").First();
+				Affichebox(erreur.MessageFR, erreur.CodeErreur, MessageBoxButton.OK, MessageBoxImage.Error);
 			}
 			return boolPartner;
 		}

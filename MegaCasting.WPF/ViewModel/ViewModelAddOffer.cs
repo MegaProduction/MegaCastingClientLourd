@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Data.Entity.Infrastructure;
 using System.Data.Entity.Validation;
 using System.Linq;
 using System.Text;
@@ -11,9 +12,8 @@ using System.Windows;
 
 namespace MegaCasting.WPF.ViewModel
 {
-    class ViewModelAddOffer : ViewModelBase
-	{
-
+	class ViewModelAddOffer : ViewModelBase
+	{ 
 
 		#region Attributes
 		/// <summary>
@@ -53,11 +53,17 @@ namespace MegaCasting.WPF.ViewModel
 		/// </summary>
 		private Contrat _SelectedContrat;
 		/// <summary>
-		/// Collection
+		/// Collection de métiers
 		/// </summary>
 		private ObservableCollection<Metier> _Metiers;
-
+		/// <summary>
+		/// Métier sélectionné
+		/// </summary>
 		private Metier _SelectedMetier;
+		/// <summary>
+		/// Erreur
+		/// </summary>
+		private ObservableCollection<Erreur> _Erreur;
 		#endregion
 		#region Properties
 		/// <summary>
@@ -148,8 +154,20 @@ namespace MegaCasting.WPF.ViewModel
 			get { return _SelectedMetier; }
 			set { _SelectedMetier = value; }
 		}
+		/// <summary>
+		/// Obtient ou définit l'erreur
+		/// </summary>	
+		public ObservableCollection<Erreur> Erreur
+		{
+			get { return _Erreur; }
+			set { _Erreur = value; }
+		}
 		#endregion
 		#region Construteur
+		/// <summary>
+		/// Constructeur
+		/// </summary>
+		/// <param name="entities"></param>
 		public ViewModelAddOffer(MegaCastingEntities entities)
 			: base(entities)
 		{
@@ -164,6 +182,8 @@ namespace MegaCasting.WPF.ViewModel
 			this.Contrats = this.Entities.Contrats.Local;
 			this.Entities.Metiers.ToList();
 			this.Metiers = this.Entities.Metiers.Local;
+			this.Entities.Erreurs.ToList();
+			this.Erreur = this.Entities.Erreurs.Local;
 		}
 		#endregion
 		#region Method
@@ -184,25 +204,29 @@ namespace MegaCasting.WPF.ViewModel
 		/// <param name="duree">Durée de l'offre</param>
 		/// <param name="nbPoste">Nombre de poste pour l'offre</param>
 		/// </summary>
-		public void AddOffre(string intitule, string date,  string nbPoste, string desProfil, string desPoste, string desCoord, string duree)
+		public void AddOffre(string intitule, string date, string nbPoste, string desProfil, string desPoste, string desCoord, string duree)
 		{
 			bool dateOffre = DateTime.TryParse(date, out DateTime dateTime);
 			bool nombrePoste = Int32.TryParse(nbPoste, out int nmbrePoste);
 			if (SelectedClient is null)
 			{
-				MessageBox.Show("Aucun client selectionné");
+				Erreur erreur = Erreur.Where(error => error.CodeErreur == "CLI0000003").First();
+				Affichebox(erreur.MessageFR, erreur.CodeErreur, MessageBoxButton.OK, MessageBoxImage.Error);
 			}
 			else if (SelectedContrat is null)
 			{
-				MessageBox.Show("Aucun contrat selectionné");
+				Erreur erreur = Erreur.Where(error => error.CodeErreur == "CON0000001").First();
+				Affichebox(erreur.MessageFR, erreur.CodeErreur, MessageBoxButton.OK, MessageBoxImage.Error);
 			}
 			else if (SelectedVille is null)
 			{
-				MessageBox.Show("Aucun Ville selectionné");
+				Erreur erreur = Erreur.Where(error => error.CodeErreur == "CI00000003").First();
+				Affichebox(erreur.MessageFR, erreur.CodeErreur, MessageBoxButton.OK, MessageBoxImage.Error);
 			}
 			else if (SelectedMetier is null)
 			{
-				MessageBox.Show("Aucun Métier selectionné");
+				Erreur erreur = Erreur.Where(error => error.CodeErreur == "JO00000001").First();
+				Affichebox(erreur.MessageFR, erreur.CodeErreur, MessageBoxButton.OK, MessageBoxImage.Error);
 			}
 			else
 			{
@@ -228,19 +252,19 @@ namespace MegaCasting.WPF.ViewModel
 					this.SaveChanges();
 					MessageBox.Show("Offre ajoutée");
 				}
-				catch (System.Data.Entity.Infrastructure.DbUpdateException ex)
+				catch (DbUpdateException ex)
 				{
-					MessageBox.Show(ex.InnerException.InnerException.Message.Replace(Environment.NewLine+"La transaction s'est terminée dans le déclencheur. Le traitement a été abandonné.", ""));
+					MessageBox.Show(ex.InnerException.InnerException.Message.Replace(Environment.NewLine + "La transaction s'est terminée dans le déclencheur. Le traitement a été abandonné.", ""));
 					this.Offres.Remove(offre);
 					this.OffreClients.Remove(offreClient);
 				}
-				catch (System.Data.Entity.Validation.DbEntityValidationException deve)
+				catch (DbEntityValidationException deve)
 				{
 					foreach (DbEntityValidationResult error in deve.EntityValidationErrors)
 					{
 						foreach (DbValidationError item in error.ValidationErrors)
 						{
-							MessageBox.Show(item.PropertyName + " : " + item.ErrorMessage);
+							Affichebox(item.PropertyName + " : " + item.ErrorMessage);
 						}
 					}
 					this.Offres.Remove(offre);
