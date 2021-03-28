@@ -147,6 +147,7 @@
     <Compile Include="ViewModel\ViewModelDelLocalization.cs" />
     <Compile Include="ViewModel\ViewModelDelOffre.cs" />
     <Compile Include="ViewModel\ViewModelDelPartner.cs" />
+    <Compile Include="ViewModel\ViewModelDomaine.cs" />
     <Compile Include="ViewModel\ViewModelEditLocalization.cs" />
     <Compile Include="ViewModel\ViewModelEditOffer.cs" />
     <Compile Include="ViewModel\ViewModelEditPartner.cs" />
@@ -154,6 +155,7 @@
     <Compile Include="ViewModel\ViewModelBase.cs" />
     <Compile Include="ViewModel\ViewModelListContact.cs" />
     <Compile Include="ViewModel\ViewModelListContrat.cs" />
+    <Compile Include="ViewModel\ViewModelListDomain.cs" />
     <Compile Include="ViewModel\ViewModelListLocalization.cs" />
     <Compile Include="ViewModel\ViewModelMainWindow.cs" />
     <Compile Include="ViewModel\ViewModelSettings.cs" />
@@ -184,6 +186,9 @@
     <Compile Include="View\ViewDelPartner.xaml.cs">
       <DependentUpon>ViewDelPartner.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\ViewDomain.xaml.cs">
+      <DependentUpon>ViewDomain.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\ViewEditLocalization.xaml.cs">
       <DependentUpon>ViewEditLocalization.xaml</DependentUpon>
     </Compile>
@@ -201,6 +206,9 @@
     </Compile>
     <Compile Include="View\ViewListContrat.xaml.cs">
       <DependentUpon>ViewListContrat.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ViewListDomain.xaml.cs">
+      <DependentUpon>ViewListDomain.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\ViewListLocalization.xaml.cs">
       <DependentUpon>ViewListLocalization.xaml</DependentUpon>
@@ -266,6 +274,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="View\ViewDomain.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\ViewEditLocalization.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -287,6 +299,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\ViewListContrat.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ViewListDomain.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

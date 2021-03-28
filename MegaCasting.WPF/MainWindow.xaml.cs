@@ -252,5 +252,23 @@ namespace MegaCasting.WPF
             this.DataContext = viewModelListContact;
             this.DockPanelView.Children.Add(viewListContact);
         }
+
+        private void Domaine_Click(object sender, RoutedEventArgs e)
+        {
+            this.DockPanelView.Children.Clear();
+            ViewModelDomaine viewModelDomaine = new ViewModelDomaine(Entities);
+            ViewAddDomaine viewAddDomaine = new ViewAddDomaine();
+            this.DataContext = viewModelDomaine;
+            this.DockPanelView.Children.Add(viewAddDomaine);
+        }
+
+        private void DomainList_Click(object sender, RoutedEventArgs e)
+        {
+            this.DockPanelView.Children.Clear();
+            ViewModelListDomaine viewModelListDomaine = new ViewModelListDomaine(Entities);
+            ViewListDomaine viewListDomaine = new ViewListDomaine();
+            this.DataContext = viewModelListDomaine;
+            this.DockPanelView.Children.Add(viewListDomaine);
+        }
     }
 }
