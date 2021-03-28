@@ -153,6 +153,8 @@
     <Compile Include="ViewModel\ViewModelEditPartner.cs" />
     <Compile Include="ViewModel\ViewModelHistoriqueOffer.cs" />
     <Compile Include="ViewModel\ViewModelBase.cs" />
+    <Compile Include="ViewModel\ViewModelListMetier.cs" />
+    <Compile Include="ViewModel\ViewModelMetier.cs" />
     <Compile Include="ViewModel\ViewModelListContact.cs" />
     <Compile Include="ViewModel\ViewModelListContrat.cs" />
     <Compile Include="ViewModel\ViewModelListDomain.cs" />
@@ -213,8 +215,14 @@
     <Compile Include="View\ViewListLocalization.xaml.cs">
       <DependentUpon>ViewListLocalization.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\ViewListMetier.xaml.cs">
+      <DependentUpon>ViewListMetier.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\ViewMain.xaml.cs">
       <DependentUpon>ViewMain.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ViewMetier.xaml.cs">
+      <DependentUpon>ViewMetier.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\ViewPartnersList.xaml.cs">
       <DependentUpon>ViewPartnersList.xaml</DependentUpon>
@@ -310,7 +318,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\ViewListMetier.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\ViewMain.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ViewMetier.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

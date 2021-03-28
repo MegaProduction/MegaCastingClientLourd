@@ -50,7 +50,7 @@
                 <MenuItem Header="Liste des Contrat" Name="ContratList" Click="ContratList_Click"/>
                 <MenuItem Header="Contrat" Name="Contrat" Click="Contrat_Click"/>
             </MenuItem>
-            <MenuItem Header="_Gestion localisation">
+            <MenuItem Header="_Gestion des localisation">
                 <MenuItem.Icon>
                     <Image Source="https://i.goopics.net/nAnDb.png"/>
                 </MenuItem.Icon>
@@ -63,6 +63,13 @@
                 <MenuItem.Icon>
                     <Image Source="https://i.goopics.net/3Z8OQ.png"/>
                 </MenuItem.Icon>
+            </MenuItem>
+            <MenuItem Header="_Gestion des métiers">
+                <MenuItem.Icon>
+                    <Image Source="https://i.goopics.net/9GV5j.png"/>
+                </MenuItem.Icon>
+                <MenuItem Header="Liste des métiers" Name="MetierList" Click="MetierList_Click"/>
+                <MenuItem Header="Metier" Name="Metier" Click="Metier_Click"/>
             </MenuItem>
             <MenuItem Header="_Gestion des domaines">
                 <MenuItem.Icon>
