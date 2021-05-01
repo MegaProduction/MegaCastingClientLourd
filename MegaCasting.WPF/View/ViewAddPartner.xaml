@@ -37,7 +37,7 @@
             TextAlignment="Center" 
             Grid.Column="1" 
             Grid.Row="4" 
-            Width="150px" 
+            Width="180px" 
             HorizontalAlignment="Center" 
             VerticalAlignment="Bottom" 
             Text="Login" 
@@ -60,23 +60,14 @@
                  LostFocus="TextBoxPas_LostFocus"
                  >
         </TextBox>-->
-        <PasswordBox 
-            Name="PasswordBox" 
-            Grid.Row="5" 
-            Grid.Column="1" 
-            Width="150px" 
-            HorizontalAlignment="Center" 
-            VerticalAlignment="Bottom"
-            GotFocus="PasswordBox_GotFocus"
-            LostFocus="PasswordBox_LostFocus"
-            FocusManager.IsFocusScope="True"
-            Panel.ZIndex="2">
-        </PasswordBox>
         <TextBox
+            Name="TextBoxPassword"
             FocusManager.IsFocusScope="False"
+            IsReadOnly="True"
+            IsEnabled="False"
             Grid.Row="5" 
             Grid.Column="1" 
-            Width="150px" 
+            Width="180px" 
             HorizontalAlignment="Center" 
             VerticalAlignment="Bottom"
             Text="Mot de passe">
@@ -93,23 +84,60 @@
                 </Style>
             </TextBox.Style>
         </TextBox>
+        <PasswordBox 
+            Name="PasswordBox"
+            
+            Grid.Row="5" 
+            Grid.Column="1" 
+            Width="180px" 
+            HorizontalAlignment="Center" 
+            VerticalAlignment="Bottom"
+            GotFocus="PasswordBox_GotFocus"
+            LostFocus="PasswordBox_LostFocus"
+            >
+        </PasswordBox>
         
+        <TextBox
+            Name="TextBoxVerifyPassword"
+            FocusManager.IsFocusScope="False"
+            IsReadOnly="True"
+            IsEnabled="False"
+            Grid.Row="6" 
+            Grid.Column="1" 
+            Width="180px" 
+            HorizontalAlignment="Center" 
+            VerticalAlignment="Bottom"
+            Text="Confirmez le mot de passe">
+            <TextBox.Style>
+                <Style TargetType="TextBox" BasedOn="{StaticResource MaterialDesignTextBoxBase}">
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding Path=Password, Mode=OneWay, Converter={StaticResource _SharedIsEmptyConverter}}" Value="False">
+                            <Setter Property="Foreground" Value="Transparent"/>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding Path=Password, Mode=OneWay, Converter={StaticResource _SharedIsEmptyConverter}}" Value="True">
+                            <Setter Property="Foreground" Value="Black"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </TextBox.Style>
+        </TextBox>
         <PasswordBox 
             Name="PasswordBoxVerify" 
             Grid.Row="6" 
             Grid.Column="1" 
-            Width="150px" 
+            Width="180px" 
             HorizontalAlignment="Center" 
             VerticalAlignment="Bottom" 
-            PasswordChanged="PasswordBoxVerify_PasswordChanged">
+            GotFocus="PasswordBoxVerify_GotFocus"
+            LostFocus="PasswordBoxVerify_LostFocus">
         </PasswordBox>
-        
+
         <TextBox 
             FontSize="15px" 
             TextAlignment="Center" 
             Grid.Column="1" 
             Grid.Row="7" 
-            Width="150px" 
+            Width="180px" 
             HorizontalAlignment="Center" 
             VerticalAlignment="Bottom" 
             Text="Libellé" 
@@ -122,7 +150,7 @@
             FontSize="15px" 
             Grid.Column="1" 
             Grid.Row="8" 
-            Width="150px" 
+            Width="180px" 
             Name="comboBoxVille" 
             ItemsSource="{Binding Villes}" 
             DisplayMemberPath="Libelle" 

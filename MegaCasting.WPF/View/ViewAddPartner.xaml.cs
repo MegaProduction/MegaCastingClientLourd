@@ -44,18 +44,6 @@ namespace MegaCasting.WPF.View
             }
         }
 
-        private void PasswordBoxVerify_PasswordChanged(object sender, RoutedEventArgs e)
-        {
-            if (PasswordBox.Password != PasswordBoxVerify.Password)
-            {
-                PasswordBoxVerify.Style = (Style)Application.Current.Resources["PasswordStyle"];
-            }
-            else
-            {
-                PasswordBoxVerify.Style = (Style)Application.Current.Resources["MaterialDesignPasswordBox"];
-            }
-        }
-
         private void TextBoxLibelle_GotFocus(object sender, RoutedEventArgs e)
         {
             TextBoxLibelle.Text = string.Empty;
@@ -74,32 +62,64 @@ namespace MegaCasting.WPF.View
 
         private void PasswordBox_GotFocus(object sender, RoutedEventArgs e)
         {
-            PasswordBox.Password = string.Empty;
             PasswordBox.GotFocus -= PasswordBox_GotFocus;
+            TextBoxPassword.Text = string.Empty;
         }
 
         private void PasswordBox_LostFocus(object sender, RoutedEventArgs e)
         {
             if (PasswordBox.Password.Trim().Equals(string.Empty))
             {
-                PasswordBox.Password = "Mot de passe";
-                PasswordBox.GotFocus += PasswordBox_GotFocus;
+                TextBoxPassword.Text = "Mot de passe";
             }
         }
+
+        private void PasswordBoxVerify_GotFocus(object sender, RoutedEventArgs e)
+        {
+            PasswordBox.GotFocus -= PasswordBox_GotFocus;
+            TextBoxVerifyPassword.Text = string.Empty;
+        }
+
+        private void PasswordBoxVerify_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (PasswordBoxVerify.Password.Trim().Equals(string.Empty))
+            {
+                TextBoxVerifyPassword.Text = "Confirmez le mot de passe";
+            }
+        }
+
         private void ButtonAddPartner_Click(object sender, RoutedEventArgs e)
         {
-            if (((ViewModelAddPartner)this.DataContext).AddPartner(TextBoxNom.Text, PasswordBox.Password, TextBoxLibelle.Text))
+            if (PasswordBox.Password != PasswordBoxVerify.Password)
             {
-                TextBoxNom_GotFocus(sender, e);
-                TextBoxLibelle_GotFocus(sender, e);
-                TextBoxNom_LostFocus(sender, e);
-                TextBoxLibelle_LostFocus(sender, e);
-                PasswordBox_GotFocus(sender, e);
-                PasswordBox_LostFocus(sender, e);
-                comboBoxVille.Text = "Ville";
-                PasswordBoxVerify.Clear();
+                PasswordBoxVerify.Style = (Style)Application.Current.Resources["PasswordStyle"];
+                MessageBox.Show("Les mots de passe ne sont pas identiques.");
+            }
+            if (string.IsNullOrWhiteSpace(PasswordBox.Password) || string.IsNullOrWhiteSpace(PasswordBoxVerify.Password))
+            {
+                MessageBox.Show("Il n'y a pas de mot de passe");
+            }
+            else
+            {
+                PasswordBoxVerify.Style = (Style)Application.Current.Resources["MaterialDesignPasswordBox"];
+                if (PasswordBox.Password == PasswordBoxVerify.Password && !string.IsNullOrWhiteSpace(PasswordBox.Password) && 
+                    !string.IsNullOrWhiteSpace(PasswordBoxVerify.Password) && ((ViewModelAddPartner)this.DataContext).AddPartner(TextBoxNom.Text, PasswordBox.Password, TextBoxLibelle.Text))
+                {
+                    TextBoxNom_GotFocus(sender, e);
+                    TextBoxLibelle_GotFocus(sender, e);
+                    TextBoxNom_LostFocus(sender, e);
+                    TextBoxLibelle_LostFocus(sender, e);
+                    PasswordBox_GotFocus(sender, e);
+                    PasswordBox_LostFocus(sender, e);
+                    comboBoxVille.Text = "Ville";
+                    PasswordBox.Clear();
+                    PasswordBoxVerify.Clear();
+                    TextBoxVerifyPassword.Text = "Confirmez le mot de passe";
+                    TextBoxPassword.Text = "Mot de passe";
+                }
             }
 
         }
+
     }
 }
