@@ -95,7 +95,6 @@
     <Build Include="dbo\Tables\Client.sql" />
     <Build Include="dbo\Tables\Candidat.sql" />
     <Build Include="Security\DoctrineUser.sql" />
-    <Build Include="Security\RoleMemberships.sql" />
     <Build Include="Security\DoctrineUser.sql" />
     <Build Include="dbo\Tables\Erreur.sql" />
     <Build Include="dbo\Tables\Contact.sql" />

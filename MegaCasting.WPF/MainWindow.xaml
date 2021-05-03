@@ -19,23 +19,30 @@
         FontFamily="{DynamicResource MaterialDesignFont}"
         WindowState="Maximized">
     <Grid>
-         <Grid.RowDefinitions>
+        <Grid.RowDefinitions>
             <RowDefinition Height="40"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="55"/>
         </Grid.RowDefinitions>
-        <Menu IsMainMenu="True" Background="White" Grid.Row="0">
-            <MenuItem Name="GesOffer" Header="_Gestion des offres">
+        <WrapPanel Orientation="Horizontal" Height="40" Background="White">
+            <Menu IsMainMenu="True" Background="White" Grid.Row="0">
+            <MenuItem Name="GesOffer" Style="{StaticResource MenuElement}" Width="auto">
+                    <MenuItem.Header>
+                        <TextBlock Style="{StaticResource MenuElementHeader}" Padding="0">Gestion des offres</TextBlock>
+                    </MenuItem.Header>
                 <MenuItem.Icon>
-                    <Image Source="https://i.goopics.net/GZmaD.png"/>
+                        <Image Source="https://i.goopics.net/GZmaD.png"/>
                 </MenuItem.Icon>
                 <MenuItem Header="Historique des offres" Name="HistoriqueOffer" Click="HistoriqueOffer_Click"/>
                 <MenuItem Header="Ajouter une offre" Name="AddOffer" Click="AddOffer_Click"/>
                 <MenuItem Header="Editer une offre" Name="EditOffer" Click="EditOffer_Click"/>
                 <MenuItem Header="Supprimer une offre" Name="DelOffer" Click="DelOffer_Click"/>
             </MenuItem>
-            <MenuItem Header="_Gestion des clients">
-                <MenuItem.Icon>
+                <MenuItem Style="{StaticResource MenuElement}" Width="auto">
+                    <MenuItem.Header>
+                        <TextBlock Style="{StaticResource MenuElementHeader}">Gestion des clients</TextBlock>
+                    </MenuItem.Header>
+                    <MenuItem.Icon>
                     <Image Source="https://i.goopics.net/VnmOv.png"/>
                 </MenuItem.Icon>
                 <MenuItem Header="Liste des clients" Name="ClientsList" Click="ClientsList_Click"/>
@@ -43,15 +50,21 @@
                 <MenuItem Header="Editer un client" Name="EditPartner" Click="EditPartner_Click"/>
                 <MenuItem Header="Supprimer un client" Name="DelPartner" Click="DelPartner_Click"/>
             </MenuItem>
-            <MenuItem Header="_Gestion des Contrat">
-                <MenuItem.Icon>
+                <MenuItem Style="{StaticResource MenuElement}" Width="auto">
+                    <MenuItem.Header>
+                        <TextBlock Style="{StaticResource MenuElementHeader}">Gestion des contrats</TextBlock>
+                    </MenuItem.Header>
+                    <MenuItem.Icon>
                     <Image Source="https://i.goopics.net/aojAR.png"/>
                 </MenuItem.Icon>
                 <MenuItem Header="Liste des Contrat" Name="ContratList" Click="ContratList_Click"/>
                 <MenuItem Header="Contrat" Name="Contrat" Click="Contrat_Click"/>
             </MenuItem>
-            <MenuItem Header="_Gestion des localisation">
-                <MenuItem.Icon>
+                <MenuItem Style="{StaticResource MenuElement}" Width="auto">
+                    <MenuItem.Header>
+                        <TextBlock Style="{StaticResource MenuElementHeader}">Gestion des localisations</TextBlock>
+                    </MenuItem.Header>
+                    <MenuItem.Icon>
                     <Image Source="https://i.goopics.net/nAnDb.png"/>
                 </MenuItem.Icon>
                 <MenuItem Header="Liste des localisations" Name="LocalizationList" Click="LocalizationList_Click"/>
@@ -59,34 +72,47 @@
                 <MenuItem Header="Editer une localisation" Name="LocalizationEdit" Click="LocalizationEdit_Click"/>
                 <MenuItem Header="Supprimer une localisation" Name="LocalizationDelete" Click="LocalizationDelete_Click"/>
             </MenuItem>
-            <MenuItem Header="Liste des contacts" Name="ContactList" Click="ContactList_Click">
-                <MenuItem.Icon>
+                <MenuItem Name="ContactList" Style="{StaticResource MenuElement}" Click="ContactList_Click" Width="auto">
+                    <MenuItem.Header>
+                        <TextBlock Style="{StaticResource MenuElementHeader}">Liste des contacts</TextBlock>
+                    </MenuItem.Header>
+                    <MenuItem.Icon>
                     <Image Source="https://i.goopics.net/3Z8OQ.png"/>
                 </MenuItem.Icon>
             </MenuItem>
-            <MenuItem Header="_Gestion des métiers">
-                <MenuItem.Icon>
+                <MenuItem Style="{StaticResource MenuElement}" Width="auto">
+                    <MenuItem.Header>
+                        <TextBlock Style="{StaticResource MenuElementHeader}">Gestion des métiers</TextBlock>
+                    </MenuItem.Header>
+                    <MenuItem.Icon>
                     <Image Source="https://i.goopics.net/9GV5j.png"/>
                 </MenuItem.Icon>
                 <MenuItem Header="Liste des métiers" Name="MetierList" Click="MetierList_Click"/>
                 <MenuItem Header="Metier" Name="Metier" Click="Metier_Click"/>
             </MenuItem>
-            <MenuItem Header="_Gestion des domaines">
-                <MenuItem.Icon>
+                <MenuItem Style="{StaticResource MenuElement}" Width="auto">
+                    <MenuItem.Header>
+                        <TextBlock Style="{StaticResource MenuElementHeader}">Gestion des domaines</TextBlock>
+                    </MenuItem.Header>
+                    <MenuItem.Icon>
                     <Image Source="https://i.goopics.net/3k1pm.png"/>
                 </MenuItem.Icon>
                 <MenuItem Header="Liste des domaines" Name="DomainList" Click="DomainList_Click"/>
                 <MenuItem Header="Domaine" Name="Domaine" Click="Domaine_Click"/>
             </MenuItem>
-            <MenuItem Header="_Paramètres">
-                <MenuItem.Icon>
-                    <Image Source="https://i.goopics.net/exq1K.png"/>
-                </MenuItem.Icon>
-                <MenuItem Header="Paramètres généraux" Name="Settings" Click="Settings_Click"/>
-                <MenuItem Header="Personnalisation du compte" Name="AccountCustomization" Click="AccountCustomization_Click"/>
-                <MenuItem Header="Gestion du compte" Name="AccountManagement" Click="AccountManagement_Click"/>
-            </MenuItem>
+                <MenuItem Style="{StaticResource MaterialDesignMenuItem}" Width="auto" Click="Settings_Click">
+                    <MenuItem.Header>
+                        <TextBlock Style="{StaticResource MenuElementHeader}">Paramètres</TextBlock>
+                    </MenuItem.Header>
+                    <MenuItem.Icon>
+                        <Image Source="https://i.goopics.net/exq1K.png"/>
+                    </MenuItem.Icon>
+                    <!--<MenuItem Header="Paramètres généraux" Name="Settings" Click="Settings_Click"/>
+                    <MenuItem Header="Personnalisation du compte" Name="AccountCustomization" Click="AccountCustomization_Click"/>
+                    <MenuItem Header="Gestion du compte" Name="AccountManagement" Click="AccountManagement_Click"/>-->
+                </MenuItem>
         </Menu>
+        </WrapPanel>
         <Button Background="LightGray" Style="{StaticResource overrideButton}" VerticalAlignment="Bottom" Grid.Row="2" Content="Accueil" Name="ButtonBack" Click="ButtonBack_Click" ></Button>
         <DockPanel x:Name="DockPanelView" Grid.Row="1" Background="Transparent">
             <view:ViewMain>

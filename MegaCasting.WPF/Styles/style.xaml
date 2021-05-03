@@ -29,4 +29,15 @@
             </DataTrigger>
         </Style.Triggers>
     </Style>
+    <Style x:Key="MenuElement" TargetType="MenuItem" BasedOn="{StaticResource MaterialDesignMenuItem}">
+        <Style.Setters>
+            <Setter Property="MaxWidth" Value="290"/>
+        </Style.Setters>
+    </Style>
+    <Style x:Key="MenuElementHeader" TargetType="TextBlock" BasedOn="{StaticResource MaterialDesignBody1TextBlock}">
+        <Style.Setters>
+            <Setter Property="TextWrapping" Value="Wrap"/>
+            <Setter Property="FontSize" Value="12"/>
+        </Style.Setters>
+    </Style>
 </ResourceDictionary>

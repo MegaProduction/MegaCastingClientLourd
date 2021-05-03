@@ -78,12 +78,9 @@ namespace MegaCasting.WPF
             //chargement plus rapide pour cet élément
             //this.Entities.Villes.FirstOrDefault();
 
-#if DEBUG
-            this.Entities.Villes.FirstOrDefault();
-#endif
-#if RELEASE
 
-#endif
+            this.Entities.Villes.FirstOrDefault();
+
         }
 
         #endregion
