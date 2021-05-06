@@ -8,5 +8,3 @@
     CONSTRAINT [PK_Candidat] PRIMARY KEY CLUSTERED ([Identifiant] ASC)
 );
 
-
-

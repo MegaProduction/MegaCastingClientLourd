@@ -4,14 +4,14 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="MegaCastingModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-      <EntityType Name="Candidat">
+    <Schema Namespace="MegaCastingModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Candidat">
           <Key>
             <PropertyRef Name="Identifiant" />
           </Key>
           <Property Name="Identifiant" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Login" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" MaxLength="150" Nullable="false" />
           <Property Name="Firstname" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Lastname" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Competence" Type="nvarchar" MaxLength="50" Nullable="false" />
@@ -22,9 +22,21 @@
           </Key>
           <Property Name="Identifiant" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Login" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" MaxLength="300" />
           <Property Name="Libelle" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="VilleIdentifiant" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Contact">
+          <Key>
+            <PropertyRef Name="Identifiant" />
+          </Key>
+          <Property Name="Identifiant" Type="int" Nullable="false" />
+          <Property Name="Prenom" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Nom" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Mail" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Adresse" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Objet" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Message" Type="nvarchar(max)" Nullable="false" />
         </EntityType>
         <EntityType Name="Contrat">
           <Key>
@@ -39,6 +51,15 @@
           </Key>
           <Property Name="Identifiant" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Libelle" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Erreur">
+          <Key>
+            <PropertyRef Name="Identifiant" />
+          </Key>
+          <Property Name="Identifiant" Type="int" Nullable="false" />
+          <Property Name="CodeErreur" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="MessageFR" Type="nvarchar(max)" />
+          <Property Name="MessageEN" Type="nvarchar(max)" Nullable="false" />
         </EntityType>
         <EntityType Name="Metier">
           <Key>
@@ -66,6 +87,7 @@
           <Property Name="EstValide" Type="bit" Nullable="false" />
           <Property Name="IdentifiantContrat" Type="int" Nullable="false" />
           <Property Name="DateAjout" Type="datetime2" Precision="7" />
+          <Property Name="IdentifiantMetier" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="OffreClient">
           <Key>
@@ -96,7 +118,7 @@
           </Key>
           <Property Name="Identifiant" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Libelle" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="CodePostal" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="CodePostal" Type="nvarchar" MaxLength="15" />
           <Property Name="IdentifiantPays" Type="int" Nullable="false" />
         </EntityType>
         <Association Name="FK_Client_Ville">
@@ -135,6 +157,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Offre_Metier">
+          <End Role="Metier" Type="Self.Metier" Multiplicity="1" />
+          <End Role="Offre" Type="Self.Offre" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Metier">
+              <PropertyRef Name="Identifiant" />
+            </Principal>
+            <Dependent Role="Offre">
+              <PropertyRef Name="IdentifiantMetier" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Offre_Ville">
           <End Role="Ville" Type="Self.Ville" Multiplicity="1" />
           <End Role="Offre" Type="Self.Offre" Multiplicity="*" />
@@ -156,18 +190,6 @@
             </Principal>
             <Dependent Role="OffreClient">
               <PropertyRef Name="IdentifiantClient" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_OffreClient_Offre">
-          <End Role="Offre" Type="Self.Offre" Multiplicity="1" />
-          <End Role="OffreClient" Type="Self.OffreClient" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Offre">
-              <PropertyRef Name="Identifiant" />
-            </Principal>
-            <Dependent Role="OffreClient">
-              <PropertyRef Name="IdentifiantOffre" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -210,8 +232,10 @@
         <EntityContainer Name="MegaCastingModelStoreContainer">
           <EntitySet Name="Candidat" EntityType="Self.Candidat" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Client" EntityType="Self.Client" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Contact" EntityType="Self.Contact" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Contrat" EntityType="Self.Contrat" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Domaine" EntityType="Self.Domaine" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Erreur" EntityType="Self.Erreur" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Metier" EntityType="Self.Metier" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Offre" EntityType="Self.Offre" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="OffreClient" EntityType="Self.OffreClient" Schema="dbo" store:Type="Tables" />
@@ -230,16 +254,16 @@
             <End Role="Contrat" EntitySet="Contrat" />
             <End Role="Offre" EntitySet="Offre" />
           </AssociationSet>
+          <AssociationSet Name="FK_Offre_Metier" Association="Self.FK_Offre_Metier">
+            <End Role="Metier" EntitySet="Metier" />
+            <End Role="Offre" EntitySet="Offre" />
+          </AssociationSet>
           <AssociationSet Name="FK_Offre_Ville" Association="Self.FK_Offre_Ville">
             <End Role="Ville" EntitySet="Ville" />
             <End Role="Offre" EntitySet="Offre" />
           </AssociationSet>
           <AssociationSet Name="FK_OffreClient_Client" Association="Self.FK_OffreClient_Client">
             <End Role="Client" EntitySet="Client" />
-            <End Role="OffreClient" EntitySet="OffreClient" />
-          </AssociationSet>
-          <AssociationSet Name="FK_OffreClient_Offre" Association="Self.FK_OffreClient_Offre">
-            <End Role="Offre" EntitySet="Offre" />
             <End Role="OffreClient" EntitySet="OffreClient" />
           </AssociationSet>
           <AssociationSet Name="FK_Postule_Candidat" Association="Self.FK_Postule_Candidat">
@@ -255,8 +279,7 @@
             <End Role="Ville" EntitySet="Ville" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="MegaCastingModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -307,6 +330,12 @@
             <End Role="Pay" EntitySet="Pays" />
             <End Role="Ville" EntitySet="Villes" />
           </AssociationSet>
+          <AssociationSet Name="FK_Offre_Metier" Association="MegaCastingModel.FK_Offre_Metier">
+            <End Role="Metier" EntitySet="Metiers" />
+            <End Role="Offre" EntitySet="Offres" />
+          </AssociationSet>
+          <EntitySet Name="Erreurs" EntityType="MegaCastingModel.Erreur" />
+          <EntitySet Name="Contacts" EntityType="MegaCastingModel.Contact" />
         </EntityContainer>
         <EntityType Name="Candidat">
           <Key>
@@ -314,7 +343,7 @@
           </Key>
           <Property Name="Identifiant" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Login" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
           <Property Name="Firstname" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Lastname" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Competence" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
@@ -326,7 +355,7 @@
           </Key>
           <Property Name="Identifiant" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Login" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
           <Property Name="Libelle" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="VilleIdentifiant" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Ville" Relationship="MegaCastingModel.FK_Client_Ville" FromRole="Client" ToRole="Ville" />
@@ -357,6 +386,7 @@
           <Property Name="Fiche" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="IdentifiantDomaine" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Domaine" Relationship="MegaCastingModel.FK_Metier_Domaine" FromRole="Metier" ToRole="Domaine" />
+          <NavigationProperty Name="Offres" Relationship="MegaCastingModel.FK_Offre_Metier" FromRole="Metier" ToRole="Offre" />
         </EntityType>
         <EntityType Name="Offre">
           <Key>
@@ -379,6 +409,8 @@
           <NavigationProperty Name="Ville" Relationship="MegaCastingModel.FK_Offre_Ville" FromRole="Offre" ToRole="Ville" />
           <NavigationProperty Name="OffreClients" Relationship="MegaCastingModel.FK_OffreClient_Offre" FromRole="Offre" ToRole="OffreClient" />
           <NavigationProperty Name="Postules" Relationship="MegaCastingModel.FK_Postule_Offre" FromRole="Offre" ToRole="Postule" />
+          <Property Name="IdentifiantMetier" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Metier" Relationship="MegaCastingModel.FK_Offre_Metier" FromRole="Offre" ToRole="Metier" />
         </EntityType>
         <EntityType Name="OffreClient">
           <Key>
@@ -414,7 +446,7 @@
           </Key>
           <Property Name="Identifiant" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Libelle" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="CodePostal" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="CodePostal" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
           <Property Name="IdentifiantPays" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Clients" Relationship="MegaCastingModel.FK_Client_Ville" FromRole="Ville" ToRole="Client" />
           <NavigationProperty Name="Offres" Relationship="MegaCastingModel.FK_Offre_Ville" FromRole="Ville" ToRole="Offre" />
@@ -530,6 +562,39 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Offre_Metier">
+          <End Type="MegaCastingModel.Metier" Role="Metier" Multiplicity="1" />
+          <End Type="MegaCastingModel.Offre" Role="Offre" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Metier">
+              <PropertyRef Name="Identifiant" />
+            </Principal>
+            <Dependent Role="Offre">
+              <PropertyRef Name="IdentifiantMetier" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Erreur">
+          <Key>
+            <PropertyRef Name="Identifiant" />
+          </Key>
+          <Property Name="Identifiant" Type="Int32" Nullable="false" />
+          <Property Name="CodeErreur" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="MessageFR" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="MessageEN" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Contact">
+          <Key>
+            <PropertyRef Name="Identifiant" />
+          </Key>
+          <Property Name="Identifiant" Type="Int32" Nullable="false" />
+          <Property Name="Prenom" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Nom" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Mail" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Adresse" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Objet" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Message" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -588,6 +653,7 @@
           <EntitySetMapping Name="Offres">
             <EntityTypeMapping TypeName="MegaCastingModel.Offre">
               <MappingFragment StoreEntitySet="Offre">
+                <ScalarProperty Name="IdentifiantMetier" ColumnName="IdentifiantMetier" />
                 <ScalarProperty Name="DateAjout" ColumnName="DateAjout" />
                 <ScalarProperty Name="IdentifiantContrat" ColumnName="IdentifiantContrat" />
                 <ScalarProperty Name="EstValide" ColumnName="EstValide" />
@@ -636,6 +702,29 @@
                 <ScalarProperty Name="IdentifiantPays" ColumnName="IdentifiantPays" />
                 <ScalarProperty Name="CodePostal" ColumnName="CodePostal" />
                 <ScalarProperty Name="Libelle" ColumnName="Libelle" />
+                <ScalarProperty Name="Identifiant" ColumnName="Identifiant" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Erreurs">
+            <EntityTypeMapping TypeName="MegaCastingModel.Erreur">
+              <MappingFragment StoreEntitySet="Erreur">
+                <ScalarProperty Name="MessageEN" ColumnName="MessageEN" />
+                <ScalarProperty Name="MessageFR" ColumnName="MessageFR" />
+                <ScalarProperty Name="CodeErreur" ColumnName="CodeErreur" />
+                <ScalarProperty Name="Identifiant" ColumnName="Identifiant" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Contacts">
+            <EntityTypeMapping TypeName="MegaCastingModel.Contact">
+              <MappingFragment StoreEntitySet="Contact">
+                <ScalarProperty Name="Message" ColumnName="Message" />
+                <ScalarProperty Name="Objet" ColumnName="Objet" />
+                <ScalarProperty Name="Adresse" ColumnName="Adresse" />
+                <ScalarProperty Name="Mail" ColumnName="Mail" />
+                <ScalarProperty Name="Nom" ColumnName="Nom" />
+                <ScalarProperty Name="Prenom" ColumnName="Prenom" />
                 <ScalarProperty Name="Identifiant" ColumnName="Identifiant" />
               </MappingFragment>
             </EntityTypeMapping>

@@ -78,12 +78,9 @@ namespace MegaCasting.WPF
             //chargement plus rapide pour cet élément
             //this.Entities.Villes.FirstOrDefault();
 
-#if DEBUG
-            this.Entities.Villes.FirstOrDefault();
-#endif
-#if RELEASE
 
-#endif
+            this.Entities.Villes.FirstOrDefault();
+
         }
 
         #endregion
@@ -242,6 +239,51 @@ namespace MegaCasting.WPF
             ViewDelLocalization viewDelLocalization = new ViewDelLocalization();
             this.DataContext = viewModelDelLocalization;
             this.DockPanelView.Children.Add(viewDelLocalization);
+        }
+
+        private void ContactList_Click(object sender, RoutedEventArgs e)
+        {
+            this.DockPanelView.Children.Clear();
+            ViewModelListContact viewModelListContact = new ViewModelListContact(Entities);
+            ViewListContact viewListContact = new ViewListContact();
+            this.DataContext = viewModelListContact;
+            this.DockPanelView.Children.Add(viewListContact);
+        }
+
+        private void Domaine_Click(object sender, RoutedEventArgs e)
+        {
+            this.DockPanelView.Children.Clear();
+            ViewModelDomaine viewModelDomaine = new ViewModelDomaine(Entities);
+            ViewAddDomaine viewAddDomaine = new ViewAddDomaine();
+            this.DataContext = viewModelDomaine;
+            this.DockPanelView.Children.Add(viewAddDomaine);
+        }
+
+        private void DomainList_Click(object sender, RoutedEventArgs e)
+        {
+            this.DockPanelView.Children.Clear();
+            ViewModelListDomaine viewModelListDomaine = new ViewModelListDomaine(Entities);
+            ViewListDomaine viewListDomaine = new ViewListDomaine();
+            this.DataContext = viewModelListDomaine;
+            this.DockPanelView.Children.Add(viewListDomaine);
+        }
+
+        private void Metier_Click(object sender, RoutedEventArgs e)
+        {
+            this.DockPanelView.Children.Clear();
+            ViewModelMetier viewModelMetier = new ViewModelMetier(Entities);
+            ViewMetier viewMetier = new ViewMetier();
+            this.DataContext = viewModelMetier;
+            this.DockPanelView.Children.Add(viewMetier);
+        }
+
+        private void MetierList_Click(object sender, RoutedEventArgs e)
+        {
+            this.DockPanelView.Children.Clear();
+            ViewModelListMetier viewModelListMetier = new ViewModelListMetier(Entities);
+            ViewListMetier viewListMetier = new ViewListMetier();
+            this.DataContext = viewModelListMetier;
+            this.DockPanelView.Children.Add(viewListMetier);
         }
     }
 }

@@ -31,16 +31,7 @@ namespace MegaCasting.WPF.View
 
         private void ButtonDelPartner_Click(object sender, RoutedEventArgs e)
         {
-            string login = ListBoxDelClient.ToString();
-            if (((ViewModelDelPartner)this.DataContext).VerifPartner(login))
-            {
                 ((ViewModelDelPartner)this.DataContext).DelPartner();
-                MessageBox.Show("Client supprimé");
-            }
-            else
-            {
-                MessageBox.Show("Erreur : client non supprimé");
-            }
         }
     }
 }

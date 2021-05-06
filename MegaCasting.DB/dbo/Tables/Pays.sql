@@ -7,8 +7,10 @@
 
 
 
+
+
 GO
-CREATE   TRIGGER Tr_Pays ON Pays
+CREATE   TRIGGER [dbo].[Tr_Pays] ON [dbo].[Pays]
 AFTER INSERT, UPDATE
 AS
 	IF EXISTS(
@@ -18,4 +20,5 @@ AS
 		)
 		BEGIN
 			ROLLBACK;
+			RAISERROR('Champ Pays incorrect', 16, 1);
 		END;

@@ -54,8 +54,7 @@
             Grid.Column="1"
             Grid.Row="4"
             HorizontalAlignment="Center"
-            Foreground="Black"
-            Background="LightGray"
+            Style="{StaticResource overrideButton}"
             Content="Supprimer"
             Name="ButtonDelCity"
             Click="ButtonDelCity_Click"/>
@@ -83,8 +82,7 @@
             Grid.Column="2"
             Grid.Row="4"
             HorizontalAlignment="Center"
-            Foreground="Black"
-            Background="LightGray"
+            Style="{StaticResource overrideButton}"
             Content="Supprimer"
             Name="ButtonDelCountry"
             Click="ButtonDelCountry_Click"/>

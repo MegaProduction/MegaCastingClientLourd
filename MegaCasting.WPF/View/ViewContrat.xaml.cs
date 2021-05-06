@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Data;
 
 namespace MegaCasting.WPF.View
 {
@@ -63,6 +64,7 @@ namespace MegaCasting.WPF.View
         {
             ListBoxSuppressioncontrat.Items.Refresh();
             ((ViewModelContrat)this.DataContext).UpdateContrat();
+            TextBoxEditContrat.Clear();
         }
     }
 }

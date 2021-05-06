@@ -47,6 +47,7 @@
             PreviewTextInput="DatePickerDateDebut_PreviewTextInput"
             />
         <TextBox FontSize="15px" Grid.Row="6" Width="150px" HorizontalAlignment="Center" VerticalAlignment="Bottom" Text="Nombre de postes" Name="TextBoxNbPostes" GotFocus="TextBoxNbPostes_GotFocus" LostFocus="TextBoxNbPostes_LostFocus"
+                 MaxLength="50"
                  PreviewTextInput="TextBoxNbPostes_PreviewTextInput"></TextBox>
         <ComboBox
             Style="{StaticResource MaterialDesignComboBox}"
@@ -96,6 +97,13 @@
             SelectedValuePath="{Binding SelectedVille.Identifiant}"
             IsSynchronizedWithCurrentItem="True" 
             DisplayMemberPath="Libelle"/>
+        <ComboBox Name="ComboBoxMetier"
+                  Grid.Column="1"
+                  Grid.Row="7"
+                  Text="Métier"
+                  ItemsSource="{Binding Metiers}"
+                  DisplayMemberPath="Libelle"
+                  SelectedItem="{Binding SelectedMetier}"/>
         <!--#endregion-->
         <!--#region Description-->
         <Label Grid.Row="3" Grid.Column="2" HorizontalAlignment="Center" FontSize="20px">

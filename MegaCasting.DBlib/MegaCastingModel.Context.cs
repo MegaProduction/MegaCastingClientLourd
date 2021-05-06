@@ -35,5 +35,7 @@ namespace MegaCasting.DBlib
         public virtual DbSet<Pay> Pays { get; set; }
         public virtual DbSet<Postule> Postules { get; set; }
         public virtual DbSet<Ville> Villes { get; set; }
+        public virtual DbSet<Erreur> Erreurs { get; set; }
+        public virtual DbSet<Contact> Contacts { get; set; }
     }
 }

@@ -37,7 +37,7 @@
             TextAlignment="Center" 
             Grid.Column="1" 
             Grid.Row="4" 
-            Width="150px" 
+            Width="180px" 
             HorizontalAlignment="Center" 
             VerticalAlignment="Bottom" 
             Text="Login" 
@@ -46,7 +46,7 @@
             LostFocus="TextBoxNom_LostFocus" 
             >
         </TextBox>
-        <TextBox 
+        <!--<TextBox 
                  FontSize="15px" 
                  TextAlignment="Center" 
                  Grid.Column="1" 
@@ -59,13 +59,85 @@
                  GotFocus="TextBoxPas_GotFocus" 
                  LostFocus="TextBoxPas_LostFocus"
                  >
+        </TextBox>-->
+        <TextBox
+            Name="TextBoxPassword"
+            FocusManager.IsFocusScope="False"
+            IsReadOnly="True"
+            IsEnabled="False"
+            Grid.Row="5" 
+            Grid.Column="1" 
+            Width="180px" 
+            HorizontalAlignment="Center" 
+            VerticalAlignment="Bottom"
+            Text="Mot de passe">
+            <TextBox.Style>
+                <Style TargetType="TextBox" BasedOn="{StaticResource MaterialDesignTextBoxBase}">
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding Path=Password, Mode=OneWay, Converter={StaticResource _SharedIsEmptyConverter}}" Value="False">
+                            <Setter Property="Foreground" Value="Transparent"/>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding Path=Password, Mode=OneWay, Converter={StaticResource _SharedIsEmptyConverter}}" Value="True">
+                            <Setter Property="Foreground" Value="Black"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </TextBox.Style>
         </TextBox>
+        <PasswordBox 
+            Name="PasswordBox"
+            
+            Grid.Row="5" 
+            Grid.Column="1" 
+            Width="180px" 
+            HorizontalAlignment="Center" 
+            VerticalAlignment="Bottom"
+            GotFocus="PasswordBox_GotFocus"
+            LostFocus="PasswordBox_LostFocus"
+            >
+        </PasswordBox>
+        
+        <TextBox
+            Name="TextBoxVerifyPassword"
+            FocusManager.IsFocusScope="False"
+            IsReadOnly="True"
+            IsEnabled="False"
+            Grid.Row="6" 
+            Grid.Column="1" 
+            Width="180px" 
+            HorizontalAlignment="Center" 
+            VerticalAlignment="Bottom"
+            Text="Confirmez le mot de passe">
+            <TextBox.Style>
+                <Style TargetType="TextBox" BasedOn="{StaticResource MaterialDesignTextBoxBase}">
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding Path=Password, Mode=OneWay, Converter={StaticResource _SharedIsEmptyConverter}}" Value="False">
+                            <Setter Property="Foreground" Value="Transparent"/>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding Path=Password, Mode=OneWay, Converter={StaticResource _SharedIsEmptyConverter}}" Value="True">
+                            <Setter Property="Foreground" Value="Black"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </TextBox.Style>
+        </TextBox>
+        <PasswordBox 
+            Name="PasswordBoxVerify" 
+            Grid.Row="6" 
+            Grid.Column="1" 
+            Width="180px" 
+            HorizontalAlignment="Center" 
+            VerticalAlignment="Bottom" 
+            GotFocus="PasswordBoxVerify_GotFocus"
+            LostFocus="PasswordBoxVerify_LostFocus">
+        </PasswordBox>
+
         <TextBox 
             FontSize="15px" 
             TextAlignment="Center" 
             Grid.Column="1" 
-            Grid.Row="6" 
-            Width="150px" 
+            Grid.Row="7" 
+            Width="180px" 
             HorizontalAlignment="Center" 
             VerticalAlignment="Bottom" 
             Text="Libellé" 
@@ -77,22 +149,19 @@
         <ComboBox 
             FontSize="15px" 
             Grid.Column="1" 
-            Grid.Row="7" 
-            Width="150px" 
+            Grid.Row="8" 
+            Width="180px" 
             Name="comboBoxVille" 
             ItemsSource="{Binding Villes}" 
             DisplayMemberPath="Libelle" 
             Text="Ville" 
             IsEditable="True" 
             IsReadOnly="False" 
-            SelectedValuePath="Identifiant" 
             SelectedItem="{Binding SelectedVille}"/>
         <Button 
             Grid.Row="10" 
             Grid.Column="1" 
-            Width="100px" 
-            Foreground="Black" 
-            Background="LightGray" 
+            Style="{StaticResource overrideButton}"
             Content="Valider" 
             Name="ButtonAddPartner" 
             Click="ButtonAddPartner_Click"/>

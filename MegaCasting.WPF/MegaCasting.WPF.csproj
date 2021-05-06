@@ -83,6 +83,30 @@
     <StartupObject>
     </StartupObject>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'ProdDamien|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\ProdDamien\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DocumentationFile>MegaCasting.WPF.xml</DocumentationFile>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'DebugProdDamien|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\DebugProdDamien\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DocumentationFile>MegaCasting.WPF.xml</DocumentationFile>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
@@ -100,6 +124,7 @@
       <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Activities" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
@@ -134,6 +159,7 @@
     </ApplicationDefinition>
     <Compile Include="Converter\BoolToEnabled.cs" />
     <Compile Include="Converter\BoolToVisibility.cs" />
+    <Compile Include="Converter\IsEmptyConverter.cs" />
     <Compile Include="Converter\ObjectToEnabledConverter.cs" />
     <Compile Include="Converter\ObjectToVisibilityConverter.cs" />
     <Compile Include="ViewModel\ViewModelContrat.cs" />
@@ -145,12 +171,17 @@
     <Compile Include="ViewModel\ViewModelDelLocalization.cs" />
     <Compile Include="ViewModel\ViewModelDelOffre.cs" />
     <Compile Include="ViewModel\ViewModelDelPartner.cs" />
+    <Compile Include="ViewModel\ViewModelDomaine.cs" />
     <Compile Include="ViewModel\ViewModelEditLocalization.cs" />
     <Compile Include="ViewModel\ViewModelEditOffer.cs" />
     <Compile Include="ViewModel\ViewModelEditPartner.cs" />
     <Compile Include="ViewModel\ViewModelHistoriqueOffer.cs" />
     <Compile Include="ViewModel\ViewModelBase.cs" />
+    <Compile Include="ViewModel\ViewModelListMetier.cs" />
+    <Compile Include="ViewModel\ViewModelMetier.cs" />
+    <Compile Include="ViewModel\ViewModelListContact.cs" />
     <Compile Include="ViewModel\ViewModelListContrat.cs" />
+    <Compile Include="ViewModel\ViewModelListDomain.cs" />
     <Compile Include="ViewModel\ViewModelListLocalization.cs" />
     <Compile Include="ViewModel\ViewModelMainWindow.cs" />
     <Compile Include="ViewModel\ViewModelSettings.cs" />
@@ -181,6 +212,9 @@
     <Compile Include="View\ViewDelPartner.xaml.cs">
       <DependentUpon>ViewDelPartner.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\ViewDomain.xaml.cs">
+      <DependentUpon>ViewDomain.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\ViewEditLocalization.xaml.cs">
       <DependentUpon>ViewEditLocalization.xaml</DependentUpon>
     </Compile>
@@ -193,14 +227,26 @@
     <Compile Include="View\ViewHistoriqueOffer.xaml.cs">
       <DependentUpon>ViewHistoriqueOffer.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\ViewListContact.xaml.cs">
+      <DependentUpon>ViewListContact.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\ViewListContrat.xaml.cs">
       <DependentUpon>ViewListContrat.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ViewListDomain.xaml.cs">
+      <DependentUpon>ViewListDomain.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\ViewListLocalization.xaml.cs">
       <DependentUpon>ViewListLocalization.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\ViewListMetier.xaml.cs">
+      <DependentUpon>ViewListMetier.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\ViewMain.xaml.cs">
       <DependentUpon>ViewMain.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ViewMetier.xaml.cs">
+      <DependentUpon>ViewMetier.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\ViewPartnersList.xaml.cs">
       <DependentUpon>ViewPartnersList.xaml</DependentUpon>
@@ -260,6 +306,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="View\ViewDomain.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\ViewEditLocalization.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -276,7 +326,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\ViewListContact.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\ViewListContrat.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ViewListDomain.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -284,7 +342,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\ViewListMetier.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\ViewMain.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ViewMetier.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -316,6 +382,7 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="App.Debug.config" />
+    <None Include="App.DebugProdDamien.config" />
     <None Include="App.DebugLocalhostIIA.config" />
     <None Include="App.DebugOrdi.config" />
     <None Include="App.Release.config" />

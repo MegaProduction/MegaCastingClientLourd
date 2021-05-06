@@ -2,6 +2,8 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Data.Entity.Infrastructure;
+using System.Data.Entity.Validation;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -88,10 +90,21 @@ namespace MegaCasting.WPF.ViewModel
                 this.SaveChanges();
                 MessageBox.Show("Ville éditée");
             }
-            catch (Exception)
+            catch (DbUpdateException ex)
             {
                 Entities.ChangeTracker.Entries().Where(entry => entry.State == System.Data.Entity.EntityState.Modified).ToList().ForEach(e => e.Reload());
-                MessageBox.Show("Erreur de saisie");
+                MessageBox.Show(ex.InnerException.InnerException.Message.Replace(Environment.NewLine + "La transaction s'est terminée dans le déclencheur. Le traitement a été abandonné.", ""));
+            }
+            catch (System.Data.Entity.Validation.DbEntityValidationException ex)
+            {
+                Entities.ChangeTracker.Entries().Where(entry => entry.State == System.Data.Entity.EntityState.Modified).ToList().ForEach(e => e.Reload());
+                foreach (DbEntityValidationResult error in ex.EntityValidationErrors)
+                {
+                    foreach (DbValidationError item in error.ValidationErrors)
+                    {
+                        MessageBox.Show(item.PropertyName + " : " + item.ErrorMessage);
+                    }
+                }
             }
         }
         public void EditCountry()
@@ -101,10 +114,21 @@ namespace MegaCasting.WPF.ViewModel
                 this.SaveChanges();
                 MessageBox.Show("Pays édité");
             }
-            catch (Exception)
+            catch (System.Data.Entity.Infrastructure.DbUpdateException ex)
             {
                 Entities.ChangeTracker.Entries().Where(entry => entry.State == System.Data.Entity.EntityState.Modified).ToList().ForEach(e => e.Reload());
-                MessageBox.Show("Erreur de saisie");
+                MessageBox.Show(ex.InnerException.InnerException.Message.Replace(Environment.NewLine + "La transaction s'est terminée dans le déclencheur. Le traitement a été abandonné.", ""));
+            }
+            catch (System.Data.Entity.Validation.DbEntityValidationException ex)
+            {
+                Entities.ChangeTracker.Entries().Where(entry => entry.State == System.Data.Entity.EntityState.Modified).ToList().ForEach(e => e.Reload());
+                foreach (DbEntityValidationResult error in ex.EntityValidationErrors)
+                {
+                    foreach (DbValidationError item in error.ValidationErrors)
+                    {
+                        MessageBox.Show(item.PropertyName + " : " + item.ErrorMessage);
+                    }
+                }
             }
         }
         #endregion

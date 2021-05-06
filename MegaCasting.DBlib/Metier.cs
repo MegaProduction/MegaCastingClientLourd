@@ -14,11 +14,19 @@ namespace MegaCasting.DBlib
     
     public partial class Metier
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Metier()
+        {
+            this.Offres = new HashSet<Offre>();
+        }
+    
         public int Identifiant { get; set; }
         public string Libelle { get; set; }
         public string Fiche { get; set; }
         public int IdentifiantDomaine { get; set; }
     
         public virtual Domaine Domaine { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Offre> Offres { get; set; }
     }
 }

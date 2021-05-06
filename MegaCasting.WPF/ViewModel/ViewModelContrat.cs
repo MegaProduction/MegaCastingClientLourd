@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Data.Entity.Infrastructure;
+using System.Data.Entity.Validation;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,6 +13,13 @@ namespace MegaCasting.WPF.ViewModel
 {
     class ViewModelContrat : ViewModelBase
     {
+        private ObservableCollection<Erreur> _Erreurs;
+
+        public ObservableCollection<Erreur> Erreurs
+        {
+            get { return _Erreurs; }
+            set { _Erreurs = value; }
+        }
 
         #region Attributes
         /// <summary>
@@ -85,12 +93,12 @@ namespace MegaCasting.WPF.ViewModel
                 {
                     Contrats.Add(contrat);
                     this.SaveChanges();
-                    MessageBox.Show("Contrat ajouté");
+                   
                 }
-                catch (System.Data.Entity.Infrastructure.DbUpdateException)
+                catch (DbUpdateException)
                 {
                     Contrats.Remove(contrat);
-                    MessageBox.Show("Une erreur c\'est produite lors de la saisie");
+                    MessageBox.Show("Une erreur s\'est produite lors de la saisie");
                 }
             }
             else
@@ -103,17 +111,41 @@ namespace MegaCasting.WPF.ViewModel
         /// </summary>
         public void DeleteContrat()
         {
-            //Vérification si on a le droit de supprimer
-            if (!Offres.Any(offre => offre.IdentifiantContrat == SelectedContrat.Identifiant))
+            if (SelectedContrat != null)
             {
-                this.Contrats.Remove(SelectedContrat);
-                this.SaveChanges();
-                MessageBox.Show("Contrat supprimé");
+            try
+            {
+                //Vérification si on a le droit de supprimer
+                if (!Offres.Any(offre => offre.IdentifiantContrat == SelectedContrat.Identifiant))
+                {
+                    this.Contrats.Remove(SelectedContrat);
+                    this.SaveChanges();
+                    MessageBox.Show("Contrat supprimé");
+                }
+                else
+                { 
+                    MessageBox.Show("Ce contrat est utilisé dans une offre");
+                }       
+            }
+            catch (DbUpdateException due)
+            {
+                MessageBox.Show(due.InnerException.InnerException.Message.Replace(Environment.NewLine + "La transaction s'est terminée dans le déclencheur. Le traitement a été abandonné.", ""));
+            }
+            catch (DbEntityValidationException deve)
+            {
+                foreach (DbEntityValidationResult error in deve.EntityValidationErrors)
+                {
+                    foreach (DbValidationError item in error.ValidationErrors)
+                    {
+                        MessageBox.Show(item.PropertyName + " : " + item.ErrorMessage);
+                    }
+                }
+            }
             }
             else
-            { 
-                MessageBox.Show("Ce contrat est utilisé dans une offre");
-            }       
+            {
+                MessageBox.Show("Aucun contrat sélectionné");
+            }
         }
         public void UpdateContrat()
         {
@@ -122,11 +154,22 @@ namespace MegaCasting.WPF.ViewModel
                 this.SaveChanges();
                 MessageBox.Show("Nom du contrat édité");
             }
-            catch (System.Data.Entity.Infrastructure.DbUpdateException)
+            catch (DbUpdateException)
             {
                 //Permet de reload la liste des contracts
                 Entities.ChangeTracker.Entries().Where(entry => entry.State == System.Data.Entity.EntityState.Modified).ToList().ForEach(e => e.Reload());
                 MessageBox.Show("Impossible d'éditer le nom du contrat sélectionné");
+            }
+            catch (DbEntityValidationException deve)
+            {
+                Entities.ChangeTracker.Entries().Where(entry => entry.State == System.Data.Entity.EntityState.Modified).ToList().ForEach(e => e.Reload());
+                foreach (DbEntityValidationResult error in deve.EntityValidationErrors)
+                {
+                    foreach (DbValidationError item in error.ValidationErrors)
+                    {
+                        MessageBox.Show(item.PropertyName + " : " + item.ErrorMessage);
+                    }
+                }
             }
         }
         #endregion

@@ -65,6 +65,11 @@
             Pays sélectionné
             </summary>
         </member>
+        <member name="F:MegaCasting.WPF.ViewModel.ViewModelAddLocalization._Erreur">
+            <summary>
+            Collection d'erreur
+            </summary>
+        </member>
         <member name="P:MegaCasting.WPF.ViewModel.ViewModelAddLocalization.Pays">
             <summary>
             Obtient ou définit la collection de pays
@@ -80,6 +85,11 @@
             Obtient ou définit le pays sélectionné
             </summary>
         </member>
+        <member name="P:MegaCasting.WPF.ViewModel.ViewModelAddLocalization.Erreur">
+            <summary>
+            Obtient ou definit la collection d'erreur
+            </summary>
+        </member>
         <member name="M:MegaCasting.WPF.ViewModel.ViewModelAddLocalization.SaveChanges">
             <summary>
             Sauvegarde les modifications 
@@ -91,29 +101,13 @@
             </summary>
             <param name="pays"></param>
         </member>
-        <member name="M:MegaCasting.WPF.ViewModel.ViewModelAddLocalization.AddCity(System.String,System.String,System.String)">
+        <member name="M:MegaCasting.WPF.ViewModel.ViewModelAddLocalization.AddCity(System.String,System.String)">
             <summary>
             Ajoute une ville
             </summary>
             <param name="nom"></param>
             <param name="codePostal"></param>
             <param name="identifiantPays"></param>
-        </member>
-        <member name="M:MegaCasting.WPF.ViewModel.ViewModelAddLocalization.VerifCountry(System.String)">
-            <summary>
-            Verification des champs pour le pays
-            </summary>
-            <param name="pays"></param>
-            <returns></returns>
-        </member>
-        <member name="M:MegaCasting.WPF.ViewModel.ViewModelAddLocalization.VerifCity(System.String,System.String,System.Boolean)">
-            <summary>
-            Vérification des champs pour la ville
-            </summary>
-            <param name="nom"></param>
-            <param name="codePostal"></param>
-            <param name="idPays"></param>
-            <returns></returns>
         </member>
         <member name="F:MegaCasting.WPF.ViewModel.ViewModelAddOffer._Offres">
             <summary>
@@ -158,6 +152,21 @@
         <member name="F:MegaCasting.WPF.ViewModel.ViewModelAddOffer._SelectedContrat">
             <summary>
             Contrat sélectionné
+            </summary>
+        </member>
+        <member name="F:MegaCasting.WPF.ViewModel.ViewModelAddOffer._Metiers">
+            <summary>
+            Collection de métiers
+            </summary>
+        </member>
+        <member name="F:MegaCasting.WPF.ViewModel.ViewModelAddOffer._SelectedMetier">
+            <summary>
+            Métier sélectionné
+            </summary>
+        </member>
+        <member name="F:MegaCasting.WPF.ViewModel.ViewModelAddOffer._Erreur">
+            <summary>
+            Erreur
             </summary>
         </member>
         <member name="P:MegaCasting.WPF.ViewModel.ViewModelAddOffer.Offres">
@@ -205,18 +214,36 @@
             Obtient ou définit le contrat sélectionné
             </summary>
         </member>
+        <member name="P:MegaCasting.WPF.ViewModel.ViewModelAddOffer.Metiers">
+            <summary>
+            Obtient ou définit la collection des metiers
+            </summary>
+        </member>
+        <member name="P:MegaCasting.WPF.ViewModel.ViewModelAddOffer.SelectedMetier">
+            <summary>
+            Obtient ou définit le metier selectionne
+            </summary>
+        </member>
+        <member name="P:MegaCasting.WPF.ViewModel.ViewModelAddOffer.Erreur">
+            <summary>
+            Obtient ou définit l'erreur
+            </summary>	
+        </member>
+        <member name="M:MegaCasting.WPF.ViewModel.ViewModelAddOffer.#ctor(MegaCasting.DBlib.MegaCastingEntities)">
+            <summary>
+            Constructeur
+            </summary>
+            <param name="entities"></param>
+        </member>
         <member name="M:MegaCasting.WPF.ViewModel.ViewModelAddOffer.SaveChanges">
             <summary>
             Sauvegarde les modifications 
             </summary>
         </member>
-        <member name="M:MegaCasting.WPF.ViewModel.ViewModelAddOffer.AddOffre(System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String)">
+        <member name="M:MegaCasting.WPF.ViewModel.ViewModelAddOffer.AddOffre(System.String,System.String,System.String,System.String,System.String,System.String,System.String)">
             <summary>
             Ajoute une offre
             <param name="intitule">Nom de l'offre</param>
-            <param name="identifiantVille">Identifiant de la ville</param>
-            <param name="identifiantContrat">Identifiant du contrat</param>
-            <param name="identifiantClient">Identifiant du client</param>
             <param name="date">Date de début de l'offre</param>
             <param name="desProfil">Description du profil pour le postulant</param>
             <param name="desPoste">Description de l'offre</param>
@@ -245,6 +272,11 @@
             Client sélectionné
             </summary>
         </member>
+        <member name="F:MegaCasting.WPF.ViewModel.ViewModelAddPartner._Erreur">
+            <summary>
+            Erreur
+            </summary>
+        </member>
         <member name="P:MegaCasting.WPF.ViewModel.ViewModelAddPartner.Villes">
             <summary>
             Obtient ou défini la collection de ville
@@ -265,22 +297,23 @@
             Obtient ou défini le client sélectionné
             </summary>
         </member>
-        <member name="M:MegaCasting.WPF.ViewModel.ViewModelAddPartner.#ctor(MegaCasting.DBlib.MegaCastingEntities)">
-            
+        <member name="P:MegaCasting.WPF.ViewModel.ViewModelAddPartner.Erreur">
+            <summary>
+            Obtient ou définit les erreurs
+            </summary>
         </member>
         <member name="M:MegaCasting.WPF.ViewModel.ViewModelAddPartner.SaveChanges">
             <summary>
             Sauvegarde les modifications 
             </summary>
         </member>
-        <member name="M:MegaCasting.WPF.ViewModel.ViewModelAddPartner.AddPartner(System.String,System.String,System.String,System.String)">
+        <member name="M:MegaCasting.WPF.ViewModel.ViewModelAddPartner.AddPartner(System.String,System.String,System.String)">
             <summary>
             Ajoute un partenaire (limité par le Covid)
             </summary>
             <param name="login"></param>
             <param name="password"></param>
             <param name="libelle"></param>
-            <param name="identifiantVille"></param>
         </member>
         <member name="T:MegaCasting.WPF.ViewModel.ViewModelClientsList">
             <summary>
@@ -429,6 +462,62 @@
         <member name="M:MegaCasting.WPF.ViewModel.ViewModelDelPartner.SaveChanges">
             <summary>
             Sauvegarde les modifications 
+            </summary>
+        </member>
+        <member name="F:MegaCasting.WPF.ViewModel.ViewModelDomaine._Domaine">
+            <summary>
+            Collection de Domaine
+            </summary>
+        </member>
+        <member name="F:MegaCasting.WPF.ViewModel.ViewModelDomaine._SelectedDomaine">
+            <summary>
+            Domaine Sélectionné
+            </summary>
+        </member>
+        <member name="F:MegaCasting.WPF.ViewModel.ViewModelDomaine._Metiers">
+            <summary>
+            Collection de Metier
+            </summary>
+        </member>
+        <member name="F:MegaCasting.WPF.ViewModel.ViewModelDomaine._Erreurs">
+            <summary>
+            Collection d'erreurs
+            </summary>
+        </member>
+        <member name="P:MegaCasting.WPF.ViewModel.ViewModelDomaine.Domaines">
+            <summary>
+            Obtient ou définit la collection de Domaine
+            </summary>
+        </member>
+        <member name="P:MegaCasting.WPF.ViewModel.ViewModelDomaine.SelectedDomaine">
+            <summary>
+            Obtient ou définit le Domaine sélectionné
+            </summary>
+        </member>
+        <member name="P:MegaCasting.WPF.ViewModel.ViewModelDomaine.Metiers">
+            <summary>
+            Obtient ou définit la collection de Metier
+            </summary>
+        </member>
+        <member name="P:MegaCasting.WPF.ViewModel.ViewModelDomaine.Erreurs">
+            <summary>
+            Obtient ou définit les erreurs
+            </summary>
+        </member>
+        <member name="M:MegaCasting.WPF.ViewModel.ViewModelDomaine.SaveChanges">
+            <summary>
+            Sauvegarde les changements
+            </summary>
+        </member>
+        <member name="M:MegaCasting.WPF.ViewModel.ViewModelDomaine.AddDomaine(System.String)">
+            <summary>
+            Ajoute un Domaine
+            </summary>
+            <param name="name">Nom du Domaine à ajouter</param>
+        </member>
+        <member name="M:MegaCasting.WPF.ViewModel.ViewModelDomaine.DeleteDomaine">
+            <summary>
+            Supprime le Domaine sélectionné
             </summary>
         </member>
         <member name="F:MegaCasting.WPF.ViewModel.ViewModelEditLocalization._Pays">
@@ -618,6 +707,102 @@
             </summary>
             <param name="entities">Contexte de l'application</param>
         </member>
+        <member name="M:MegaCasting.WPF.ViewModel.ViewModelBase.Affichebox(System.String)">
+            <summary>
+            Affiche une MessageBox avec le message
+            </summary>
+            <param name="message">message a afficher</param>
+        </member>
+        <member name="M:MegaCasting.WPF.ViewModel.ViewModelBase.Affichebox(System.String,System.String)">
+            <summary>
+            Affiche une MessageBox avec le message et un code
+            </summary>
+            <param name="message">message a affiche</param>
+            <param name="code">code a affiche</param>
+        </member>
+        <member name="M:MegaCasting.WPF.ViewModel.ViewModelBase.Affichebox(System.String,System.String,System.Windows.MessageBoxButton)">
+            <summary>
+            Affiche une MessageBox avec le message, un code et un type de boutton
+            </summary>
+            <param name="message">message a affiche</param>
+            <param name="code">code a affiche</param>
+            <param name="button">type de boutton du messageBox</param>
+        </member>
+        <member name="M:MegaCasting.WPF.ViewModel.ViewModelBase.Affichebox(System.String,System.String,System.Windows.MessageBoxButton,System.Windows.MessageBoxImage)">
+            <summary>
+            Affiche une MessageBox avec le message, un code, un type de boutton et un type d'image
+            </summary>
+            <param name="message">message a affiche</param>
+            <param name="code">code a affiche</param>
+            <param name="button">type de boutton du messageBox</param>
+            <param name="image">type d'image du messageBox</param>
+        </member>
+        <member name="F:MegaCasting.WPF.ViewModel.ViewModelListMetier._Metier">
+            <summary>
+            Collection de Metier
+            </summary>
+        </member>
+        <member name="P:MegaCasting.WPF.ViewModel.ViewModelListMetier.Metiers">
+            <summary>
+            Obtient ou définit la collection de Metier
+            </summary>
+        </member>
+        <member name="F:MegaCasting.WPF.ViewModel.ViewModelMetier._Metier">
+            <summary>
+            Collection de Metier
+            </summary>
+        </member>
+        <member name="F:MegaCasting.WPF.ViewModel.ViewModelMetier._SelectedMetier">
+            <summary>
+            Metier Sélectionné
+            </summary>
+        </member>
+        <member name="F:MegaCasting.WPF.ViewModel.ViewModelMetier._Domaines">
+            <summary>
+            Collection d'offre
+            </summary>
+        </member>
+        <member name="P:MegaCasting.WPF.ViewModel.ViewModelMetier.Metiers">
+            <summary>
+            Obtient ou définit la collection de Metier
+            </summary>
+        </member>
+        <member name="P:MegaCasting.WPF.ViewModel.ViewModelMetier.SelectedMetier">
+            <summary>
+            Obtient ou définit le Metier sélectionné
+            </summary>
+        </member>
+        <member name="P:MegaCasting.WPF.ViewModel.ViewModelMetier.Domaines">
+            <summary>
+            Obtient ou définit la collection d'offre
+            </summary>
+        </member>
+        <member name="M:MegaCasting.WPF.ViewModel.ViewModelMetier.SaveChanges">
+            <summary>
+            Sauvegarde les changements
+            </summary>
+        </member>
+        <member name="M:MegaCasting.WPF.ViewModel.ViewModelMetier.AddMetier(System.String,System.String,System.Int32)">
+            <summary>
+            Ajoute un Metier
+            </summary>
+            <param name="name">Nom du Metier à ajouter</param>
+        </member>
+        <member name="M:MegaCasting.WPF.ViewModel.ViewModelMetier.DeleteMetier">
+            <summary>
+            Supprime le Metier sélectionné
+            </summary>
+        </member>
+        <member name="F:MegaCasting.WPF.ViewModel.ViewModelListContact._Contact">
+            <summary>
+            Collection de Contact
+            </summary>
+        </member>
+        <member name="P:MegaCasting.WPF.ViewModel.ViewModelListContact.Contacts">
+            <summary>
+            Obtient ou définit la collection de Contact
+            </summary>
+        </member>
         <member name="F:MegaCasting.WPF.ViewModel.ViewModelListContrat._Contrat">
             <summary>
             Collection de contrat
@@ -626,6 +811,16 @@
         <member name="P:MegaCasting.WPF.ViewModel.ViewModelListContrat.Contrats">
             <summary>
             Obtient ou définit la collection de contrat
+            </summary>
+        </member>
+        <member name="F:MegaCasting.WPF.ViewModel.ViewModelListDomaine._Domaine">
+            <summary>
+            Collection de Domaine
+            </summary>
+        </member>
+        <member name="P:MegaCasting.WPF.ViewModel.ViewModelListDomaine.Domaines">
+            <summary>
+            Obtient ou définit la collection de Domaine
             </summary>
         </member>
         <member name="F:MegaCasting.WPF.ViewModel.ViewModelListLocalization._Villes">
@@ -872,6 +1067,31 @@
             InitializeComponent
             </summary>
         </member>
+        <member name="T:MegaCasting.WPF.View.ViewAddDomaine">
+            <summary>
+            Logique d'interaction pour ViewAddDomaine.xaml
+            </summary>
+            <summary>
+            ViewAddDomaine
+            </summary>
+        </member>
+        <member name="M:MegaCasting.WPF.View.ViewAddDomaine.#ctor">
+            <summary>
+            Initialise la ViewAddDomaine
+            </summary>
+        </member>
+        <member name="M:MegaCasting.WPF.View.ViewAddDomaine.ButtonAddDomaine_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Ajoute le nom du Domaine lorsque qu'on clique
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:MegaCasting.WPF.View.ViewAddDomaine.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
         <member name="T:MegaCasting.WPF.View.ViewEditLocalization">
             <summary>
             Logique d'interaction pour ViewEditLocalization.xaml
@@ -953,6 +1173,19 @@
             InitializeComponent
             </summary>
         </member>
+        <member name="T:MegaCasting.WPF.View.ViewListContact">
+            <summary>
+            Logique d'interaction pour ViewListContact.xaml
+            </summary>
+            <summary>
+            ViewListContact
+            </summary>
+        </member>
+        <member name="M:MegaCasting.WPF.View.ViewListContact.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
         <member name="T:MegaCasting.WPF.View.ViewListContrat">
             <summary>
             Logique d'interaction pour ViewListContrat.xaml
@@ -967,6 +1200,24 @@
             </summary>
         </member>
         <member name="M:MegaCasting.WPF.View.ViewListContrat.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:MegaCasting.WPF.View.ViewListDomaine">
+            <summary>
+            Logique d'interaction pour ViewListDomaine.xaml
+            </summary>
+            <summary>
+            ViewListDomaine
+            </summary>
+        </member>
+        <member name="M:MegaCasting.WPF.View.ViewListDomaine.#ctor">
+            <summary>
+            Initialise la ViewListDomaine
+            </summary>
+        </member>
+        <member name="M:MegaCasting.WPF.View.ViewListDomaine.InitializeComponent">
             <summary>
             InitializeComponent
             </summary>
@@ -989,6 +1240,19 @@
             InitializeComponent
             </summary>
         </member>
+        <member name="T:MegaCasting.WPF.View.ViewListMetier">
+            <summary>
+            Logique d'interaction pour ViewListMetier.xaml
+            </summary>
+            <summary>
+            ViewListMetier
+            </summary>
+        </member>
+        <member name="M:MegaCasting.WPF.View.ViewListMetier.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
         <member name="T:MegaCasting.WPF.View.ViewMain">
             <summary>
             Logique d'interaction pour ViewMain.xaml
@@ -1003,6 +1267,31 @@
             </summary>
         </member>
         <member name="M:MegaCasting.WPF.View.ViewMain.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:MegaCasting.WPF.View.ViewMetier">
+            <summary>
+            Logique d'interaction pour ViewAddMetier.xaml
+            </summary>
+            <summary>
+            ViewMetier
+            </summary>
+        </member>
+        <member name="M:MegaCasting.WPF.View.ViewMetier.#ctor">
+            <summary>
+            Initialise la ViewAddMetier
+            </summary>
+        </member>
+        <member name="M:MegaCasting.WPF.View.ViewMetier.ButtonAddMetier_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Ajoute le nom du Metier lorsque qu'on clique
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:MegaCasting.WPF.View.ViewMetier.InitializeComponent">
             <summary>
             InitializeComponent
             </summary>

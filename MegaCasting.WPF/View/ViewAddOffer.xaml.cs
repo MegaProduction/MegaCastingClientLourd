@@ -142,10 +142,7 @@ namespace MegaCasting.WPF.View
         {
             ((ViewModelAddOffer)this.DataContext).AddOffre(
                 TextBoxIntitule.Text,
-                comboBoxLocalisation.SelectedValuePath.ToString(),
-                comboBoxContrat.SelectedValuePath.ToString(),
                 datePickerDateDebut.Text,
-                comboBoxClient.SelectedValuePath.ToString(),
                 TextBoxNbPostes.Text,
                 TextBoxDescripProfil.Text,
                 TextBoxDescripPoste.Text,

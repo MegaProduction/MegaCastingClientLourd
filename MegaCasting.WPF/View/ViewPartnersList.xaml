@@ -19,11 +19,11 @@
         </Grid.RowDefinitions>
         <Label HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="25px" Grid.Row="0" Grid.ColumnSpan="3">Liste des Clients</Label>
 
-        <ListView ItemsSource="{Binding Clients}" Grid.Column="1" Grid.Row="1" Grid.RowSpan="2" Width="500px">
+        <ListView ItemsSource="{Binding Clients}" Grid.Column="1" Grid.Row="1" Grid.RowSpan="2">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Libellé" Width="200px" DisplayMemberBinding="{Binding Path=Libelle}"></GridViewColumn>
-                    <GridViewColumn Header="Ville" DisplayMemberBinding="{Binding Path=Ville.Libelle}"></GridViewColumn>
+                    <GridViewColumn Header="Adresse" DisplayMemberBinding="{Binding Path=Ville.Adresse}"></GridViewColumn>
                 </GridView>
             </ListView.View>
         </ListView>

@@ -2,9 +2,12 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Data.Entity.Infrastructure;
+using System.Data.Entity.Validation;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace MegaCasting.WPF.ViewModel
 {
@@ -65,18 +68,33 @@ namespace MegaCasting.WPF.ViewModel
 
 		public void DelPartner()
 		{
-			this.Clients.Remove(SelectedClient);
-			this.SaveChanges();
-		}
-
-		public bool VerifPartner(string login)
-		{
-			bool returnValid = false;
-			if (string.IsNullOrWhiteSpace(login) != true)
+			if (SelectedClient != null)
 			{
-				returnValid = true;
+				try
+				{
+					this.Clients.Remove(SelectedClient);
+					this.SaveChanges();
+					MessageBox.Show("Client supprimé");
+				}
+				catch (DbUpdateException due)
+				{
+					MessageBox.Show(due.InnerException.InnerException.Message.Replace(Environment.NewLine + "La transaction s'est terminée dans le déclencheur. Le traitement a été abandonné.", ""));
+				}
+				catch (DbEntityValidationException deve)
+				{
+					foreach (DbEntityValidationResult error in deve.EntityValidationErrors)
+					{
+						foreach (DbValidationError item in error.ValidationErrors)
+						{
+							MessageBox.Show(item.PropertyName + " : " + item.ErrorMessage);
+						}
+					}
+				}
 			}
-			return returnValid;
+			else
+			{
+				MessageBox.Show("Aucun client sélectionné");
+			}
 		}
 		#endregion
 

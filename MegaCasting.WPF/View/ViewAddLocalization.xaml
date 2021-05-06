@@ -53,9 +53,7 @@
             Grid.Column="0"
             Grid.Row="4"
             HorizontalAlignment="Center"
-            Width="150px"
-            Foreground="Black"
-            Background="LightGray"
+            Style="{StaticResource overrideButton}"
             Content="Ajouter"
             Name="ButtonAddCountry"
             Click="ButtonAddCountry_Click"/>
@@ -99,7 +97,6 @@
             Name="comboBoxPaysVille"
             DisplayMemberPath="Libelle"
             ItemsSource="{Binding Pays}"
-            SelectedValuePath="{Binding SelectedPays.Identifiant}"
             SelectedItem="{Binding SelectedPays}"
             IsSynchronizedWithCurrentItem="True"
             Width="150px"/>
@@ -107,9 +104,7 @@
             Grid.Column="2"
             Grid.Row="5"
             HorizontalAlignment="Center"
-            Width="150px"
-            Foreground="Black"
-            Background="LightGray"
+            Style="{StaticResource overrideButton}"
             Content="Ajouter"
             Name="ButtonAddCity"
             Click="ButtonAddCity_Click"/>

@@ -95,15 +95,22 @@ namespace MegaCasting.WPF.ViewModel
         /// </summary>
         public void DelCountry()
         {
-            if (!Villes.Any(pays => pays.IdentifiantPays == SelectedPays.Identifiant))
+            if (SelectedPays is null)
             {
-            this.Pays.Remove(SelectedPays);
-            this.SaveChanges();
-            MessageBox.Show("Pays supprimé");
+                MessageBox.Show("Aucun pays sélectionné");
             }
             else
             {
-                MessageBox.Show("Impossible de supprimer ce pays : des villes y sont présentes");
+                if (!Villes.Any(pays => pays.IdentifiantPays == SelectedPays.Identifiant))
+                {
+                this.Pays.Remove(SelectedPays);
+                this.SaveChanges();
+                MessageBox.Show("Pays supprimé");
+                }
+                else
+                {
+                    MessageBox.Show("Impossible de supprimer ce pays : des villes y sont présentes");
+                }
             }
         }
         #endregion

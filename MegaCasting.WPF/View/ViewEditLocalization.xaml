@@ -83,8 +83,7 @@
             Grid.Column="1"
             Grid.Row="7"
             HorizontalAlignment="Center"
-            Foreground="Black"
-            Background="LightGray"
+            Style="{StaticResource overrideButton}"
             Content="Éditer"
             Name="ButtonEditCity"
             Click="ButtonEditCity_Click"/>
@@ -120,8 +119,7 @@
             Grid.Column="2"
             Grid.Row="7"
             HorizontalAlignment="Center"
-            Foreground="Black"
-            Background="LightGray"
+            Style="{StaticResource overrideButton}"
             Content="Éditer"
             Name="ButtonEditCountry"
             Click="ButtonEditCountry_Click"/>

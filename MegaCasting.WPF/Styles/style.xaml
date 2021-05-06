@@ -14,4 +14,30 @@
             <Setter Property="BorderBrush" Value="Black" />
         </Style.Setters>
      </Style>
+    <Style x:Key="PasswordStyle" TargetType="PasswordBox" BasedOn="{StaticResource MaterialDesignPasswordBox}">
+        <Style.Setters>
+            <Setter Property="BorderBrush" Value="Red"/>
+        </Style.Setters>
+    </Style>
+    <Style x:Key="NomPasswordBox" TargetType="TextBox">
+        <Style.Triggers>
+            <DataTrigger Binding="{Binding Path=Password, Mode=OneWay, Converter={StaticResource _SharedIsEmptyConverter}}" Value="False">
+                <Setter Property="Foreground" Value="Transparent"/>
+            </DataTrigger>
+            <DataTrigger Binding="{Binding Path=Password, Mode=OneWay, Converter={StaticResource _SharedIsEmptyConverter}}" Value="True">
+                <Setter Property="Foreground" Value="Black"/>
+            </DataTrigger>
+        </Style.Triggers>
+    </Style>
+    <Style x:Key="MenuElement" TargetType="MenuItem" BasedOn="{StaticResource MaterialDesignMenuItem}">
+        <Style.Setters>
+            <Setter Property="MaxWidth" Value="290"/>
+        </Style.Setters>
+    </Style>
+    <Style x:Key="MenuElementHeader" TargetType="TextBlock" BasedOn="{StaticResource MaterialDesignBody1TextBlock}">
+        <Style.Setters>
+            <Setter Property="TextWrapping" Value="Wrap"/>
+            <Setter Property="FontSize" Value="12"/>
+        </Style.Setters>
+    </Style>
 </ResourceDictionary>

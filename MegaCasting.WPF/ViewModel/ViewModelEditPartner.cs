@@ -2,6 +2,8 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Data.Entity.Infrastructure;
+using System.Data.Entity.Validation;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -99,11 +101,21 @@ namespace MegaCasting.WPF.ViewModel
 				this.SaveChanges();
 				MessageBox.Show("Client modifié.");
 			}
-			catch (Exception)
+			catch (DbUpdateException due)
 			{
-				//Permet de reload la liste des clients
 				Entities.ChangeTracker.Entries().Where(entry => entry.State == System.Data.Entity.EntityState.Modified).ToList().ForEach(e => e.Reload());
-				MessageBox.Show("Erreur de saisie.");
+				MessageBox.Show(due.InnerException.InnerException.Message.Replace(Environment.NewLine + "La transaction s'est terminée dans le déclencheur. Le traitement a été abandonné.", ""));
+			}
+			catch (System.Data.Entity.Validation.DbEntityValidationException deve)
+			{
+				Entities.ChangeTracker.Entries().Where(entry => entry.State == System.Data.Entity.EntityState.Modified).ToList().ForEach(e => e.Reload());
+				foreach (DbEntityValidationResult error in deve.EntityValidationErrors)
+				{
+					foreach (DbValidationError item in error.ValidationErrors)
+					{
+						MessageBox.Show(item.PropertyName + " : " + item.ErrorMessage);
+					}
+				}
 			}
 		}
 		#endregion
