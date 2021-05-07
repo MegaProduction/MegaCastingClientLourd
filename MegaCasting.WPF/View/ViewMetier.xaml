@@ -53,7 +53,7 @@
                 Grid.Row="3"
                 Grid.Column="0"
                 MaxLength="50"
-                Text="Nom du Metier"
+                Text="Nom du métier"
                 LostFocus="TextBoxNameMetier_LostFocus"
                 GotFocus="TextBoxNameMetier_GotFocus"
                 VerticalAlignment="Bottom"/>
@@ -120,14 +120,12 @@
             <ComboBox
                 Grid.Row="5"
                 Name="ComboBoxEditDomain"
-                Text="{Binding Path=Domaine.Libelle}"
                 VerticalAlignment="Bottom"
                 Width="150px" 
                 ItemsSource="{Binding Domaines}" 
                 DisplayMemberPath="Libelle" 
-                IsEditable="False" 
-                IsReadOnly="False" 
-                SelectedItem="{Binding SelectedDomaine}"
+                Text="{Binding SelectedMetier.Domaine}"
+                SelectedItem="{Binding SelectedMetier.Domaine}"
                 Visibility="{Binding SelectedMetier, Converter={StaticResource _SharedObjectToVisibilityConverter}}"/>
             <Button
                 Grid.Column="1"

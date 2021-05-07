@@ -34,7 +34,7 @@ namespace MegaCasting.WPF.View
         {
             if (TextBoxNameDomaine.Text.Trim().Equals(string.Empty))
             {
-                TextBoxNameDomaine.Text = "Nom du type de Domaine";
+                TextBoxNameDomaine.Text = "Nom du domaine";
                 TextBoxNameDomaine.GotFocus += TextBoxNameDomaine_GotFocus;
             }
         }

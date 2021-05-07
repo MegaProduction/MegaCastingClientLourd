@@ -43,7 +43,7 @@
                 Grid.Row="1"
                 Grid.Column="0"
                 MaxLength="50"
-                Text="Nom du type de Domaine"
+                Text="Nom du domaine"
                 LostFocus="TextBoxNameDomaine_LostFocus"
                 GotFocus="TextBoxNameDomaine_GotFocus"
                 VerticalAlignment="Bottom"/>

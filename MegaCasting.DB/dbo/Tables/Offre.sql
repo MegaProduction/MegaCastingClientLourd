@@ -1,4 +1,4 @@
-CREATE TABLE [dbo].[Offre] (
+﻿CREATE TABLE [dbo].[Offre] (
     [Identifiant]        INT           IDENTITY (1, 1) NOT NULL,
     [Intitule]           NVARCHAR (50) NOT NULL,
     [Reference]          INT           NOT NULL,
@@ -23,12 +23,9 @@ CREATE TABLE [dbo].[Offre] (
 
 
 
+
+
 GO
--- =============================================
--- Author:		<Author,Alexandre>
--- Create date: <Create Date,08/03/2021>
--- Description:	<Description,Verification sur l'ajout et edition des offres>
--- =============================================
 CREATE   TRIGGER TR_VERIF_OFFRE 
    ON  Offre 
    AFTER INSERT,UPDATE

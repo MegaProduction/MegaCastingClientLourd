@@ -34,6 +34,10 @@ namespace MegaCasting.WPF.ViewModel
         /// Collection d'offre
         /// </summary>
         private ObservableCollection<Domaine> _Domaines;
+        private Domaine _SelectedDomaine;
+
+
+
 
         #endregion
         #region Properties
@@ -61,6 +65,11 @@ namespace MegaCasting.WPF.ViewModel
             get { return _Domaines; }
             set { _Domaines = value; }
         }
+        public Domaine SelectedDomaine
+        {
+            get { return _SelectedDomaine; }
+            set { _SelectedDomaine = value; }
+        }
         #endregion
         #region Construteur
         public ViewModelMetier(MegaCastingEntities entities) : base(entities)
@@ -83,31 +92,24 @@ namespace MegaCasting.WPF.ViewModel
         /// Ajoute un Metier
         /// </summary>
         /// <param name="name">Nom du Metier à ajouter</param>
-        public void AddMetier(string name, string fiche, int identifiantDomaine)
+        public void AddMetier(string name, string fiche)
         {
-            if (!this.Entities.Metiers.Any(Metier => Metier.Libelle == name))
-            {
                 Metier metier = new Metier();
                 try
                 {
                     metier.Libelle = name;
                     metier.Fiche = fiche;
-                    metier.IdentifiantDomaine = identifiantDomaine;
+                    metier.IdentifiantDomaine = SelectedDomaine.Identifiant;
                     Metiers.Add(metier);
                     this.SaveChanges();
                     MessageBox.Show("Métier ajouté");
 
                 }
-                catch (DbUpdateException)
+                catch (DbUpdateException dbue)
                 {
+                    MessageBox.Show(dbue.InnerException.InnerException.Message.Replace(Environment.NewLine + "La transaction s'est terminée dans le déclencheur. Le traitement a été abandonné.", ""));
                     Metiers.Remove(metier);
-                    MessageBox.Show("Une erreur s\'est produite lors de la saisie");
                 }
-            }
-            else
-            {
-                MessageBox.Show("Ce Metier existe déjà");
-            }
         }
         /// <summary>
         /// Supprime le Metier sélectionné
@@ -119,16 +121,16 @@ namespace MegaCasting.WPF.ViewModel
                 try
                 {
                     //Vérification si on a le droit de supprimer
-                    if (!Metiers.Any(domaine => domaine.IdentifiantDomaine == SelectedMetier.Identifiant))
-                    {
+                    //if (!Metiers.Any(domaine => domaine.IdentifiantDomaine == SelectedMetier.Identifiant))
+                    //{
                         this.Metiers.Remove(SelectedMetier);
                         this.SaveChanges();
-                        MessageBox.Show("Metier supprimé");
-                    }
-                    else
-                    {
-                        MessageBox.Show("Ce Metier est utilisé");
-                    }
+                        MessageBox.Show("Métier supprimé");
+                //    }
+                //    else
+                //    {
+                //        MessageBox.Show("Ce métier est utilisé");
+                //    }
                 }
                 catch (DbUpdateException due)
                 {
@@ -147,7 +149,7 @@ namespace MegaCasting.WPF.ViewModel
             }
             else
             {
-                MessageBox.Show("Aucun Metier sélectionné");
+                MessageBox.Show("Aucun métier sélectionné");
             }
         }
         public void UpdateMetier()
@@ -161,7 +163,7 @@ namespace MegaCasting.WPF.ViewModel
             {
                 //Permet de reload la liste des contracts
                 Entities.ChangeTracker.Entries().Where(entry => entry.State == System.Data.Entity.EntityState.Modified).ToList().ForEach(e => e.Reload());
-                MessageBox.Show("Impossible d'éditer le Metier sélectionné");
+                MessageBox.Show("Impossible d'éditer le métier sélectionné");
             }
             catch (DbEntityValidationException deve)
             {

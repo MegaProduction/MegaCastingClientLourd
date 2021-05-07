@@ -90,16 +90,6 @@ namespace MegaCasting.WPF.View
 
         private void ButtonAddPartner_Click(object sender, RoutedEventArgs e)
         {
-<<<<<<< HEAD
-                ((ViewModelAddPartner)this.DataContext).AddPartner(TextBoxNom.Text, TextBoxPas.Text, TextBoxLibelle.Text);
-                TextBoxNom_GotFocus(sender, e);
-                TextBoxPas_GotFocus(sender, e);
-                TextBoxLibelle_GotFocus(sender, e);
-                TextBoxNom_LostFocus(sender, e);
-                TextBoxPas_LostFocus(sender, e);
-                TextBoxLibelle_LostFocus(sender, e);
-                comboBoxVille.Text = "Ville";
-=======
             if (PasswordBox.Password != PasswordBoxVerify.Password)
             {
                 PasswordBoxVerify.Style = (Style)Application.Current.Resources["PasswordStyle"];
@@ -128,7 +118,6 @@ namespace MegaCasting.WPF.View
                     TextBoxPassword.Text = "Mot de passe";
                 }
             }
->>>>>>> dev
 
         }
 

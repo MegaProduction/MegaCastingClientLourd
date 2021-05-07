@@ -98,5 +98,6 @@
     <Build Include="Security\RoleMemberships.sql" />
     <Build Include="dbo\Tables\Erreur.sql" />
     <Build Include="dbo\Tables\Contact.sql" />
+    <Build Include="dbo\Tables\doctrine_migration_versions.sql" />
   </ItemGroup>
 </Project>

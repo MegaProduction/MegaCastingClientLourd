@@ -5,6 +5,9 @@
     [Firstname]   NVARCHAR (50)  NOT NULL,
     [Lastname]    NVARCHAR (50)  NOT NULL,
     [Competence]  NVARCHAR (50)  NOT NULL,
+    [is_verified] BIT            NOT NULL,
     CONSTRAINT [PK_Candidat] PRIMARY KEY CLUSTERED ([Identifiant] ASC)
 );
+
+
 

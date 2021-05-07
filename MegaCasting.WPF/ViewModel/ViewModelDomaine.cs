@@ -90,8 +90,6 @@ namespace MegaCasting.WPF.ViewModel
         /// <param name="name">Nom du Domaine à ajouter</param>
         public void AddDomaine(string name)
         {
-            if (!this.Entities.Domaines.Any(Domaine => Domaine.Libelle == name))
-            {
                 Domaine Domaine = new Domaine();
                 Domaine.Libelle = name;
                 try
@@ -101,16 +99,11 @@ namespace MegaCasting.WPF.ViewModel
                     MessageBox.Show("Domaine ajouté");
 
                 }
-                catch (DbUpdateException)
+                catch (DbUpdateException dbue)
                 {
+                    MessageBox.Show(dbue.InnerException.InnerException.Message.Replace(Environment.NewLine + "La transaction s'est terminée dans le déclencheur. Le traitement a été abandonné.", ""));
                     Domaines.Remove(Domaine);
-                    MessageBox.Show("Une erreur s\'est produite lors de la saisie");
                 }
-            }
-            else
-            {
-                MessageBox.Show("Ce domaine existe déjà");
-            }
         }
         /// <summary>
         /// Supprime le Domaine sélectionné

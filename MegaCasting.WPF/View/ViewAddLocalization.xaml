@@ -98,6 +98,7 @@
             DisplayMemberPath="Libelle"
             ItemsSource="{Binding Pays}"
             SelectedItem="{Binding SelectedPays}"
+            Text="Pays"
             IsSynchronizedWithCurrentItem="True"
             Width="150px"/>
         <Button

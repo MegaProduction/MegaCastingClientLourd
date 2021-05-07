@@ -59,6 +59,7 @@
             SelectedItem="{Binding SelectedContrat}"
             SelectedValuePath="{Binding SelectedContrat.Identifiant}"
             IsSynchronizedWithCurrentItem="True"
+            Text="Contrat"
             DisplayMemberPath="Libelle"/>
         <!--#region Information-->
         <Label Grid.Row="3" Grid.Column="1" HorizontalAlignment="Center" FontSize="20px">

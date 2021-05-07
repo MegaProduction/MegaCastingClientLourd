@@ -34,7 +34,7 @@ namespace MegaCasting.WPF.View
         {
             if (TextBoxNameMetier.Text.Trim().Equals(string.Empty))
             {
-                TextBoxNameMetier.Text = "Nom du type de Metier";
+                TextBoxNameMetier.Text = "Nom du métier";
                 TextBoxNameMetier.GotFocus += TextBoxNameMetier_GotFocus;
             }
         }
@@ -51,7 +51,7 @@ namespace MegaCasting.WPF.View
         /// <param name="e"></param>
         private void ButtonAddMetier_Click(object sender, RoutedEventArgs e)
         {
-            ((ViewModelMetier)this.DataContext).AddMetier(TextBoxNameMetier.Text, TextBoxFicheMetier.Text, comboBoxDomaine.SelectedIndex);
+            ((ViewModelMetier)this.DataContext).AddMetier(TextBoxNameMetier.Text, TextBoxFicheMetier.Text);
             TextBoxNameMetier.Clear();
             TextBoxFicheMetier.Clear();
             comboBoxDomaine.Text = "Domaine";
@@ -75,7 +75,7 @@ namespace MegaCasting.WPF.View
         {
             if (TextBoxFicheMetier.Text.Trim().Equals(string.Empty))
             {
-                TextBoxFicheMetier.Text = "Nom du Metier";
+                TextBoxFicheMetier.Text = "Fiche du métier";
                 TextBoxNameMetier.GotFocus += TextBoxFicheMetier_GotFocus;
             }
         }

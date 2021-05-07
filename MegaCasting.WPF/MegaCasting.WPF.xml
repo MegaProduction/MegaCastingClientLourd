@@ -782,7 +782,7 @@
             Sauvegarde les changements
             </summary>
         </member>
-        <member name="M:MegaCasting.WPF.ViewModel.ViewModelMetier.AddMetier(System.String,System.String,System.Int32)">
+        <member name="M:MegaCasting.WPF.ViewModel.ViewModelMetier.AddMetier(System.String,System.String)">
             <summary>
             Ajoute un Metier
             </summary>
