@@ -7,6 +7,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
+        <!--#region Définition de la grille-->
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
@@ -18,9 +19,13 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
+        <!--#endregion-->
+        <!--Titre de la page-->
         <Label HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="0" Grid.ColumnSpan="3" FontSize="30">Supprimer une offre</Label>
+        <!--Choix de l'offre-->
         <ListBox Name="listBoxDelOffre" ItemsSource="{Binding Offres}" Grid.Column="1" Grid.Row="1" DisplayMemberPath="Intitule" SelectedItem="{Binding SelectedOffre}">
         </ListBox>
+        <!--Bouton de suppression de l'offre-->
         <Button  Grid.Column="1" Grid.Row="2" Content="Supprimer" Name="DeleteOffreButton" Click="DeleteOffreButton_Click" Style="{StaticResource overrideButton}"></Button>
     </Grid>
 </UserControl>

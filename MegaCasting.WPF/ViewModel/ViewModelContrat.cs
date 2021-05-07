@@ -13,14 +13,6 @@ namespace MegaCasting.WPF.ViewModel
 {
     class ViewModelContrat : ViewModelBase
     {
-        private ObservableCollection<Erreur> _Erreurs;
-
-        public ObservableCollection<Erreur> Erreurs
-        {
-            get { return _Erreurs; }
-            set { _Erreurs = value; }
-        }
-
         #region Attributes
         /// <summary>
         /// Collection de contrat
@@ -34,6 +26,10 @@ namespace MegaCasting.WPF.ViewModel
         /// Collection d'offre
         /// </summary>
         private ObservableCollection<Offre> _Offres;
+        /// <summary>
+        /// Collection d'erreurs
+        /// </summary>
+        private ObservableCollection<Erreur> _Erreurs;
 
         #endregion
         #region Properties
@@ -61,8 +57,20 @@ namespace MegaCasting.WPF.ViewModel
             get { return _Offres; }
             set { _Offres = value; }
         }
+        /// <summary>
+        /// Obtient ou définit la collection d'erreurs
+        /// </summary>
+        public ObservableCollection<Erreur> Erreurs
+        {
+            get { return _Erreurs; }
+            set { _Erreurs = value; }
+        }
         #endregion
         #region Construteur
+        /// <summary>
+        /// Constructeur des contrats
+        /// </summary>
+        /// <param name="entities"></param>
         public ViewModelContrat(MegaCastingEntities entities) : base(entities)
         {
             this.Entities.Contrats.ToList();
@@ -147,6 +155,9 @@ namespace MegaCasting.WPF.ViewModel
                 MessageBox.Show("Aucun contrat sélectionné");
             }
         }
+        /// <summary>
+        /// Fonction d'édition des contrats
+        /// </summary>
         public void UpdateContrat()
         {
             try

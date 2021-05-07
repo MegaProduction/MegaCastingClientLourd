@@ -28,13 +28,21 @@ namespace MegaCasting.WPF.View
         {
             InitializeComponent();
         }
-
+        /// <summary>
+        /// Fonction qui indique quoi mettre si on clique sur la TextBox (pour modifier la valeur par défaut)
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void TextBoxNom_GotFocus(object sender, RoutedEventArgs e)
         {
             TextBoxNom.Text = string.Empty;
             TextBoxNom.GotFocus -= TextBoxNom_GotFocus;
         }
-
+        /// <summary>
+        /// Fonction qui indique quoi mettre si on quitte la TextBox sans y avoir rien mis
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void TextBoxNom_LostFocus(object sender, RoutedEventArgs e)
         {
             if (TextBoxNom.Text.Trim().Equals(string.Empty))
@@ -43,13 +51,21 @@ namespace MegaCasting.WPF.View
                 TextBoxNom.GotFocus += TextBoxNom_GotFocus;
             }
         }
-
+        /// <summary>
+        /// Fonction qui indique quoi mettre si on clique sur la TextBox (pour modifier la valeur par défaut)
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void TextBoxLibelle_GotFocus(object sender, RoutedEventArgs e)
         {
             TextBoxLibelle.Text = string.Empty;
             TextBoxLibelle.GotFocus -= TextBoxLibelle_GotFocus;
         }
-
+        /// <summary>
+        /// Fonction qui indique quoi mettre si on quitte la TextBox sans y avoir rien mis
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void TextBoxLibelle_LostFocus(object sender, RoutedEventArgs e)
         {
             if (TextBoxLibelle.Text.Trim().Equals(string.Empty))
@@ -59,13 +75,21 @@ namespace MegaCasting.WPF.View
             }
         }
 
-
+        /// <summary>
+        /// Fonction qui indique quoi mettre si on clique sur la TextBox (pour modifier la valeur par défaut)
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void PasswordBox_GotFocus(object sender, RoutedEventArgs e)
         {
             PasswordBox.GotFocus -= PasswordBox_GotFocus;
             TextBoxPassword.Text = string.Empty;
         }
-
+        /// <summary>
+        /// Fonction qui indique quoi mettre si on quitte la TextBox sans y avoir rien mis
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void PasswordBox_LostFocus(object sender, RoutedEventArgs e)
         {
             if (PasswordBox.Password.Trim().Equals(string.Empty))
@@ -73,13 +97,21 @@ namespace MegaCasting.WPF.View
                 TextBoxPassword.Text = "Mot de passe";
             }
         }
-
+        /// <summary>
+        /// Fonction qui indique quoi mettre si on clique sur la TextBox (pour modifier la valeur par défaut)
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void PasswordBoxVerify_GotFocus(object sender, RoutedEventArgs e)
         {
             PasswordBox.GotFocus -= PasswordBox_GotFocus;
             TextBoxVerifyPassword.Text = string.Empty;
         }
-
+        /// <summary>
+        /// Fonction qui indique quoi mettre si on quitte la TextBox sans y avoir rien mis
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void PasswordBoxVerify_LostFocus(object sender, RoutedEventArgs e)
         {
             if (PasswordBoxVerify.Password.Trim().Equals(string.Empty))
@@ -87,7 +119,11 @@ namespace MegaCasting.WPF.View
                 TextBoxVerifyPassword.Text = "Confirmez le mot de passe";
             }
         }
-
+        /// <summary>
+        /// Bouton qui appelle la fonction d'ajout d'un partenaire ( + vérification du mot de passe (temporaire))
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ButtonAddPartner_Click(object sender, RoutedEventArgs e)
         {
             if (PasswordBox.Password != PasswordBoxVerify.Password)
@@ -102,6 +138,7 @@ namespace MegaCasting.WPF.View
             else
             {
                 PasswordBoxVerify.Style = (Style)Application.Current.Resources["MaterialDesignPasswordBox"];
+                // Vérifie que le mot de passe et sa vérification sont identiques et non nuls
                 if (PasswordBox.Password == PasswordBoxVerify.Password && !string.IsNullOrWhiteSpace(PasswordBox.Password) && 
                     !string.IsNullOrWhiteSpace(PasswordBoxVerify.Password) && ((ViewModelAddPartner)this.DataContext).AddPartner(TextBoxNom.Text, PasswordBox.Password, TextBoxLibelle.Text))
                 {

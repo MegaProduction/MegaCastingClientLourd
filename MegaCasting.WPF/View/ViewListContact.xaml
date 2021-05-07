@@ -7,6 +7,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
+        <!--#region Définition de la grille-->
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition/>
@@ -25,7 +26,10 @@
             <RowDefinition/>
             <RowDefinition/>
         </Grid.RowDefinitions>
+        <!--#endregion-->
+        <!--Titre de la page-->
         <Label Content="Liste des contacts" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="6" HorizontalAlignment="Center" Style="{StaticResource LabelStyle}"/>
+        <!--Affiche les contacts-->
         <ListBox
             FontSize="15px" 
             Grid.Column="0"
@@ -37,6 +41,7 @@
             DisplayMemberPath="FullName"
             SelectedItem="{Binding SelectedContact}"
         />
+        <!--Affiche le mail, l'adresse, l'objet et le message-->
         <TextBlock Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Bottom" Text="E-Mail"/>
         <TextBlock Grid.Row="2" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Bottom" Text="Adresse"/>
         <TextBlock Grid.Row="2" Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Bottom" Text="Objet"/>

@@ -32,12 +32,16 @@
         </Grid.ColumnDefinitions>
         <!--#endregion-->
 
+        <!--Titre de la page-->
         <Label Style="{StaticResource LabelStyle}" Grid.Row="1" Grid.Column="1">Ajouter une offre</Label>
+        <!--Titre de la première colonne-->
         <Label Grid.Row="3" HorizontalAlignment="Center" FontSize="20px">
             <Underline>Offre</Underline>
         </Label>
 
+        <!--Saisie de l'intitulé de l'offre-->
         <TextBox FontSize="15px" Grid.Row="4" Width="150px" HorizontalAlignment="Center" VerticalAlignment="Bottom" Text="Intitulé" Name="TextBoxIntitule" GotFocus="TextBoxIntitule_GotFocus" LostFocus="TextBoxIntitule_LostFocus"></TextBox>
+        <!--Choix de la date-->
         <DatePicker
             Grid.Row="5"
             SelectedDate="{x:Static sys:DateTime.Now}"
@@ -46,9 +50,11 @@
             ToolTip="Ce champ n'accepte que des dates"
             PreviewTextInput="DatePickerDateDebut_PreviewTextInput"
             />
+        <!--Saisie du nombre de postes-->
         <TextBox FontSize="15px" Grid.Row="6" Width="150px" HorizontalAlignment="Center" VerticalAlignment="Bottom" Text="Nombre de postes" Name="TextBoxNbPostes" GotFocus="TextBoxNbPostes_GotFocus" LostFocus="TextBoxNbPostes_LostFocus"
                  MaxLength="50"
                  PreviewTextInput="TextBoxNbPostes_PreviewTextInput"></TextBox>
+        <!--Choix du contrat-->
         <ComboBox
             Style="{StaticResource MaterialDesignComboBox}"
             FontSize="15px"
@@ -62,9 +68,11 @@
             Text="Contrat"
             DisplayMemberPath="Libelle"/>
         <!--#region Information-->
+        <!--Titre de la deuxième colonne-->
         <Label Grid.Row="3" Grid.Column="1" HorizontalAlignment="Center" FontSize="20px">
             <Underline>Informations</Underline>
         </Label>
+        <!--Choix du client-->
         <ComboBox
             FontSize="15px"
             Grid.Row="4"
@@ -76,6 +84,7 @@
             SelectedValuePath="{Binding SelectedClient.Identifiant}"
             IsSynchronizedWithCurrentItem="True" 
             DisplayMemberPath="Libelle"/>
+        <!--Saisie des coordonnées-->
         <TextBox 
             FontSize="15px" 
             Grid.Row="5" 
@@ -87,6 +96,7 @@
             Name="TextBoxCoord"
             PreviewTextInput="TextBoxCoord_PreviewTextInput"
             GotFocus="TextBoxCoord_GotFocus" LostFocus="TextBoxCoord_LostFocus"/>
+        <!--Saisie de la localisation-->
         <ComboBox
             FontSize="15px"
             Grid.Column="1"
@@ -98,6 +108,7 @@
             SelectedValuePath="{Binding SelectedVille.Identifiant}"
             IsSynchronizedWithCurrentItem="True" 
             DisplayMemberPath="Libelle"/>
+        <!--Saisie du métier-->
         <ComboBox Name="ComboBoxMetier"
                   Grid.Column="1"
                   Grid.Row="7"
@@ -107,13 +118,18 @@
                   SelectedItem="{Binding SelectedMetier}"/>
         <!--#endregion-->
         <!--#region Description-->
+        <!--Titre de la troisième colonne-->
         <Label Grid.Row="3" Grid.Column="2" HorizontalAlignment="Center" FontSize="20px">
             <Underline>Description</Underline>
         </Label>
+        <!--Saisie de la description du poste-->
         <TextBox FontSize="15px" Grid.Row="4" Grid.Column="2" Width="150px" HorizontalAlignment="Center" VerticalAlignment="Bottom" Text="Description du poste" Name="TextBoxDescripPoste" GotFocus="TextBoxDescripPoste_GotFocus" LostFocus="TextBoxDescripPoste_LostFocus"/>
+        <!--Saisie de la description du profil-->
         <TextBox FontSize="15px" Grid.Row="5" Grid.Column="2" Width="150px" HorizontalAlignment="Center" VerticalAlignment="Bottom" Text="Description du profil" Name="TextBoxDescripProfil" GotFocus="TextBoxDescripProfil_GotFocus" LostFocus="TextBoxDescripProfil_LostFocus"/>
+        <!--Saisie de la durée-->
         <TextBox FontSize="15px" Grid.Row="6" Grid.Column="2" Width="150px" HorizontalAlignment="Center" VerticalAlignment="Bottom" Text="Durée de diffusion" Name="TextBoxDureeDiff" GotFocus="TextBoxDureeDiff_GotFocus" LostFocus="TextBoxDureeDiff_LostFocus" PreviewTextInput="TextBoxDureeDiff_PreviewTextInput"/>
         <!--#endregion-->
+        <!--Bouton d'ajout de l'offre-->
         <Button Grid.Column="1" Grid.Row="10" Style="{StaticResource overrideButton}" Name="addOffre" Click="AddOffre_Click" Content="Valider"></Button>
     </Grid>
 </UserControl>

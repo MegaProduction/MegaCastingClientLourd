@@ -64,6 +64,10 @@ namespace MegaCasting.WPF.ViewModel
         }
         #endregion
         #region Constructor
+        /// <summary>
+        /// Constructeur de la suppression des localisations
+        /// </summary>
+        /// <param name="entities"></param>
         public ViewModelDelLocalization(MegaCastingEntities entities)
             :base(entities)
         {

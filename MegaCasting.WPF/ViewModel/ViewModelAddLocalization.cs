@@ -67,6 +67,10 @@ namespace MegaCasting.WPF.ViewModel
         }
         #endregion
         #region Constructor
+        /// <summary>
+        /// Constructeur de l'ajout de la localisation
+        /// </summary>
+        /// <param name="entities"></param>
         public ViewModelAddLocalization(MegaCastingEntities entities)
             :base(entities)
         {
@@ -87,7 +91,7 @@ namespace MegaCasting.WPF.ViewModel
             this.Entities.SaveChanges();
         }
         /// <summary>
-        /// Ajoute un pays
+        /// Ajoute un pays ( + gestion des potentielles erreurs )
         /// </summary>
         /// <param name="pays"></param>
         public void AddCountry(string pays)
@@ -127,7 +131,7 @@ namespace MegaCasting.WPF.ViewModel
             }
         }
         /// <summary>
-        /// Ajoute une ville
+        /// Ajoute une ville  ( + gestion des potentielles erreurs )
         /// </summary>
         /// <param name="nom"></param>
         /// <param name="codePostal"></param>

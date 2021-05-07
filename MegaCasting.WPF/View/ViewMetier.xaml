@@ -29,7 +29,8 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
         <!--#endregion-->
-        <Label Style="{StaticResource LabelStyle}" Content="Gestion des Metiers" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="7"/>
+        <!--Titre de la page-->
+        <Label Style="{StaticResource LabelStyle}" Content="Gestion des métiers" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="7"/>
         <!--#region Définition de la grille pour l'ajout-->
         <Grid Grid.Column="1" Grid.Row="1" Grid.RowSpan="5">
             <Grid.ColumnDefinitions>
@@ -47,7 +48,9 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
             <!--#region Ajout Metier-->
-            <Label Style="{StaticResource LabelStyle}" Grid.Row="0" Grid.Column="0" Content="Ajout de Metier"/>
+            <!--Titre de la première colonne-->
+            <Label Style="{StaticResource LabelStyle}" Grid.Row="0" Grid.Column="0" Content="Ajout de métier"/>
+            <!--Saisie du nom duy métier-->
             <TextBox
                 Name="TextBoxNameMetier"
                 Grid.Row="3"
@@ -57,6 +60,7 @@
                 LostFocus="TextBoxNameMetier_LostFocus"
                 GotFocus="TextBoxNameMetier_GotFocus"
                 VerticalAlignment="Bottom"/>
+            <!--Saisie de la fiche-métier-->
             <TextBox
                 Name="TextBoxFicheMetier"
                 Grid.Row="4"
@@ -66,6 +70,7 @@
                 LostFocus="TextBoxFicheMetier_LostFocus"
                 GotFocus="TextBoxFicheMetier_GotFocus"
                 VerticalAlignment="Bottom"/>
+            <!--Choix du domaine-->
             <ComboBox
                 FontSize="15px" 
                 Grid.Column="0" 
@@ -78,6 +83,7 @@
                 IsEditable="False" 
                 IsReadOnly="False" 
                 SelectedItem="{Binding SelectedDomaine}"/>
+            Bouton d'ajout du métier
             <Button
                 Name="ButtonAddMetier"
                 Grid.Column="0"
@@ -104,19 +110,23 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
             <!--#region Edition Metier-->
-            <Label Style="{StaticResource LabelStyle}" Content="Edition du Metier" Grid.Row="0"/>
+            <!--Titre de la deuxième colonne-->
+            <Label Style="{StaticResource LabelStyle}" Content="Édition du métier" Grid.Row="0"/>
+            <!--Édition du nom du métier-->
             <TextBox
                 Grid.Row="3"
                 Name="TextBoxEditMetier"
                 Text="{Binding SelectedMetier.Libelle}"
                 VerticalAlignment="Bottom"
                 Visibility="{Binding SelectedMetier, Converter={StaticResource _SharedObjectToVisibilityConverter}}"/>
+            <!--Édition de la fiche-métier-->
             <TextBox
                 Grid.Row="4"
                 Name="TextBoxEditFicheMetier"
                 Text="{Binding SelectedMetier.Fiche}"
                 VerticalAlignment="Bottom"
                 Visibility="{Binding SelectedMetier, Converter={StaticResource _SharedObjectToVisibilityConverter}}"/>
+            <!--Édition du choix du domaine-->
             <ComboBox
                 Grid.Row="5"
                 Name="ComboBoxEditDomain"
@@ -127,6 +137,7 @@
                 Text="{Binding SelectedMetier.Domaine}"
                 SelectedItem="{Binding SelectedMetier.Domaine}"
                 Visibility="{Binding SelectedMetier, Converter={StaticResource _SharedObjectToVisibilityConverter}}"/>
+            <!--Bouton d'édition du métier-->
             <Button
                 Grid.Column="1"
                 Grid.Row="7"
@@ -151,9 +162,11 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
             <!--#region Suppression Metier-->
+            <!--Titre de la troisième colonne-->
             <Label
                 Style="{StaticResource LabelStyle}"
-                Content="Supprimer un Metier" Grid.Row="0"/>
+                Content="Supprimer un métier" Grid.Row="0"/>
+            <!--Choix du métier-->
             <ListBox
             Grid.Row="2"
             Grid.Column="0"
@@ -161,6 +174,7 @@
             ItemsSource="{Binding Metiers}"
             SelectedItem="{Binding SelectedMetier}"
             DisplayMemberPath="Libelle"/>
+            <!--Bouton de suppression du métier-->
             <Button
             Grid.Column="0"
             Grid.Row="5"

@@ -25,6 +25,7 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
         <!--#endregion-->
+        <!--Titre de la page-->
         <Label Style="{StaticResource LabelStyle}" Content="Gestion des contrats" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="7"/>
         <!--#region Définition de la grille pour l'ajout-->
         <Grid Grid.Column="1" Grid.Row="1" Grid.RowSpan="2">
@@ -37,7 +38,9 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
             <!--#region Ajout contrat-->
+            <!--Titre de la première colonne-->
             <Label Style="{StaticResource LabelStyle}" Grid.Row="0" Grid.Column="0" Content="Ajout du type de contrat"/>
+            <!--Saisie du nom du contrat-->
             <TextBox
                 Name="TextBoxNameContrat"
                 Grid.Row="1"
@@ -47,6 +50,7 @@
                 LostFocus="TextBoxNameContrat_LostFocus"
                 GotFocus="TextBoxNameContrat_GotFocus"
                 VerticalAlignment="Bottom"/>
+            <!--Bouton d'ajout du contrat-->
             <Button
                 Name="ButtonAddContrat"
                 Grid.Column="0"
@@ -68,13 +72,16 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
             <!--#region Edition contrat-->
+            <!--Titre de la deuxième colonne-->
             <Label Style="{StaticResource LabelStyle}" Content="Edition du contrat" Grid.Row="0"/>
+            <!--Saisie du contrat modifié-->
             <TextBox
                 Grid.Row="1"
                 Name="TextBoxEditContrat"
                 Text="{Binding SelectedContrat.Libelle}"
                 VerticalAlignment="Bottom"
                 Visibility="{Binding SelectedContrat, Converter={StaticResource _SharedObjectToVisibilityConverter}}"/>
+            <!--Bouton d'édition du contrat-->
             <Button
                 Grid.Column="1"
                 Grid.Row="3"
@@ -97,9 +104,11 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
             <!--#region Suppression contrat-->
+            <!--Titre de la troisième colonne-->
             <Label
                 Style="{StaticResource LabelStyle}"
                 Content="Supprimer un contrat" Grid.Row="0"/>
+            <!--Choix du contrat-->
             <ListBox
             Grid.Row="1"
             Grid.Column="0"
@@ -107,6 +116,7 @@
             ItemsSource="{Binding Contrats}"
             SelectedItem="{Binding SelectedContrat}"
             DisplayMemberPath="Libelle"/>
+            <!--Bouton de suppression du contrat-->
             <Button
             Grid.Column="0"
             Grid.Row="3"

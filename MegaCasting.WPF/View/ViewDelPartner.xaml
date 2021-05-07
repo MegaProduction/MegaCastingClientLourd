@@ -7,6 +7,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
+        <!--#region Définition de la grille-->
         <Grid.RowDefinitions>
             <RowDefinition Height="0.25*"/>
             <RowDefinition Height="0.5*"/>
@@ -21,8 +22,10 @@
             <ColumnDefinition Width="1.5*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-
+        <!--#endregion-->
+        <!--Titre de la page-->
         <Label FontSize="30px" HorizontalAlignment="Center" Grid.Row="1" Grid.Column="1">Supprimer un client</Label>
+        <!--Choix du client-->
         <ListBox
             Grid.Column="1"
             Grid.Row="2"
@@ -33,7 +36,7 @@
             SelectedItem="{Binding SelectedClient}">
         </ListBox>
 
-
+        <!--Bouton de suppression du client-->
 
         <Button Grid.Row="5" Grid.Column="1" Style="{StaticResource overrideButton}" Content="Confirmer" Name="ButtonDelPartner" Click="ButtonDelPartner_Click"/>
     </Grid>

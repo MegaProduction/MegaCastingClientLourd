@@ -39,6 +39,10 @@ namespace MegaCasting.WPF.ViewModel
         }
         #endregion
         #region Constructors
+        /// <summary>
+        /// Constructeurs de la liste de localisations
+        /// </summary>
+        /// <param name="entities"></param>
         public ViewModelListLocalization(MegaCastingEntities entities)
             :base(entities)
         {
@@ -47,9 +51,6 @@ namespace MegaCasting.WPF.ViewModel
             this.Entities.Pays.ToList();
             this.Pays = Entities.Pays.Local;
         }
-        #endregion
-        #region Methods
-
         #endregion
     }
 }

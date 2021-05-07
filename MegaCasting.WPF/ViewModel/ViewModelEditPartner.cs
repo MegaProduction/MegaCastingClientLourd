@@ -71,6 +71,10 @@ namespace MegaCasting.WPF.ViewModel
 		#endregion
 
 		#region Contructors
+		/// <summary>
+		/// Constructeur de l'édition des clients
+		/// </summary>
+		/// <param name="entities"></param>
 		public ViewModelEditPartner(MegaCastingEntities entities)
 			: base(entities)
 		{

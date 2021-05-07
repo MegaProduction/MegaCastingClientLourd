@@ -8,11 +8,13 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
+        <!--#region Définition de la grille-->
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-
+<!--#endregion-->
+        <!--Titre de la page-->
         <Label HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30px" Grid.Column="0">
             <StackPanel>
                 <Image Source="https://i.goopics.net/0Ja5w.png" Width="60px" />
@@ -20,6 +22,7 @@
             </StackPanel>
         </Label>
 
+        <!-- ~ Graphique-->
         <ItemsControl ItemsSource="{Binding}">
 
             <ItemsControl.ItemsPanel>

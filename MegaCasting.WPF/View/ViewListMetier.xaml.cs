@@ -20,6 +20,9 @@ namespace MegaCasting.WPF.View
     /// </summary>
     public partial class ViewListMetier : UserControl
     {
+        /// <summary>
+        /// Initialise ViewListMetier
+        /// </summary>
         public ViewListMetier()
         {
             InitializeComponent();

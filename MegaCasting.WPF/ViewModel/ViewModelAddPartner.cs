@@ -82,6 +82,10 @@ namespace MegaCasting.WPF.ViewModel
 		#endregion
 
 		#region Contructors
+		/// <summary>
+		/// Constructeur de l'ajout des clients
+		/// </summary>
+		/// <param name="entities"></param>
 		public ViewModelAddPartner(MegaCastingEntities entities)
 			: base(entities)
 		{
@@ -102,7 +106,11 @@ namespace MegaCasting.WPF.ViewModel
 		{
 			this.Entities.SaveChanges();
 		}
-
+		/// <summary>
+		/// Fonction de hashage des mots de passe
+		/// </summary>
+		/// <param name="rawData"></param>
+		/// <returns></returns>
 		static string ComputeSHAHash(string rawData)
 		{
 			int iterations = 100000;

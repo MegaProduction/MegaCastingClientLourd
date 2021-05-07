@@ -21,11 +21,13 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <!--#endregion-->
-        <Label Style="{StaticResource LabelStyle}" Grid.Row="0" Grid.Column="1">Editer une offre</Label>
+        <!--Titre de la page-->
+        <Label Style="{StaticResource LabelStyle}" Grid.Row="0" Grid.Column="1">Éditer une offre</Label>
+        <!--Choix de l'offre-->
         <ListBox ItemsSource="{Binding Offres}" Grid.Row="1" Grid.RowSpan="3" Grid.Column="0" DisplayMemberPath="Intitule" SelectedItem="{Binding SelectedOffre}">
         </ListBox>
         <!--#region Définition de la grid pour l'édition de l'offre-->
-        <Grid Grid.Column="1" Grid.Row="1" Grid.RowSpan="3" Background="Beige">
+        <Grid Grid.Column="1" Grid.Row="1" Grid.RowSpan="3">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
@@ -53,7 +55,7 @@
                 Text="{Binding SelectedOffre.Intitule}" 
                 Visibility="{Binding SelectedOffre, Converter={StaticResource _SharedObjectToVisibilityConverter}}"
                 Height="25px"
-                ToolTip="Ce champs permet d'éditer l'intitulé de l'offre"
+                ToolTip="Ce chams permet d'éditer l'intitulé de l'offre"
                 TextAlignment="Left"/>
             <TextBox
                 Grid.Row="2"
@@ -62,7 +64,7 @@
                 Visibility="{Binding SelectedOffre, Converter={StaticResource _SharedObjectToVisibilityConverter}}"
                 Height="25px"
                 TextAlignment="Left"
-                ToolTip="Ce champs permet d'éditer la description du profil recherché pour l'offre"/>
+                ToolTip="Ce champ permet d'éditer la description du profil recherché pour l'offre"/>
             <TextBox
                 Grid.Row="3"
                 Text="{Binding SelectedOffre.DescriptionPoste}"
@@ -70,7 +72,7 @@
                 Visibility="{Binding SelectedOffre, Converter={StaticResource _SharedObjectToVisibilityConverter}}"
                 Height="25px"
                 TextAlignment="Left"
-                ToolTip="Ce champs permet d'éditer la description du poste de l'offre"/>
+                ToolTip="Ce champ permet d'éditer la description du poste de l'offre"/>
             <TextBox
                 Grid.Row="4"
                 Text="{Binding SelectedOffre.NbPostes}"
@@ -79,7 +81,7 @@
                 Height="25px"
                 TextAlignment="Left"
                 PreviewTextInput="TexBoxEditNombrePostes_PreviewTextInput"
-                ToolTip="Ce champs n'accepete que des nombres pour le nombre de poste"/>
+                ToolTip="Ce champ n'accepte que des nombres pour le nombre de poste(s)"/>
             <TextBox
                 Grid.Row="5"
                 Text="{Binding SelectedOffre.DureeDiffusion}"
@@ -88,14 +90,14 @@
                 Height="25px"
                 TextAlignment="Left"
                 PreviewTextInput="TexBoxEditDureeDiffusion_PreviewTextInput"
-                ToolTip="Ce champs n'accepete que des nombres pour la durée de diffusion"/>
+                ToolTip="Ce champ n'accepte que des nombres pour la durée de diffusion"/>
             <DatePicker
                 Grid.Row="6"
                 SelectedDate="{Binding SelectedOffre.DateDebut}"
                 Name="datePickerEditDateDebut"
                 Visibility="{Binding SelectedOffre, Converter={StaticResource _SharedObjectToVisibilityConverter}}"
                 Height="25px"
-                ToolTip="Ce champs n'accepete que des dates"
+                ToolTip="Ce champ n'accepte que des dates"
                 PreviewTextInput="DatePickerEditDateDebut_PreviewTextInput"/>
             <TextBox
                 Grid.Row="7"
@@ -105,7 +107,7 @@
                 Height="25px"
                 TextAlignment="Left"
                 PreviewTextInput="TexBoxEditCoordonnees_PreviewTextInput"
-                ToolTip="Ce champs n'accepete que les numéro de téléphone"/>
+                ToolTip="Ce champ n'accepte que les numéros de téléphone"/>
             <ComboBox
                 Grid.Row="8"
                 Text="{Binding SelectedOffre.Contrat.Libelle}" 
@@ -116,6 +118,7 @@
                 Name="comboBoxContrat"/>
             <!--#endregion-->
         </Grid>
+        <!--Bouton d'édition de l'offre-->
         <Button Name="ButtonEditOffer" Content="Confirmer" Grid.Column="1" Grid.Row="4" Click="ButtonEditOffer_Click" Style="{StaticResource overrideButton}">
             <Button.IsEnabled>
                 <MultiBinding Converter="{StaticResource _SharedBoolToEnabled}">

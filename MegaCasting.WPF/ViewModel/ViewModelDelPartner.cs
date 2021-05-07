@@ -47,7 +47,10 @@ namespace MegaCasting.WPF.ViewModel
 		#endregion
 
 		#region Constructors
-
+		/// <summary>
+		/// Constructeur de la suppression des clients
+		/// </summary>
+		/// <param name="entities"></param>
 		public ViewModelDelPartner(MegaCastingEntities entities)
 			:base(entities)
 		{
@@ -65,7 +68,9 @@ namespace MegaCasting.WPF.ViewModel
 		{
 			this.Entities.SaveChanges();
 		}
-
+		/// <summary>
+		/// Fonction de suppression des clients
+		/// </summary>
 		public void DelPartner()
 		{
 			if (SelectedClient != null)

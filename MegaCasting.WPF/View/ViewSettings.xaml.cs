@@ -30,7 +30,11 @@ namespace MegaCasting.WPF.View
         {
             InitializeComponent();
         }
-
+        /// <summary>
+        /// Fonction du choix de la couleur
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void colorPicker_MouseMove(object sender, MouseEventArgs e)
         {
             Color color = colorPicker.Color;

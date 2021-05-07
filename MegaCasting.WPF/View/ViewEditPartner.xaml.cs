@@ -28,7 +28,11 @@ namespace MegaCasting.WPF.View
         {
             InitializeComponent();
         }
-
+        /// <summary>
+        /// Appelle la fonction d'édition des clients
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ButtonEditPartner_Click(object sender, RoutedEventArgs e)
         {
             ((ViewModelEditPartner)this.DataContext).EditPartner(TextBoxLibelle.Text);

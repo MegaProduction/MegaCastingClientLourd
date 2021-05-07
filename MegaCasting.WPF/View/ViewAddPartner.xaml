@@ -7,6 +7,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
+        <!-- #region Définition de la grille-->
         <Grid.RowDefinitions>
             <RowDefinition Height="3*"/>
             <RowDefinition Height="2.5*"/>
@@ -30,8 +31,11 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
-        <Label FontSize="30px" HorizontalAlignment="Center" Grid.Row="1" Grid.Column="1">Ajouter un client</Label>
+          <!--#endregion-->
 
+        <!--Titre de la page-->
+        <Label FontSize="30px" HorizontalAlignment="Center" Grid.Row="1" Grid.Column="1">Ajouter un client</Label>
+        <!--Saisie du nom-->
         <TextBox 
             FontSize="15px" 
             TextAlignment="Center" 
@@ -60,6 +64,7 @@
                  LostFocus="TextBoxPas_LostFocus"
                  >
         </TextBox>-->
+        <!--Saisie du mot de passe-->
         <TextBox
             Name="TextBoxPassword"
             FocusManager.IsFocusScope="False"
@@ -96,7 +101,7 @@
             LostFocus="PasswordBox_LostFocus"
             >
         </PasswordBox>
-        
+        <!--Vérification du mot de passe-->
         <TextBox
             Name="TextBoxVerifyPassword"
             FocusManager.IsFocusScope="False"
@@ -132,6 +137,7 @@
             LostFocus="PasswordBoxVerify_LostFocus">
         </PasswordBox>
 
+        <!--Saisie du libellé-->
         <TextBox 
             FontSize="15px" 
             TextAlignment="Center" 
@@ -146,6 +152,7 @@
             LostFocus="TextBoxLibelle_LostFocus"
             >
         </TextBox>
+        <!--Choix de la ville-->
         <ComboBox 
             FontSize="15px" 
             Grid.Column="1" 
@@ -158,6 +165,7 @@
             IsEditable="True" 
             IsReadOnly="False" 
             SelectedItem="{Binding SelectedVille}"/>
+        <!--Bouton d'ajout du client-->
         <Button 
             Grid.Row="10" 
             Grid.Column="1" 

@@ -68,6 +68,10 @@ namespace MegaCasting.WPF.ViewModel
         }
         #endregion
         #region Construteur
+        /// <summary>
+        /// Constructeur du domaine
+        /// </summary>
+        /// <param name="entities"></param>
         public ViewModelDomaine(MegaCastingEntities entities) : base(entities)
         {
             this.Entities.Domaines.ToList();
@@ -146,6 +150,9 @@ namespace MegaCasting.WPF.ViewModel
                 MessageBox.Show("Aucun domaine sélectionné");
             }
         }
+        /// <summary>
+        /// Fonction d'édition du domaine
+        /// </summary>
         public void UpdateDomaine()
         {
             try

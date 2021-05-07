@@ -29,7 +29,11 @@ namespace MegaCasting.WPF.View
         {
             InitializeComponent();
         }
-
+        /// <summary>
+        /// Fonction qui indique quoi mettre si on quitte la TextBox sans y avoir rien mis
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void TextBoxNameContrat_LostFocus(object sender, RoutedEventArgs e)
         {
             if (TextBoxNameContrat.Text.Trim().Equals(string.Empty))
@@ -38,7 +42,11 @@ namespace MegaCasting.WPF.View
                 TextBoxNameContrat.GotFocus += TextBoxNameContrat_GotFocus;
             }
         }
-
+        /// <summary>
+        /// Fonction qui indique quoi mettre si on clique sur la TextBox (pour modifier la valeur par défaut)
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void TextBoxNameContrat_GotFocus(object sender, RoutedEventArgs e)
         {
             TextBoxNameContrat.Text = string.Empty;
@@ -54,12 +62,20 @@ namespace MegaCasting.WPF.View
             ((ViewModelContrat)this.DataContext).AddContrat(TextBoxNameContrat.Text);
             
         }
-
+        /// <summary>
+        /// Appelle la fonction de suppression du contrat
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void DeleteContrat_Click(object sender, RoutedEventArgs e)
         {
             ((ViewModelContrat)this.DataContext).DeleteContrat();
         }
-
+        /// <summary>
+        /// Appelle la fonction d'édition du contrat
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ButtonEditContrat_Click(object sender, RoutedEventArgs e)
         {
             ListBoxSuppressioncontrat.Items.Refresh();

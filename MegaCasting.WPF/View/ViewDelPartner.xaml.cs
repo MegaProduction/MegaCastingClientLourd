@@ -28,7 +28,11 @@ namespace MegaCasting.WPF.View
         {
             InitializeComponent();
         }
-
+        /// <summary>
+        /// Appelle la fonction de suppression du client
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ButtonDelPartner_Click(object sender, RoutedEventArgs e)
         {
                 ((ViewModelDelPartner)this.DataContext).DelPartner();

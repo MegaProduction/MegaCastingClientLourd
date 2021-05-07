@@ -29,6 +29,11 @@ namespace MegaCasting.WPF.View
         {
             InitializeComponent();
         }
+        /// <summary>
+        /// Appelle la fonction d'édition de l'offre
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ButtonEditOffer_Click(object sender, RoutedEventArgs e)
         {
             ((ViewModelEditOffer)this.DataContext).EditOffer();
@@ -49,12 +54,14 @@ namespace MegaCasting.WPF.View
 
         private void DatePickerEditDateDebut_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
+            // Définition du pattern des dates
             Regex regex = new Regex("[^0-9/]+");
             e.Handled = regex.IsMatch(e.Text);
         }
 
         private void TexBoxEditCoordonnees_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
+            // Définition du pattern des coordonnées
             Regex regex = new Regex("(0|\\+33|06)[1-9][0-9]{8}");
             e.Handled = regex.IsMatch(e.Text);
         }

@@ -29,14 +29,15 @@ namespace MegaCasting.WPF.ViewModel
         }
         #endregion
         #region Construtor
+        /// <summary>
+        /// Constructeur de la liste de domaines
+        /// </summary>
+        /// <param name="entities"></param>
         public ViewModelListDomaine(MegaCastingEntities entities) : base(entities)
         {
             this.Entities.Domaines.ToList();
             this.Domaines = this.Entities.Domaines.Local;
         }
-        #endregion
-        #region Method
-
         #endregion
     }
 }

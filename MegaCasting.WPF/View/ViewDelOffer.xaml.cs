@@ -28,6 +28,11 @@ namespace MegaCasting.WPF.View
         {
             InitializeComponent();
         }
+        /// <summary>
+        /// Appelle la fonction de suppression des offres
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void DeleteOffreButton_Click(object sender, RoutedEventArgs e)
         {
             ((ViewModelDelOffre)this.DataContext).DeleteOffre();

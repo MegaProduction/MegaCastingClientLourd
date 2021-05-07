@@ -65,6 +65,10 @@ namespace MegaCasting.WPF.ViewModel
 
         #endregion
         #region Construteur
+        /// <summary>
+        /// Constructeur de l'édition des offres
+        /// </summary>
+        /// <param name="entities"></param>
         public ViewModelEditOffer(MegaCastingEntities entities) : base(entities)
         {
             this.Entities.Offres.ToList();
@@ -81,15 +85,6 @@ namespace MegaCasting.WPF.ViewModel
         /// </summary>
         public void SaveChanges()
         {
-            //try
-            //{
-
-            //}
-            //catch (Exception)
-            //{
-
-            //    throw;
-            //}
             this.Entities.SaveChanges();
         }
         /// <summary>

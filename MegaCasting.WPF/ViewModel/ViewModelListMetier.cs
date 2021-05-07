@@ -29,14 +29,15 @@ namespace MegaCasting.WPF.ViewModel
         }
         #endregion
         #region Construtor
+        /// <summary>
+        /// Constructeur de la liste de métiers
+        /// </summary>
+        /// <param name="entities"></param>
         public ViewModelListMetier(MegaCastingEntities entities) : base(entities)
         {
             this.Entities.Metiers.ToList();
             this.Metiers = this.Entities.Metiers.Local;
         }
-        #endregion
-        #region Method
-
         #endregion
     }
 }

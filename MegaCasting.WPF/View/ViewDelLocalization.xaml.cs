@@ -28,12 +28,20 @@ namespace MegaCasting.WPF.View
         {
             InitializeComponent();
         }
-
+        /// <summary>
+        /// Appelle la fonction de suppression de la ville
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ButtonDelCity_Click(object sender, RoutedEventArgs e)
         {
             ((ViewModelDelLocalization)this.DataContext).DelCity();
         }
-
+        /// <summary>
+        /// Appelle la fonction de suppression du pays
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ButtonDelCountry_Click(object sender, RoutedEventArgs e)
         {
             ((ViewModelDelLocalization)this.DataContext).DelCountry();

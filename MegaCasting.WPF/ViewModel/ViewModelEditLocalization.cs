@@ -66,6 +66,10 @@ namespace MegaCasting.WPF.ViewModel
         }
         #endregion
         #region Constructor
+        /// <summary>
+        /// Constructeur de l'édition de la localisation
+        /// </summary>
+        /// <param name="entities"></param>
         public ViewModelEditLocalization(MegaCastingEntities entities)
             :base(entities)
         {
@@ -83,6 +87,9 @@ namespace MegaCasting.WPF.ViewModel
         {
             this.Entities.SaveChanges();
         }
+        /// <summary>
+        /// Fonction d'édition du la ville
+        /// </summary>
         public void EditCity()
         {
             try
@@ -107,6 +114,9 @@ namespace MegaCasting.WPF.ViewModel
                 }
             }
         }
+        /// <summary>
+        /// Fonction d'édition du pays
+        /// </summary>
         public void EditCountry()
         {
             try

@@ -29,7 +29,11 @@ namespace MegaCasting.WPF.View
         {
             InitializeComponent();
         }
-
+        /// <summary>
+        /// Fonction qui indique quoi mettre si on quitte la TextBox sans y avoir rien mis
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void TextBoxNameDomaine_LostFocus(object sender, RoutedEventArgs e)
         {
             if (TextBoxNameDomaine.Text.Trim().Equals(string.Empty))
@@ -38,7 +42,11 @@ namespace MegaCasting.WPF.View
                 TextBoxNameDomaine.GotFocus += TextBoxNameDomaine_GotFocus;
             }
         }
-
+        /// <summary>
+        /// Fonction qui indique quoi mettre si on clique sur la TextBox (pour modifier la valeur par défaut)
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void TextBoxNameDomaine_GotFocus(object sender, RoutedEventArgs e)
         {
             TextBoxNameDomaine.Text = string.Empty;
@@ -54,12 +62,20 @@ namespace MegaCasting.WPF.View
             ((ViewModelDomaine)this.DataContext).AddDomaine(TextBoxNameDomaine.Text);
 
         }
-
+        /// <summary>
+        /// Appelle la fonction de suppression du domaine
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void DeleteDomaine_Click(object sender, RoutedEventArgs e)
         {
             ((ViewModelDomaine)this.DataContext).DeleteDomaine();
         }
-
+        /// <summary>
+        /// Appelle la fonction d'édition du domaine
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ButtonEditDomaine_Click(object sender, RoutedEventArgs e)
         {
             ListBoxSuppressionDomaine.Items.Refresh();

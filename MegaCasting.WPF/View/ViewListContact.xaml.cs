@@ -20,6 +20,9 @@ namespace MegaCasting.WPF.View
     /// </summary>
     public partial class ViewListContact : UserControl
     {
+        /// <summary>
+        /// Initialise ViewListContact
+        /// </summary>
         public ViewListContact()
         {
             InitializeComponent();

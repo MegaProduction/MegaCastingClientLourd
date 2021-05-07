@@ -23,6 +23,7 @@
         </Grid.RowDefinitions>
         <!--#endregion-->
         <!--#region Titre-->
+        <!--Titre de la page-->
         <Label 
             Grid.Column="1" 
             Grid.Row="0" 
@@ -32,6 +33,7 @@
         </Label>
         <!--#endregion-->
         <!--#region Ville-->
+        <!--Titre de la première colonne-->
         <Label 
             Style="{StaticResource LabelStyle}"
             Grid.Column="1" 
@@ -39,6 +41,7 @@
             VerticalAlignment="Top">
             Supprimer une ville
         </Label>
+        <!--Choix de la ville à supprimer-->
         <ListBox
             FontSize="15px" 
             Grid.Column="1"
@@ -50,6 +53,7 @@
             ItemsSource="{Binding Villes}"
             DisplayMemberPath="Adresse"
             SelectedItem="{Binding SelectedVille}"/>
+        <!--Bouton de suppression de villes-->
         <Button
             Grid.Column="1"
             Grid.Row="4"
@@ -60,6 +64,7 @@
             Click="ButtonDelCity_Click"/>
         <!--#endregion-->
         <!--#region Pays-->
+        <!--Titre de la deuxième colonne-->
         <Label 
             Style="{StaticResource LabelStyle}"
             Grid.Column="2" 
@@ -67,6 +72,7 @@
             VerticalAlignment="Top">
             Supprimer un pays
         </Label>
+        <!--Choix du pays à supprimer-->
         <ListBox
             FontSize="15px" 
             Grid.Column="2"
@@ -78,6 +84,7 @@
             ItemsSource="{Binding Pays}"
             DisplayMemberPath="Libelle"
             SelectedItem="{Binding SelectedPays}"/>
+        <!--Bouton de suppression des pays-->
         <Button
             Grid.Column="2"
             Grid.Row="4"

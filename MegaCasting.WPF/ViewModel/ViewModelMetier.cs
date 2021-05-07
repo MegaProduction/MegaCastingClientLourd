@@ -13,14 +13,6 @@ namespace MegaCasting.WPF.ViewModel
 {
     class ViewModelMetier : ViewModelBase
     {
-        private ObservableCollection<Erreur> _Erreurs;
-
-        public ObservableCollection<Erreur> Erreurs
-        {
-            get { return _Erreurs; }
-            set { _Erreurs = value; }
-        }
-
         #region Attributes
         /// <summary>
         /// Collection de Metier
@@ -34,7 +26,14 @@ namespace MegaCasting.WPF.ViewModel
         /// Collection d'offre
         /// </summary>
         private ObservableCollection<Domaine> _Domaines;
+        /// <summary>
+        /// Domaine sélectionné
+        /// </summary>
         private Domaine _SelectedDomaine;
+        /// <summary>
+        /// Collection d'erreurs
+        /// </summary>
+        private ObservableCollection<Erreur> _Erreurs;
 
 
 
@@ -65,13 +64,28 @@ namespace MegaCasting.WPF.ViewModel
             get { return _Domaines; }
             set { _Domaines = value; }
         }
+        /// <summary>
+        /// Obtient ou définit le domaine sélectionné
+        /// </summary>
         public Domaine SelectedDomaine
         {
             get { return _SelectedDomaine; }
             set { _SelectedDomaine = value; }
         }
+        /// <summary>
+        /// Obitent ou définit la collection d'erreurs
+        /// </summary>
+        public ObservableCollection<Erreur> Erreurs
+        {
+            get { return _Erreurs; }
+            set { _Erreurs = value; }
+        }
         #endregion
         #region Construteur
+        /// <summary>
+        /// Constructeur des métiers
+        /// </summary>
+        /// <param name="entities"></param>
         public ViewModelMetier(MegaCastingEntities entities) : base(entities)
         {
             this.Entities.Metiers.ToList();
@@ -152,6 +166,9 @@ namespace MegaCasting.WPF.ViewModel
                 MessageBox.Show("Aucun métier sélectionné");
             }
         }
+        /// <summary>
+        /// Fonction d'édition des métiers
+        /// </summary>
         public void UpdateMetier()
         {
             try

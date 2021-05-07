@@ -165,7 +165,7 @@ namespace MegaCasting.WPF.ViewModel
 		#endregion
 		#region Construteur
 		/// <summary>
-		/// Constructeur
+		/// Constructeur de l'ajout de l'offre
 		/// </summary>
 		/// <param name="entities"></param>
 		public ViewModelAddOffer(MegaCastingEntities entities)

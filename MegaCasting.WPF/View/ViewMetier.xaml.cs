@@ -29,7 +29,11 @@ namespace MegaCasting.WPF.View
         {
             InitializeComponent();
         }
-
+        /// <summary>
+        /// Fonction qui indique quoi mettre si on quitte la TextBox sans y avoir rien mis
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void TextBoxNameMetier_LostFocus(object sender, RoutedEventArgs e)
         {
             if (TextBoxNameMetier.Text.Trim().Equals(string.Empty))
@@ -38,7 +42,11 @@ namespace MegaCasting.WPF.View
                 TextBoxNameMetier.GotFocus += TextBoxNameMetier_GotFocus;
             }
         }
-
+        /// <summary>
+        /// Fonction qui indique quoi mettre si on clique sur la TextBox (pour modifier la valeur par défaut)
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void TextBoxNameMetier_GotFocus(object sender, RoutedEventArgs e)
         {
             TextBoxNameMetier.Text = string.Empty;
@@ -56,12 +64,20 @@ namespace MegaCasting.WPF.View
             TextBoxFicheMetier.Clear();
             comboBoxDomaine.Text = "Domaine";
         }
-
+        /// <summary>
+        /// Appelle la fonction de suppression du métier
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void DeleteMetier_Click(object sender, RoutedEventArgs e)
         {
             ((ViewModelMetier)this.DataContext).DeleteMetier();
         }
-
+        /// <summary>
+        /// Appelle la fonction d'édition du métier
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ButtonEditMetier_Click(object sender, RoutedEventArgs e)
         {
             ListBoxSuppressionMetier.Items.Refresh();
@@ -70,7 +86,11 @@ namespace MegaCasting.WPF.View
             TextBoxEditFicheMetier.Clear();
             ComboBoxEditDomain.Text = "Domaine";
         }
-
+        /// <summary>
+        /// Fonction qui indique quoi mettre si on quitte la TextBox sans y avoir rien mis
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void TextBoxFicheMetier_LostFocus(object sender, RoutedEventArgs e)
         {
             if (TextBoxFicheMetier.Text.Trim().Equals(string.Empty))
@@ -79,7 +99,11 @@ namespace MegaCasting.WPF.View
                 TextBoxNameMetier.GotFocus += TextBoxFicheMetier_GotFocus;
             }
         }
-
+        /// <summary>
+        /// Fonction qui indique quoi mettre si on clique sur la TextBox (pour modifier la valeur par défaut)
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void TextBoxFicheMetier_GotFocus(object sender, RoutedEventArgs e)
         {
             TextBoxFicheMetier.Text = string.Empty;

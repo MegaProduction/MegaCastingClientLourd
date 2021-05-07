@@ -53,6 +53,10 @@ namespace MegaCasting.WPF.ViewModel
 		}
 		#endregion
 		#region Construteur
+		/// <summary>
+		/// Constructeur de la suppression des offres
+		/// </summary>
+		/// <param name="entities"></param>
 		public ViewModelDelOffre(MegaCastingEntities entities)
 			: base(entities)
 		{
@@ -71,6 +75,9 @@ namespace MegaCasting.WPF.ViewModel
 		{
 			this.Entities.SaveChanges();
 		}
+		/// <summary>
+		/// Fonction de suppression de l'offre
+		/// </summary>
 		public void DeleteOffre()
 		{
 			//Vérification si on a le droit de supprimer

@@ -25,6 +25,7 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
         <!--#endregion-->
+        <!--Titre de la page-->
         <Label Style="{StaticResource LabelStyle}" Content="Gestion des Domaines" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="7"/>
         <!--#region Définition de la grille pour l'ajout-->
         <Grid Grid.Column="1" Grid.Row="1" Grid.RowSpan="2">
@@ -37,7 +38,9 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
             <!--#region Ajout Domaine-->
+            <!--Titre de la première colonne-->
             <Label Style="{StaticResource LabelStyle}" Grid.Row="0" Grid.Column="0" Content="Ajout du type de Domaine"/>
+            <!--Saisie du nom du domaine-->
             <TextBox
                 Name="TextBoxNameDomaine"
                 Grid.Row="1"
@@ -47,6 +50,7 @@
                 LostFocus="TextBoxNameDomaine_LostFocus"
                 GotFocus="TextBoxNameDomaine_GotFocus"
                 VerticalAlignment="Bottom"/>
+            <!--Bouton d'ajout du domaine-->
             <Button
                 Name="ButtonAddDomaine"
                 Grid.Column="0"
@@ -68,13 +72,16 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
             <!--#region Edition Domaine-->
+            <!--Titre de la troisième colonne-->
             <Label Style="{StaticResource LabelStyle}" Content="Edition du Domaine" Grid.Row="0"/>
+            <!--Saisie du domaine édité-->
             <TextBox
                 Grid.Row="1"
                 Name="TextBoxEditDomaine"
                 Text="{Binding SelectedDomaine.Libelle}"
                 VerticalAlignment="Bottom"
                 Visibility="{Binding SelectedDomaine, Converter={StaticResource _SharedObjectToVisibilityConverter}}"/>
+            <!--Bouton d'édition du domaine-->
             <Button
                 Grid.Column="1"
                 Grid.Row="3"
@@ -97,9 +104,11 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
             <!--#region Suppression Domaine-->
+            <!--Titre de la deuxième colonne-->
             <Label
                 Style="{StaticResource LabelStyle}"
                 Content="Supprimer un Domaine" Grid.Row="0"/>
+            <!--Choix du domaine-->
             <ListBox
             Grid.Row="1"
             Grid.Column="0"
@@ -107,6 +116,7 @@
             ItemsSource="{Binding Domaines}"
             SelectedItem="{Binding SelectedDomaine}"
             DisplayMemberPath="Libelle"/>
+            <!--Bouton de suppression du domaine-->
             <Button
             Grid.Column="0"
             Grid.Row="3"

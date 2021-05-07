@@ -15,6 +15,9 @@ namespace MegaCasting.WPF.ViewModel
         /// Collection de Contact
         /// </summary>
         private ObservableCollection<Contact> _Contact;
+        /// <summary>
+        /// Contact sélectionné
+        /// </summary>
         private Contact _SelectedContact;
         #endregion
         #region Properties
@@ -26,6 +29,9 @@ namespace MegaCasting.WPF.ViewModel
             get { return _Contact; }
             set { _Contact = value; }
         }
+        /// <summary>
+        /// Obtient ou définit le contact sélectionné
+        /// </summary>
         public Contact SelectedContact
         {
             get { return _SelectedContact; }
@@ -33,14 +39,15 @@ namespace MegaCasting.WPF.ViewModel
         }
         #endregion
         #region Construtor
+        /// <summary>
+        /// Constructeur de la liste de contacts
+        /// </summary>
+        /// <param name="entities"></param>
         public ViewModelListContact(MegaCastingEntities entities) : base(entities)
         {
             this.Entities.Contacts.ToList();
             this.Contacts = this.Entities.Contacts.Local;
         }
-        #endregion
-        #region Method
-
         #endregion
     }
 }

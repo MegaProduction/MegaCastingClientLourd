@@ -29,14 +29,15 @@ namespace MegaCasting.WPF.ViewModel
         }
         #endregion
         #region Construtor
+        /// <summary>
+        /// Constructeur de la liste de contrats
+        /// </summary>
+        /// <param name="entities"></param>
         public ViewModelListContrat(MegaCastingEntities entities) : base(entities) 
         {
             this.Entities.Contrats.ToList();
             this.Contrats = this.Entities.Contrats.Local;
         }
-        #endregion
-        #region Method
-
         #endregion
     }
 }

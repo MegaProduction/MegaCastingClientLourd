@@ -8,12 +8,16 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
+        <!--#region Définition de la grille-->
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
+        <!--#endregion-->
+        <!--Titre de la page-->
         <Label  HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30px">Paramètres</Label>
+        <!--Choix de la couleur-->
         <materialDesign:ColorPicker x:Name="colorPicker" Grid.Column="0" MouseMove="colorPicker_MouseMove"></materialDesign:ColorPicker>
         <TextBlock Grid.Column="1" Text="" Background="AliceBlue" Name="textBlock"></TextBlock>
 

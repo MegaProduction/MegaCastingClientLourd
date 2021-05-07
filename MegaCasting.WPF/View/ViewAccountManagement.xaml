@@ -7,6 +7,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
+        <!--Titre de la page-->
         <Label FontSize="30px" HorizontalAlignment="Center" VerticalAlignment="Center">Gestion du compte</Label>
     </Grid>
 </UserControl>

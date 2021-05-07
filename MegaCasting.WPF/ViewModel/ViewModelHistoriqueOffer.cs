@@ -27,6 +27,10 @@ namespace MegaCasting.WPF.ViewModel
 		}
         #endregion
         #region Construteur
+		/// <summary>
+		/// Constructeur de l'historique des offres
+		/// </summary>
+		/// <param name="entities"></param>
         public ViewModelHistoriqueOffer(MegaCastingEntities entities)
 			: base(entities)
 		{

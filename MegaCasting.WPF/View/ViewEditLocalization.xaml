@@ -26,6 +26,7 @@
         </Grid.RowDefinitions>
         <!--#endregion-->
         <!--#region Titre-->
+        <!--Titre de la page-->
         <Label 
             Grid.Column="1" 
             Grid.Row="0" 
@@ -35,6 +36,7 @@
         </Label>
         <!--#endregion-->
         <!--#region Ville-->
+        <!--Titre de la première colonne-->
         <Label 
             Style="{StaticResource LabelStyle}"
             Grid.Column="1" 
@@ -42,6 +44,7 @@
             VerticalAlignment="Top">
             Éditer une ville
         </Label>
+        <!--Choix de la ville-->
         <ListBox
             FontSize="15px" 
             Grid.Column="1"
@@ -53,6 +56,7 @@
             ItemsSource="{Binding Villes}"
             DisplayMemberPath="Adresse"
             SelectedItem="{Binding SelectedVille}"/>
+        <!--Nom édité de la ville-->
         <TextBox
             Grid.Row="4"
             Grid.Column="1"
@@ -61,6 +65,7 @@
             VerticalAlignment="Bottom"
             Width="250px"
             Name="TextBoxCityName"/>
+        <!--Code postal édité de la ville-->
         <TextBox
             Grid.Row="5"
             Grid.Column="1"
@@ -69,6 +74,7 @@
             VerticalAlignment="Bottom"
             Width="250px"
             Name="TextBoxCityPostalCode"/>
+        <!--Choix du nouveau pays-->
         <ComboBox
             Grid.Row="6"
             Grid.Column="1"
@@ -79,6 +85,7 @@
             VerticalAlignment="Bottom"
             Width="250px"
             Name="ComboBoxCityCountry"/>
+        <!--Bouton d'édition des villes-->
         <Button
             Grid.Column="1"
             Grid.Row="7"
@@ -89,6 +96,7 @@
             Click="ButtonEditCity_Click"/>
         <!--#endregion-->
         <!--#region Pays-->
+        <!--Titre de la deuxième colonne-->
         <Label 
             Style="{StaticResource LabelStyle}"
             Grid.Column="2" 
@@ -96,6 +104,7 @@
             VerticalAlignment="Top">
             Éditer un pays
         </Label>
+        <!--Choix du pays-->
         <ListBox
             FontSize="15px" 
             Grid.Column="2"
@@ -107,6 +116,7 @@
             ItemsSource="{Binding Pays}"
             DisplayMemberPath="Libelle"
             SelectedItem="{Binding SelectedPays}"/>
+        <!--Nom du pays modifié-->
         <TextBox
             Grid.Row="5"
             Grid.Column="2"
@@ -115,6 +125,7 @@
             VerticalAlignment="Bottom"
             Width="250px"
             Name="TextBoxCountryName"/>
+        <!--Bouton d'édition du pays-->
         <Button
             Grid.Column="2"
             Grid.Row="7"

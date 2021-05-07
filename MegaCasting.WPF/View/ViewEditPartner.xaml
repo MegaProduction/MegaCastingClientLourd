@@ -7,6 +7,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
+        <!--#region Définition de la grille-->
         <Grid.RowDefinitions>
             <RowDefinition Height="3*"/>
             <RowDefinition Height="2.5*"/>
@@ -29,9 +30,10 @@
             <ColumnDefinition Width="1.5*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-
+        <!--#endregion-->
+        <!--Titre de la page-->
         <Label Style="{StaticResource LabelStyle}" Grid.Row="0" Grid.Column="1">Editer un client</Label>
-
+        <!--Choix du client-->
         <ListBox
             Grid.Column="1"
             Grid.Row="2"
@@ -42,7 +44,7 @@
             DisplayMemberPath="Libelle"
             SelectedItem="{Binding SelectedClient}">
         </ListBox>
-        
+        <!--Choix de la ville-->
         <ComboBox 
             FontSize="15px" 
             Grid.Column="1" 
@@ -55,7 +57,7 @@
             SelectedItem="{Binding SelectedClient.Ville, UpdateSourceTrigger=PropertyChanged}" 
             Visibility="{Binding SelectedClient, Converter={StaticResource _SharedObjectToVisibilityConverter}}"
             />
-
+        <!--Client édité-->
         <TextBox 
             FontSize="15px" 
             TextAlignment="Center" 
@@ -69,7 +71,7 @@
             Visibility="{Binding SelectedClient, Converter={StaticResource _SharedObjectToVisibilityConverter}}"
             >
         </TextBox>
-
+        <!--Bouton d'édition des clients-->
         <Button Grid.Row="10" Grid.Column="1" Style="{StaticResource overrideButton}" Content="Confirmer" Name="ButtonEditPartner" Click="ButtonEditPartner_Click"/>
     </Grid>
 </UserControl>
